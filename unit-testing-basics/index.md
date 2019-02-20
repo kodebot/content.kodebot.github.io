@@ -1,23 +1,29 @@
 # Chapters
 1. Introduction
-    * What is unit testing?
-    * Why are we writing unit tests?
-    * Tools used
-    * Other type of testing (Integration, end to end)
-    * Testing algorithmic code
-    * Testing collaborative code
-    * Test Oriented development
-        * test double / mocking
-    * Test Driven development
+    1. What is unit testing?
+    2. Why are we writing unit tests?
+    3. Tools used
+    4. Other type of testing (Integration, end to end)
+    5. Testing algorithmic code
+        * result verification
+    6. Testing collaborative code
+        * state verification
+        * test doubles and mocks
+    7. Test Oriented development
+    8. Test Driven development
 
 2. Writing first unit test
-    * red-green-refactor
-    * algorithmic
-    * assertion
-    * create test double by hand for colloborative code
-    * verify outcome using test double
-    * replace test double with moq
+    1. red-green-refactor cycle
+    2. Testing algorithmic code
+    3. assertion
+    3. create test double by hand for colloborative code
+    4. verify outcome using test double
+    5. replace test double with moq
 
 3. Introduction to Test Driven Development
-    * algorithmic
-    * colloborative code
+    1. Test drive algorithmic code
+    2. Test drive colloborative code
+
+4. ????
+    1. Testing code with date time
+    2. ???
