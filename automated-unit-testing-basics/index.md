@@ -2,8 +2,9 @@
 1. Introduction
     1. What is automated unit testing?
     2. Why are we writing unit tests?
+    3. What is good unit test?
     3. Tools used
-    4. Other type of testing (Integration, end to end)
+    4. What are the other types of automated testing?
     5. Testing algorithmic code
         * result verification
     6. Testing collaborative code
