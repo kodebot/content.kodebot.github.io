@@ -92,7 +92,14 @@ While unit tests focus on small unit of code, we have other types of test that g
 
 *provide pyramid example diagram*
 
-# 6. Testing algorithmic code
+# 6. Testing algorithm
 * state verification and result verification
 
+# 7. Testing non-algorithm
+This type of code can be
+* collaborate
+* delegate
+* orchestrate
+
+This type of code is very common object oriented design.
 
