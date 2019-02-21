@@ -1,6 +1,6 @@
 # Chapters
 1. Introduction
-    1. What is unit testing?
+    1. What is automated unit testing?
     2. Why are we writing unit tests?
     3. Tools used
     4. Other type of testing (Integration, end to end)
