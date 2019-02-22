@@ -1,5 +1,5 @@
 ---
-title: "kodebot learning"
+title: "learning"
 disableNextPrev: true
 ---
 
