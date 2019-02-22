@@ -2,7 +2,7 @@ baseURL = "http://learn.kodebot.com/"
 languageCode = "en-GB"
 title = "kodebot learning"
 theme = "hugo-theme-learn"
-publishDir: "docs"
+publishDir = "docs"
 
 [outputs]
 home = ["HTML", "RSS", "JSON"]
