@@ -2,12 +2,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on kodebot learning</title>
-    <link>http://kodebot.github.io/learn.kodebot.github.io/tags/</link>
+    <link>http://learn.kodebot.com/tags/</link>
     <description>Recent content in Tags on kodebot learning</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-GB</language>
     
-	<atom:link href="http://kodebot.github.io/learn.kodebot.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://learn.kodebot.com/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
   </channel>
