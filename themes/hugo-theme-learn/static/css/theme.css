@@ -457,7 +457,7 @@ h2, h3, h4, h5, h6 {
     letter-spacing: -1px;
 }
 h1 {
-    font-family: "Novacento Sans Wide", "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
+    font-family: "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
     text-align: center;
     text-transform: uppercase;
     color: #222;
@@ -1117,7 +1117,7 @@ pre .copy-to-clipboard:hover {
 }
 
 #sidebar #shortcuts h3 {
-    font-family: "Novacento Sans Wide", "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
+    font-family: "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
     color: white ;
     margin-top:1rem;
     padding-left: 1rem;
