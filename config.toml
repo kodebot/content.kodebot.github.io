@@ -1,4 +1,4 @@
-baseURL = "http://kodebot.github.io/learn.kodebot.github.io"
+baseURL = "http://learn.kodebot.com"
 languageCode = "en-GB"
 title = "kodebot learning"
 theme = "hugo-theme-learn"
