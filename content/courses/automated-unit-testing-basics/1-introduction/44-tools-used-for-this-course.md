@@ -1,7 +1,7 @@
 ---
 title: "Tools used for this course"
 date: 2019-02-22T10:25:49Z
-weight: 4
+weight: 44
 draft: true
 ---
 
@@ -23,3 +23,13 @@ A unit testing framework removes the boilerplate needed to write and run automat
 
 ## Mocking library
 Mocking library helps us to build test doubles quickly and easily. They also offer various options to verify the result of our tests. We will go into the details of mocking library in the future chapter.
+
+
+
+* state verification and result verification
+
+This type of code can be
+* collaborate (collaborating objects)
+* delegate 
+
+This type of code is very common object oriented design.

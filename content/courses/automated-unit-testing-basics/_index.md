@@ -8,3 +8,5 @@ draft: true
 # course toc here
 
 *add who is this course for*
+
+this course is just covering the basics and language agnostic

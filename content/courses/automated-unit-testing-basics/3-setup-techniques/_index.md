@@ -12,3 +12,8 @@ draft: true
 # Writing first unit test
 
 In this chapter, lets look at writing first unit test.
+
+1. simple test data
+2. data driven test
+3. Fake test dependency or test double
+4. Mock dependency
