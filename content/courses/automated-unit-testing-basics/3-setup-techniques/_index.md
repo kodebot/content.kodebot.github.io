@@ -1,17 +1,19 @@
 ---
-title: "Writing first unit test"
+title: "Setup technique"
 date: 2019-02-22T10:25:49Z
 chapter: true
-pre: "<b>2. </b>"
+pre: "<b>3. </b>"
 weight: 2
 draft: true
 ---
 
-### Chapter 2
+### Chapter 3
 
-# Writing first unit test
+# Setup technique
 
-In this chapter, lets look at writing first unit test.
+Let's look at some of the basic techniques we use at the setup stage of our unit test
+
+We are going to look at the following techniques
 
 1. simple test data
 2. data driven test
