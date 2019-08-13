@@ -5,13 +5,13 @@ weight: 3
 draft: true
 ---
 
-It is very common that the SUT depends on something else. The dependency could be anything like another function, object or external system and we may not be able to control their behavior. A good unit test should not be affected by the changes in the dependencies of SUT. 
+It is very common that the SUT depends on something else. The dependency could be anything like another function, object or external system and we may not be able to control their behavior all the time. A good unit test should not be affected by the changes in the dependencies of SUT. 
 
 So, a common technique is to replace the dependencies with fake versions that we can control.
 
-For example, consider a function that takes age of the passenger and prints whether he/she is eligible for senior citizen discount when promotion is active
+For example, consider a function that takes age of the passenger and prints whether he/she is eligible for senior citizen discount when promotion is available.
 
-the function which tells whether the promotion is available or not is defined in another module and we don't have control over its behavior
+The function which tells whether the promotion is available or not is defined in another module and we don't have control over its behavior
 
 ```
 module promotions
@@ -45,7 +45,7 @@ then replace the promotion with fakePromotion inside the test
 ```
 function test_isDiscountAvailable():
     // arrange
-    promotions  = fakePromotions // replace promotions module with fakePromotions module
+    promotions  = fakePromotions  //replace promotions module with fakePromotions module
     promotions.offerPromotion = true
     age = 65
 

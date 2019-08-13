@@ -7,7 +7,7 @@ draft: true
 
 Interaction verification is completely different from result and state verification. With this technique, we will be checking whether an interaction under a specific condition has happened or not.
 
-consider the example below, the databaseManager module offers a method to close database but it neither returns any result nor changes the state. All this method does is that it calls a method in database module.
+Consider the example below, the `databaseManager` module offers a function to close database, but it neither returns any result nor changes the state. All this function does is that it calls a function in `database` module.
 
 ```
 module databaseManager
@@ -16,7 +16,7 @@ function close():
     database.close()
 ```
 
-So, the only thing we can do to verify the correctness of this function is to check whether it calls `close()` function in database module
+So, the only thing we can do to verify the correctness of this function is to check whether it calls `close()` function in `database` module or not
 
 ```
 function test_close():

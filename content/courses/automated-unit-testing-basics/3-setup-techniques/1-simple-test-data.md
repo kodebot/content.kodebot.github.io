@@ -15,7 +15,7 @@ function add(a, b):
 ```
 
 to test this function, we need two input data. 
-We can simply create two variables in our test function and use them as arguments for add function. 
+We can simply create two variables with the data in our test function and use them as arguments for `add()` function. 
 
 ```
 function test_add():

@@ -7,6 +7,9 @@ draft: true
 
 # course toc here
 
-*add who is this course for*
 
-this course is just covering the basics and language agnostic
+Welcome to automated unit testing basics course.
+
+This course is for anyone who has some knowledge of computer programming but have limited or no knowledge of automated unit testing.
+
+This course is language, framework and tools agnostic. Everything you learn from this course can be applied to any programming language with the use of right tools.

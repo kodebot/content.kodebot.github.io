@@ -24,9 +24,9 @@ We should be able to run our tests repeatedly without any manual interventions. 
 For example, if we need our application to be in a particular state for running a test, then the test itself should bring the application to the desired state as a prerequisite, perform the steps necessary for the test and do any necessary cleanups at the end of the test.
 
 ## Focused
-We don't want one test trying to verify too many things. Each test should try to verify just one thing. 
+We don't want one test trying to verify too many things. Each test should verify just one thing. 
 
-For example, if we have a function to validate bank account number then we should try to create one test for each validation criteria. That is one test for each of the scenarios listed below
+For example, if we have a function to validate bank account number then we should try to create one test for each validation rule. That is, one test for each of the rules listed below
 
 * verify account number is not null or empty
 * verify account number is exactly 8 characters

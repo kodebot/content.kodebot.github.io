@@ -7,7 +7,7 @@ draft: true
 
 We use result verification technique when the test receives the result by running SUT. 
 
-consider an example of testing a function that adds two numbers and returns the result
+Consider an example of testing a function that adds two numbers and returns the result
 
 ```
 function add(a, b):

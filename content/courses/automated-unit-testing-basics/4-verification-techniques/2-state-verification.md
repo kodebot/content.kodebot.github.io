@@ -5,9 +5,9 @@ weight: 2
 draft: true
 ---
 
-State verification is similar to result verification but rather than checking the result of the function, we check the state of an object or something similar. 
+State verification is similar to result verification but rather than checking the result of SUT, we check the state of an object or something similar. 
 
-consider an example of testing a function that closes database connection
+Consider an example of testing a function that closes the database connection
 
 ```
 module databaseManager

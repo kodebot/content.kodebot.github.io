@@ -5,7 +5,7 @@ weight: 4
 draft: true
 ---
 
-While fake dependencies are really useful for unit testing, they lacks features like tracking function calls, intercepting arguments, etc.. that makes unit testing easier.
+While fake dependencies are really useful for unit testing, they lack in features like tracking function calls, intercepting arguments, etc.. that makes unit testing easier.
 Mock dependency is a dependency which offers all the benefits of fake dependencies and more features to make unit testing easier.
 
 It is not going to be easy to create and maintain mock dependencies; this is why we generally use mocking libraries to create mock dependencies.
@@ -30,7 +30,7 @@ function isDiscountAvailable(age):
         print("discount not available")
 ```
 
-we create, setup and use mock version of isPromotionAvailable like this in the tests:
+we create, setup and use mock version of `isPromotionAvailable()` like this in the tests:
 
 ```
 function test_isDiscountAvailable():

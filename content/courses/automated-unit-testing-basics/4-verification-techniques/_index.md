@@ -11,7 +11,8 @@ draft: true
 
 # Verification techniques
 
-One of the very important step in unit test is to verification, we verify whether the SUT works as expected with the test data or not.
+One of the very important step in unit test is verification. We verify whether the SUT works as expected or not with the test data.
+
 We generally use one of the following three verification techniques depending on the situation
 
 1. result verification

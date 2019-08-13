@@ -5,19 +5,19 @@ weight: 2
 draft: true
 ---
 
-When we want to test a method, we usually want to test with different set of data. It is not ideal to create one test function for one set of input data.
+When we want to test SUT, we usually want to test with different set of data. It is not ideal to create one test function for one set of input data.
 This is where data driven tests are helpful.
 
-consider the same example function that adds two numbers
+Consider the same example function that adds two numbers
 
 ```
 function add(a, b):
     return a+b
 ```
 
-to be thorough we need to test this function with few different set of data includes negative number, positive numbers and zeros. 
+To be thorough, we need to test this function with few different set of data including but not limited to negative numbers, positive numbers and zeros. 
 
-Although, it will be descriptive to easy to follow when we have one test test function per input data, it requires more development and maintenance work. 
+Although, it will be descriptive and easy to follow when we have one test test function per input data, it requires more development and maintenance effort. 
 
 Better solution is to create one test function that we can run with different set of data. This is what we call data driven tests.
 
@@ -39,7 +39,10 @@ function test_add():
 
     // act
     loop test of tests:
-        add(test.input1, test.input2)
+        result = add(test.input1, test.input2)
+        // assert
+        areEqual(test.result, result)
+
 ```
 
-The actual implementation of data driven language will different based on the language and the framework used.
+The actual implementation of data driven test will be different based on the language and the framework used.

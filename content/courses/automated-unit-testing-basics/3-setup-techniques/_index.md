@@ -1,5 +1,5 @@
 ---
-title: "Setup technique"
+title: "Setup techniques"
 date: 2019-02-22T10:25:49Z
 chapter: true
 pre: "<b>3. </b>"
@@ -9,7 +9,7 @@ draft: true
 
 ### Chapter 3
 
-# Setup technique
+# Setup techniques
 
 Let's look at some of the basic techniques we use at the setup stage of our unit test
 

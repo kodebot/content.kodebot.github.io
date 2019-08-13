@@ -17,9 +17,9 @@ However, we cannot say all the operations supported by a calculator are made up 
 
 So, Unit testing is taking a small piece of code that is written to do something small but tangible and test it to verify whether it is working as expected or not. 
 
-Automated unit testing means the unit testing process automated by writing code, so the tests are written once and run as many times as we like without any manual overhead. 
+Automated unit testing means, the unit testing process is automated by writing code, so the tests are written once and run as many times as we like without any manual overhead. 
 
-For example, the tests you need for the individual units of a calculator program are called unit tests. If those tests are automated with code then you can refer them as automated unit tests.
+For example, the tests you need for the individual units of a calculator program are called unit tests. If those tests are automated with code then you can refer to them as automated unit tests.
 
 {{% notice note %}}
  I will be referring to the **unit** of code we are testing as **System Under Test** or **SUT** and **automated unit test** as simply **unit test** going forward.
