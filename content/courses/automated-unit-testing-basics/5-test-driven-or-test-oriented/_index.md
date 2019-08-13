@@ -16,3 +16,5 @@ In this chapter, we will look at two different approaches to writing unit tests.
 1. Test driven development (TDD)
 2. Test oriented development
 
+I like to mix these two approaches depending on the situation.
+
