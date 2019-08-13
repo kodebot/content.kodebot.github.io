@@ -3,7 +3,7 @@ title: "Setup technique"
 date: 2019-02-22T10:25:49Z
 chapter: true
 pre: "<b>3. </b>"
-weight: 2
+weight: 3
 draft: true
 ---
 
