@@ -35,3 +35,19 @@ This is optional step and needed only when any clean up is required after the te
 
 # AAA
 One of the popular acronym for testing steps or phases is AAA and it refers to Arrange, Act and Assert. Since Cleanup is not very common step, it is omitted.
+
+Here is an example of AAA pattern test:
+
+```
+function test_add():
+    // arrange
+    a = 10
+    b = 15
+
+    // act
+    result = add(a, b)
+
+    // assert
+    areEqual(25, result) // 25 is expected
+
+```

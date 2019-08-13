@@ -1,17 +1,18 @@
 ---
-title: "Writing first unit test"
+title: "Verification techniques"
 date: 2019-02-22T10:25:49Z
 chapter: true
-pre: "<b>2. </b>"
-weight: 2
+pre: "<b>4. </b>"
+weight: 4
 draft: true
 ---
 
-### Chapter 2
+### Chapter 4
 
-# Writing first unit test
+# Verification techniques
 
-In this chapter, lets look at writing first unit test.
+One of the very important step in unit test is to verification, we verify whether the SUT works as expected with the test data or not.
+We generally use one of the following three verification techniques depending on the situation
 
 1. result verification
 2. state verification
