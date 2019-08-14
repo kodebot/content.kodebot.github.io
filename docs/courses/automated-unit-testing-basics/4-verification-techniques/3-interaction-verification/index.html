@@ -8,7 +8,7 @@
 
 
     <link rel="icon" href="/images/favicon.ico" type="image/png">
-    <title>Kodebot :: kodebot</title>
+    <title>Interaction verification :: kodebot</title>
 
     
     <link href="/kodebot/css/nucleus.css?1565791950" rel="stylesheet">
@@ -34,7 +34,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/kodebot/">
+  <body class="" data-url="/kodebot/courses/automated-unit-testing-basics/4-verification-techniques/3-interaction-verification/">
     <nav id="sidebar" class="">
 
 
@@ -76,7 +76,7 @@
   
     
     <li data-nav-id="/kodebot/courses/" title="Courses" class="dd-item 
-        
+        parent
         
         
         ">
@@ -103,7 +103,7 @@
   
     
     <li data-nav-id="/kodebot/courses/automated-unit-testing-basics/" title="Automated unit testing basics" class="dd-item 
-        
+        parent
         
         
         ">
@@ -441,7 +441,7 @@
   
     
     <li data-nav-id="/kodebot/courses/automated-unit-testing-basics/4-verification-techniques/" title="Verification techniques" class="dd-item 
-        
+        parent
         
         
         ">
@@ -503,7 +503,7 @@
  
   
     
-      <li data-nav-id="/kodebot/courses/automated-unit-testing-basics/4-verification-techniques/3-interaction-verification/" title="Interaction verification" class="dd-item ">
+      <li data-nav-id="/kodebot/courses/automated-unit-testing-basics/4-verification-techniques/3-interaction-verification/" title="Interaction verification" class="dd-item active">
         <a href="/kodebot/courses/automated-unit-testing-basics/4-verification-techniques/3-interaction-verification/">
         Interaction verification
         
@@ -673,26 +673,113 @@
         <div id="overlay"></div>
         <div class="padding highlightable">
               
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='/kodebot/'>Kodebot</a> > <a href='/kodebot/courses/'>Courses</a> > <a href='/kodebot/courses/automated-unit-testing-basics/'>Automated unit testing basics</a> > <a href='/kodebot/courses/automated-unit-testing-basics/4-verification-techniques/'>Verification techniques</a> > Interaction verification
+          
+         
+          
+         
+          
+         
+          
+         
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
         <div id="head-tags">
         
         </div>
         
         <div id="body-inner">
           
+            <h1>
+              
+              Interaction verification
+            </h1>
+          
 
         
 
 
-<span id="sidebar-toggle-span">
-<a href="#" id="sidebar-toggle" data-sidebar-toggle=""><i class="fas fa-bars"></i> navigation</a>
-</span>
 
- 
+<p>Interaction verification is completely different from result and state verification. With this technique, we will be checking whether an interaction under a specific condition has happened or not.</p>
+
+<p>Consider the example below, the <code>databaseManager</code> module offers a function to close database, but it neither returns any result nor changes the state. All this function does is that it calls a function in <code>database</code> module.</p>
+
+<pre><code>module databaseManager
+
+function close():
+    database.close()
+</code></pre>
+
+<p>So, the only thing we can do to verify the correctness of this function is to check whether it calls <code>close()</code> function in <code>database</code> module or not</p>
+
+<pre><code>function test_close():
+    // arrange
+    mockDatabase = mock(database)
+    database = mockDatabase
+
+    // act
+    databaseManager.close()
+
+    // assert
+    mockDatabase.close().calledOnce()   
+
+</code></pre>
 
 
-<h1 id="comming-soon">Comming soon</h1>
+<footer class=" footline" >
 	
-  
+</footer>
+
+
         
         </div> 
         
@@ -724,8 +811,6 @@
             
                 
                     
-                        
-                        
                     
                 
                 
@@ -742,6 +827,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -756,6 +842,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -981,6 +1070,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -993,6 +1083,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -1026,6 +1119,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -1044,6 +1138,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -1107,6 +1204,13 @@
 
 	 
 	 
+		
+			<a class="nav nav-prev" href="/kodebot/courses/automated-unit-testing-basics/4-verification-techniques/2-state-verification/" title="State verification"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="/kodebot/courses/automated-unit-testing-basics/5-test-driven-or-test-oriented/" title="Test driven or test oriented" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
     </div>
 
     </section>

@@ -8,7 +8,7 @@
 
 
     <link rel="icon" href="/images/favicon.ico" type="image/png">
-    <title>Kodebot :: kodebot</title>
+    <title>What is automated unit testing? :: kodebot</title>
 
     
     <link href="/kodebot/css/nucleus.css?1565791950" rel="stylesheet">
@@ -34,7 +34,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/kodebot/">
+  <body class="" data-url="/kodebot/courses/automated-unit-testing-basics/1-introduction/1-what-is-automated-unit-testing/">
     <nav id="sidebar" class="">
 
 
@@ -76,7 +76,7 @@
   
     
     <li data-nav-id="/kodebot/courses/" title="Courses" class="dd-item 
-        
+        parent
         
         
         ">
@@ -103,7 +103,7 @@
   
     
     <li data-nav-id="/kodebot/courses/automated-unit-testing-basics/" title="Automated unit testing basics" class="dd-item 
-        
+        parent
         
         
         ">
@@ -149,7 +149,7 @@
   
     
     <li data-nav-id="/kodebot/courses/automated-unit-testing-basics/1-introduction/" title="Introduction" class="dd-item 
-        
+        parent
         
         
         ">
@@ -173,7 +173,7 @@
  
   
     
-      <li data-nav-id="/kodebot/courses/automated-unit-testing-basics/1-introduction/1-what-is-automated-unit-testing/" title="What is automated unit testing?" class="dd-item ">
+      <li data-nav-id="/kodebot/courses/automated-unit-testing-basics/1-introduction/1-what-is-automated-unit-testing/" title="What is automated unit testing?" class="dd-item active">
         <a href="/kodebot/courses/automated-unit-testing-basics/1-introduction/1-what-is-automated-unit-testing/">
         What is automated unit testing?
         
@@ -673,26 +673,108 @@
         <div id="overlay"></div>
         <div class="padding highlightable">
               
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='/kodebot/'>Kodebot</a> > <a href='/kodebot/courses/'>Courses</a> > <a href='/kodebot/courses/automated-unit-testing-basics/'>Automated unit testing basics</a> > <a href='/kodebot/courses/automated-unit-testing-basics/1-introduction/'>Introduction</a> > What is automated unit testing?
+          
+         
+          
+         
+          
+         
+          
+         
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
         <div id="head-tags">
         
         </div>
         
         <div id="body-inner">
           
+            <h1>
+              
+              What is automated unit testing?
+            </h1>
+          
 
         
 
 
-<span id="sidebar-toggle-span">
-<a href="#" id="sidebar-toggle" data-sidebar-toggle=""><i class="fas fa-bars"></i> navigation</a>
-</span>
 
- 
+<p>Let&rsquo;s first understand what we call as <strong>Unit</strong>. The term unit is very subjective, so it means different things to different people. In the context of testing, I like to think of unit as one or more lines of code that does something small but tangible to move towards achieving the end goal of the program.</p>
+
+<p>What do I mean by this? Well, lets look at an example of a very simple calculator program. In order to build a calculator, we need to build individual operations that are supported by the calculator. Each simple operations like addition, subtraction, multiplication and division are implemented using few lines of code and these operations are units as these are small but tangible steps needed to build a calculator.</p>
+
+<p>However, we cannot say all the operations supported by a calculator are made up of single unit. There are some operations like average, percentage, etc are not simple ones and they are implemented using <strong>group</strong> of units. For example, average is implemented using addition and division.</p>
+
+<div class="notices info" ><p><em>Unit</em> is loosely defined term and subjective. In most cases you can refer a small function/subroutine as unit but it is not always true. There may be functions/subroutines that are made up of group of units.</p>
+</div>
 
 
-<h1 id="comming-soon">Comming soon</h1>
+<p>So, Unit testing is taking a small piece of code that is written to do something small but tangible and test it to verify whether it is working as expected or not.</p>
+
+<p>Automated unit testing means, the unit testing process is automated by writing code, so the tests are written once and run as many times as we like without any manual overhead.</p>
+
+<p>For example, the tests you need for the individual units of a calculator program are called unit tests. If those tests are automated with code then you can refer to them as automated unit tests.</p>
+
+<div class="notices note" ><p>I will be referring to the <strong>unit</strong> of code we are testing as <strong>System Under Test</strong> or <strong>SUT</strong> and <strong>automated unit test</strong> as simply <strong>unit test</strong> going forward.</p>
+</div>
+
+
+
+<footer class=" footline" >
 	
-  
+</footer>
+
+
         
         </div> 
         
@@ -724,8 +806,6 @@
             
                 
                     
-                        
-                        
                     
                 
                 
@@ -742,6 +822,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -756,6 +837,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -773,6 +857,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -785,6 +870,7 @@
             
             
                 
+                    
                     
                 
                 
@@ -801,6 +887,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -1107,6 +1196,13 @@
 
 	 
 	 
+		
+			<a class="nav nav-prev" href="/kodebot/courses/automated-unit-testing-basics/1-introduction/" title="Introduction"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="/kodebot/courses/automated-unit-testing-basics/1-introduction/2-why-are-we-writing-unit-tests/" title="Why are we writing unit tests?" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
     </div>
 
     </section>

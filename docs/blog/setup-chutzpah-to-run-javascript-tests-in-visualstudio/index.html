@@ -1,116 +1,120 @@
+
 <!DOCTYPE html>
-<html lang="en-gb"><head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <meta name="generator" content="Hugo 0.54.0" />
-	
-	<title>Setup Chutzpah to Run Javascript Tests in VisualStudio | kodebot</title>
-	
-	
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
-	 crossorigin="anonymous">
-	<link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel="stylesheet">
-	<link href="/kodebot/blog/css/medium.css" rel="stylesheet">
-	<link href="/kodebot/blog/css/additional.css" rel="stylesheet">
-</head>
-<body>
-<nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top mediumnavigation nav-down">
-    <div class="container pr-0">
-        
-        <a class="navbar-brand" href="http://localhost/kodebot/blog//">
+<html lang="en" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.54.0" />
+    <meta name="description" content="">
 
-            
-            <span style="font-family:Righteous;">kodebot</span>
-            
-        </a>
-        
 
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMediumish" aria-controls="navbarSupportedContent"
-            aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+    <link rel="icon" href="/images/favicon.ico" type="image/png">
+    <title>Setup Chutzpah to Run Javascript Tests in VisualStudio :: kodebot</title>
 
-        
-        <div class="collapse navbar-collapse" id="navbarMediumish">
-            
-            <ul class="navbar-nav ml-auto">
+    
+    <link href="/kodebot/css/nucleus.css?1565791950" rel="stylesheet">
+    <link href="/kodebot/css/fontawesome-all.min.css?1565791950" rel="stylesheet">
+    <link href="/kodebot/css/hybrid.css?1565791950" rel="stylesheet">
+    <link href="/kodebot/css/featherlight.min.css?1565791950" rel="stylesheet">
+    <link href="/kodebot/css/perfect-scrollbar.min.css?1565791950" rel="stylesheet">
+    <link href="/kodebot/css/auto-complete.css?1565791950" rel="stylesheet">
+    <link href="/kodebot/css/atom-one-dark-reasonable.css?1565791950" rel="stylesheet">
+    <link href="/kodebot/css/theme.css?1565791950" rel="stylesheet">
+    <link href="/kodebot/css/hugo-theme.css?1565791950" rel="stylesheet">
+    
+      <link href="/kodebot/css/theme-mine.css?1565791950" rel="stylesheet">
+    
+
+    <script src="/kodebot/js/jquery-3.3.1.min.js?1565791950"></script>
+
+    <style type="text/css">
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/kodebot/blog/setup-chutzpah-to-run-javascript-tests-in-visualstudio/">
+            <section id="body" class="post">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
                 
-            </ul>
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='/kodebot/'>Kodebot</a> > <a href='/kodebot/blog/'>blog</a> > Setup Chutzpah to Run Javascript Tests in VisualStudio
+          
+         
+          
+         
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+<div class="tags">
+
+  <a class="tag-link" href="/kodebot/tags/unit-testing">Unit Testing</a>
+
+  <a class="tag-link" href="/kodebot/tags/javascript">JavaScript</a>
+
+  <a class="tag-link" href="/kodebot/tags/visual-studio">Visual Studio</a>
+
+</div>
+
         </div>
         
-    </div>
-</nav>
+        <div id="body-inner">
+          
+            <h1>
+              
+              Setup Chutzpah to Run Javascript Tests in VisualStudio
+            </h1>
+          
 
-
-        <div class="site-content">   
-            <div class="container">
-<div class="mainheading">
-    <h1 class="sitetitle">kodebot</h1>
-    <p class="lead">
-         
-    </p>
-</div><div class="main-content">
         
-        <div class="container">
-            <div class="row">
-                
-                <div class="col-md-2 pl-0"><div class="share">
-    <p>Share</p>
-    <ul>
-        <li class="ml-1 mr-1">
-        <a target="_blank" href="https://twitter.com/intent/tweet?text=Setup%20Chutzpah%20to%20Run%20Javascript%20Tests%20in%20VisualStudio&url=http%3a%2f%2flocalhost%2fkodebot%2fblog%2fsetup-chutzpah-to-run-javascript-tests-in-visualstudio%2f" onclick="window.open(this.href, 'twitter-share', 'width=550,height=435');return false;">
-        <i class="fab fa-twitter"></i>
-        </a>
-        </li>
-        
-        <li class="ml-1 mr-1">
-        <a target="_blank" href="https://facebook.com/sharer.php?u=http%3a%2f%2flocalhost%2fkodebot%2fblog%2fsetup-chutzpah-to-run-javascript-tests-in-visualstudio%2f" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
-        <i class="fab fa-facebook-f"></i>
-        </a>
-        </li>
-        
-        <li class="ml-1 mr-1">
-        <a target="_blank" href="https://plus.google.com/share?url=http%3a%2f%2flocalhost%2fkodebot%2fblog%2fsetup-chutzpah-to-run-javascript-tests-in-visualstudio%2f" onclick="window.open(this.href, 'google-share', 'width=550,height=435');return false;">
-        <i class="fab fa-google"></i>
-        </a>
-        </li>
 
-        <li class="ml-1 mr-1">
-        <a target="_blank" href="https://www.xing.com/spi/shares/new?url=http%3a%2f%2flocalhost%2fkodebot%2fblog%2fsetup-chutzpah-to-run-javascript-tests-in-visualstudio%2f" onclick="window.open(this.href, 'xing-share', 'width=550,height=435');return false;">
-        <i class="fab fa-xing"></i>
-        </a>
-        </li>        
-    </ul>
 
-    
-        <div class="sep">
-        </div>				
-        <ul>
-            <li> 
-            <a  class="small smoothscroll" href="#disqus_thread"></a>
-            </li>
-        </ul>
-    
-</div></div>
-                                
-                <div class="col-md-9 flex-first flex-md-unordered">
-                    <div class="mainheading">
-                        	
-                                                
-                        
-                        <h1 class="posttitle">Setup Chutzpah to Run Javascript Tests in VisualStudio</h1> 
-                    </div>
 
-                    
-                    
-                        <img class="featured-image img-fluid" src="/kodebot/blog/images/banners/bricks.jpg" alt="thumbnail for this post">
-                    
-                    
-                    
-                    
-                    <div class="article-post">
-                        <p>First thing first, install Chutzpah <a href="https://visualstudiogallery.msdn.microsoft.com/71a4e9bd-f660-448f-bd92-f5a65d39b7f0" target="_blank">Test Runner</a>&nbsp;and <a href="https://visualstudiogallery.msdn.microsoft.com/f8741f04-bae4-4900-81c7-7c9bfb9ed1fe" target="_blank">Test Adaptor for the Test Explorer</a>.</p>
+<p>First thing first, install Chutzpah <a href="https://visualstudiogallery.msdn.microsoft.com/71a4e9bd-f660-448f-bd92-f5a65d39b7f0" target="_blank">Test Runner</a>&nbsp;and <a href="https://visualstudiogallery.msdn.microsoft.com/f8741f04-bae4-4900-81c7-7c9bfb9ed1fe" target="_blank">Test Adaptor for the Test Explorer</a>.</p>
 <p>Next, setup your projects in Visual Studio. I personally like to keep my test code in a separate project for JavaScript as well so my project and folder structure looks like this:</p>
 <p style="text-align: left;">&nbsp;<img src="/blog/images/setup-chutzpah-to-run-javascript-tests-in-visualstudio/image1.PNG" alt="" /></p><!-- more -->
 <p style="text-align: left;">This allows you&nbsp;to restrict testing frameworks and libraries like Jasmine only to&nbsp;the test project. I use JavaScript&nbsp;libraries directly from the main project when it is needed in test projects as well rather then adding them again in the test project (some people have different view on this but it works for me).</p>
@@ -142,117 +146,451 @@ describe('home page', function() {
 <p>We have not applied any custom configurations for this example because it works out of the box but you can configure Chutzpah by creating chutzpah.json file. The tests can be run using command line as well.</p>
 <p>You can find everything you can do with Chutzpah <a href="https://github.com/mmanela/chutzpah" target="_blank">here</a>.</p>
 
-                    </div>
-                    
-                    
-                    <div class="after-post-tags">
-                        <ul class="tags">
-                        
-                        <li>
-                        <a href="/kodebot/blog/tags/unit-testing">Unit Testing</a>
-                        </li>
-                        
-                        <li>
-                        <a href="/kodebot/blog/tags/javascript">JavaScript</a>
-                        </li>
-                        
-                        <li>
-                        <a href="/kodebot/blog/tags/visual-studio">Visual Studio</a>
-                        </li>
-                        
-                        </ul>
-                    </div>
-                    
-                    
-                    
-                    <div class="row PageNavigation d-flex justify-content-between font-weight-bold">
-                    
-                        <a class="d-block col-md-6" href="/kodebot/blog/decorator-over-inheritance-hierarchy/"> &laquo; Decorator over Inheritance hierarchy</a>
-                    
-                    
-                    <div class="clearfix"></div>
-                    </div>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-<div class="container">
-    <div id="comments" class="row justify-content-center mb-5">
-        <div class="col-md-8">              
-                           
-        </div>
-    </div>
-</div>
 
-    </div>
-<div class="alertbar">
-	<div class="container text-center">
-        <span>
-            
-                <span style="font-family:Righteous;">kodebot</span>
-            
-            &nbsp; Never miss a <b>story</b>, subscribe to our newsletter
-        </span>
-
-        <form action="" method="post" name="mc-embedded-subscribe-form" target="_blank" novalidate>
-		<input type="email" placeholder="Email" name="EMAIL" autocomplete="on" required>
-	    	
-	    	<div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="" tabindex="-1" value=""></div>
-		<input type="submit" value="Subscribe" name="subscribe" >
-        </form>
-
-	</div>
-</div> 
-
-            </div>
-<div class="jumbotron fortags">
-	<div class="d-md-flex h-100">
-		<div class="col-md-4 transpdark align-self-center text-center h-100">
-			<div class="d-md-flex align-items-center justify-content-center h-100">
-				<h2 class="d-md-block d-none align-self-center py-1 font-weight-light">Explore <span class="d-none d-md-inline">→</span></h2>
-			</div>
-		</div>
-		<div class="col-md-8 p-5 align-self-center text-center">
-			
-			<a href="/kodebot/blog/tags/c">c#</a>
-			
-			<a href="/kodebot/blog/tags/design-pattern">design-pattern</a>
-			
-			<a href="/kodebot/blog/tags/javascript">javascript</a>
-			
-			<a href="/kodebot/blog/tags/unit-testing">unit-testing</a>
-			
-			<a href="/kodebot/blog/tags/visual-studio">visual-studio</a>
-			
-		</div>
-	</div>
-</div>
-<footer class="footer">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6 col-sm-6 text-center text-lg-left">
-                &copy; Copyright 
-            </div>
-            <div class="col-md-6 col-sm-6 text-center text-lg-right">    
-                <a target="_blank" href="https://www.wowthemes.net">Mediumish Theme</a> by WowThemes.net
-            </div>
-        </div>
-    </div>
+<footer class=" footline" >
+	
 </footer>
 
-        </div>
 
-    
-<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>    
-    
-<script src="/kodebot/blog/js/mediumish.js"></script>
+        
+        </div> 
+        
 
-    </body>
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+        
+                    
+            
+        
+        
+        
+
+
+	 
+	 
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/kodebot/js/clipboard.min.js?1565791950"></script>
+    <script src="/kodebot/js/perfect-scrollbar.min.js?1565791950"></script>
+    <script src="/kodebot/js/perfect-scrollbar.jquery.min.js?1565791950"></script>
+    <script src="/kodebot/js/jquery.sticky.js?1565791950"></script>
+    <script src="/kodebot/js/featherlight.min.js?1565791950"></script>
+    <script src="/kodebot/js/html5shiv-printshiv.min.js?1565791950"></script>
+    <script src="/kodebot/js/highlight.pack.js?1565791950"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/kodebot/js/modernizr.custom-3.6.0.js?1565791950"></script>
+    <script src="/kodebot/js/learn.js?1565791950"></script>
+    <script src="/kodebot/js/hugo-learn.js?1565791950"></script>
+
+    <link href="/kodebot/mermaid/mermaid.css?1565791950" type="text/css" rel="stylesheet" />
+    <script src="/kodebot/mermaid/mermaid.js?1565791950"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    
+
+  </body>
 </html>

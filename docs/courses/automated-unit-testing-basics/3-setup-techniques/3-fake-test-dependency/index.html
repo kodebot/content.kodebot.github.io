@@ -8,7 +8,7 @@
 
 
     <link rel="icon" href="/images/favicon.ico" type="image/png">
-    <title>Kodebot :: kodebot</title>
+    <title>Fake test dependency :: kodebot</title>
 
     
     <link href="/kodebot/css/nucleus.css?1565791950" rel="stylesheet">
@@ -34,7 +34,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/kodebot/">
+  <body class="" data-url="/kodebot/courses/automated-unit-testing-basics/3-setup-techniques/3-fake-test-dependency/">
     <nav id="sidebar" class="">
 
 
@@ -76,7 +76,7 @@
   
     
     <li data-nav-id="/kodebot/courses/" title="Courses" class="dd-item 
-        
+        parent
         
         
         ">
@@ -103,7 +103,7 @@
   
     
     <li data-nav-id="/kodebot/courses/automated-unit-testing-basics/" title="Automated unit testing basics" class="dd-item 
-        
+        parent
         
         
         ">
@@ -331,7 +331,7 @@
   
     
     <li data-nav-id="/kodebot/courses/automated-unit-testing-basics/3-setup-techniques/" title="Setup techniques" class="dd-item 
-        
+        parent
         
         
         ">
@@ -393,7 +393,7 @@
  
   
     
-      <li data-nav-id="/kodebot/courses/automated-unit-testing-basics/3-setup-techniques/3-fake-test-dependency/" title="Fake test dependency" class="dd-item ">
+      <li data-nav-id="/kodebot/courses/automated-unit-testing-basics/3-setup-techniques/3-fake-test-dependency/" title="Fake test dependency" class="dd-item active">
         <a href="/kodebot/courses/automated-unit-testing-basics/3-setup-techniques/3-fake-test-dependency/">
         Fake test dependency
         
@@ -673,26 +673,136 @@
         <div id="overlay"></div>
         <div class="padding highlightable">
               
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='/kodebot/'>Kodebot</a> > <a href='/kodebot/courses/'>Courses</a> > <a href='/kodebot/courses/automated-unit-testing-basics/'>Automated unit testing basics</a> > <a href='/kodebot/courses/automated-unit-testing-basics/3-setup-techniques/'>Setup techniques</a> > Fake test dependency
+          
+         
+          
+         
+          
+         
+          
+         
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
         <div id="head-tags">
         
         </div>
         
         <div id="body-inner">
           
+            <h1>
+              
+              Fake test dependency
+            </h1>
+          
 
         
 
 
-<span id="sidebar-toggle-span">
-<a href="#" id="sidebar-toggle" data-sidebar-toggle=""><i class="fas fa-bars"></i> navigation</a>
-</span>
 
- 
+<p>It is very common that the SUT depends on something else. The dependency could be anything like another function, object or external system and we may not be able to control their behavior all the time. A good unit test should not be affected by the changes in the dependencies of SUT.</p>
+
+<p>So, a common technique is to replace the dependencies with fake versions that we can control.</p>
+
+<p>For example, consider a function that takes age of the passenger and prints whether he/she is eligible for senior citizen discount when promotion is available.</p>
+
+<p>The function which tells whether the promotion is available or not is defined in another module and we don&rsquo;t have control over its behavior</p>
+
+<pre><code>module promotions
+    function isPromotionsAvailable():
+        .
+        .
+        .
+</code></pre>
+
+<pre><code>module discounts
+
+function isDiscountAvailable(age):
+    if promotions.isPromotionAvailable() &amp;&amp; age &gt; 60:
+        print(&quot;discount available&quot;)
+    else:
+        print(&quot;discount not available&quot;)
+</code></pre>
+
+<p>However, in order to test all the branches and conditions of <code>isDiscountAvailable()</code> function, we need to be able to control the result of <code>isPromotionAvailable()</code> function. So, we first create fake version of <code>isPromotionAvailable()</code> function in <code>fakePromotions</code> module with an option for us to control the result</p>
+
+<pre><code>module fakePromotions
+    offerPromotion = true
+
+    function isPromotionAvailable():
+        return offerPromotion
+</code></pre>
+
+<p>then replace the promotion with fakePromotion inside the test</p>
+
+<pre><code>function test_isDiscountAvailable():
+    // arrange
+    promotions  = fakePromotions  //replace promotions module with fakePromotions module
+    promotions.offerPromotion = true
+    age = 65
+
+    // act
+    result = discounts.isDiscountAvailable(age)
+
+</code></pre>
+
+<p>Depending on the language and framework we use, the way we replace the real dependency with fake one will be different.</p>
 
 
-<h1 id="comming-soon">Comming soon</h1>
+<footer class=" footline" >
 	
-  
+</footer>
+
+
         
         </div> 
         
@@ -724,8 +834,6 @@
             
                 
                     
-                        
-                        
                     
                 
                 
@@ -742,6 +850,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -756,6 +865,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -901,6 +1013,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -913,6 +1026,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -946,6 +1062,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -961,6 +1078,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -1107,6 +1227,13 @@
 
 	 
 	 
+		
+			<a class="nav nav-prev" href="/kodebot/courses/automated-unit-testing-basics/3-setup-techniques/2-data-driven-test/" title="Data driven test"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="/kodebot/courses/automated-unit-testing-basics/3-setup-techniques/4-mock-dependency/" title="Mock dependency" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
     </div>
 
     </section>

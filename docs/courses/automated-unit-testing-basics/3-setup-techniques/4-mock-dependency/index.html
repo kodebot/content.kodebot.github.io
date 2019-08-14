@@ -8,7 +8,7 @@
 
 
     <link rel="icon" href="/images/favicon.ico" type="image/png">
-    <title>Kodebot :: kodebot</title>
+    <title>Mock dependency :: kodebot</title>
 
     
     <link href="/kodebot/css/nucleus.css?1565791950" rel="stylesheet">
@@ -34,7 +34,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/kodebot/">
+  <body class="" data-url="/kodebot/courses/automated-unit-testing-basics/3-setup-techniques/4-mock-dependency/">
     <nav id="sidebar" class="">
 
 
@@ -76,7 +76,7 @@
   
     
     <li data-nav-id="/kodebot/courses/" title="Courses" class="dd-item 
-        
+        parent
         
         
         ">
@@ -103,7 +103,7 @@
   
     
     <li data-nav-id="/kodebot/courses/automated-unit-testing-basics/" title="Automated unit testing basics" class="dd-item 
-        
+        parent
         
         
         ">
@@ -331,7 +331,7 @@
   
     
     <li data-nav-id="/kodebot/courses/automated-unit-testing-basics/3-setup-techniques/" title="Setup techniques" class="dd-item 
-        
+        parent
         
         
         ">
@@ -412,7 +412,7 @@
  
   
     
-      <li data-nav-id="/kodebot/courses/automated-unit-testing-basics/3-setup-techniques/4-mock-dependency/" title="Mock dependency" class="dd-item ">
+      <li data-nav-id="/kodebot/courses/automated-unit-testing-basics/3-setup-techniques/4-mock-dependency/" title="Mock dependency" class="dd-item active">
         <a href="/kodebot/courses/automated-unit-testing-basics/3-setup-techniques/4-mock-dependency/">
         Mock dependency
         
@@ -673,26 +673,127 @@
         <div id="overlay"></div>
         <div class="padding highlightable">
               
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='/kodebot/'>Kodebot</a> > <a href='/kodebot/courses/'>Courses</a> > <a href='/kodebot/courses/automated-unit-testing-basics/'>Automated unit testing basics</a> > <a href='/kodebot/courses/automated-unit-testing-basics/3-setup-techniques/'>Setup techniques</a> > Mock dependency
+          
+         
+          
+         
+          
+         
+          
+         
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
         <div id="head-tags">
         
         </div>
         
         <div id="body-inner">
           
+            <h1>
+              
+              Mock dependency
+            </h1>
+          
 
         
 
 
-<span id="sidebar-toggle-span">
-<a href="#" id="sidebar-toggle" data-sidebar-toggle=""><i class="fas fa-bars"></i> navigation</a>
-</span>
 
- 
+<p>While fake dependencies are really useful for unit testing, they lack in features like tracking function calls, intercepting arguments, etc.. that makes unit testing easier.
+Mock dependency is a dependency which offers all the benefits of fake dependencies and more features to make unit testing easier.</p>
+
+<p>It is not going to be easy to create and maintain mock dependencies; this is why we generally use mocking libraries to create mock dependencies.</p>
+
+<p>If we take the same passenger discount example that we have seen previously</p>
+
+<pre><code>module promotions
+    function isPromotionsAvailable():
+        .
+        .
+        .
+</code></pre>
+
+<pre><code>module discounts
+
+function isDiscountAvailable(age):
+    if promotions.isPromotionAvailable() &amp;&amp; age &gt; 60:
+        print(&quot;discount available&quot;)
+    else:
+        print(&quot;discount not available&quot;)
+</code></pre>
+
+<p>we create, setup and use mock version of <code>isPromotionAvailable()</code> like this in the tests:</p>
+
+<pre><code>function test_isDiscountAvailable():
+    // arrange
+    mockPromotions = mock(promotions) // create mock promotion
+    mockPromotions.isPromotionAvailable().return(true) // setup the method to return true
+    promotions = mockPromotions // replace promotions with mockPromotions
+    age = 65
+
+    // act
+    result = discounts.isDiscountAvailable(age)
+
+</code></pre>
+
+<p>Depending on the language and framework we use, the way we create, setup and use mock dependencies will be different.</p>
 
 
-<h1 id="comming-soon">Comming soon</h1>
+<footer class=" footline" >
 	
-  
+</footer>
+
+
         
         </div> 
         
@@ -724,8 +825,6 @@
             
                 
                     
-                        
-                        
                     
                 
                 
@@ -742,6 +841,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -756,6 +856,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -901,6 +1004,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -913,6 +1017,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -962,6 +1069,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -980,6 +1088,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -1107,6 +1218,13 @@
 
 	 
 	 
+		
+			<a class="nav nav-prev" href="/kodebot/courses/automated-unit-testing-basics/3-setup-techniques/3-fake-test-dependency/" title="Fake test dependency"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="/kodebot/courses/automated-unit-testing-basics/4-verification-techniques/" title="Verification techniques" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
     </div>
 
     </section>
