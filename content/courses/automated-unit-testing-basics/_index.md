@@ -5,7 +5,7 @@ weight: 1
 draft: true
 ---
 
-# course toc here
+{{% children style="div" depth="3" showhidden="true" %}}
 
 
 Welcome to automated unit testing basics course.
