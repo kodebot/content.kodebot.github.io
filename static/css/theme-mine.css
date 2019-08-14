@@ -1,3 +1,9 @@
+/* this is copy of red theme - all the overrides are at the bottom*/
+
+/* my override font import */
+@import url('https://fonts.googleapis.com/css?family=Muli');
+@import url('https://fonts.googleapis.com/css?family=Avenir');
+/* my override font import end */
 
 :root{
     
@@ -108,4 +114,32 @@ a:hover {
 
 #body .tags a.tag-link:before {
     border-right-color: var(--MENU-HEADER-BG-color);
+}
+
+/*my overrides*/
+
+body{
+    font-size: 18px !important;
+    font-family: "muli", "avenir", "Georgia", "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
+}
+
+#chapter h3 {
+    font-family: "muli", "avenir", "Georgia" "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "muli", "avenir", "Georgia", "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
+    columns: #444;
+}
+
+blockquote {
+    font: normal normal 11px/1.5 "muli", "avenir", "Georgia", "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
+}
+
+#sidebar #shortcuts h3 {
+    font-family: "muli", "avenir", "Georgia", "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
+}
+
+h2{
+    font-size: 2.3rem;
 }

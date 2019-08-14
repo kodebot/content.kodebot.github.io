@@ -1,7 +1,5 @@
 /* Insert here special css for hugo theme, on top of any other imported css */
 
-@import url('https://fonts.googleapis.com/css?family=Muli');
-@import url('https://fonts.googleapis.com/css?family=Avenir');
 
 /* Table of contents */
 
@@ -36,7 +34,7 @@
 }
 
 body {
-    font-size: 18px !important;
+    font-size: 16px !important;
     color: #323232 !important;
 }
 
@@ -163,7 +161,7 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 }
 
 h2 {
-  font-size: 2.3rem;
+  font-size: 2.5rem;
   line-height: 110% !important;
   margin: 2.5rem 0 1.5rem 0;
 }
