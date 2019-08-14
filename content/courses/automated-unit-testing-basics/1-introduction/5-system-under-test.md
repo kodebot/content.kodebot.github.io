@@ -31,4 +31,4 @@ Examples of indirect implementation
 ## Direct and indirect
 We will also come across many SUT where the implementation is combination of both direct and indirect
 
-We might need to use different techniques for testing SUT depending on their implementation.
+It is good to be aware of these types because we might need to use different techniques for testing depending on their implementation type.
