@@ -2,7 +2,7 @@
 title: "What is automated unit testing?"
 date: 2019-02-22T10:25:49Z
 weight: 1
-draft: true
+draft: false
 ---
 
 Let's first understand what we call as **Unit**. The term unit is very subjective, so it means different things to different people. In the context of testing, I like to think of unit as one or more lines of code that does something small but tangible to move towards achieving the end goal of the program. 

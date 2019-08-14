@@ -2,7 +2,7 @@ baseURL = "http://learn.kodebot.com"
 languageCode = "en-GB"
 title = "kodebot"
 theme = "hugo-theme-learn"
-publishDir = "docs"
+publishDir = "../docs"
 
 [outputs]
 home = ["HTML", "RSS", "JSON"]
@@ -10,3 +10,8 @@ home = ["HTML", "RSS", "JSON"]
 [params]
   # Change default color scheme with a variant one. Can be "red", "blue", "green".
   themeVariant = "mine"
+
+[outputFormats]
+[outputFormats.RSS]
+  mediatype = "application/rss"
+  baseName = "feed"

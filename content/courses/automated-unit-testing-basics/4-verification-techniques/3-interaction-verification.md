@@ -2,7 +2,7 @@
 title: "Interaction verification"
 date: 2019-02-22T10:25:49Z
 weight: 3
-draft: true
+draft: false
 ---
 
 Interaction verification is completely different from result and state verification. With this technique, we will be checking whether an interaction under a specific condition has happened or not.

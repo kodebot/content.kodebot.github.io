@@ -1,0 +1,1193 @@
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.54.0" />
+    <meta name="description" content="">
+
+
+    <link rel="icon" href="/images/favicon.ico" type="image/png">
+    <title>Other types of automated testing :: kodebot</title>
+
+    
+    <link href="/css/nucleus.css?1565773336" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1565773336" rel="stylesheet">
+    <link href="/css/hybrid.css?1565773336" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1565773336" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1565773336" rel="stylesheet">
+    <link href="/css/auto-complete.css?1565773336" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1565773336" rel="stylesheet">
+    <link href="/css/theme.css?1565773336" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1565773336" rel="stylesheet">
+    
+      <link href="/css/theme-mine.css?1565773336" rel="stylesheet">
+    
+
+    <script src="/js/jquery-3.3.1.min.js?1565773336"></script>
+
+    <style type="text/css">
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/courses/automated-unit-testing-basics/1-introduction/4-other-types-of-automated-testing/">
+    <nav id="sidebar" class="">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a id="logo" href="http://learn.kodebot.com">
+    <img src="/images/logo.png" style="background: white; padding-right: 2px">
+</a>
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="Search...">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="/js/lunr.min.js?1565773336"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1565773336"></script>
+<script type="text/javascript">
+    
+        var baseurl = "http:\/\/learn.kodebot.com";
+    
+</script>
+<script type="text/javascript" src="/js/search.js?1565773336"></script>
+
+    
+  </div>
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/courses/" title="Courses" class="dd-item 
+        parent
+        
+        
+        ">
+      <a href="/courses/">
+          Courses
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/courses/automated-unit-testing-basics/" title="Automated unit testing basics" class="dd-item 
+        parent
+        
+        
+        ">
+      <a href="/courses/automated-unit-testing-basics/">
+          Automated unit testing basics
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/courses/automated-unit-testing-basics/1-course-overview/" title="Course overview" class="dd-item ">
+        <a href="/courses/automated-unit-testing-basics/1-course-overview/">
+        Course overview
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/courses/automated-unit-testing-basics/1-introduction/" title="Introduction" class="dd-item 
+        parent
+        
+        
+        ">
+      <a href="/courses/automated-unit-testing-basics/1-introduction/">
+          <b>1. </b>Introduction
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/courses/automated-unit-testing-basics/1-introduction/1-what-is-automated-unit-testing/" title="What is automated unit testing?" class="dd-item ">
+        <a href="/courses/automated-unit-testing-basics/1-introduction/1-what-is-automated-unit-testing/">
+        What is automated unit testing?
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/courses/automated-unit-testing-basics/1-introduction/2-why-are-we-writing-unit-tests/" title="Why are we writing unit tests?" class="dd-item ">
+        <a href="/courses/automated-unit-testing-basics/1-introduction/2-why-are-we-writing-unit-tests/">
+        Why are we writing unit tests?
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/courses/automated-unit-testing-basics/1-introduction/3-what-is-good-unit-test/" title="What is good unit test?" class="dd-item ">
+        <a href="/courses/automated-unit-testing-basics/1-introduction/3-what-is-good-unit-test/">
+        What is good unit test?
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/courses/automated-unit-testing-basics/1-introduction/4-other-types-of-automated-testing/" title="Other types of automated testing" class="dd-item active">
+        <a href="/courses/automated-unit-testing-basics/1-introduction/4-other-types-of-automated-testing/">
+        Other types of automated testing
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/courses/automated-unit-testing-basics/1-introduction/5-system-under-test/" title="System Under Test (SUT)" class="dd-item ">
+        <a href="/courses/automated-unit-testing-basics/1-introduction/5-system-under-test/">
+        System Under Test (SUT)
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/courses/automated-unit-testing-basics/2-structure-of-unit-test/" title="Structure of unit test" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/courses/automated-unit-testing-basics/2-structure-of-unit-test/">
+          <b>2. </b>Structure of unit test
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/courses/automated-unit-testing-basics/2-structure-of-unit-test/1-structure/" title="Structure" class="dd-item ">
+        <a href="/courses/automated-unit-testing-basics/2-structure-of-unit-test/1-structure/">
+        Structure
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/courses/automated-unit-testing-basics/3-setup-techniques/" title="Setup techniques" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/courses/automated-unit-testing-basics/3-setup-techniques/">
+          <b>3. </b>Setup techniques
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/courses/automated-unit-testing-basics/3-setup-techniques/1-simple-test-data/" title="Simple test data" class="dd-item ">
+        <a href="/courses/automated-unit-testing-basics/3-setup-techniques/1-simple-test-data/">
+        Simple test data
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/courses/automated-unit-testing-basics/3-setup-techniques/2-data-driven-test/" title="Data driven test" class="dd-item ">
+        <a href="/courses/automated-unit-testing-basics/3-setup-techniques/2-data-driven-test/">
+        Data driven test
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/courses/automated-unit-testing-basics/3-setup-techniques/3-fake-test-dependency/" title="Fake test dependency" class="dd-item ">
+        <a href="/courses/automated-unit-testing-basics/3-setup-techniques/3-fake-test-dependency/">
+        Fake test dependency
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/courses/automated-unit-testing-basics/3-setup-techniques/4-mock-dependency/" title="Mock dependency" class="dd-item ">
+        <a href="/courses/automated-unit-testing-basics/3-setup-techniques/4-mock-dependency/">
+        Mock dependency
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/courses/automated-unit-testing-basics/4-verification-techniques/" title="Verification techniques" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/courses/automated-unit-testing-basics/4-verification-techniques/">
+          <b>4. </b>Verification techniques
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/courses/automated-unit-testing-basics/4-verification-techniques/1-result-verification/" title="Result verification" class="dd-item ">
+        <a href="/courses/automated-unit-testing-basics/4-verification-techniques/1-result-verification/">
+        Result verification
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/courses/automated-unit-testing-basics/4-verification-techniques/2-state-verification/" title="State verification" class="dd-item ">
+        <a href="/courses/automated-unit-testing-basics/4-verification-techniques/2-state-verification/">
+        State verification
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/courses/automated-unit-testing-basics/4-verification-techniques/3-interaction-verification/" title="Interaction verification" class="dd-item ">
+        <a href="/courses/automated-unit-testing-basics/4-verification-techniques/3-interaction-verification/">
+        Interaction verification
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/courses/automated-unit-testing-basics/5-test-driven-or-test-oriented/" title="Test driven or test oriented" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/courses/automated-unit-testing-basics/5-test-driven-or-test-oriented/">
+          <b>5. </b>Test driven or test oriented
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/courses/automated-unit-testing-basics/5-test-driven-or-test-oriented/1-test-driven-development/" title="Test driven development" class="dd-item ">
+        <a href="/courses/automated-unit-testing-basics/5-test-driven-or-test-oriented/1-test-driven-development/">
+        Test driven development
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/courses/automated-unit-testing-basics/5-test-driven-or-test-oriented/2-test-oriented-development/" title="Test oriented development" class="dd-item ">
+        <a href="/courses/automated-unit-testing-basics/5-test-driven-or-test-oriented/2-test-oriented-development/">
+        Test oriented development
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+         
+    </ul>
+
+    
+    
+
+    
+    <section id="footer">
+      <p>Built with <a href="https://github.com/matcornic/hugo-theme-learn"><i class="fas fa-heart"></i></a> from <a href="http://getgrav.org">Grav</a> and <a href="http://gohugo.io/">Hugo</a></p>
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='/'>learning</a> > <a href='/courses/'>Courses</a> > <a href='/courses/automated-unit-testing-basics/'>Automated unit testing basics</a> > <a href='/courses/automated-unit-testing-basics/1-introduction/'>Introduction</a> > Other types of automated testing
+          
+         
+          
+         
+          
+         
+          
+         
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              Other types of automated testing
+            </h1>
+          
+
+        
+
+
+
+<p>While unit test targets small piece of code, we have other types of test that generally focus at higher level than unit tests. Two examples of such types of test we have are</p>
+
+<ul>
+<li>Integration tests</li>
+<li>End to end tests</li>
+</ul>
+
+<p>Generally, unit tests focus on small piece of code without considering the behavior of dependencies they have (usually with the help of fake dependencies). This means we will be able to verify whether the target code works on it own or not, but we will not know whether it is going to work correctly as a part of bigger program. While this is the correct approach for unit tests, it doesn&rsquo;t cover verifying the behavior with real dependencies. Integration and End to end tests falls under this category where SUT will be tested with real dependencies.</p>
+
+<p>Integration tests aim testing SUT with one or more real dependencies and may use some fake dependencies if required. On the other hand End to end test try to test the application just like how end user will use it. End to end tests generally use publicly accessible parts like UI or API for testing. While it is not common, end to end tests can use fake dependencies if required but it should be kept to minimum.</p>
+
+<p>When writing tests for any application, we should use Integration and End to end tests along with Unit tests.</p>
+
+<p>People use the following pyramid diagram to show the distribution of these three types of tests that we should have for any program/application.</p>
+
+<p><em>provide pyramid example diagram</em></p>
+
+<p>As we can see, Unit tests should be the majority. We should use Integration and End to end tests as and when they are required but they are small in number compared to Unit tests.</p>
+
+
+<footer class=" footline" >
+	
+</footer>
+
+
+        
+        </div> 
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+        
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="/courses/automated-unit-testing-basics/1-introduction/3-what-is-good-unit-test/" title="What is good unit test?"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="/courses/automated-unit-testing-basics/1-introduction/5-system-under-test/" title="System Under Test (SUT)" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js?1565773336"></script>
+    <script src="/js/perfect-scrollbar.min.js?1565773336"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1565773336"></script>
+    <script src="/js/jquery.sticky.js?1565773336"></script>
+    <script src="/js/featherlight.min.js?1565773336"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1565773336"></script>
+    <script src="/js/highlight.pack.js?1565773336"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom-3.6.0.js?1565773336"></script>
+    <script src="/js/learn.js?1565773336"></script>
+    <script src="/js/hugo-learn.js?1565773336"></script>
+
+    <link href="/mermaid/mermaid.css?1565773336" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1565773336"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    
+
+  </body>
+</html>
+

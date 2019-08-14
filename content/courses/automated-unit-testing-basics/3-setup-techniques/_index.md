@@ -4,7 +4,7 @@ date: 2019-02-22T10:25:49Z
 chapter: true
 pre: "<b>3. </b>"
 weight: 3
-draft: true
+draft: false
 ---
 
 ### Chapter 3

@@ -2,7 +2,7 @@
 title: "Test oriented development"
 date: 2019-02-22T10:25:49Z
 weight: 2
-draft: true
+draft: false
 ---
 
 Test oriented development is another approach where it is not important to write tests first but it is important to write test while writing production code. 

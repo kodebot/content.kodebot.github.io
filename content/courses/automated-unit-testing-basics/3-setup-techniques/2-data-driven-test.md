@@ -2,7 +2,7 @@
 title: "Data driven test"
 date: 2019-02-22T10:25:49Z
 weight: 2
-draft: true
+draft: false
 ---
 
 When we want to test SUT, we usually want to test with different set of data. It is not ideal to create one test function for one set of input data.

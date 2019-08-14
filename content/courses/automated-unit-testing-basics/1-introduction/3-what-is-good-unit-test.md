@@ -2,7 +2,7 @@
 title: "What is good unit test?"
 date: 2019-02-22T10:25:49Z
 weight: 3
-draft: true
+draft: false
 ---
 
 When writing tests for any block of code, it must be comprehensive and cover all the scenarios. If we write tests for most obvious scenarios and don't cover the less common scenarios then we don't know how it is going to behave on those untested scenarios.

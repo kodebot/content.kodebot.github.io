@@ -2,7 +2,7 @@
 title: "Course overview"
 date: 2019-02-22T10:25:49Z
 weight: 1
-draft: true
+draft: false
 ---
 Welcome to automated unit testing basics course.
 

@@ -2,7 +2,7 @@
 title: "State verification"
 date: 2019-02-22T10:25:49Z
 weight: 2
-draft: true
+draft: false
 ---
 
 State verification is similar to result verification but rather than checking the result of SUT, we check the state of an object or something similar. 

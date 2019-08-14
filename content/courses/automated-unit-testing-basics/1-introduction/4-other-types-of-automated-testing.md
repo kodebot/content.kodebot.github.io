@@ -2,7 +2,7 @@
 title: "Other types of automated testing"
 date: 2019-02-22T10:25:49Z
 weight: 4
-draft: true
+draft: false
 ---
 
 While unit test targets small piece of code, we have other types of test that generally focus at higher level than unit tests. Two examples of such types of test we have are

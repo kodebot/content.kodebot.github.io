@@ -2,7 +2,7 @@
 title: "Result verification"
 date: 2019-02-22T10:25:49Z
 weight: 1
-draft: true
+draft: false
 ---
 
 We use result verification technique when the test receives the result by running SUT. 

@@ -2,7 +2,7 @@
 title: "Structure"
 date: 2019-02-22T10:25:49Z
 weight: 1
-draft: true
+draft: false
 ---
 
 Any unit test will have two or more of the following steps

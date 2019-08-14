@@ -2,7 +2,7 @@
 title: "Mock dependency"
 date: 2019-02-22T10:25:49Z
 weight: 4
-draft: true
+draft: false
 ---
 
 While fake dependencies are really useful for unit testing, they lack in features like tracking function calls, intercepting arguments, etc.. that makes unit testing easier.

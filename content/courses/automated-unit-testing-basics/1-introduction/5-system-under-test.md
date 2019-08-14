@@ -2,7 +2,7 @@
 title: "System Under Test (SUT)"
 date: 2019-02-22T10:25:49Z
 weight: 6
-draft: true
+draft: false
 ---
 
 The implementation of System Under Test (SUT) that are the target of our unit test can be one of the following

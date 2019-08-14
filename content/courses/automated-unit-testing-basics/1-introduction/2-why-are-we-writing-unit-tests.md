@@ -2,7 +2,7 @@
 title: "Why are we writing unit tests?"
 date: 2019-02-22T10:25:49Z
 weight: 2
-draft: true
+draft: false
 ---
 
 We can find many reasons for writing unit tests, there are three reasons that stands out in my opinion

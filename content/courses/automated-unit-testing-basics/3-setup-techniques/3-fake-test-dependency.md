@@ -2,7 +2,7 @@
 title: "Fake test dependency"
 date: 2019-02-22T10:25:49Z
 weight: 3
-draft: true
+draft: false
 ---
 
 It is very common that the SUT depends on something else. The dependency could be anything like another function, object or external system and we may not be able to control their behavior all the time. A good unit test should not be affected by the changes in the dependencies of SUT. 

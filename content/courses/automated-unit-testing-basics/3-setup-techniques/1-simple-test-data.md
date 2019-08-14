@@ -2,7 +2,7 @@
 title: "Simple test data"
 date: 2019-02-22T10:25:49Z
 weight: 1
-draft: true
+draft: false
 ---
 
 When we need data, we just create variables with the data and use them in the other places within the unit test.
