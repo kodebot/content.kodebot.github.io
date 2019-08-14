@@ -143,3 +143,7 @@ blockquote {
 h2{
     font-size: 2.3rem;
 }
+
+#body.post{
+    margin-left: 0;
+}

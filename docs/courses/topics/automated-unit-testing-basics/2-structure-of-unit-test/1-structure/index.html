@@ -8,23 +8,23 @@
 
 
     <link rel="icon" href="/images/favicon.ico" type="image/png">
-    <title>Tags :: kodebot</title>
+    <title>Structure :: kodebot</title>
 
     
-    <link href="/kodebot/courses/css/nucleus.css?1565789835" rel="stylesheet">
-    <link href="/kodebot/courses/css/fontawesome-all.min.css?1565789835" rel="stylesheet">
-    <link href="/kodebot/courses/css/hybrid.css?1565789835" rel="stylesheet">
-    <link href="/kodebot/courses/css/featherlight.min.css?1565789835" rel="stylesheet">
-    <link href="/kodebot/courses/css/perfect-scrollbar.min.css?1565789835" rel="stylesheet">
-    <link href="/kodebot/courses/css/auto-complete.css?1565789835" rel="stylesheet">
-    <link href="/kodebot/courses/css/atom-one-dark-reasonable.css?1565789835" rel="stylesheet">
-    <link href="/kodebot/courses/css/theme.css?1565789835" rel="stylesheet">
-    <link href="/kodebot/courses/css/hugo-theme.css?1565789835" rel="stylesheet">
+    <link href="/kodebot/courses/css/nucleus.css?1565789834" rel="stylesheet">
+    <link href="/kodebot/courses/css/fontawesome-all.min.css?1565789834" rel="stylesheet">
+    <link href="/kodebot/courses/css/hybrid.css?1565789834" rel="stylesheet">
+    <link href="/kodebot/courses/css/featherlight.min.css?1565789834" rel="stylesheet">
+    <link href="/kodebot/courses/css/perfect-scrollbar.min.css?1565789834" rel="stylesheet">
+    <link href="/kodebot/courses/css/auto-complete.css?1565789834" rel="stylesheet">
+    <link href="/kodebot/courses/css/atom-one-dark-reasonable.css?1565789834" rel="stylesheet">
+    <link href="/kodebot/courses/css/theme.css?1565789834" rel="stylesheet">
+    <link href="/kodebot/courses/css/hugo-theme.css?1565789834" rel="stylesheet">
     
-      <link href="/kodebot/courses/css/theme-mine.css?1565789835" rel="stylesheet">
+      <link href="/kodebot/courses/css/theme-mine.css?1565789834" rel="stylesheet">
     
 
-    <script src="/kodebot/courses/js/jquery-3.3.1.min.js?1565789835"></script>
+    <script src="/kodebot/courses/js/jquery-3.3.1.min.js?1565789834"></script>
 
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{
@@ -34,7 +34,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/kodebot/courses/tags/">
+  <body class="" data-url="/kodebot/courses/topics/automated-unit-testing-basics/2-structure-of-unit-test/1-structure/">
     <nav id="sidebar" class="">
 
 
@@ -52,14 +52,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/kodebot/courses/js/lunr.min.js?1565789835"></script>
-<script type="text/javascript" src="/kodebot/courses/js/auto-complete.js?1565789835"></script>
+<script type="text/javascript" src="/kodebot/courses/js/lunr.min.js?1565789834"></script>
+<script type="text/javascript" src="/kodebot/courses/js/auto-complete.js?1565789834"></script>
 <script type="text/javascript">
     
         var baseurl = "http:\/\/localhost\/kodebot\/courses";
     
 </script>
-<script type="text/javascript" src="/kodebot/courses/js/search.js?1565789835"></script>
+<script type="text/javascript" src="/kodebot/courses/js/search.js?1565789834"></script>
 
     
   </div>
@@ -76,7 +76,7 @@
   
     
     <li data-nav-id="/kodebot/courses/topics/" title="Courses" class="dd-item 
-        
+        parent
         
         
         ">
@@ -103,7 +103,7 @@
   
     
     <li data-nav-id="/kodebot/courses/topics/automated-unit-testing-basics/" title="Automated unit testing basics" class="dd-item 
-        
+        parent
         
         
         ">
@@ -278,7 +278,7 @@
   
     
     <li data-nav-id="/kodebot/courses/topics/automated-unit-testing-basics/2-structure-of-unit-test/" title="Structure of unit test" class="dd-item 
-        
+        parent
         
         
         ">
@@ -302,7 +302,7 @@
  
   
     
-      <li data-nav-id="/kodebot/courses/topics/automated-unit-testing-basics/2-structure-of-unit-test/1-structure/" title="Structure" class="dd-item ">
+      <li data-nav-id="/kodebot/courses/topics/automated-unit-testing-basics/2-structure-of-unit-test/1-structure/" title="Structure" class="dd-item active">
         <a href="/kodebot/courses/topics/automated-unit-testing-basics/2-structure-of-unit-test/1-structure/">
         Structure
         
@@ -689,7 +689,31 @@
                     
           
           
-            Tags
+            
+            
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='/kodebot/courses/'>learning</a> > <a href='/kodebot/courses/topics/'>Courses</a> > <a href='/kodebot/courses/topics/automated-unit-testing-basics/'>Automated unit testing basics</a> > <a href='/kodebot/courses/topics/automated-unit-testing-basics/2-structure-of-unit-test/'>Structure of unit test</a> > Structure
+          
+         
+          
+         
+          
+         
+          
+         
           
         
                  
@@ -698,7 +722,18 @@
                 
                     <div class="progress">
     <div class="wrapper">
-
+<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#setup">Setup</a></li>
+<li><a href="#run-sut">Run SUT</a></li>
+<li><a href="#verification">Verification</a></li>
+<li><a href="#cleanup">Cleanup</a></li>
+</ul></li>
+<li><a href="#aaa">AAA</a></li>
+</ul>
+</nav>
     </div>
 </div>
 
@@ -714,7 +749,7 @@
           
             <h1>
               
-              Tags
+              Structure
             </h1>
           
 
@@ -724,21 +759,65 @@
 
 
 
+<p>Any unit test will have two or more of the following steps</p>
 
-<ul>
-	
-		<li><a href="/kodebot/courses/tags/javascript/">Javascript</a></li>
-	
-		<li><a href="/kodebot/courses/tags/unit-testing/">Unit Testing</a></li>
-	
-		<li><a href="/kodebot/courses/tags/visual-studio/">Visual Studio</a></li>
-	
-</ul>
+<ol>
+<li>Setup</li>
+<li>Run SUT</li>
+<li>Verification</li>
+<li>Cleanup</li>
+</ol>
+
+<h2 id="setup">Setup</h2>
+
+<p>One of the first step in writing unit test is <strong>Setup</strong>. In this step, we prepare test data, dependencies and/or the context for the test.</p>
+
+<p>For example, we will replace any real dependencies with fake ones and define set of good test data as part of this step.</p>
+
+<p>However, this step is not necessary for all the tests.</p>
+
+<p>This step is commonly referred to as <strong>Arrange</strong> or <strong>Fixture setup</strong></p>
+
+<h2 id="run-sut">Run SUT</h2>
+
+<p>This is the step that runs the SUT with test data and/or fake dependencies. This is a mandatory step for any unit test.</p>
+
+<p>This step is commonly referred to as <strong>Act</strong> or <strong>Exercise sut</strong></p>
+
+<h2 id="verification">Verification</h2>
+
+<p>This step verifies the result of running SUT under test condition. This is a mandatory step.</p>
+
+<p>This step is commonly referred to as <strong>Assert</strong> or <strong>Verify Outcome</strong></p>
+
+<h2 id="cleanup">Cleanup</h2>
+
+<p>This is optional step and needed only when any clean up is required after the test run. This step is commonly referred to as <strong>Fixture teardown</strong></p>
+
+<h1 id="aaa">AAA</h1>
+
+<p>One of the popular acronym for testing steps or phases is AAA, and it refers to Arrange, Act and Assert. Because cleanup is not a common step, it is omitted.</p>
+
+<p>Here is an example of AAA pattern test:</p>
+
+<pre><code>function test_add():
+    // arrange
+    a = 10
+    b = 15
+
+    // act
+    result = add(a, b)
+
+    // assert
+    areEqual(25, result) // 25 is expected
+
+</code></pre>
 
 
 <footer class=" footline" >
 	
 </footer>
+
 
         
         </div> 
@@ -771,8 +850,6 @@
             
                 
                     
-                        
-                        
                     
                 
                 
@@ -789,6 +866,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -803,6 +881,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -916,6 +997,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -928,6 +1010,7 @@
             
             
                 
+                    
                     
                 
                 
@@ -947,6 +1030,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -1155,8 +1241,10 @@
 	 
 	 
 		
+			<a class="nav nav-prev" href="/kodebot/courses/topics/automated-unit-testing-basics/2-structure-of-unit-test/" title="Structure of unit test"> <i class="fa fa-chevron-left"></i></a>
 		
-			<a class="nav nav-next" href="/kodebot/courses/topics/" title="Courses" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+			<a class="nav nav-next" href="/kodebot/courses/topics/automated-unit-testing-basics/3-setup-techniques/" title="Setup techniques" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -1166,20 +1254,20 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/kodebot/courses/js/clipboard.min.js?1565789835"></script>
-    <script src="/kodebot/courses/js/perfect-scrollbar.min.js?1565789835"></script>
-    <script src="/kodebot/courses/js/perfect-scrollbar.jquery.min.js?1565789835"></script>
-    <script src="/kodebot/courses/js/jquery.sticky.js?1565789835"></script>
-    <script src="/kodebot/courses/js/featherlight.min.js?1565789835"></script>
-    <script src="/kodebot/courses/js/html5shiv-printshiv.min.js?1565789835"></script>
-    <script src="/kodebot/courses/js/highlight.pack.js?1565789835"></script>
+    <script src="/kodebot/courses/js/clipboard.min.js?1565789834"></script>
+    <script src="/kodebot/courses/js/perfect-scrollbar.min.js?1565789834"></script>
+    <script src="/kodebot/courses/js/perfect-scrollbar.jquery.min.js?1565789834"></script>
+    <script src="/kodebot/courses/js/jquery.sticky.js?1565789834"></script>
+    <script src="/kodebot/courses/js/featherlight.min.js?1565789834"></script>
+    <script src="/kodebot/courses/js/html5shiv-printshiv.min.js?1565789834"></script>
+    <script src="/kodebot/courses/js/highlight.pack.js?1565789834"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/kodebot/courses/js/modernizr.custom-3.6.0.js?1565789835"></script>
-    <script src="/kodebot/courses/js/learn.js?1565789835"></script>
-    <script src="/kodebot/courses/js/hugo-learn.js?1565789835"></script>
+    <script src="/kodebot/courses/js/modernizr.custom-3.6.0.js?1565789834"></script>
+    <script src="/kodebot/courses/js/learn.js?1565789834"></script>
+    <script src="/kodebot/courses/js/hugo-learn.js?1565789834"></script>
 
-    <link href="/kodebot/courses/mermaid/mermaid.css?1565789835" type="text/css" rel="stylesheet" />
-    <script src="/kodebot/courses/mermaid/mermaid.js?1565789835"></script>
+    <link href="/kodebot/courses/mermaid/mermaid.css?1565789834" type="text/css" rel="stylesheet" />
+    <script src="/kodebot/courses/mermaid/mermaid.js?1565789834"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
@@ -1187,3 +1275,4 @@
 
   </body>
 </html>
+
