@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Introduction on kodebot</title>
+    <link>http://localhost/kodebot/courses/courses/automated-unit-testing-basics/1-introduction/</link>
+    <description>Recent content in Introduction on kodebot</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-GB</language>
+    <lastBuildDate>Fri, 22 Feb 2019 10:25:49 +0000</lastBuildDate>
+    
+	<atom:link href="http://localhost/kodebot/courses/courses/automated-unit-testing-basics/1-introduction/feed.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>What is automated unit testing?</title>
+      <link>http://localhost/kodebot/courses/courses/automated-unit-testing-basics/1-introduction/1-what-is-automated-unit-testing/</link>
+      <pubDate>Fri, 22 Feb 2019 10:25:49 +0000</pubDate>
+      
+      <guid>http://localhost/kodebot/courses/courses/automated-unit-testing-basics/1-introduction/1-what-is-automated-unit-testing/</guid>
+      <description>Let&amp;rsquo;s first understand what we call as Unit. The term unit is very subjective, so it means different things to different people. In the context of testing, I like to think of unit as one or more lines of code that does something small but tangible to move towards achieving the end goal of the program.
+What do I mean by this? Well, lets look at an example of a very simple calculator program.</description>
+    </item>
+    
+    <item>
+      <title>Why are we writing unit tests?</title>
+      <link>http://localhost/kodebot/courses/courses/automated-unit-testing-basics/1-introduction/2-why-are-we-writing-unit-tests/</link>
+      <pubDate>Fri, 22 Feb 2019 10:25:49 +0000</pubDate>
+      
+      <guid>http://localhost/kodebot/courses/courses/automated-unit-testing-basics/1-introduction/2-why-are-we-writing-unit-tests/</guid>
+      <description>We can find many reasons for writing unit tests, there are three reasons that stands out in my opinion
+ Verify the correctness of the code Provide safety-net when we want to change the code (feedback mechanism) Serve as a documentation of the code  Verify the correctness of the code I don&amp;rsquo;t think any good developer will just write code and say the work is done. They will test it, either via manual steps or by writing automated unit tests, to verify whether the implementation is correct or not.</description>
+    </item>
+    
+    <item>
+      <title>What is good unit test?</title>
+      <link>http://localhost/kodebot/courses/courses/automated-unit-testing-basics/1-introduction/3-what-is-good-unit-test/</link>
+      <pubDate>Fri, 22 Feb 2019 10:25:49 +0000</pubDate>
+      
+      <guid>http://localhost/kodebot/courses/courses/automated-unit-testing-basics/1-introduction/3-what-is-good-unit-test/</guid>
+      <description>When writing tests for any block of code, it must be comprehensive and cover all the scenarios. If we write tests for most obvious scenarios and don&amp;rsquo;t cover the less common scenarios then we don&amp;rsquo;t know how it is going to behave on those untested scenarios.
+Each test we write should have the following qualities
+ Quick to run Repeatable Focused Isolated Self validating  Quick to run When running unit test, we don&amp;rsquo;t want to wait long.</description>
+    </item>
+    
+    <item>
+      <title>Other types of automated testing</title>
+      <link>http://localhost/kodebot/courses/courses/automated-unit-testing-basics/1-introduction/4-other-types-of-automated-testing/</link>
+      <pubDate>Fri, 22 Feb 2019 10:25:49 +0000</pubDate>
+      
+      <guid>http://localhost/kodebot/courses/courses/automated-unit-testing-basics/1-introduction/4-other-types-of-automated-testing/</guid>
+      <description>While unit test targets small piece of code, we have other types of test that generally focus at higher level than unit tests. Two examples of such types of test we have are
+ Integration tests End to end tests  Generally, unit tests focus on small piece of code without considering the behavior of dependencies they have (usually with the help of fake dependencies). This means we will be able to verify whether the target code works on it own or not, but we will not know whether it is going to work correctly as a part of bigger program.</description>
+    </item>
+    
+    <item>
+      <title>System Under Test (SUT)</title>
+      <link>http://localhost/kodebot/courses/courses/automated-unit-testing-basics/1-introduction/5-system-under-test/</link>
+      <pubDate>Fri, 22 Feb 2019 10:25:49 +0000</pubDate>
+      
+      <guid>http://localhost/kodebot/courses/courses/automated-unit-testing-basics/1-introduction/5-system-under-test/</guid>
+      <description>The implementation of System Under Test (SUT) that are the target of our unit test can be one of the following
+ direct implementation indirect implementation combination of the above  Direct implementation If a function or piece of code is direct implementation, then it will take zero or more inputs and provide some results or cause state change with very little or no dependencies.
+Examples of direct implementation</description>
+    </item>
+    
+  </channel>
+</rss>

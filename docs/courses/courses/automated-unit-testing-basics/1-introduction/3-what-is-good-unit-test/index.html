@@ -8,7 +8,7 @@
 
 
     <link rel="icon" href="/images/favicon.ico" type="image/png">
-    <title>learning :: kodebot</title>
+    <title>What is good unit test? :: kodebot</title>
 
     
     <link href="/kodebot/courses/css/nucleus.css?1565776605" rel="stylesheet">
@@ -34,7 +34,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/kodebot/courses/">
+  <body class="" data-url="/kodebot/courses/courses/automated-unit-testing-basics/1-introduction/3-what-is-good-unit-test/">
     <nav id="sidebar" class="">
 
 
@@ -76,7 +76,7 @@
   
     
     <li data-nav-id="/kodebot/courses/courses/" title="Courses" class="dd-item 
-        
+        parent
         
         
         ">
@@ -103,7 +103,7 @@
   
     
     <li data-nav-id="/kodebot/courses/courses/automated-unit-testing-basics/" title="Automated unit testing basics" class="dd-item 
-        
+        parent
         
         
         ">
@@ -149,7 +149,7 @@
   
     
     <li data-nav-id="/kodebot/courses/courses/automated-unit-testing-basics/1-introduction/" title="Introduction" class="dd-item 
-        
+        parent
         
         
         ">
@@ -211,7 +211,7 @@
  
   
     
-      <li data-nav-id="/kodebot/courses/courses/automated-unit-testing-basics/1-introduction/3-what-is-good-unit-test/" title="What is good unit test?" class="dd-item ">
+      <li data-nav-id="/kodebot/courses/courses/automated-unit-testing-basics/1-introduction/3-what-is-good-unit-test/" title="What is good unit test?" class="dd-item active">
         <a href="/kodebot/courses/courses/automated-unit-testing-basics/1-introduction/3-what-is-good-unit-test/">
         What is good unit test?
         
@@ -635,26 +635,147 @@
         <div id="overlay"></div>
         <div class="padding highlightable">
               
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='/kodebot/courses/'>learning</a> > <a href='/kodebot/courses/courses/'>Courses</a> > <a href='/kodebot/courses/courses/automated-unit-testing-basics/'>Automated unit testing basics</a> > <a href='/kodebot/courses/courses/automated-unit-testing-basics/1-introduction/'>Introduction</a> > What is good unit test?
+          
+         
+          
+         
+          
+         
+          
+         
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#quick-to-run">Quick to run</a></li>
+<li><a href="#repeatable">Repeatable</a></li>
+<li><a href="#focused">Focused</a></li>
+<li><a href="#isolated">Isolated</a></li>
+<li><a href="#self-validating">Self validating</a></li>
+</ul></li>
+</ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
         <div id="head-tags">
         
         </div>
         
         <div id="body-inner">
           
+            <h1>
+              
+              What is good unit test?
+            </h1>
+          
 
         
 
 
-<span id="sidebar-toggle-span">
-<a href="#" id="sidebar-toggle" data-sidebar-toggle=""><i class="fas fa-bars"></i> navigation</a>
-</span>
-
- 
 
 
-<h1 id="comming-soon">Comming soon</h1>
+
+<p>When writing tests for any block of code, it must be comprehensive and cover all the scenarios. If we write tests for most obvious scenarios and don&rsquo;t cover the less common scenarios then we don&rsquo;t know how it is going to behave on those untested scenarios.</p>
+
+<p>Each test we write should have the following qualities</p>
+
+<ul>
+<li>Quick to run</li>
+<li>Repeatable</li>
+<li>Focused</li>
+<li>Isolated</li>
+<li>Self validating</li>
+</ul>
+
+<h2 id="quick-to-run">Quick to run</h2>
+
+<p>When running unit test, we don&rsquo;t want to wait long. Because each of the tests we write target only few lines of the code, we could easily end up with hundreds, if not thousands, of tests even for a small program/application. Our tests must be extremely fast to get the feedback quickly. So we should try to avoid anything that will slow down our tests. When this is not possible, we should at least be able to keep the slow running tests separate and run them independently without affecting fast running tests.</p>
+
+<h2 id="repeatable">Repeatable</h2>
+
+<p>We should be able to run our tests repeatedly without any manual interventions. This means anything that our test needs should be done in the test itself.</p>
+
+<p>For example, if we need our application to be in a particular state for running a test, then the test itself should bring the application to the desired state as a prerequisite, perform the steps necessary for the test and do any necessary cleanups at the end of the test.</p>
+
+<h2 id="focused">Focused</h2>
+
+<p>We don&rsquo;t want one test trying to verify too many things. Each test should verify just one thing.</p>
+
+<p>For example, if we have a function to validate bank account number then we should try to create one test for each validation rule. That is, one test for each of the rules listed below</p>
+
+<ul>
+<li>verify account number is not null or empty</li>
+<li>verify account number is exactly 8 characters</li>
+<li>verify account number is only contains digits</li>
+</ul>
+
+<p><em>TODO:add picture</em></p>
+
+<h2 id="isolated">Isolated</h2>
+
+<p>Any test should not depend on any other test(s). Although it is very common for a function or object to depend on other functions or objects, the test we write targeting a particular block of code should not be affected if the behavior of any of its dependent function or object changes.</p>
+
+<p><em>add picture</em></p>
+
+<h2 id="self-validating">Self validating</h2>
+
+<p>Each test we write should give us the feedback at the end on its own. We should not rely on anything other than the test itself for the result.</p>
+
+
+<footer class=" footline" >
 	
-  
+</footer>
+
+
         
         </div> 
         
@@ -686,8 +807,6 @@
             
                 
                     
-                        
-                        
                     
                 
                 
@@ -704,6 +823,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -718,6 +838,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -735,6 +858,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -748,21 +872,8 @@
             
                 
                     
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
                         
-            
-            
-                
+                        
                     
                 
                 
@@ -795,6 +906,26 @@
             
             
                 
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
                     
                 
                 
@@ -1064,6 +1195,13 @@
 
 	 
 	 
+		
+			<a class="nav nav-prev" href="/kodebot/courses/courses/automated-unit-testing-basics/1-introduction/2-why-are-we-writing-unit-tests/" title="Why are we writing unit tests?"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="/kodebot/courses/courses/automated-unit-testing-basics/1-introduction/4-other-types-of-automated-testing/" title="Other types of automated testing" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
     </div>
 
     </section>

@@ -8,7 +8,7 @@
 
 
     <link rel="icon" href="/images/favicon.ico" type="image/png">
-    <title>learning :: kodebot</title>
+    <title>System Under Test (SUT) :: kodebot</title>
 
     
     <link href="/kodebot/courses/css/nucleus.css?1565776605" rel="stylesheet">
@@ -34,7 +34,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/kodebot/courses/">
+  <body class="" data-url="/kodebot/courses/courses/automated-unit-testing-basics/1-introduction/5-system-under-test/">
     <nav id="sidebar" class="">
 
 
@@ -76,7 +76,7 @@
   
     
     <li data-nav-id="/kodebot/courses/courses/" title="Courses" class="dd-item 
-        
+        parent
         
         
         ">
@@ -103,7 +103,7 @@
   
     
     <li data-nav-id="/kodebot/courses/courses/automated-unit-testing-basics/" title="Automated unit testing basics" class="dd-item 
-        
+        parent
         
         
         ">
@@ -149,7 +149,7 @@
   
     
     <li data-nav-id="/kodebot/courses/courses/automated-unit-testing-basics/1-introduction/" title="Introduction" class="dd-item 
-        
+        parent
         
         
         ">
@@ -249,7 +249,7 @@
  
   
     
-      <li data-nav-id="/kodebot/courses/courses/automated-unit-testing-basics/1-introduction/5-system-under-test/" title="System Under Test (SUT)" class="dd-item ">
+      <li data-nav-id="/kodebot/courses/courses/automated-unit-testing-basics/1-introduction/5-system-under-test/" title="System Under Test (SUT)" class="dd-item active">
         <a href="/kodebot/courses/courses/automated-unit-testing-basics/1-introduction/5-system-under-test/">
         System Under Test (SUT)
         
@@ -635,26 +635,136 @@
         <div id="overlay"></div>
         <div class="padding highlightable">
               
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='/kodebot/courses/'>learning</a> > <a href='/kodebot/courses/courses/'>Courses</a> > <a href='/kodebot/courses/courses/automated-unit-testing-basics/'>Automated unit testing basics</a> > <a href='/kodebot/courses/courses/automated-unit-testing-basics/1-introduction/'>Introduction</a> > System Under Test (SUT)
+          
+         
+          
+         
+          
+         
+          
+         
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#direct-implementation">Direct implementation</a></li>
+<li><a href="#indirect-implementation">Indirect implementation</a></li>
+<li><a href="#direct-and-indirect">Direct and indirect</a></li>
+</ul></li>
+</ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
         <div id="head-tags">
         
         </div>
         
         <div id="body-inner">
           
+            <h1>
+              
+              System Under Test (SUT)
+            </h1>
+          
 
         
 
 
-<span id="sidebar-toggle-span">
-<a href="#" id="sidebar-toggle" data-sidebar-toggle=""><i class="fas fa-bars"></i> navigation</a>
-</span>
-
- 
 
 
-<h1 id="comming-soon">Comming soon</h1>
+
+<p>The implementation of System Under Test (SUT) that are the target of our unit test can be one of the following</p>
+
+<ol>
+<li>direct implementation</li>
+<li>indirect implementation</li>
+<li>combination of the above</li>
+</ol>
+
+<h2 id="direct-implementation">Direct implementation</h2>
+
+<p>If a function or piece of code is direct implementation, then it will take zero or more inputs and provide some results or cause state change with very little or no dependencies.</p>
+
+<p>Examples of direct implementation</p>
+
+<ul>
+<li>Functions that implement individual operations of a calculator program like addition, subtraction, etc&hellip;</li>
+<li>Function that creates new student object</li>
+<li>Function that validates bank account number</li>
+</ul>
+
+<h2 id="indirect-implementation">Indirect implementation</h2>
+
+<p>Normally a function or piece of code falls under this type when it gets something done via one or more of its dependencies rather than doing it on its own.</p>
+
+<p>Examples of indirect implementation</p>
+
+<ul>
+<li>Reading/writing data in database by calling functions in the database driver</li>
+<li>Validating the account number by calling a function that provides validation</li>
+</ul>
+
+<h2 id="direct-and-indirect">Direct and indirect</h2>
+
+<p>We will also come across many SUT where the implementation is combination of both direct and indirect</p>
+
+<p>It is good to be aware of these types because we might need to use different techniques for testing depending on their implementation type.</p>
+
+
+<footer class=" footline" >
 	
-  
+</footer>
+
+
         
         </div> 
         
@@ -686,8 +796,6 @@
             
                 
                     
-                        
-                        
                     
                 
                 
@@ -704,6 +812,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -718,6 +827,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -735,6 +847,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -748,21 +861,8 @@
             
                 
                     
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
                         
-            
-            
-                
+                        
                     
                 
                 
@@ -823,6 +923,23 @@
             
         
                     
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
             
         
                     
@@ -830,6 +947,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -1064,6 +1184,13 @@
 
 	 
 	 
+		
+			<a class="nav nav-prev" href="/kodebot/courses/courses/automated-unit-testing-basics/1-introduction/4-other-types-of-automated-testing/" title="Other types of automated testing"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="/kodebot/courses/courses/automated-unit-testing-basics/2-structure-of-unit-test/" title="Structure of unit test" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
     </div>
 
     </section>

@@ -1,0 +1,183 @@
+[
+{
+	"uri": "http://localhost/kodebot/courses/courses/automated-unit-testing-basics/",
+	"title": "Automated unit testing basics",
+	"tags": [],
+	"description": "",
+	"content": " Table of content \rCourse overview\r\r\rIntroduction\r\r\rWhat is automated unit testing?\r\r\rWhy are we writing unit tests?\r\r\rWhat is good unit test?\r\r\rOther types of automated testing\r\r\rSystem Under Test (SUT)\r\r\rStructure of unit test\r\r\rStructure\r\r\rSetup techniques\r\r\rSimple test data\r\r\rData driven test\r\r\rFake test dependency\r\r\rMock dependency\r\r\rVerification techniques\r\r\rResult verification\r\r\rState verification\r\r\rInteraction verification\r\r\rTest driven or test oriented\r\r\rTest driven development\r\r\rTest oriented development\r\r\r"
+},
+{
+	"uri": "http://localhost/kodebot/courses/courses/automated-unit-testing-basics/1-course-overview/",
+	"title": "Course overview",
+	"tags": [],
+	"description": "",
+	"content": "Welcome to automated unit testing basics course.\nThis course is for anyone who has some knowledge of computer programming but have limited or no knowledge of automated unit testing.\nThis course is language, framework and tools agnostic. Everything you learn from this course can be applied to any programming language with the use of right tools.\n"
+},
+{
+	"uri": "http://localhost/kodebot/courses/courses/automated-unit-testing-basics/1-introduction/",
+	"title": "Introduction",
+	"tags": [],
+	"description": "",
+	"content": " Chapter 1 Introduction In this chapter, we will see what is automated unit testing, why we need them, what are the qualities of good unit tests and what are the other types of tests we have.\nFinally, we will take a brief look at different implementation types of the code that we need to be aware of when writing unit tests.\n"
+},
+{
+	"uri": "http://localhost/kodebot/courses/courses/automated-unit-testing-basics/4-verification-techniques/1-result-verification/",
+	"title": "Result verification",
+	"tags": [],
+	"description": "",
+	"content": "We use result verification technique when the test receives the result by running SUT.\nConsider an example of testing a function that adds two numbers and returns the result\nfunction add(a, b): return a+b  we verify the correctness of this function by simply checking the result returned by add function\nfunction test_add(): // arrange a = 10 b = 15 // act result = add(a, b) // assert areEqual(25, result) // 25 is expected  "
+},
+{
+	"uri": "http://localhost/kodebot/courses/courses/automated-unit-testing-basics/3-setup-techniques/1-simple-test-data/",
+	"title": "Simple test data",
+	"tags": [],
+	"description": "",
+	"content": "When we need data, we just create variables with the data and use them in the other places within the unit test.\nconsider an example of testing a function that adds two numbers\nfunction add(a, b): return a+b  to test this function, we need two input data. We can simply create two variables with the data in our test function and use them as arguments for add() function.\nfunction test_add(): // arrange a = 10 b = 15 // act add(a, b)  "
+},
+{
+	"uri": "http://localhost/kodebot/courses/courses/automated-unit-testing-basics/2-structure-of-unit-test/1-structure/",
+	"title": "Structure",
+	"tags": [],
+	"description": "",
+	"content": " Any unit test will have two or more of the following steps\n Setup Run SUT Verification Cleanup  Setup One of the first step in writing unit test is Setup. In this step, we prepare test data, dependencies and/or the context for the test.\nFor example, we will replace any real dependencies with fake ones and define set of good test data as part of this step.\nHowever, this step is not necessary for all the tests.\nThis step is commonly referred to as Arrange or Fixture setup\nRun SUT This is the step that runs the SUT with test data and/or fake dependencies. This is a mandatory step for any unit test.\nThis step is commonly referred to as Act or Exercise sut\nVerification This step verifies the result of running SUT under test condition. This is a mandatory step.\nThis step is commonly referred to as Assert or Verify Outcome\nCleanup This is optional step and needed only when any clean up is required after the test run. This step is commonly referred to as Fixture teardown\nAAA One of the popular acronym for testing steps or phases is AAA, and it refers to Arrange, Act and Assert. Because cleanup is not a common step, it is omitted.\nHere is an example of AAA pattern test:\nfunction test_add(): // arrange a = 10 b = 15 // act result = add(a, b) // assert areEqual(25, result) // 25 is expected  "
+},
+{
+	"uri": "http://localhost/kodebot/courses/courses/automated-unit-testing-basics/5-test-driven-or-test-oriented/1-test-driven-development/",
+	"title": "Test driven development",
+	"tags": [],
+	"description": "",
+	"content": "Test driven development (TDD) is a popular approach for writing unit tests.\nWith this approach, we write a test first, see it fail, then write production code to make the test pass.\nTypically, we repeat the steps below in that order 1. take a small requirement 2. write failing test for the requirement 3. write production code to make test pass 4. refactor\nIt is claimed that TDD helps to write code that simple, flexible and just enough to satisfy the requirement.\n"
+},
+{
+	"uri": "http://localhost/kodebot/courses/courses/automated-unit-testing-basics/1-introduction/1-what-is-automated-unit-testing/",
+	"title": "What is automated unit testing?",
+	"tags": [],
+	"description": "",
+	"content": "Let\u0026rsquo;s first understand what we call as Unit. The term unit is very subjective, so it means different things to different people. In the context of testing, I like to think of unit as one or more lines of code that does something small but tangible to move towards achieving the end goal of the program.\nWhat do I mean by this? Well, lets look at an example of a very simple calculator program. In order to build a calculator, we need to build individual operations that are supported by the calculator. Each simple operations like addition, subtraction, multiplication and division are implemented using few lines of code and these operations are units as these are small but tangible steps needed to build a calculator.\nHowever, we cannot say all the operations supported by a calculator are made up of single unit. There are some operations like average, percentage, etc are not simple ones and they are implemented using group of units. For example, average is implemented using addition and division.\nUnit is loosely defined term and subjective. In most cases you can refer a small function/subroutine as unit but it is not always true. There may be functions/subroutines that are made up of group of units.\n\rSo, Unit testing is taking a small piece of code that is written to do something small but tangible and test it to verify whether it is working as expected or not.\nAutomated unit testing means, the unit testing process is automated by writing code, so the tests are written once and run as many times as we like without any manual overhead.\nFor example, the tests you need for the individual units of a calculator program are called unit tests. If those tests are automated with code then you can refer to them as automated unit tests.\nI will be referring to the unit of code we are testing as System Under Test or SUT and automated unit test as simply unit test going forward.\n\r"
+},
+{
+	"uri": "http://localhost/kodebot/courses/courses/automated-unit-testing-basics/3-setup-techniques/2-data-driven-test/",
+	"title": "Data driven test",
+	"tags": [],
+	"description": "",
+	"content": "When we want to test SUT, we usually want to test with different set of data. It is not ideal to create one test function for one set of input data. This is where data driven tests are helpful.\nConsider the same example function that adds two numbers\nfunction add(a, b): return a+b  To be thorough, we need to test this function with few different set of data including but not limited to negative numbers, positive numbers and zeros.\nAlthough, it will be descriptive and easy to follow when we have one test test function per input data, it requires more development and maintenance effort.\nBetter solution is to create one test function that we can run with different set of data. This is what we call data driven tests.\nAn example of data driven test would look like this\ntype DataTest: input1 input2 result function test_add(): // arrange tests = [ [input1: 1, input2: 2, result: 3], [input1: -1, input2: -1, result: 0], [input1: 1, input2: -2, result: -1], ] // act loop test of tests: result = add(test.input1, test.input2) // assert areEqual(test.result, result)  The actual implementation of data driven test will be different based on the language and the framework used.\n"
+},
+{
+	"uri": "http://localhost/kodebot/courses/courses/automated-unit-testing-basics/4-verification-techniques/2-state-verification/",
+	"title": "State verification",
+	"tags": [],
+	"description": "",
+	"content": "State verification is similar to result verification but rather than checking the result of SUT, we check the state of an object or something similar.\nConsider an example of testing a function that closes the database connection\nmodule databaseManager isOpen function close(): isOpen = false  When we call this function, it is not going to return anything, instead it is going to change the state of isOpen field\nSo we need to verify the state of isOpen field to ensure the correctness of close function\nfunction test_close(): // arrange databaseManager.isOpen = true // act databaseManager.close() // assert areEqual(false, databaseManager.isOpen) // false is expected  "
+},
+{
+	"uri": "http://localhost/kodebot/courses/courses/automated-unit-testing-basics/2-structure-of-unit-test/",
+	"title": "Structure of unit test",
+	"tags": [],
+	"description": "",
+	"content": " Chapter 2 Structure of unit test In this chapter, let\u0026rsquo;s look at the structure of the unit test.\n"
+},
+{
+	"uri": "http://localhost/kodebot/courses/courses/automated-unit-testing-basics/5-test-driven-or-test-oriented/2-test-oriented-development/",
+	"title": "Test oriented development",
+	"tags": [],
+	"description": "",
+	"content": "Test oriented development is another approach where it is not important to write tests first but it is important to write test while writing production code.\nTypically, we repeat the steps below in that order 1. take a small requirement 2. write production code 3. write unit tests 4. refactor\n"
+},
+{
+	"uri": "http://localhost/kodebot/courses/courses/automated-unit-testing-basics/1-introduction/2-why-are-we-writing-unit-tests/",
+	"title": "Why are we writing unit tests?",
+	"tags": [],
+	"description": "",
+	"content": " We can find many reasons for writing unit tests, there are three reasons that stands out in my opinion\n Verify the correctness of the code Provide safety-net when we want to change the code (feedback mechanism) Serve as a documentation of the code  Verify the correctness of the code I don\u0026rsquo;t think any good developer will just write code and say the work is done. They will test it, either via manual steps or by writing automated unit tests, to verify whether the implementation is correct or not.\nSafety-net or feedback mechanism for changes Once the code is written, we may change it for various reason - ranging from changing business requirements to simply to fix a bug in the code. When we want to change code, we need to be very careful to make sure we are not introducing any bugs or unintended side effects. The term used to refer to the bugs or unintended side effects caused by code change is regression. Generally, the bigger the program gets the challenging it becomes to keep regression issues under control. This is where unit tests are really useful. If we have good, solid unit tests covering the current code then we will be able to get immediate feedback on any change the causes regression issues.\nDocumentation of the code By providing suitable name/description for the tests and keeping it covering all scenarios of the SUT, the tests can be used as a documentation or specification by developers.\n"
+},
+{
+	"uri": "http://localhost/kodebot/courses/courses/automated-unit-testing-basics/3-setup-techniques/3-fake-test-dependency/",
+	"title": "Fake test dependency",
+	"tags": [],
+	"description": "",
+	"content": "It is very common that the SUT depends on something else. The dependency could be anything like another function, object or external system and we may not be able to control their behavior all the time. A good unit test should not be affected by the changes in the dependencies of SUT.\nSo, a common technique is to replace the dependencies with fake versions that we can control.\nFor example, consider a function that takes age of the passenger and prints whether he/she is eligible for senior citizen discount when promotion is available.\nThe function which tells whether the promotion is available or not is defined in another module and we don\u0026rsquo;t have control over its behavior\nmodule promotions function isPromotionsAvailable(): . . .  module discounts function isDiscountAvailable(age): if promotions.isPromotionAvailable() \u0026amp;\u0026amp; age \u0026gt; 60: print(\u0026quot;discount available\u0026quot;) else: print(\u0026quot;discount not available\u0026quot;)  However, in order to test all the branches and conditions of isDiscountAvailable() function, we need to be able to control the result of isPromotionAvailable() function. So, we first create fake version of isPromotionAvailable() function in fakePromotions module with an option for us to control the result\nmodule fakePromotions offerPromotion = true function isPromotionAvailable(): return offerPromotion  then replace the promotion with fakePromotion inside the test\nfunction test_isDiscountAvailable(): // arrange promotions = fakePromotions //replace promotions module with fakePromotions module promotions.offerPromotion = true age = 65 // act result = discounts.isDiscountAvailable(age)  Depending on the language and framework we use, the way we replace the real dependency with fake one will be different.\n"
+},
+{
+	"uri": "http://localhost/kodebot/courses/courses/automated-unit-testing-basics/4-verification-techniques/3-interaction-verification/",
+	"title": "Interaction verification",
+	"tags": [],
+	"description": "",
+	"content": "Interaction verification is completely different from result and state verification. With this technique, we will be checking whether an interaction under a specific condition has happened or not.\nConsider the example below, the databaseManager module offers a function to close database, but it neither returns any result nor changes the state. All this function does is that it calls a function in database module.\nmodule databaseManager function close(): database.close()  So, the only thing we can do to verify the correctness of this function is to check whether it calls close() function in database module or not\nfunction test_close(): // arrange mockDatabase = mock(database) database = mockDatabase // act databaseManager.close() // assert mockDatabase.close().calledOnce()  "
+},
+{
+	"uri": "http://localhost/kodebot/courses/courses/automated-unit-testing-basics/3-setup-techniques/",
+	"title": "Setup techniques",
+	"tags": [],
+	"description": "",
+	"content": " Chapter 3 Setup techniques Let\u0026rsquo;s look at some of the basic techniques we use at the setup stage of our unit test\nWe are going to look at the following techniques\n simple test data data driven test Fake test dependency or test double Mock dependency  "
+},
+{
+	"uri": "http://localhost/kodebot/courses/courses/automated-unit-testing-basics/1-introduction/3-what-is-good-unit-test/",
+	"title": "What is good unit test?",
+	"tags": [],
+	"description": "",
+	"content": " When writing tests for any block of code, it must be comprehensive and cover all the scenarios. If we write tests for most obvious scenarios and don\u0026rsquo;t cover the less common scenarios then we don\u0026rsquo;t know how it is going to behave on those untested scenarios.\nEach test we write should have the following qualities\n Quick to run Repeatable Focused Isolated Self validating  Quick to run When running unit test, we don\u0026rsquo;t want to wait long. Because each of the tests we write target only few lines of the code, we could easily end up with hundreds, if not thousands, of tests even for a small program/application. Our tests must be extremely fast to get the feedback quickly. So we should try to avoid anything that will slow down our tests. When this is not possible, we should at least be able to keep the slow running tests separate and run them independently without affecting fast running tests.\nRepeatable We should be able to run our tests repeatedly without any manual interventions. This means anything that our test needs should be done in the test itself.\nFor example, if we need our application to be in a particular state for running a test, then the test itself should bring the application to the desired state as a prerequisite, perform the steps necessary for the test and do any necessary cleanups at the end of the test.\nFocused We don\u0026rsquo;t want one test trying to verify too many things. Each test should verify just one thing.\nFor example, if we have a function to validate bank account number then we should try to create one test for each validation rule. That is, one test for each of the rules listed below\n verify account number is not null or empty verify account number is exactly 8 characters verify account number is only contains digits  TODO:add picture\nIsolated Any test should not depend on any other test(s). Although it is very common for a function or object to depend on other functions or objects, the test we write targeting a particular block of code should not be affected if the behavior of any of its dependent function or object changes.\nadd picture\nSelf validating Each test we write should give us the feedback at the end on its own. We should not rely on anything other than the test itself for the result.\n"
+},
+{
+	"uri": "http://localhost/kodebot/courses/courses/automated-unit-testing-basics/3-setup-techniques/4-mock-dependency/",
+	"title": "Mock dependency",
+	"tags": [],
+	"description": "",
+	"content": "While fake dependencies are really useful for unit testing, they lack in features like tracking function calls, intercepting arguments, etc.. that makes unit testing easier. Mock dependency is a dependency which offers all the benefits of fake dependencies and more features to make unit testing easier.\nIt is not going to be easy to create and maintain mock dependencies; this is why we generally use mocking libraries to create mock dependencies.\nIf we take the same passenger discount example that we have seen previously\nmodule promotions function isPromotionsAvailable(): . . .  module discounts function isDiscountAvailable(age): if promotions.isPromotionAvailable() \u0026amp;\u0026amp; age \u0026gt; 60: print(\u0026quot;discount available\u0026quot;) else: print(\u0026quot;discount not available\u0026quot;)  we create, setup and use mock version of isPromotionAvailable() like this in the tests:\nfunction test_isDiscountAvailable(): // arrange mockPromotions = mock(promotions) // create mock promotion mockPromotions.isPromotionAvailable().return(true) // setup the method to return true promotions = mockPromotions // replace promotions with mockPromotions age = 65 // act result = discounts.isDiscountAvailable(age)  Depending on the language and framework we use, the way we create, setup and use mock dependencies will be different.\n"
+},
+{
+	"uri": "http://localhost/kodebot/courses/courses/automated-unit-testing-basics/1-introduction/4-other-types-of-automated-testing/",
+	"title": "Other types of automated testing",
+	"tags": [],
+	"description": "",
+	"content": "While unit test targets small piece of code, we have other types of test that generally focus at higher level than unit tests. Two examples of such types of test we have are\n Integration tests End to end tests  Generally, unit tests focus on small piece of code without considering the behavior of dependencies they have (usually with the help of fake dependencies). This means we will be able to verify whether the target code works on it own or not, but we will not know whether it is going to work correctly as a part of bigger program. While this is the correct approach for unit tests, it doesn\u0026rsquo;t cover verifying the behavior with real dependencies. Integration and End to end tests falls under this category where SUT will be tested with real dependencies.\nIntegration tests aim testing SUT with one or more real dependencies and may use some fake dependencies if required. On the other hand End to end test try to test the application just like how end user will use it. End to end tests generally use publicly accessible parts like UI or API for testing. While it is not common, end to end tests can use fake dependencies if required but it should be kept to minimum.\nWhen writing tests for any application, we should use Integration and End to end tests along with Unit tests.\nPeople use the following pyramid diagram to show the distribution of these three types of tests that we should have for any program/application.\nprovide pyramid example diagram\nAs we can see, Unit tests should be the majority. We should use Integration and End to end tests as and when they are required but they are small in number compared to Unit tests.\n"
+},
+{
+	"uri": "http://localhost/kodebot/courses/courses/automated-unit-testing-basics/4-verification-techniques/",
+	"title": "Verification techniques",
+	"tags": [],
+	"description": "",
+	"content": " Chapter 4 Verification techniques One of the very important step in unit test is verification. We verify whether the SUT works as expected or not with the test data.\nWe generally use one of the following three verification techniques depending on the situation\n result verification state verification interaction verification  "
+},
+{
+	"uri": "http://localhost/kodebot/courses/courses/automated-unit-testing-basics/5-test-driven-or-test-oriented/",
+	"title": "Test driven or test oriented",
+	"tags": [],
+	"description": "",
+	"content": " Chapter 5 Test driven or test oriented In this chapter, we will look at two different approaches to writing unit tests.\n Test driven development (TDD) Test oriented development  I like to mix these two approaches depending on the situation.\n"
+},
+{
+	"uri": "http://localhost/kodebot/courses/courses/automated-unit-testing-basics/1-introduction/5-system-under-test/",
+	"title": "System Under Test (SUT)",
+	"tags": [],
+	"description": "",
+	"content": " The implementation of System Under Test (SUT) that are the target of our unit test can be one of the following\n direct implementation indirect implementation combination of the above  Direct implementation If a function or piece of code is direct implementation, then it will take zero or more inputs and provide some results or cause state change with very little or no dependencies.\nExamples of direct implementation\n Functions that implement individual operations of a calculator program like addition, subtraction, etc\u0026hellip; Function that creates new student object Function that validates bank account number  Indirect implementation Normally a function or piece of code falls under this type when it gets something done via one or more of its dependencies rather than doing it on its own.\nExamples of indirect implementation\n Reading/writing data in database by calling functions in the database driver Validating the account number by calling a function that provides validation  Direct and indirect We will also come across many SUT where the implementation is combination of both direct and indirect\nIt is good to be aware of these types because we might need to use different techniques for testing depending on their implementation type.\n"
+},
+{
+	"uri": "http://localhost/kodebot/courses/courses/",
+	"title": "Courses",
+	"tags": [],
+	"description": "",
+	"content": " Courses \rAutomated unit testing basics\r\r\r"
+},
+{
+	"uri": "http://localhost/kodebot/courses/categories/",
+	"title": "Categories",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "http://localhost/kodebot/courses/tags/",
+	"title": "Tags",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "http://localhost/kodebot/courses/",
+	"title": "learning",
+	"tags": [],
+	"description": "",
+	"content": " Comming soon "
+}]

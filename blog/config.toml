@@ -1,0 +1,5 @@
+baseURL = "http://localhost/kodebot/blog/"
+languageCode = "en-gb"
+title = "kodebot"
+theme = "mediumish-gohugo-theme"
+publishDir = "../docs/blog"

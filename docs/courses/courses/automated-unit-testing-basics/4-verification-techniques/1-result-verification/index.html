@@ -8,7 +8,7 @@
 
 
     <link rel="icon" href="/images/favicon.ico" type="image/png">
-    <title>learning :: kodebot</title>
+    <title>Result verification :: kodebot</title>
 
     
     <link href="/kodebot/courses/css/nucleus.css?1565776605" rel="stylesheet">
@@ -34,7 +34,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/kodebot/courses/">
+  <body class="" data-url="/kodebot/courses/courses/automated-unit-testing-basics/4-verification-techniques/1-result-verification/">
     <nav id="sidebar" class="">
 
 
@@ -76,7 +76,7 @@
   
     
     <li data-nav-id="/kodebot/courses/courses/" title="Courses" class="dd-item 
-        
+        parent
         
         
         ">
@@ -103,7 +103,7 @@
   
     
     <li data-nav-id="/kodebot/courses/courses/automated-unit-testing-basics/" title="Automated unit testing basics" class="dd-item 
-        
+        parent
         
         
         ">
@@ -441,7 +441,7 @@
   
     
     <li data-nav-id="/kodebot/courses/courses/automated-unit-testing-basics/4-verification-techniques/" title="Verification techniques" class="dd-item 
-        
+        parent
         
         
         ">
@@ -465,7 +465,7 @@
  
   
     
-      <li data-nav-id="/kodebot/courses/courses/automated-unit-testing-basics/4-verification-techniques/1-result-verification/" title="Result verification" class="dd-item ">
+      <li data-nav-id="/kodebot/courses/courses/automated-unit-testing-basics/4-verification-techniques/1-result-verification/" title="Result verification" class="dd-item active">
         <a href="/kodebot/courses/courses/automated-unit-testing-basics/4-verification-techniques/1-result-verification/">
         Result verification
         
@@ -635,26 +635,111 @@
         <div id="overlay"></div>
         <div class="padding highlightable">
               
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='/kodebot/courses/'>learning</a> > <a href='/kodebot/courses/courses/'>Courses</a> > <a href='/kodebot/courses/courses/automated-unit-testing-basics/'>Automated unit testing basics</a> > <a href='/kodebot/courses/courses/automated-unit-testing-basics/4-verification-techniques/'>Verification techniques</a> > Result verification
+          
+         
+          
+         
+          
+         
+          
+         
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
         <div id="head-tags">
         
         </div>
         
         <div id="body-inner">
           
+            <h1>
+              
+              Result verification
+            </h1>
+          
 
         
 
 
-<span id="sidebar-toggle-span">
-<a href="#" id="sidebar-toggle" data-sidebar-toggle=""><i class="fas fa-bars"></i> navigation</a>
-</span>
 
- 
+<p>We use result verification technique when the test receives the result by running SUT.</p>
+
+<p>Consider an example of testing a function that adds two numbers and returns the result</p>
+
+<pre><code>function add(a, b):
+    return a+b
+</code></pre>
+
+<p>we verify the correctness of this function by simply checking the result returned by add function</p>
+
+<pre><code>function test_add():
+    // arrange
+    a = 10
+    b = 15
+
+    // act
+    result = add(a, b)
+
+    // assert
+    areEqual(25, result) // 25 is expected
+
+</code></pre>
 
 
-<h1 id="comming-soon">Comming soon</h1>
+<footer class=" footline" >
 	
-  
+</footer>
+
+
         
         </div> 
         
@@ -686,8 +771,6 @@
             
                 
                     
-                        
-                        
                     
                 
                 
@@ -704,6 +787,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -718,6 +802,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -943,6 +1030,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -955,6 +1043,7 @@
             
             
                 
+                    
                     
                 
                 
@@ -971,6 +1060,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -1064,6 +1156,13 @@
 
 	 
 	 
+		
+			<a class="nav nav-prev" href="/kodebot/courses/courses/automated-unit-testing-basics/4-verification-techniques/" title="Verification techniques"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="/kodebot/courses/courses/automated-unit-testing-basics/4-verification-techniques/2-state-verification/" title="State verification" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
     </div>
 
     </section>

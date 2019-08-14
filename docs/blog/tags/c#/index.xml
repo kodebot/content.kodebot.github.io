@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>C# on kodebot</title>
+    <link>http://localhost/kodebot/blog/tags/c#/</link>
+    <description>Recent content in C# on kodebot</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-gb</language>
+    <lastBuildDate>Sun, 15 Mar 2015 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://localhost/kodebot/blog/tags/c#/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Decorator over Inheritance hierarchy</title>
+      <link>http://localhost/kodebot/blog/articles/decorator-over-inheritance-hierarchy/</link>
+      <pubDate>Sun, 15 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost/kodebot/blog/articles/decorator-over-inheritance-hierarchy/</guid>
+      <description>I have used inheritance to solve a problem in many situations - some of them are correct and some of them are not when thinking about it now.
+ When you are in a situation where you think you need multi-level inheritance, 9 out of 10 times you can solve the same problem using decorators.
+ One of the problems I have seen recently which fits in this pattern is the implementation of ICommand interface.</description>
+    </item>
+    
+  </channel>
+</rss>
