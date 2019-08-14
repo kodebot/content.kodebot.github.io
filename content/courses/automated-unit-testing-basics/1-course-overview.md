@@ -3,7 +3,11 @@ title: "Course overview"
 date: 2019-02-22T10:25:49Z
 weight: 1
 draft: false
+chapter: true
 ---
+
+# Course overview
+
 Welcome to automated unit testing basics course.
 
 This course is for anyone who has some knowledge of computer programming but have limited or no knowledge of automated unit testing.

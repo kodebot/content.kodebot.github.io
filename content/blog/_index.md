@@ -3,4 +3,6 @@ title: "blog"
 disableNextPrev: true
 hidden: true
 ---
-## coming soon
+## Posts
+
+{{% children style="div" showhidden="true" %}}

@@ -1,8 +1,8 @@
 ---
-title: "Automated unit testing basics"
+title: "SOLID principles"
 date: 2019-02-22T10:25:49Z
 weight: 1
-draft: false
+draft: true
 ---
 
 ## Table of content
