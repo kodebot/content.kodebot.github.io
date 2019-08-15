@@ -148,16 +148,16 @@ h2{
     margin-left: 0;
 }
 
+
+/* main menu styles */
+
 .main-menu{
     display: block;
     height: 60px;
+    padding-top:10px;
+    padding-left: 5px;
     width: 100%;
-    background: gray;
-}
-
-.main-menu > img{
-    display: inline-block;
-    background: yellow;
+    background: #dc1010;
 }
 
 .main-menu > ul{
@@ -167,25 +167,44 @@ h2{
 }
 
 .main-menu > ul > li{
-    height: 50px;
-    width: 90px;
+    width: 120px;
     text-align: center;
     margin-top: 5px;
     margin-bottom: 5px;
     list-style-type: none;
-    display: inline-block
+    display: inline-block;
+    text-transform: uppercase;
 }
 
 .main-menu > ul > li > a{
     margin: 0;
-    padding-top: 10px;
     width: 100%;
-    height: 50px;
-    background: white;
+    height: 30px;
     display: inline-block;
+    color: white;
 }
 
 .main-menu > ul > li > a:hover{
-    background: #e23131;
-    color: white;
+    background: white;
+    color: #dc1010;
+}
+
+.main-menu .logo{
+    width: 200px;
+    display:inline-block;
+}
+
+.main-menu .logo img{
+    vertical-align: middle;
+}
+
+/* recent posts styles */
+
+.recent-posts > ul > li{
+    list-style-type: none;
+}
+
+/* tutorials styles */
+.tutorials > ul > li{
+    list-style-type: none;
 }

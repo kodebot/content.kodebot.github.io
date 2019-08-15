@@ -17,7 +17,7 @@
 
         {{if eq .Site.Params.ordersectionsby "title"}}  
           {{range .Site.Home.Sections.ByTitle}}
-          {{if eq .Title "Courses"}}
+          {{if eq .Title "Tutorials"}}
           {{range .Sections}}
           {{ template "section-tree-nav" dict "sect" . "currentnode" $currentNode "showvisitedlinks" $showvisitedlinks}}
           {{end}}
@@ -25,7 +25,7 @@
           {{end}}
         {{else}}
           {{range .Site.Home.Sections.ByWeight}}
-          {{if eq .Title "Courses"}}
+          {{if eq .Title "Tutorials"}}
           {{range .Sections}}
           {{ template "section-tree-nav" dict "sect" . "currentnode" $currentNode "showvisitedlinks" $showvisitedlinks}}
           {{end}}
