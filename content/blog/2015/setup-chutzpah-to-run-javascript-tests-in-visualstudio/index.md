@@ -3,7 +3,6 @@ title: "Setup Chutzpah to Run Javascript Tests in VisualStudio"
 date: 2015-03-14T00:00:00+00:00
 publishdate: 2015-03-14T00:00:00+00:00
 lastmod: 2015-03-14T00:00:00+00:00
-image: "/images/banners/bricks.jpg"
 tags: ["Unit Testing", "JavaScript", "Visual Studio"]
 disableNextPrev: true
 hidden: true
