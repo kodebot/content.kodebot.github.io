@@ -144,6 +144,10 @@ h2{
     font-size: 2.3rem;
 }
 
+h1{
+    font-size: 2em;
+}
+
 /* no-sidebar body styles*/
 
 #body.no-sidebar{
@@ -164,7 +168,7 @@ h2{
 
 @media screen and (max-width: 767px){
     .main-menu{
-        height: 150px;
+        height: 180px;
     }
 }
 

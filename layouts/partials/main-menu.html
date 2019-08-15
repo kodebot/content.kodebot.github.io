@@ -18,8 +18,7 @@
         {{end}}
         {{else}}
         {{range .Site.Home.Sections.ByWeight}}
-        
-        
+                
         <li >
             <a href="{{.RelPermalink}}" {{if eq $currentNode.Section .Section}}
             class="active"
