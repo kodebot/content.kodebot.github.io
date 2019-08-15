@@ -38,7 +38,8 @@
     {{ partial "custom-header.html" . }}
   </head>
   <body class="" data-url="{{ .RelPermalink }}">
-            <section id="body" class="post">
+      {{partial "main-menu.html" .}}
+            <section id="body" class="no-sidebar">
         <div id="overlay"></div>
         <div class="padding highlightable">
               {{if not .IsHome}}
@@ -56,16 +57,7 @@
                   </div>
                   {{ end }}
                 {{ end }}
-                {{$toc := (and (not .Params.disableToc) (not .Params.chapter))}}
                 <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
-                    <span id="sidebar-toggle-span">
-                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
-                          <i class="fas fa-bars"></i>
-                        </a>
-                    </span>
-                  {{ if $toc }}
-                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
-                  {{ end }}
                   <span class="links">
                  {{$showBreadcrumb := (and (not .Params.disableBreadcrumb) (not .Site.Params.disableBreadcrumb))}}
                  {{if $showBreadcrumb}}
@@ -75,9 +67,6 @@
                  {{ end }}
                   </span>
                 </div>
-                {{ if $toc }}
-                    {{ partial "toc.html" . }}
-                {{ end }}
               </div>
             </div>
             {{ end }}

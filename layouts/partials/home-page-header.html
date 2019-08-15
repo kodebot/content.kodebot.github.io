@@ -32,60 +32,35 @@
 </head>
 
 <body>
-  <nav class="main-menu expanded">
-    <div class="logo">
-        <a href="{{ .Site.BaseURL }}">
-            <img src="/images/logo.png" style="background: white; padding-right: 2px;">
-        </a>
-    </div>
-    <ul>
-      {{ $currentNode := . }}
-      {{if eq .Site.Params.ordersectionsby "title"}}
-      {{range .Site.Home.Sections.ByTitle}}
-      <li>
-        <a href="{{.RelPermalink}}">
-          {{safeHTML .Params.Pre}}{{or .Params.menuTitle .LinkTitle .Title}}{{safeHTML .Params.Post}}
-        </a>
-      </li>
-      {{end}}
-      {{else}}
-      {{range .Site.Home.Sections.ByWeight}}
-      <li>
-        <a href="{{.RelPermalink}}">
-          {{safeHTML .Params.Pre}}{{or .Params.menuTitle .LinkTitle .Title}}{{safeHTML .Params.Post}}
-        </a>
-      </li>
 
-      {{end}}
-      {{end}}
-    </ul>
-  </nav>
+  {{partial "main-menu.html" .}}
 
-  <section>
-    <section class="recent-posts">
-      <h3>Recent posts</h3>
-      <ul>
-        {{range first 10 (where .Data.Pages "Section" "blog").Reverse}}
-        <li>
-          <a href="{{.RelPermalink}}">
-            {{safeHTML .Params.Pre}}{{or .Params.menuTitle .LinkTitle .Title}}{{safeHTML .Params.Post}}
-          </a>
-        </li>
-        {{end}}
-      </ul>
-    </section>
+  <section id="body" class="no-sidebar">
+    <div class="padding">
+      <section class="recent-posts">
+        <h3>Recent posts</h3>
+        <ul>
+          {{range first 10 (where .Data.Pages "Section" "blog").Reverse}}
+          <li>
+            <a href="{{.RelPermalink}}">
+              {{safeHTML .Params.Pre}}{{or .Params.menuTitle .LinkTitle .Title}}{{safeHTML .Params.Post}}
+            </a>
+          </li>
+          {{end}}
+        </ul>
+      </section>
 
-    <section class="tutorials">
-      <h3>Tutorials</h3>
-      <ul>
-        {{range (where .Site.Home.Sections "Section" "tutorials")}}
-        {{range .Sections}}
-        <li>
-          <a href="{{.RelPermalink}}">
-            {{safeHTML .Params.Pre}}{{or .Params.menuTitle .LinkTitle .Title}}{{safeHTML .Params.Post}}
-          </a>
-        </li>
-        {{end}}
-        {{end}}
-      </ul>
-    </section>
+      <section class="tutorials">
+        <h3>Tutorials</h3>
+        <ul>
+          {{range (where .Site.Home.Sections "Section" "tutorials")}}
+          {{range .Sections}}
+          <li>
+            <a href="{{.RelPermalink}}">
+              {{safeHTML .Params.Pre}}{{or .Params.menuTitle .LinkTitle .Title}}{{safeHTML .Params.Post}}
+            </a>
+          </li>
+          {{end}}
+          {{end}}
+        </ul>
+      </section>

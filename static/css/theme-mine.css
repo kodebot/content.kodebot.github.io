@@ -144,7 +144,9 @@ h2{
     font-size: 2.3rem;
 }
 
-#body.post{
+/* no-sidebar body styles*/
+
+#body.no-sidebar{
     margin-left: 0;
 }
 
@@ -160,7 +162,7 @@ h2{
     background: #dc1010;
 }
 
-@media screen and (max-width: 600px){
+@media screen and (max-width: 767px){
     .main-menu{
         height: 150px;
     }
@@ -182,13 +184,13 @@ h2{
     text-transform: uppercase;
 }
 
-@media screen and (max-width: 600px){
+@media screen and (max-width: 767px){
     .main-menu > ul{
         margin-top: 20px;
         display: block;
     }
     .main-menu > ul > li{
-        margin: 0 auto;
+        margin: 3px auto;
         display: block;
     }
 }
@@ -206,12 +208,17 @@ h2{
     color: #dc1010;
 }
 
+.main-menu > ul > li > a.active{
+    background: white;
+    color: #dc1010;
+}
+
 .main-menu .logo{
     width: 200px;
     display:inline-block;
 }
 
-@media screen and (max-width: 600px){
+@media screen and (max-width: 767px){
     .main-menu .logo{
         display: block;
         margin: 0 auto;
@@ -231,4 +238,10 @@ h2{
 /* tutorials styles */
 .tutorials > ul > li{
     list-style-type: none;
+}
+
+/* breadcrumbs overrides */
+/* display breadcrumbs even on small screens */
+#breadcrumbs .links {
+    display: inline;
 }
