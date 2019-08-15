@@ -160,6 +160,12 @@ h2{
     background: #dc1010;
 }
 
+@media screen and (max-width: 600px){
+    .main-menu{
+        height: 150px;
+    }
+}
+
 .main-menu > ul{
     padding: 0;
     margin: 0;
@@ -174,6 +180,17 @@ h2{
     list-style-type: none;
     display: inline-block;
     text-transform: uppercase;
+}
+
+@media screen and (max-width: 600px){
+    .main-menu > ul{
+        margin-top: 20px;
+        display: block;
+    }
+    .main-menu > ul > li{
+        margin: 0 auto;
+        display: block;
+    }
 }
 
 .main-menu > ul > li > a{
@@ -192,6 +209,13 @@ h2{
 .main-menu .logo{
     width: 200px;
     display:inline-block;
+}
+
+@media screen and (max-width: 600px){
+    .main-menu .logo{
+        display: block;
+        margin: 0 auto;
+    }
 }
 
 .main-menu .logo img{
