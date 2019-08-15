@@ -10,7 +10,7 @@ comments: true
 draft: false
 ---
 
-<p>I like to have one test file&nbsp;per components of AngularJS application. So, for example, homeController will have its own test file&nbsp;named homeSpec or homeControllerSpec.</p>
+<p>I like to have one test file&nbsp;per components of AngularJS application. So, for example, <code>homeController</code> will have its own test file&nbsp;named <code>homeSpec</code> or <code>homeControllerSpec.</code></p>
 <p>First, create a&nbsp;suite to describe a component at a high level and for each scenario create&nbsp;nested suits. This allows us&nbsp;to define any test setup that are common for <!-- more -->all the tests&nbsp;in one place.</p>
 <p>For example, loading module, overriding and injecting any dependencies are done in the beforeEach method of outter test suite. The setup is applicable for all the tests defined in the outter and nested test suits, so, if you don't want any setup for all the tests then do not include them here.</p>
 
@@ -84,7 +84,7 @@ draft: false
     var target = $controller('homeController', { calculatorService: calculatorService });
 ```
 
-<p>But, if I need&nbsp;to replace an object with mock version then I create it and configure $provide to provide the mock version when requested</p>
+<p>But, if I need&nbsp;to replace an object with mock version then I create it and configure <code>$provide</code> to provide the mock version when requested</p>
 
 ```js
        // overrides for mock injections
