@@ -16,7 +16,7 @@ draft: false
 <div>
 <p>One of the problems I have seen recently which fits in this pattern is the implementation of ICommand interface. See the implementation below</p>
 
-``` lang:csharp
+```cs
 public class Command : ICommand
    {  
      public bool CanExecute(object parameter)  
@@ -85,7 +85,7 @@ public class Command : ICommand
 <div>
 <p>Here is how it looks like with Decorator pattern</p>
 
-```lang:csharp
+```cs
 public class Command : ICommand  
    {  
      public bool CanExecute(object parameter)  

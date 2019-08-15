@@ -4,6 +4,8 @@ title = "kodebot"
 theme = "hugo-theme-learn"
 publishDir = "docs"
 
+pygmentsCodeFences= true
+
 [outputs]
 home = ["HTML", "RSS", "JSON"]
 

@@ -9,12 +9,15 @@ disableNextPrev: true
 hidden: true
 comments: true
 draft: false
+resources: 
+- src: 'images/image1.png'
 ---
 
 
 <p>First thing first, install Chutzpah <a href="https://visualstudiogallery.msdn.microsoft.com/71a4e9bd-f660-448f-bd92-f5a65d39b7f0" target="_blank">Test Runner</a>&nbsp;and <a href="https://visualstudiogallery.msdn.microsoft.com/f8741f04-bae4-4900-81c7-7c9bfb9ed1fe" target="_blank">Test Adaptor for the Test Explorer</a>.</p>
 <p>Next, setup your projects in Visual Studio. I personally like to keep my test code in a separate project for JavaScript as well so my project and folder structure looks like this:</p>
-<p style="text-align: left;">&nbsp;<img src="/blog/images/setup-chutzpah-to-run-javascript-tests-in-visualstudio/image1.PNG" alt="" /></p><!-- more -->
+
+{{% img "images/image.png" "Those cupcakes are way overcooked!" %}}
 <p style="text-align: left;">This allows you&nbsp;to restrict testing frameworks and libraries like Jasmine only to&nbsp;the test project. I use JavaScript&nbsp;libraries directly from the main project when it is needed in test projects as well rather then adding them again in the test project (some people have different view on this but it works for me).</p>
 <p style="text-align: left;">Now, add all the JavaScript files required for your test. This includes<br/>
 
@@ -24,7 +27,7 @@ draft: false
 </p>
 <p>When you are done, your homeSpec.js might look like this</p>
 
-``` lang:js
+```js
 /// <reference path="../../../myapplication.web/scripts/jquery-1.10.2.min.js" />
 
 /// <reference path="../../../myapplication.web/app/app.js" />

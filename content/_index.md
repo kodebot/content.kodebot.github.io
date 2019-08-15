@@ -10,10 +10,10 @@ weight: 2
 <br/>
 
 
-* show latest blog entries
+* add all blog contents with correct cross references and images
 
-* show slider for courses
+* show latest blog entries with some images
 
-* add about page
+* show slider for tutorials
 
-* add menu
+* add more content to about page
