@@ -160,7 +160,6 @@ h1{
 .main-menu{
     display: block;
     height: 60px;
-    padding-top:10px;
     padding-left: 5px;
     width: 100%;
     background: #dc1010;
@@ -181,8 +180,6 @@ h1{
 .main-menu > ul > li{
     width: 120px;
     text-align: center;
-    margin-top: 5px;
-    margin-bottom: 5px;
     list-style-type: none;
     display: inline-block;
     text-transform: uppercase;
@@ -202,9 +199,11 @@ h1{
 .main-menu > ul > li > a{
     margin: 0;
     width: 100%;
-    height: 30px;
+    height: 60px;
+    padding-top: 15px;
     display: inline-block;
     color: white;
+    vertical-align: middle;
 }
 
 .main-menu > ul > li > a:hover{
@@ -226,6 +225,10 @@ h1{
     .main-menu .logo{
         display: block;
         margin: 0 auto;
+    }
+    .main-menu > ul > li > a{
+        padding-top: 3px;
+        height: 30px;
     }
 }
 
