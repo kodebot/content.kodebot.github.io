@@ -3,9 +3,11 @@ title: "Kodebot"
 disableNextPrev: true
 ---
 
-# Home page
+<br/>
+<br/>
+<br/>
+<br/>
 
-## this is home page
 
 * show latest blog entries
 

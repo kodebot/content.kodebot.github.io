@@ -1,7 +1,8 @@
 ---
-title: "blog"
+title: "Blog"
 disableNextPrev: true
 hidden: true
+weight: 1
 ---
 ## Posts
 

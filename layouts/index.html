@@ -1,9 +1,6 @@
 {{ partial "home-page-header.html" . }}
-<span id="sidebar-toggle-span">
-<a href="#" id="sidebar-toggle" data-sidebar-toggle=""><i class="fas fa-bars"></i> navigation</a>
-</span>
 
 {{if .Site.Home.Content }} 
 	{{.Site.Home.Content}}	
 {{ end }}  
-{{ partial "footer.html" . }}
+{{ partial "home-page-footer.html" . }}
