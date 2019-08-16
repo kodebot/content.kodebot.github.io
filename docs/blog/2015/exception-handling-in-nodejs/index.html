@@ -13,24 +13,24 @@
   <title>Exception Handling in NodeJS :: kodebot</title>
 
   
-  <link href="/css/nucleus.css?1565957193" rel="stylesheet">
-  <link href="/css/fontawesome-all.min.css?1565957193"
+  <link href="/css/nucleus.css?1565980603" rel="stylesheet">
+  <link href="/css/fontawesome-all.min.css?1565980603"
     rel="stylesheet">
-  <link href="/css/hybrid.css?1565957193" rel="stylesheet">
-  <link href="/css/featherlight.min.css?1565957193" rel="stylesheet">
-  <link href="/css/perfect-scrollbar.min.css?1565957193"
+  <link href="/css/hybrid.css?1565980603" rel="stylesheet">
+  <link href="/css/featherlight.min.css?1565980603" rel="stylesheet">
+  <link href="/css/perfect-scrollbar.min.css?1565980603"
     rel="stylesheet">
-  <link href="/css/auto-complete.css?1565957193" rel="stylesheet">
-  <link href="/css/atom-one-dark-reasonable.css?1565957193"
+  <link href="/css/auto-complete.css?1565980603" rel="stylesheet">
+  <link href="/css/atom-one-dark-reasonable.css?1565980603"
     rel="stylesheet">
-  <link href="/css/theme.css?1565957193" rel="stylesheet">
-  <link href="/css/hugo-theme.css?1565957193" rel="stylesheet">
+  <link href="/css/theme.css?1565980603" rel="stylesheet">
+  <link href="/css/hugo-theme.css?1565980603" rel="stylesheet">
   
-  <link href="/css/theme-mine.css?1565957193"
+  <link href="/css/theme-mine.css?1565980603"
     rel="stylesheet">
   
 
-  <script src="/js/jquery-3.3.1.min.js?1565957193"></script>
+  <script src="/js/jquery-3.3.1.min.js?1565980603"></script>
 
   <style type="text/css">
     :root #header+#content>#left>#rlblock_left {
@@ -187,13 +187,13 @@ For, synchronous block of code, this is as simple as wrapping your code in <code
 </div>
 
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">divide</span>(<span style="color:#a6e22e">x</span>, <span style="color:#a6e22e">y</span>){
-    <span style="color:#66d9ef">try</span>{
-        <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">x</span><span style="color:#960050;background-color:#1e0010">/y;</span>
-    }
-    <span style="color:#66d9ef">catch</span>(<span style="color:#a6e22e">e</span>){
-        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;Error::&#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">message</span>);
-        <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
-    }
+	<span style="color:#66d9ef">try</span>{
+		<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">x</span><span style="color:#960050;background-color:#1e0010">/y;</span>
+	}
+	<span style="color:#66d9ef">catch</span>(<span style="color:#a6e22e">e</span>){
+		<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;Error::&#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">message</span>);
+		<span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+	}
 }
 </code></pre></div>
 <p>In this, example the message is displayed in the console and value 0 is returned from the catch block.</p>
@@ -206,20 +206,20 @@ Because these handlers/callbacks are executed directly by event loop, we need to
 <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">path</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;C:\temp\tempFile.txt&#39;</span>;
 
 <span style="color:#66d9ef">try</span>{
-    <span style="color:#a6e22e">fs</span>.<span style="color:#a6e22e">stat</span>(<span style="color:#a6e22e">path</span>, <span style="color:#a6e22e">statCallback</span>);    
+	<span style="color:#a6e22e">fs</span>.<span style="color:#a6e22e">stat</span>(<span style="color:#a6e22e">path</span>, <span style="color:#a6e22e">statCallback</span>);	
 }
 <span style="color:#66d9ef">catch</span>(<span style="color:#a6e22e">e</span>){
-    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;Error::&#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">message</span>);
-    <span style="color:#66d9ef">return</span>;
+	<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;Error::&#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">message</span>);
+	<span style="color:#66d9ef">return</span>;
 }
 <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">statCallback</span>(<span style="color:#a6e22e">err</span>, <span style="color:#a6e22e">stats</span>){
-    <span style="color:#66d9ef">try</span>{
-        <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">stats</span>.<span style="color:#a6e22e">isFile</span>();
-    }
-    <span style="color:#66d9ef">catch</span>(<span style="color:#a6e22e">e</span>){
-        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;Error::&#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">message</span>);
-        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span>;
-    }
+	<span style="color:#66d9ef">try</span>{
+		<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">stats</span>.<span style="color:#a6e22e">isFile</span>();
+	}
+	<span style="color:#66d9ef">catch</span>(<span style="color:#a6e22e">e</span>){
+		<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;Error::&#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">message</span>);
+		<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span>;
+	}
 }
 </code></pre></div>
 <p>If you look at the example above, the we use two <code>try..catch</code> blocks one for the code around <code>fs.stat()</code> and another one is inside the callback function.
@@ -233,7 +233,7 @@ This is required because, as we saw earlier the callback is executed directly by
 
 <p>When event loop encounters any unhandled exceptions, it emits <code>uncaughtException</code>. We can use this to log the error before let the application crash.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">process</span>.<span style="color:#a6e22e">on</span>(<span style="color:#e6db74">&#39;uncaughtException&#39;</span>, <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">err</span>){
-    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">err</span>);
+	<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">err</span>);
 });
 </code></pre></div>
 <p>You can find lot more information on this topic <a href="http://www.joyent.com/developers/node/design/errors">here</a>, including event emitters - which is not covered in this post, in the official documentation.</p>
@@ -300,20 +300,20 @@ This is required because, as we saw earlier the callback is executed directly by
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1565957193"></script>
-    <script src="/js/perfect-scrollbar.min.js?1565957193"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1565957193"></script>
-    <script src="/js/jquery.sticky.js?1565957193"></script>
-    <script src="/js/featherlight.min.js?1565957193"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1565957193"></script>
-    <script src="/js/highlight.pack.js?1565957193"></script>
+    <script src="/js/clipboard.min.js?1565980603"></script>
+    <script src="/js/perfect-scrollbar.min.js?1565980603"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1565980603"></script>
+    <script src="/js/jquery.sticky.js?1565980603"></script>
+    <script src="/js/featherlight.min.js?1565980603"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1565980603"></script>
+    <script src="/js/highlight.pack.js?1565980603"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1565957193"></script>
-    <script src="/js/learn.js?1565957193"></script>
-    <script src="/js/hugo-learn.js?1565957193"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1565980603"></script>
+    <script src="/js/learn.js?1565980603"></script>
+    <script src="/js/hugo-learn.js?1565980603"></script>
 
-    <link href="/mermaid/mermaid.css?1565957193" type="text/css" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1565957193"></script>
+    <link href="/mermaid/mermaid.css?1565980603" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1565980603"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

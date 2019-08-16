@@ -19,7 +19,7 @@
       <guid>http://kodebot.com/blog/2015/nodejs-loops/</guid>
       <description>Closure Closure is something that is very familiar to all C# developers who know lambda expressions/functions but they just may not know that it is called Closure in JavaScript.
 Lets look at what is closure in JavaScript without further ado with an example:
-function outer(){ var inOuter = &amp;#34;outer&amp;#34;; inner(); function inner(){ console.log(inOuter); // prints &amp;#39;outer&amp;#39;  } }  In this example, the variable inOuter is defined in the function outer but it is used in the function inner.</description>
+function outer(){ var inOuter = &amp;#34;outer&amp;#34;; inner(); function inner(){ console.log(inOuter); // prints &amp;#39;outer&amp;#39; 	} }  In this example, the variable inOuter is defined in the function outer but it is used in the function inner.</description>
     </item>
     
     <item>
@@ -126,7 +126,7 @@ For example, loading module, overriding and injecting any dependencies are done 
       <guid>http://kodebot.com/blog/2015/setup-chutzpah-to-run-javascript-tests-in-visualstudio/</guid>
       <description>First thing first, install Chutzpah Test Runner&amp;nbsp;and Test Adaptor for the Test Explorer.
 Next, setup your projects in Visual Studio. I personally like to keep my test code in a separate project for JavaScript as well so my project and folder structure looks like this:
-This allows you&amp;nbsp;to restrict testing frameworks and libraries like Jasmine only to&amp;nbsp;the test project. I use JavaScript&amp;nbsp;libraries directly from the main project when it is needed in test projects as well rather then adding them again in the test project (some people have different view on this but it works for me).</description>
+   This allows you&amp;nbsp;to restrict testing frameworks and libraries like Jasmine only to&amp;nbsp;the test project. I use JavaScript&amp;nbsp;libraries directly from the main project when it is needed in test projects as well rather then adding them again in the test project (some people have different view on this but it works for me).</description>
     </item>
     
   </channel>

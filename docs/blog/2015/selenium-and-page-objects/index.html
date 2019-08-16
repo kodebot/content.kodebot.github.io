@@ -13,24 +13,24 @@
   <title>Selenium and Page Objects :: kodebot</title>
 
   
-  <link href="/css/nucleus.css?1565957193" rel="stylesheet">
-  <link href="/css/fontawesome-all.min.css?1565957193"
+  <link href="/css/nucleus.css?1565980603" rel="stylesheet">
+  <link href="/css/fontawesome-all.min.css?1565980603"
     rel="stylesheet">
-  <link href="/css/hybrid.css?1565957193" rel="stylesheet">
-  <link href="/css/featherlight.min.css?1565957193" rel="stylesheet">
-  <link href="/css/perfect-scrollbar.min.css?1565957193"
+  <link href="/css/hybrid.css?1565980603" rel="stylesheet">
+  <link href="/css/featherlight.min.css?1565980603" rel="stylesheet">
+  <link href="/css/perfect-scrollbar.min.css?1565980603"
     rel="stylesheet">
-  <link href="/css/auto-complete.css?1565957193" rel="stylesheet">
-  <link href="/css/atom-one-dark-reasonable.css?1565957193"
+  <link href="/css/auto-complete.css?1565980603" rel="stylesheet">
+  <link href="/css/atom-one-dark-reasonable.css?1565980603"
     rel="stylesheet">
-  <link href="/css/theme.css?1565957193" rel="stylesheet">
-  <link href="/css/hugo-theme.css?1565957193" rel="stylesheet">
+  <link href="/css/theme.css?1565980603" rel="stylesheet">
+  <link href="/css/hugo-theme.css?1565980603" rel="stylesheet">
   
-  <link href="/css/theme-mine.css?1565957193"
+  <link href="/css/theme-mine.css?1565980603"
     rel="stylesheet">
   
 
-  <script src="/js/jquery-3.3.1.min.js?1565957193"></script>
+  <script src="/js/jquery-3.3.1.min.js?1565980603"></script>
 
   <style type="text/css">
     :root #header+#content>#left>#rlblock_left {
@@ -165,8 +165,8 @@
 <p>When only one page object is created for the entire page or screen that you are trying to automate then, the&nbsp;object will have too many things to do and if the the page or screen has shared sections then all your page objects will have duplicate code.</p>
 <p>Likewise, if the&nbsp;page object exposes any objects from underlying tools/frameworks then you will create hard dependencies between you test code and test tools/framework which will create challenges when you want to replace your tool/framework with other or when you want to upgrade from one version to another.&nbsp;</p>
 <p>Here is the sample Page Objects I created to search and get the results from&nbsp;Bing using Selenium</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs">    <span style="color:#75715e">// Search Page
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">BingSearch</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs">	<span style="color:#75715e">// Search Page
+</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">BingSearch</span>
     {
         <span style="color:#66d9ef">private</span> IWebElement _searchTerm;
         <span style="color:#66d9ef">private</span> List&lt;BingSearchResult&gt; _searchResults;
@@ -227,13 +227,13 @@
             }
 
         }
-    }</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs">    <span style="color:#75715e">// Search Result
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">BingSearchResult</span>
+    }</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs">	<span style="color:#75715e">// Search Result
+</span><span style="color:#75715e"></span>  	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">BingSearchResult</span>
     {
         <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">string</span> DisplayText { <span style="color:#66d9ef">get</span>; <span style="color:#66d9ef">set</span>; }
         <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">string</span> Link { <span style="color:#66d9ef">get</span>; <span style="color:#66d9ef">set</span>; }
-    }</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs">    <span style="color:#75715e">// Browser abstraction 
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Browser</span>
+    }</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs">	<span style="color:#75715e">// Browser abstraction 
+</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Browser</span>
     {
         <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> IWebDriver _driver;
         <span style="color:#66d9ef">static</span> Browser()
@@ -319,20 +319,20 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1565957193"></script>
-    <script src="/js/perfect-scrollbar.min.js?1565957193"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1565957193"></script>
-    <script src="/js/jquery.sticky.js?1565957193"></script>
-    <script src="/js/featherlight.min.js?1565957193"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1565957193"></script>
-    <script src="/js/highlight.pack.js?1565957193"></script>
+    <script src="/js/clipboard.min.js?1565980603"></script>
+    <script src="/js/perfect-scrollbar.min.js?1565980603"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1565980603"></script>
+    <script src="/js/jquery.sticky.js?1565980603"></script>
+    <script src="/js/featherlight.min.js?1565980603"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1565980603"></script>
+    <script src="/js/highlight.pack.js?1565980603"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1565957193"></script>
-    <script src="/js/learn.js?1565957193"></script>
-    <script src="/js/hugo-learn.js?1565957193"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1565980603"></script>
+    <script src="/js/learn.js?1565980603"></script>
+    <script src="/js/hugo-learn.js?1565980603"></script>
 
-    <link href="/mermaid/mermaid.css?1565957193" type="text/css" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1565957193"></script>
+    <link href="/mermaid/mermaid.css?1565980603" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1565980603"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

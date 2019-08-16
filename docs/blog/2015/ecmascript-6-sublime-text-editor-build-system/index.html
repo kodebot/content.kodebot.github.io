@@ -13,24 +13,24 @@
   <title>ECMAScript 6 - Sublime Text editor build system :: kodebot</title>
 
   
-  <link href="/css/nucleus.css?1565957193" rel="stylesheet">
-  <link href="/css/fontawesome-all.min.css?1565957193"
+  <link href="/css/nucleus.css?1565980603" rel="stylesheet">
+  <link href="/css/fontawesome-all.min.css?1565980603"
     rel="stylesheet">
-  <link href="/css/hybrid.css?1565957193" rel="stylesheet">
-  <link href="/css/featherlight.min.css?1565957193" rel="stylesheet">
-  <link href="/css/perfect-scrollbar.min.css?1565957193"
+  <link href="/css/hybrid.css?1565980603" rel="stylesheet">
+  <link href="/css/featherlight.min.css?1565980603" rel="stylesheet">
+  <link href="/css/perfect-scrollbar.min.css?1565980603"
     rel="stylesheet">
-  <link href="/css/auto-complete.css?1565957193" rel="stylesheet">
-  <link href="/css/atom-one-dark-reasonable.css?1565957193"
+  <link href="/css/auto-complete.css?1565980603" rel="stylesheet">
+  <link href="/css/atom-one-dark-reasonable.css?1565980603"
     rel="stylesheet">
-  <link href="/css/theme.css?1565957193" rel="stylesheet">
-  <link href="/css/hugo-theme.css?1565957193" rel="stylesheet">
+  <link href="/css/theme.css?1565980603" rel="stylesheet">
+  <link href="/css/hugo-theme.css?1565980603" rel="stylesheet">
   
-  <link href="/css/theme-mine.css?1565957193"
+  <link href="/css/theme-mine.css?1565980603"
     rel="stylesheet">
   
 
-  <script src="/js/jquery-3.3.1.min.js?1565957193"></script>
+  <script src="/js/jquery-3.3.1.min.js?1565980603"></script>
 
   <style type="text/css">
     :root #header+#content>#left>#rlblock_left {
@@ -172,11 +172,11 @@
 <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">shell</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;gulp-shell&#39;</span>);
 
 <span style="color:#a6e22e">gulp</span>.<span style="color:#a6e22e">task</span>(<span style="color:#e6db74">&#39;run&#39;</span>, <span style="color:#66d9ef">function</span>(){
-    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">gulp</span>.<span style="color:#a6e22e">src</span>(<span style="color:#e6db74">&#39;app.js&#39;</span>)
-            .<span style="color:#a6e22e">pipe</span>(<span style="color:#a6e22e">babel</span>())
-            .<span style="color:#a6e22e">pipe</span>(<span style="color:#a6e22e">gulp</span>.<span style="color:#a6e22e">dest</span>(<span style="color:#e6db74">&#39;result&#39;</span>))
-            .<span style="color:#a6e22e">pipe</span>(<span style="color:#a6e22e">shell</span>([<span style="color:#e6db74">&#39;node result\\app.js&#39;</span>]));
-            
+	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">gulp</span>.<span style="color:#a6e22e">src</span>(<span style="color:#e6db74">&#39;app.js&#39;</span>)
+			.<span style="color:#a6e22e">pipe</span>(<span style="color:#a6e22e">babel</span>())
+			.<span style="color:#a6e22e">pipe</span>(<span style="color:#a6e22e">gulp</span>.<span style="color:#a6e22e">dest</span>(<span style="color:#e6db74">&#39;result&#39;</span>))
+			.<span style="color:#a6e22e">pipe</span>(<span style="color:#a6e22e">shell</span>([<span style="color:#e6db74">&#39;node result\\app.js&#39;</span>]));
+			
 });
 </code></pre></div>
 <p>This task simple takes the source file named app.js and applies babel task to convert from ES6 to ES5, stores the output in result folder and finally runs the output file as a normal node program using grunt's shell plugin.</p>
@@ -278,20 +278,20 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1565957193"></script>
-    <script src="/js/perfect-scrollbar.min.js?1565957193"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1565957193"></script>
-    <script src="/js/jquery.sticky.js?1565957193"></script>
-    <script src="/js/featherlight.min.js?1565957193"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1565957193"></script>
-    <script src="/js/highlight.pack.js?1565957193"></script>
+    <script src="/js/clipboard.min.js?1565980603"></script>
+    <script src="/js/perfect-scrollbar.min.js?1565980603"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1565980603"></script>
+    <script src="/js/jquery.sticky.js?1565980603"></script>
+    <script src="/js/featherlight.min.js?1565980603"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1565980603"></script>
+    <script src="/js/highlight.pack.js?1565980603"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1565957193"></script>
-    <script src="/js/learn.js?1565957193"></script>
-    <script src="/js/hugo-learn.js?1565957193"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1565980603"></script>
+    <script src="/js/learn.js?1565980603"></script>
+    <script src="/js/hugo-learn.js?1565980603"></script>
 
-    <link href="/mermaid/mermaid.css?1565957193" type="text/css" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1565957193"></script>
+    <link href="/mermaid/mermaid.css?1565980603" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1565980603"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

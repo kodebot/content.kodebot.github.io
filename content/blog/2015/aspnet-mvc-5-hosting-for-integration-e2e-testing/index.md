@@ -1,6 +1,6 @@
 ---
 title: "ASP.NET MVC 5 Hosting for Integration / E2E Testing"
-date: 2015-05-030T00:00:00+00:00
+date: 2015-05-30T00:00:00+00:00
 publishdate: 2015-05-30T00:00:00+00:00
 lastmod: 2015-05-30T00:00:00+00:00
 tags: ["ASP.NET", "MVC"]

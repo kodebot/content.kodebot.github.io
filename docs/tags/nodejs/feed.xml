@@ -19,7 +19,7 @@
       <guid>http://kodebot.com/blog/2015/nodejs-loops/</guid>
       <description>Closure Closure is something that is very familiar to all C# developers who know lambda expressions/functions but they just may not know that it is called Closure in JavaScript.
 Lets look at what is closure in JavaScript without further ado with an example:
-function outer(){ var inOuter = &amp;#34;outer&amp;#34;; inner(); function inner(){ console.log(inOuter); // prints &amp;#39;outer&amp;#39;  } }  In this example, the variable inOuter is defined in the function outer but it is used in the function inner.</description>
+function outer(){ var inOuter = &amp;#34;outer&amp;#34;; inner(); function inner(){ console.log(inOuter); // prints &amp;#39;outer&amp;#39; 	} }  In this example, the variable inOuter is defined in the function outer but it is used in the function inner.</description>
     </item>
     
     <item>
