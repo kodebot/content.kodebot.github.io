@@ -12,5 +12,5 @@ We are software consultancy based in Leeds, UK. We use this space for tutorials,
 
 We develop website and mobile apps for your requirement.
 
-## Contact Us
+# Contact Us
 email: [info@kodebot.com](mailto:info@kodebot.com)
