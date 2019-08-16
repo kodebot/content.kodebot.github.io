@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Nuget on kodebot</title>
+    <link>http://kodebot.com/tags/nuget/</link>
+    <description>Recent content in Nuget on kodebot</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-GB</language>
+    <lastBuildDate>Sat, 21 Mar 2015 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://kodebot.com/tags/nuget/feed.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>NSequenceComparer to compare two sequences</title>
+      <link>http://kodebot.com/blog/2015/nsequencecomparer-to-compare-two-sequences/</link>
+      <pubDate>Sat, 21 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://kodebot.com/blog/2015/nsequencecomparer-to-compare-two-sequences/</guid>
+      <description>I had a requirement&amp;nbsp;to compare two sequences to find the differences in .NET platform. To compare large sequences, I needed an algorithm that&amp;nbsp;does not use recursion.&amp;nbsp;I could not find anything in the internet that I can use out of the box, so, I created&amp;nbsp;this nuget package
+This package is very simple to use, you can read usage instructions&amp;nbsp;here
+Feel free to use and contribute.</description>
+    </item>
+    
+  </channel>
+</rss>

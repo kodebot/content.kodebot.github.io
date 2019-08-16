@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Typescript on kodebot</title>
+    <link>http://kodebot.com/tags/typescript/</link>
+    <description>Recent content in Typescript on kodebot</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-GB</language>
+    <lastBuildDate>Wed, 03 Jun 2015 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://kodebot.com/tags/typescript/feed.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>TypeScript - Accessing object with null key</title>
+      <link>http://kodebot.com/blog/2015/typescript-accessing-object-with-null-key/</link>
+      <pubDate>Wed, 03 Jun 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://kodebot.com/blog/2015/typescript-accessing-object-with-null-key/</guid>
+      <description>Objects in JavaScript is just a key value pair and key is usually string and value can be anything. The following is an example of JavaScript object literal
+var car = { wheels : 3, colour: &amp;#39;red&amp;#39;, drive: function(){ ... } }  The key in the object can be null. The default route in AngularJS is associated with null key, for example.
+We can access the value associated with the null key in JavaScript quite easily like this:</description>
+    </item>
+    
+    <item>
+      <title>TypeScript - &#39;this&#39; reference in AngularJS event handler</title>
+      <link>http://kodebot.com/blog/2015/typescript-this-reference-in-angularjs-event-handler/</link>
+      <pubDate>Mon, 27 Apr 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://kodebot.com/blog/2015/typescript-this-reference-in-angularjs-event-handler/</guid>
+      <description>Let&#39;s have a look at how AngularJS 1.x controller is usually created in TypeScript before we go into details of how AngularJS event handler and how &#39;this&#39; works in the AngularJS event handler context. TypeScript encourages to type anything and everything to take full advantages of the type system and tool supports we get when working with any strongly typed language.
+So, when using TypeScript with AngularJS 1.x, class is usually created to represent the implementation of the controllers.</description>
+    </item>
+    
+    <item>
+      <title>TypeScript build automation in ASP.NET 5 (MVC6) using Gulp</title>
+      <link>http://kodebot.com/blog/2015/typescript-build-automation-in-asp-net-5-mvc6-using-gulp/</link>
+      <pubDate>Sat, 18 Apr 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://kodebot.com/blog/2015/typescript-build-automation-in-asp-net-5-mvc6-using-gulp/</guid>
+      <description>Introduction ASP.NET 5 introduces some major changes in terms of how we develop applications like no need for project and file association, wwwroot folder, first class support for JSON config files, .NET framework choice, separation of client side and server side package management and more. You can read more on this here.
+Above all of these, it supports JavaScript build automation by providing support for the nodejs&amp;nbsp;platform.&amp;nbsp;
+Visual Studio 2015 has in-built task runner to run grunt or gulp tasks, this is great because we don&amp;rsquo;t have to leave Visual Studio to run these tasks.</description>
+    </item>
+    
+  </channel>
+</rss>

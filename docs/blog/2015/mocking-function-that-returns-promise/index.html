@@ -1,0 +1,374 @@
+
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="generator" content="Hugo 0.54.0" />
+  <meta name="description" content="">
+
+
+  <link rel="icon" href="/images/favicon.ico" type="image/png">
+  <title>Mocking function that returns promise :: kodebot</title>
+
+  
+  <link href="/css/nucleus.css?1565956016" rel="stylesheet">
+  <link href="/css/fontawesome-all.min.css?1565956016"
+    rel="stylesheet">
+  <link href="/css/hybrid.css?1565956016" rel="stylesheet">
+  <link href="/css/featherlight.min.css?1565956016" rel="stylesheet">
+  <link href="/css/perfect-scrollbar.min.css?1565956016"
+    rel="stylesheet">
+  <link href="/css/auto-complete.css?1565956016" rel="stylesheet">
+  <link href="/css/atom-one-dark-reasonable.css?1565956016"
+    rel="stylesheet">
+  <link href="/css/theme.css?1565956016" rel="stylesheet">
+  <link href="/css/hugo-theme.css?1565956016" rel="stylesheet">
+  
+  <link href="/css/theme-mine.css?1565956016"
+    rel="stylesheet">
+  
+
+  <script src="/js/jquery-3.3.1.min.js?1565956016"></script>
+
+  <style type="text/css">
+    :root #header+#content>#left>#rlblock_left {
+      display: none !important;
+    }
+
+      {
+        {
+        if .Site.Params.disableInlineCopyToClipBoard
+      }
+    }
+
+    :not(pre)>code+span.copy-to-clipboard {
+      display: none;
+    }
+
+      {
+        {
+        end
+      }
+    }
+  </style>
+  
+</head>
+
+<body class="" data-url="/blog/2015/mocking-function-that-returns-promise/">
+  <nav class="main-menu">
+    <div class="logo">
+        <a href="http://kodebot.com/">
+            <img src="/images/logo.png" style="background: white; padding-right: 2px;">
+        </a>
+    </div>
+    <ul>
+        
+        
+        
+                
+        <li >
+            <a href="/blog/" 
+            class="active"
+            >
+                Blog
+            </a>
+        </li>
+
+        
+                
+        <li >
+            <a href="/tutorials/" >
+                Tutorials
+            </a>
+        </li>
+
+        
+                
+        <li >
+            <a href="/about/" >
+                About
+            </a>
+        </li>
+
+        
+        
+    </ul>
+</nav>
+  <section id="body" class="no-sidebar">
+    <div id="overlay"></div>
+    <div class="padding highlightable">
+      
+      <div>
+        
+        
+        <div id="top-bar">
+          
+
+
+          <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+            <span class="links">
+              
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href='/'>Kodebot</a> > <a href='/blog/'>Blog</a> > Mocking function that returns promise
+          
+          
+          
+          
+          
+          
+            </span>
+          </div>
+        </div>
+        
+      </div>
+      
+      <div id="head-tags">
+        
+<div class="tags">
+
+  <a class="tag-link" href="/tags/unit-testing">Unit Testing</a>
+
+  <a class="tag-link" href="/tags/javascript">JavaScript</a>
+
+  <a class="tag-link" href="/tags/angularjs">AngularJS</a>
+
+</div>
+
+      </div>
+      
+        <div id="body-inner">
+          
+          <h1>
+            
+            Mocking function that returns promise
+          </h1>
+          
+
+          
+
+<p>Promises are very useful to develope non-blocking web applications and it also helps to avoid <a href="http://calculist.org/blog/2011/12/14/why-coroutines-wont-work-on-the-web/" target="_blank">pyramid of doom</a>.</p>
+<p>AngularJS supports&nbsp;<a href="https://github.com/kriskowal/q" target="_blank">Q</a>&nbsp;based promises, this means, we can create functions in AngularJS application that uses promises. When it comes to unit testing functions that returns promises, it is just like unit testing normal functions <!-- more -->only if you remember&nbsp;simulate scope's life cycle using <code>$apply()</code> or <code>$digest()</code></p>
+<p>Let's see this with an example. The following controller loads restaurants using promise</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// homeController
+</span><span style="color:#75715e"></span>(<span style="color:#66d9ef">function</span> () {
+    <span style="color:#e6db74">&#39;use strict&#39;</span>;
+
+    <span style="color:#a6e22e">angular</span>
+        .<span style="color:#a6e22e">module</span>(<span style="color:#e6db74">&#39;app&#39;</span>)
+        .<span style="color:#a6e22e">controller</span>(<span style="color:#e6db74">&#39;homeController&#39;</span>, [<span style="color:#e6db74">&#39;restaurantService&#39;</span>, <span style="color:#a6e22e">homeController</span>]);
+
+    <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">homeController</span>(<span style="color:#a6e22e">restaurantService</span>) {
+
+        <span style="color:#75715e">// #region viewmodel
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">vm</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>;
+        <span style="color:#a6e22e">vm</span>.<span style="color:#a6e22e">restaurants</span> <span style="color:#f92672">=</span> [];
+
+        <span style="color:#75715e">// #endregion
+</span><span style="color:#75715e"></span>
+        <span style="color:#75715e">// #region activate
+</span><span style="color:#75715e"></span>        <span style="color:#a6e22e">activate</span>();
+
+        <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">activate</span>() {
+            <span style="color:#a6e22e">getRestaurants</span>();
+        }
+        <span style="color:#75715e">// #endregion
+</span><span style="color:#75715e"></span>
+        <span style="color:#75715e">// #region internal methods
+</span><span style="color:#75715e"></span>
+        <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">getRestaurants</span>() {
+            <span style="color:#a6e22e">restaurantService</span>.<span style="color:#a6e22e">getRestaurants</span>()
+                .<span style="color:#a6e22e">then</span>(<span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">data</span>) {
+                    <span style="color:#a6e22e">vm</span>.<span style="color:#a6e22e">restaurants</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">data</span>;
+                })
+                .<span style="color:#66d9ef">catch</span>(<span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">error</span>) {
+                    <span style="color:#75715e">// error
+</span><span style="color:#75715e"></span>                });
+        }
+
+        <span style="color:#75715e">// #endregion
+</span><span style="color:#75715e"></span>    }
+
+})();
+</code></pre></div>
+<p>The unit testing for this method would look like this</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// unit test
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">describe</span>(<span style="color:#e6db74">&#39;home page&#39;</span>, <span style="color:#66d9ef">function</span> () {
+
+    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">$controller</span>;
+    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">$q</span>;
+    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">restaurantService</span>;
+
+    <span style="color:#a6e22e">beforeEach</span>(<span style="color:#66d9ef">function</span> () {
+
+        <span style="color:#75715e">// load module
+</span><span style="color:#75715e"></span>        <span style="color:#a6e22e">module</span>(<span style="color:#e6db74">&#39;app&#39;</span>);
+
+        <span style="color:#75715e">// overrides for mock injections
+</span><span style="color:#75715e"></span>        <span style="color:#a6e22e">module</span>(<span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">$provide</span>) {
+            <span style="color:#75715e">// override any dependency here
+</span><span style="color:#75715e"></span>            <span style="color:#75715e">// $provide.value(&#39;service&#39;, &#39;override&#39;); 
+</span><span style="color:#75715e"></span>
+        });
+
+        <span style="color:#75715e">// initialise
+</span><span style="color:#75715e"></span>        <span style="color:#a6e22e">inject</span>(<span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">_$controller_</span>, <span style="color:#a6e22e">_$q_</span>, <span style="color:#a6e22e">_restaurantService_</span>) {
+            <span style="color:#a6e22e">$controller</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">_$controller_</span>;
+            <span style="color:#a6e22e">$q</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">_$q_</span>;
+            <span style="color:#a6e22e">restaurantService</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">_restaurantService_</span>;
+        });
+    });
+
+    <span style="color:#a6e22e">describe</span>(<span style="color:#e6db74">&#39;when home controller is initiated&#39;</span>, <span style="color:#66d9ef">function</span> () {
+
+        <span style="color:#a6e22e">it</span>(<span style="color:#e6db74">&#39;should load restaurants&#39;</span>, <span style="color:#66d9ef">function</span> () {
+
+            <span style="color:#a6e22e">restaurantService</span>.<span style="color:#a6e22e">getRestaurants</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>() { <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">$q</span>.<span style="color:#a6e22e">when</span>([<span style="color:#e6db74">&#39;rest1&#39;</span>, <span style="color:#e6db74">&#39;rest2&#39;</span>]); }
+            <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">target</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">$controller</span>(<span style="color:#e6db74">&#39;homeController&#39;</span>, { <span style="color:#a6e22e">restaurantService</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">restaurantService</span> });
+
+            <span style="color:#a6e22e">expect</span>(<span style="color:#a6e22e">target</span>.<span style="color:#a6e22e">restaurants</span>).<span style="color:#a6e22e">toEqual</span>([<span style="color:#e6db74">&#39;rest1&#39;</span>, <span style="color:#e6db74">&#39;rest2&#39;</span>]);
+        });
+
+    });
+});
+</code></pre></div>
+<p>When you run this unit test, it returns error stating that [] is not equal to ['rest1', 'rest2']. This is because callback functions are processed as part of <code>$evalAsync</code> in <code>$digest</code> loop. Unit tests are not in Angular's execution context to run <code>$digest</code> loop automatically so it needs some help to process the callbacks. All we need to do to make it work is to invoke <code>$digest</code> method on controller's scope or any of its parent.</p>
+<p>Here is the updated example,</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// unit test
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">describe</span>(<span style="color:#e6db74">&#39;home page&#39;</span>, <span style="color:#66d9ef">function</span> () {
+
+    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">$controller</span>;
+    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">$q</span>;
+    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">$rootScope</span>;
+    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">restaurantService</span>;
+
+    <span style="color:#a6e22e">beforeEach</span>(<span style="color:#66d9ef">function</span> () {
+
+        <span style="color:#75715e">// load module
+</span><span style="color:#75715e"></span>        <span style="color:#a6e22e">module</span>(<span style="color:#e6db74">&#39;app&#39;</span>);
+
+        <span style="color:#75715e">// overrides for mock injections
+</span><span style="color:#75715e"></span>        <span style="color:#a6e22e">module</span>(<span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">$provide</span>) {
+            <span style="color:#75715e">// override any dependency here
+</span><span style="color:#75715e"></span>            <span style="color:#75715e">// $provide.value(&#39;service&#39;, &#39;override&#39;); 
+</span><span style="color:#75715e"></span>
+        });
+
+        <span style="color:#75715e">// initialise
+</span><span style="color:#75715e"></span>        <span style="color:#a6e22e">inject</span>(<span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">_$controller_</span>, <span style="color:#a6e22e">_$q_</span>, <span style="color:#a6e22e">_$rootScope_</span>, <span style="color:#a6e22e">_restaurantService_</span>) {
+            <span style="color:#a6e22e">$controller</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">_$controller_</span>;
+            <span style="color:#a6e22e">$q</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">_$q_</span>;
+            <span style="color:#a6e22e">$rootScope</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">_$rootScope_</span>;
+            <span style="color:#a6e22e">restaurantService</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">_restaurantService_</span>;
+        });
+    });
+
+    <span style="color:#a6e22e">describe</span>(<span style="color:#e6db74">&#39;when home controller is initiated&#39;</span>, <span style="color:#66d9ef">function</span> () {
+
+        <span style="color:#a6e22e">it</span>(<span style="color:#e6db74">&#39;should load restaurants&#39;</span>, <span style="color:#66d9ef">function</span> () {
+
+            <span style="color:#a6e22e">restaurantService</span>.<span style="color:#a6e22e">getRestaurants</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>() { <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">$q</span>.<span style="color:#a6e22e">when</span>([<span style="color:#e6db74">&#39;rest1&#39;</span>, <span style="color:#e6db74">&#39;rest2&#39;</span>]); }
+            <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">target</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">$controller</span>(<span style="color:#e6db74">&#39;homeController&#39;</span>, { <span style="color:#a6e22e">restaurantService</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">restaurantService</span> });
+            <span style="color:#a6e22e">$rootScope</span>.<span style="color:#a6e22e">$digest</span>();
+
+            <span style="color:#a6e22e">expect</span>(<span style="color:#a6e22e">target</span>.<span style="color:#a6e22e">restaurants</span>).<span style="color:#a6e22e">toEqual</span>([<span style="color:#e6db74">&#39;rest1&#39;</span>, <span style="color:#e6db74">&#39;rest2&#39;</span>]);
+        });
+
+    });
+ });
+</code></pre></div>
+<p>You can find more information on how <code>$digest</code> loop works&nbsp;<a href="https://docs.angularjs.org/guide/scope#integration-with-the-browser-event-loop" target="_blank">here</a>.</p>
+
+
+<footer class=" footline" >
+	
+</footer>
+
+
+        
+        </div> 
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+        
+                    
+                        
+            
+            
+        
+                    
+                        
+            
+            
+        
+                    
+            
+        
+        
+        
+
+
+	 
+	 
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js?1565956016"></script>
+    <script src="/js/perfect-scrollbar.min.js?1565956016"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1565956016"></script>
+    <script src="/js/jquery.sticky.js?1565956016"></script>
+    <script src="/js/featherlight.min.js?1565956016"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1565956016"></script>
+    <script src="/js/highlight.pack.js?1565956016"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom-3.6.0.js?1565956016"></script>
+    <script src="/js/learn.js?1565956016"></script>
+    <script src="/js/hugo-learn.js?1565956016"></script>
+
+    <link href="/mermaid/mermaid.css?1565956016" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1565956016"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    
+
+  </body>
+</html>

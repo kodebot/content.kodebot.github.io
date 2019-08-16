@@ -1,0 +1,385 @@
+
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="generator" content="Hugo 0.54.0" />
+  <meta name="description" content="">
+
+
+  <link rel="icon" href="/images/favicon.ico" type="image/png">
+  <title>Strucuring unit tests :: kodebot</title>
+
+  
+  <link href="/css/nucleus.css?1565956016" rel="stylesheet">
+  <link href="/css/fontawesome-all.min.css?1565956016"
+    rel="stylesheet">
+  <link href="/css/hybrid.css?1565956016" rel="stylesheet">
+  <link href="/css/featherlight.min.css?1565956016" rel="stylesheet">
+  <link href="/css/perfect-scrollbar.min.css?1565956016"
+    rel="stylesheet">
+  <link href="/css/auto-complete.css?1565956016" rel="stylesheet">
+  <link href="/css/atom-one-dark-reasonable.css?1565956016"
+    rel="stylesheet">
+  <link href="/css/theme.css?1565956016" rel="stylesheet">
+  <link href="/css/hugo-theme.css?1565956016" rel="stylesheet">
+  
+  <link href="/css/theme-mine.css?1565956016"
+    rel="stylesheet">
+  
+
+  <script src="/js/jquery-3.3.1.min.js?1565956016"></script>
+
+  <style type="text/css">
+    :root #header+#content>#left>#rlblock_left {
+      display: none !important;
+    }
+
+      {
+        {
+        if .Site.Params.disableInlineCopyToClipBoard
+      }
+    }
+
+    :not(pre)>code+span.copy-to-clipboard {
+      display: none;
+    }
+
+      {
+        {
+        end
+      }
+    }
+  </style>
+  
+</head>
+
+<body class="" data-url="/blog/2015/structuring-unit-tests/">
+  <nav class="main-menu">
+    <div class="logo">
+        <a href="http://kodebot.com/">
+            <img src="/images/logo.png" style="background: white; padding-right: 2px;">
+        </a>
+    </div>
+    <ul>
+        
+        
+        
+                
+        <li >
+            <a href="/blog/" 
+            class="active"
+            >
+                Blog
+            </a>
+        </li>
+
+        
+                
+        <li >
+            <a href="/tutorials/" >
+                Tutorials
+            </a>
+        </li>
+
+        
+                
+        <li >
+            <a href="/about/" >
+                About
+            </a>
+        </li>
+
+        
+        
+    </ul>
+</nav>
+  <section id="body" class="no-sidebar">
+    <div id="overlay"></div>
+    <div class="padding highlightable">
+      
+      <div>
+        
+        
+        <div id="top-bar">
+          
+
+
+          <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+            <span class="links">
+              
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href='/'>Kodebot</a> > <a href='/blog/'>Blog</a> > Strucuring unit tests
+          
+          
+          
+          
+          
+          
+            </span>
+          </div>
+        </div>
+        
+      </div>
+      
+      <div id="head-tags">
+        
+<div class="tags">
+
+  <a class="tag-link" href="/tags/unit-testing">Unit Testing</a>
+
+  <a class="tag-link" href="/tags/c">C#</a>
+
+</div>
+
+      </div>
+      
+        <div id="body-inner">
+          
+          <h1>
+            
+            Strucuring unit tests
+          </h1>
+          
+
+          
+
+<p>I have been following the same unit test structure that Phil Haack described <a href="http://haacked.com/archive/2012/01/02/structuring-unit-tests.aspx/" target="_blank">here</a>. &nbsp;But, I use slightly different version when my tests need too many repeated test setups and cleanups.&nbsp;</p><!-- more -->
+<p>I like <a href="http://jasmine.github.io/" target="_blank">jasmine</a>&nbsp;mainly because it allows to keep the tests <a href="http://en.wikipedia.org/wiki/Don%27t_repeat_yourself" target="_blank">DRY</a>&nbsp;using nested structure. Ofcourse it is possible in jasmine because method nesting is allowed in JavaScript. I like to structure my C# test files the same way using nested classes&nbsp;without using any additional libraries</p>
+<p>For example, consider the following System Under Test class</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs">    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">AddressValidator</span>
+    {
+        <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">bool</span> IsValid(IList&lt;<span style="color:#66d9ef">string</span>&gt; addressLines)
+        {
+            <span style="color:#66d9ef">if</span> (addressLines == <span style="color:#66d9ef">null</span>)
+            {
+                <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> ArgumentNullException(<span style="color:#e6db74">&#34;addressLines&#34;</span>,
+                                                <span style="color:#e6db74">&#34;AddressLines cannot be null&#34;</span>);
+            }
+
+            <span style="color:#66d9ef">if</span> (addressLines.ElementAtOrDefault(<span style="color:#ae81ff">0</span>) != <span style="color:#66d9ef">null</span> &amp;&amp; 
+                addressLines.ElementAtOrDefault(<span style="color:#ae81ff">4</span>) != <span style="color:#66d9ef">null</span>)
+            {
+                <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span>;
+            }
+
+            <span style="color:#66d9ef">if</span> (addressLines.ElementAtOrDefault(<span style="color:#ae81ff">0</span>) != <span style="color:#66d9ef">null</span> &amp;&amp;
+                addressLines.ElementAtOrDefault(<span style="color:#ae81ff">1</span>) != <span style="color:#66d9ef">null</span> &amp;&amp;
+                addressLines.ElementAtOrDefault(<span style="color:#ae81ff">2</span>) != <span style="color:#66d9ef">null</span>)
+            {
+                <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span>;
+            }
+
+            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span>;
+        }
+
+        <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">bool</span> IsNonUkAddress(IEnumerable&lt;<span style="color:#66d9ef">string</span>&gt; addressLines)
+        {
+            <span style="color:#75715e">// return true for UK address
+</span><span style="color:#75715e"></span>            
+            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span>;
+        }
+        
+    }</code></pre></div>
+<p>The test class for this System Under Test looks like this</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#a6e22e">    [TestClass]</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">AddressVaidatorTests</span>
+    {
+
+        <span style="color:#66d9ef">private</span> AddressValidator _target;<span style="color:#a6e22e">
+</span><span style="color:#a6e22e">
+</span><span style="color:#a6e22e">        [TestInitialize]</span>
+        <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">virtual</span> <span style="color:#66d9ef">void</span> TestSetup()
+        {
+            _target = <span style="color:#66d9ef">new</span> AddressValidator();
+            <span style="color:#75715e">// other test setups that are common for all the tests in this file.
+</span><span style="color:#75715e"></span>        }<span style="color:#a6e22e">
+</span><span style="color:#a6e22e">
+</span><span style="color:#a6e22e">        [TestClass]</span>
+        <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TheIsValidMethod</span> : AddressVaidatorTests
+        {<span style="color:#a6e22e">
+</span><span style="color:#a6e22e">
+</span><span style="color:#a6e22e">            [TestInitialize]</span>
+            <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">void</span> TestSetup()
+            {
+                <span style="color:#66d9ef">base</span>.TestSetup();
+                <span style="color:#75715e">// additional test setups applicable for the current method under test
+</span><span style="color:#75715e"></span>            }<span style="color:#a6e22e">
+</span><span style="color:#a6e22e">
+</span><span style="color:#a6e22e">            [TestClass]</span>
+            <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">WhenTheAddressIsNull</span> : TheIsValidMethod
+            {
+
+                <span style="color:#75715e">// add test initialiser here to setup anything that are 
+</span><span style="color:#75715e"></span>                <span style="color:#75715e">// applicable for the current scenario
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">
+</span><span style="color:#a6e22e">                [TestMethod]
+</span><span style="color:#a6e22e">                [ExpectedException(typeof(ArgumentNullException))]</span>
+                <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> ShouldThrowArgumentNullException()
+                {
+                    <span style="color:#75715e">// arrange
+</span><span style="color:#75715e"></span>                    List&lt;<span style="color:#66d9ef">string</span>&gt; inputAddress = <span style="color:#66d9ef">null</span>;
+
+                    <span style="color:#75715e">// act
+</span><span style="color:#75715e"></span>                    _target.IsValid(inputAddress);
+
+                    <span style="color:#75715e">// assert
+</span><span style="color:#75715e"></span>                    <span style="color:#75715e">// expected exception - ArgumentNullException.
+</span><span style="color:#75715e"></span>
+                }
+
+                <span style="color:#75715e">// add test cleanups here
+</span><span style="color:#75715e"></span>
+            }<span style="color:#a6e22e">
+</span><span style="color:#a6e22e">
+</span><span style="color:#a6e22e">            [TestClass]</span>
+            <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">WhenAddressLine1AndPostcodeArePresent</span> : TheIsValidMethod
+            {
+
+                <span style="color:#75715e">// add test initialiser here to setup anything that are 
+</span><span style="color:#75715e"></span>                <span style="color:#75715e">// applicable for the current scenario
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">
+</span><span style="color:#a6e22e">                [TestMethod]</span>
+                <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> ShouldReturnTrue()
+                {
+                    <span style="color:#75715e">// arrange
+</span><span style="color:#75715e"></span>                    <span style="color:#66d9ef">var</span> inputAddress = <span style="color:#66d9ef">new</span> List&lt;<span style="color:#66d9ef">string</span>&gt;()
+                    {
+                        <span style="color:#e6db74">&#34;Address1&#34;</span>, <span style="color:#66d9ef">null</span>, <span style="color:#66d9ef">null</span>, <span style="color:#66d9ef">null</span>, <span style="color:#e6db74">&#34;Postcode&#34;</span>
+                    };
+
+                    <span style="color:#75715e">// act
+</span><span style="color:#75715e"></span>                    <span style="color:#66d9ef">var</span> actual = _target.IsValid(inputAddress);
+
+                    <span style="color:#75715e">// assert
+</span><span style="color:#75715e"></span>                    Assert.IsTrue(actual);
+
+                }
+
+                <span style="color:#75715e">// add test cleanups here
+</span><span style="color:#75715e"></span>
+            }
+
+            <span style="color:#75715e">// add test cleanups here
+</span><span style="color:#75715e"></span>
+        }<span style="color:#a6e22e">
+</span><span style="color:#a6e22e">
+</span><span style="color:#a6e22e">        [TestClass]</span>
+        <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TheIsUkAddressMethod</span> : AddressValidator
+        {
+            <span style="color:#75715e">// tests
+</span><span style="color:#75715e"></span>        }<span style="color:#a6e22e">
+</span><span style="color:#a6e22e">
+</span><span style="color:#a6e22e">        [TestCleanup]</span>
+        <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">virtual</span> <span style="color:#66d9ef">void</span> TestCleanup()
+        {
+            <span style="color:#75715e">// any cleanups
+</span><span style="color:#75715e"></span>        }
+
+    }</code></pre></div>
+<p>So, the first improvement is creating nested test classes for each scenario. This allows us&nbsp;to create test inputs applicable for the current scenario only once regarless of the number of tests defined in the scenario.&nbsp;</p>
+<p>Next one is keeping <code>TestSetup()</code> and <code>TestCleanup()</code> virtual so that we can add additional setups/cleanups by chaining method calls using base keyword. This also allows us to completly replace the setup/cleanup if it is required for any special cases by overriding the methods without chaining.&nbsp;</p>
+<p>One of the additional benefit of this structuring is that when you group tests by class in the Test Explorer, the tests are nicely arranged&nbsp;like this</p>
+
+<figure>
+	<img src="/blog/2015/structuring-unit-tests/images/test-explorer.png" alt="" />
+	<figcaption></figcaption>
+</figure>
+
+
+<p>&nbsp;</p>
+
+
+<footer class=" footline" >
+	
+</footer>
+
+
+        
+        </div> 
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+        
+                    
+                        
+            
+            
+        
+                    
+                        
+            
+            
+        
+                    
+            
+        
+        
+        
+
+
+	 
+	 
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js?1565956016"></script>
+    <script src="/js/perfect-scrollbar.min.js?1565956016"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1565956016"></script>
+    <script src="/js/jquery.sticky.js?1565956016"></script>
+    <script src="/js/featherlight.min.js?1565956016"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1565956016"></script>
+    <script src="/js/highlight.pack.js?1565956016"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom-3.6.0.js?1565956016"></script>
+    <script src="/js/learn.js?1565956016"></script>
+    <script src="/js/hugo-learn.js?1565956016"></script>
+
+    <link href="/mermaid/mermaid.css?1565956016" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1565956016"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    
+
+  </body>
+</html>

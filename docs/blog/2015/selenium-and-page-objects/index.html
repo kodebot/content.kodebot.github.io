@@ -1,0 +1,342 @@
+
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="generator" content="Hugo 0.54.0" />
+  <meta name="description" content="">
+
+
+  <link rel="icon" href="/images/favicon.ico" type="image/png">
+  <title>Selenium and Page Objects :: kodebot</title>
+
+  
+  <link href="/css/nucleus.css?1565956016" rel="stylesheet">
+  <link href="/css/fontawesome-all.min.css?1565956016"
+    rel="stylesheet">
+  <link href="/css/hybrid.css?1565956016" rel="stylesheet">
+  <link href="/css/featherlight.min.css?1565956016" rel="stylesheet">
+  <link href="/css/perfect-scrollbar.min.css?1565956016"
+    rel="stylesheet">
+  <link href="/css/auto-complete.css?1565956016" rel="stylesheet">
+  <link href="/css/atom-one-dark-reasonable.css?1565956016"
+    rel="stylesheet">
+  <link href="/css/theme.css?1565956016" rel="stylesheet">
+  <link href="/css/hugo-theme.css?1565956016" rel="stylesheet">
+  
+  <link href="/css/theme-mine.css?1565956016"
+    rel="stylesheet">
+  
+
+  <script src="/js/jquery-3.3.1.min.js?1565956016"></script>
+
+  <style type="text/css">
+    :root #header+#content>#left>#rlblock_left {
+      display: none !important;
+    }
+
+      {
+        {
+        if .Site.Params.disableInlineCopyToClipBoard
+      }
+    }
+
+    :not(pre)>code+span.copy-to-clipboard {
+      display: none;
+    }
+
+      {
+        {
+        end
+      }
+    }
+  </style>
+  
+</head>
+
+<body class="" data-url="/blog/2015/selenium-and-page-objects/">
+  <nav class="main-menu">
+    <div class="logo">
+        <a href="http://kodebot.com/">
+            <img src="/images/logo.png" style="background: white; padding-right: 2px;">
+        </a>
+    </div>
+    <ul>
+        
+        
+        
+                
+        <li >
+            <a href="/blog/" 
+            class="active"
+            >
+                Blog
+            </a>
+        </li>
+
+        
+                
+        <li >
+            <a href="/tutorials/" >
+                Tutorials
+            </a>
+        </li>
+
+        
+                
+        <li >
+            <a href="/about/" >
+                About
+            </a>
+        </li>
+
+        
+        
+    </ul>
+</nav>
+  <section id="body" class="no-sidebar">
+    <div id="overlay"></div>
+    <div class="padding highlightable">
+      
+      <div>
+        
+        
+        <div id="top-bar">
+          
+
+
+          <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+            <span class="links">
+              
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href='/'>Kodebot</a> > <a href='/blog/'>Blog</a> > Selenium and Page Objects
+          
+          
+          
+          
+          
+          
+            </span>
+          </div>
+        </div>
+        
+      </div>
+      
+      <div id="head-tags">
+        
+<div class="tags">
+
+  <a class="tag-link" href="/tags/c">C#</a>
+
+  <a class="tag-link" href="/tags/e2e-testing">e2e-testing</a>
+
+</div>
+
+      </div>
+      
+        <div id="body-inner">
+          
+          <h1>
+            
+            Selenium and Page Objects
+          </h1>
+          
+
+          
+
+<p>I use&nbsp;<a href="http://docs.seleniumhq.org/" target="_blank">Selenium</a>&nbsp;or <a href="http://angular.github.io/protractor/#/" target="_blank">Protractor</a>&nbsp;for E2E tests that require browser automation. I prefer to use Selenium when I want to write my tests in C# and Protractor for AngularJS applications.</p><!-- more -->
+<p>It doesn't matter what tool/framework you use, if you want to bring in structure and make your test code reusable when dealing with any UI automation then Page Object is your friend.</p>
+<p>I have been creating my Page Objects incorrectly with two major flaws until I read <a href="http://martinfowler.com/bliki/PageObject.html" target="_blank">this</a>&nbsp;great article from Martin Fowler. The flaws in my Page Objects were</p>
+<ol>
+<li>Only one Page Object Type per page or screen</li>
+<li>Expose tool specific objects</li>
+</ol>
+<p>When only one page object is created for the entire page or screen that you are trying to automate then, the&nbsp;object will have too many things to do and if the the page or screen has shared sections then all your page objects will have duplicate code.</p>
+<p>Likewise, if the&nbsp;page object exposes any objects from underlying tools/frameworks then you will create hard dependencies between you test code and test tools/framework which will create challenges when you want to replace your tool/framework with other or when you want to upgrade from one version to another.&nbsp;</p>
+<p>Here is the sample Page Objects I created to search and get the results from&nbsp;Bing using Selenium</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs">    <span style="color:#75715e">// Search Page
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">BingSearch</span>
+    {
+        <span style="color:#66d9ef">private</span> IWebElement _searchTerm;
+        <span style="color:#66d9ef">private</span> List&lt;BingSearchResult&gt; _searchResults;
+
+        <span style="color:#66d9ef">public</span> BingSearch()
+        {
+            Browser.GoTo(<span style="color:#e6db74">&#34;http://www.bing.com&#34;</span>);
+        }
+
+        <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">string</span> SearchTerm
+        {
+            <span style="color:#66d9ef">get</span>
+            {
+                <span style="color:#66d9ef">return</span> _searchTerm.Text;
+            }
+            <span style="color:#66d9ef">set</span>
+            {
+                _searchTerm = _searchTerm ?? Browser.WebDriver.FindElement(By.Name(<span style="color:#e6db74">&#34;q&#34;</span>));
+                _searchTerm.SendKeys(<span style="color:#66d9ef">value</span>);
+            }
+        }
+
+        <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> Search()
+        {
+            <span style="color:#66d9ef">if</span> (_searchTerm != <span style="color:#66d9ef">null</span>)
+            {
+                <span style="color:#66d9ef">if</span> (_searchResults != <span style="color:#66d9ef">null</span>)
+                {
+                    _searchResults.Clear();
+                }
+
+                _searchTerm.Submit();
+            }
+        }
+
+        <span style="color:#66d9ef">public</span> List&lt;BingSearchResult&gt; SearchResults
+        {
+            <span style="color:#66d9ef">get</span>
+            {
+                _searchResults = _searchResults ?? <span style="color:#66d9ef">new</span> List&lt;BingSearchResult&gt;();
+
+                <span style="color:#66d9ef">if</span> (!_searchResults.Any())
+                {
+                    <span style="color:#66d9ef">var</span> elements = Browser.WebDriver.FindElements(By.CssSelector(<span style="color:#e6db74">&#34;.b_algo a&#34;</span>));
+
+                    <span style="color:#66d9ef">foreach</span> (<span style="color:#66d9ef">var</span> element <span style="color:#66d9ef">in</span> elements)
+                    {
+                        _searchResults.Add(<span style="color:#66d9ef">new</span> BingSearchResult()
+                        {
+                            DisplayText = element.Text,
+                            Link = element.GetAttribute(<span style="color:#e6db74">&#34;href&#34;</span>)
+
+                        });
+                    }
+                }
+
+                <span style="color:#66d9ef">return</span> _searchResults;
+            }
+
+        }
+    }</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs">    <span style="color:#75715e">// Search Result
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">BingSearchResult</span>
+    {
+        <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">string</span> DisplayText { <span style="color:#66d9ef">get</span>; <span style="color:#66d9ef">set</span>; }
+        <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">string</span> Link { <span style="color:#66d9ef">get</span>; <span style="color:#66d9ef">set</span>; }
+    }</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs">    <span style="color:#75715e">// Browser abstraction 
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Browser</span>
+    {
+        <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> IWebDriver _driver;
+        <span style="color:#66d9ef">static</span> Browser()
+        {
+            _driver = <span style="color:#66d9ef">new</span> FirefoxDriver();
+            _driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(<span style="color:#ae81ff">10</span>));
+        }
+        <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> GoTo(<span style="color:#66d9ef">string</span> url)
+        {
+            _driver.Navigate().GoToUrl(url);
+        }
+
+        <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> IWebDriver WebDriver { <span style="color:#66d9ef">get</span> { <span style="color:#66d9ef">return</span> _driver; } }
+
+        <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> Close()
+        {
+            _driver.Close();
+        }
+    }</code></pre></div>
+<p>If you look at the <code>BingSearch</code> class it doesn&rsquo;t expose any Selenium objects but it has a list for <code>SearchResults</code> which uses <code>BingSearchResult</code> as its generic type. The <code>BingSearchResult</code> represents only one result in the page. Because I don&rsquo;t want to page through the search result I didn&rsquo;t bother creating any type to support it.</p>
+
+<p>Browser is represented using static class in this sample but it doesn&rsquo;t have to be static class.</p>
+
+
+<footer class=" footline" >
+	
+</footer>
+
+
+        
+        </div> 
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+        
+                    
+                        
+            
+            
+        
+                    
+                        
+            
+            
+        
+                    
+            
+        
+        
+        
+
+
+	 
+	 
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js?1565956016"></script>
+    <script src="/js/perfect-scrollbar.min.js?1565956016"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1565956016"></script>
+    <script src="/js/jquery.sticky.js?1565956016"></script>
+    <script src="/js/featherlight.min.js?1565956016"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1565956016"></script>
+    <script src="/js/highlight.pack.js?1565956016"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom-3.6.0.js?1565956016"></script>
+    <script src="/js/learn.js?1565956016"></script>
+    <script src="/js/hugo-learn.js?1565956016"></script>
+
+    <link href="/mermaid/mermaid.css?1565956016" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1565956016"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    
+
+  </body>
+</html>

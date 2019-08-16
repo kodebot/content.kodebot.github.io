@@ -1,0 +1,289 @@
+
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="generator" content="Hugo 0.54.0" />
+  <meta name="description" content="">
+
+
+  <link rel="icon" href="/images/favicon.ico" type="image/png">
+  <title>ASP.NET MVC 5 - JsonResult with Http Status Code 400 :: kodebot</title>
+
+  
+  <link href="/css/nucleus.css?1565956016" rel="stylesheet">
+  <link href="/css/fontawesome-all.min.css?1565956016"
+    rel="stylesheet">
+  <link href="/css/hybrid.css?1565956016" rel="stylesheet">
+  <link href="/css/featherlight.min.css?1565956016" rel="stylesheet">
+  <link href="/css/perfect-scrollbar.min.css?1565956016"
+    rel="stylesheet">
+  <link href="/css/auto-complete.css?1565956016" rel="stylesheet">
+  <link href="/css/atom-one-dark-reasonable.css?1565956016"
+    rel="stylesheet">
+  <link href="/css/theme.css?1565956016" rel="stylesheet">
+  <link href="/css/hugo-theme.css?1565956016" rel="stylesheet">
+  
+  <link href="/css/theme-mine.css?1565956016"
+    rel="stylesheet">
+  
+
+  <script src="/js/jquery-3.3.1.min.js?1565956016"></script>
+
+  <style type="text/css">
+    :root #header+#content>#left>#rlblock_left {
+      display: none !important;
+    }
+
+      {
+        {
+        if .Site.Params.disableInlineCopyToClipBoard
+      }
+    }
+
+    :not(pre)>code+span.copy-to-clipboard {
+      display: none;
+    }
+
+      {
+        {
+        end
+      }
+    }
+  </style>
+  
+</head>
+
+<body class="" data-url="/blog/2015/aspnet-mvc-5-jsonresult-with-http-status-code-400/">
+  <nav class="main-menu">
+    <div class="logo">
+        <a href="http://kodebot.com/">
+            <img src="/images/logo.png" style="background: white; padding-right: 2px;">
+        </a>
+    </div>
+    <ul>
+        
+        
+        
+                
+        <li >
+            <a href="/blog/" 
+            class="active"
+            >
+                Blog
+            </a>
+        </li>
+
+        
+                
+        <li >
+            <a href="/tutorials/" >
+                Tutorials
+            </a>
+        </li>
+
+        
+                
+        <li >
+            <a href="/about/" >
+                About
+            </a>
+        </li>
+
+        
+        
+    </ul>
+</nav>
+  <section id="body" class="no-sidebar">
+    <div id="overlay"></div>
+    <div class="padding highlightable">
+      
+      <div>
+        
+        
+        <div id="top-bar">
+          
+
+
+          <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+            <span class="links">
+              
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href='/'>Kodebot</a> > <a href='/blog/'>Blog</a> > ASP.NET MVC 5 - JsonResult with Http Status Code 400
+          
+          
+          
+          
+          
+          
+            </span>
+          </div>
+        </div>
+        
+      </div>
+      
+      <div id="head-tags">
+        
+<div class="tags">
+
+  <a class="tag-link" href="/tags/asp.net">ASP.NET</a>
+
+  <a class="tag-link" href="/tags/mvc">MVC</a>
+
+</div>
+
+      </div>
+      
+        <div id="body-inner">
+          
+          <h1>
+            
+            ASP.NET MVC 5 - JsonResult with Http Status Code 400
+          </h1>
+          
+
+          
+
+<p>ASP.NET Web API 2 introduced several helper methods like Ok, NotFound, BadRequest, etc… . This allows us to write code which makes its intentions clear.</p>
+
+<p>In recent times, I have been working in semi-single page application which uses ASP.NET MVC 5 and AngularJS. The application is designed in a way that, there is only one view per feature and each view is SPA. So, each ASP.NET MVC controller have only one GET action that returns the view and rest of the communication is using actions that returns JsonResult that can be used by client in AJAX style just like consuming Web API.
+With this design, I have to send JsonResult for everything, but, the Http Status Code has to be set appropriately so that the client can use them for any processing that it needs to do based on the Status Code.</p>
+
+<p>First, I set the status code directly in Response in the action method and then returned JsonResult like this:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs">Response.StatusCode = <span style="color:#ae81ff">400</span>;
+<span style="color:#66d9ef">return</span> Json(data);</code></pre></div>
+<p>Soon, I noticed doing this in too many places and I though this is obscure. To address this, I created a custom result type called <code>BadRequest</code> and moved this code into that class and I used the BadRequest class in my action methods. This made the code more intention revealing and DRY.</p>
+<p>Here is the code for BadRequest ActionResult:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">BadRequest</span> : JsonResult
+{
+    <span style="color:#66d9ef">public</span> BadRequest()
+    {
+    }
+
+    <span style="color:#66d9ef">public</span> BadRequest(<span style="color:#66d9ef">string</span> message)
+    {
+        <span style="color:#66d9ef">this</span>.Data = message;
+    }
+
+    <span style="color:#66d9ef">public</span> BadRequest(<span style="color:#66d9ef">object</span> data)
+    {
+        <span style="color:#66d9ef">this</span>.Data = data;
+    }
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">void</span> ExecuteResult(ControllerContext context)
+    {
+        context.RequestContext.HttpContext.Response.StatusCode = <span style="color:#ae81ff">400</span>;
+        <span style="color:#66d9ef">base</span>.ExecuteResult(context);
+    }
+
+}</code></pre></div>
+<p>Here is how you use it:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#a6e22e">[HttpPost]</span>
+<span style="color:#66d9ef">public</span> ActionResult Add(Author author, HttpPostedFileBase photoContent)
+{
+    <span style="color:#66d9ef">if</span> (author == <span style="color:#66d9ef">null</span>)
+    {
+        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> BadRequest(<span style="color:#e6db74">&#34;Invalid author details.&#34;</span>);
+    }
+
+    .
+    .
+    .
+}</code></pre></div>
+<p>You can create similar classes for all other type of results that you would want to send to client. </p>
+<p>As always, please let me know if there is a better way for doing this.</p>
+
+
+<footer class=" footline" >
+	
+</footer>
+
+
+        
+        </div> 
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+        
+                    
+                        
+            
+            
+        
+                    
+                        
+            
+            
+        
+                    
+            
+        
+        
+        
+
+
+	 
+	 
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js?1565956016"></script>
+    <script src="/js/perfect-scrollbar.min.js?1565956016"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1565956016"></script>
+    <script src="/js/jquery.sticky.js?1565956016"></script>
+    <script src="/js/featherlight.min.js?1565956016"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1565956016"></script>
+    <script src="/js/highlight.pack.js?1565956016"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom-3.6.0.js?1565956016"></script>
+    <script src="/js/learn.js?1565956016"></script>
+    <script src="/js/hugo-learn.js?1565956016"></script>
+
+    <link href="/mermaid/mermaid.css?1565956016" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1565956016"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    
+
+  </body>
+</html>

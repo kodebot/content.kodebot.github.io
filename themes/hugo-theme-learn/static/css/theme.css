@@ -1,4 +1,8 @@
 @charset "UTF-8";
+
+/* Tags */
+@import "tags.css";
+
 #top-github-link, #body #breadcrumbs {
     position: relative;
     top: 50%;
@@ -423,7 +427,7 @@ textarea:focus, input[type="email"]:focus, input[type="number"]:focus, input[typ
     max-width: 80%;
 }
 #chapter h3 {
-    font-family: "muli", "avenir","Georgia", "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
+    font-family: "Work Sans", "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
     font-weight: 300;
     text-align: center;
 }
@@ -444,23 +448,23 @@ textarea:focus, input[type="email"]:focus, input[type="number"]:focus, input[typ
     margin: 0;
 }
 body {
-    font-family: -apple-system, "muli", "avenir","Georgia", "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
+    font-family: "Work Sans", "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
     font-weight: 300;
     line-height: 1.6;
     font-size: 18px !important;
 }
 h2, h3, h4, h5, h6 {
-    font-family: "muli", "avenir", "Georgia",  "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
+    font-family: "Work Sans", "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
     text-rendering: optimizeLegibility;
-    color: #444;
+    color: #5e5e5e;
     font-weight: 400;
     letter-spacing: -1px;
 }
 h1 {
-    font-family: "muli", "avenir","Georgia","Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
+    font-family: "Novacento Sans Wide", "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
     text-align: center;
     text-transform: uppercase;
-    color: #444;
+    color: #222;
     font-weight: 200;
 }
 blockquote {
@@ -642,7 +646,7 @@ code + .copy-to-clipboard {
 pre {
     padding: 1rem;
     margin: 2rem 0;
-    background: #1d1f21;
+    background: #282c34;
     border: 0;
     border-radius: 2px;
     line-height: 1.15;
@@ -798,7 +802,7 @@ td {
     z-index: 1000000;
     display: none;
     padding: 5px 8px;
-    font: normal normal 11px/1.5 "muli", "avenir","Georgia", "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
+    font: normal normal 11px/1.5 "Work Sans", "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
     color: #fff;
     text-align: center;
     text-decoration: none;
@@ -1074,7 +1078,7 @@ pre .copy-to-clipboard {
     position: absolute;
     right: 4px;
     top: 4px;
-    background-color: #4d5257;
+    background-color: #949bab;
     color: #ccc;
     border-radius: 2px;
 }
@@ -1117,7 +1121,7 @@ pre .copy-to-clipboard:hover {
 }
 
 #sidebar #shortcuts h3 {
-    font-family: "muli", "avenir", "Georgia", "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
+    font-family: "Novacento Sans Wide", "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
     color: white ;
     margin-top:1rem;
     padding-left: 1rem;
