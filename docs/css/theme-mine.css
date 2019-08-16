@@ -2,7 +2,7 @@
 
 /* my override font import */
 @import url('https://fonts.googleapis.com/css?family=Muli');
-@import url('https://fonts.googleapis.com/css?family=Avenir');
+@import url('https://fonts.googleapis.com/css?family=Nunito');
 /* my override font import end */
 
 :root{
@@ -120,24 +120,24 @@ a:hover {
 
 body{
     font-size: 18px !important;
-    font-family: "muli", "avenir", "Georgia", "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
+    font-family: "muli", "Nunito", "Georgia", "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
 }
 
 #chapter h3 {
-    font-family: "muli", "avenir", "Georgia" "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
+    font-family: "muli", "Nunito", "Georgia" "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: "muli", "avenir", "Georgia", "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
+    font-family: "muli", "Nunito", "Georgia", "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
     columns: #444;
 }
 
 blockquote {
-    font: normal normal 11px/1.5 "muli", "avenir", "Georgia", "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
+    font: normal normal 11px/1.5 "muli", "Nunito", "Georgia", "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
 }
 
 #sidebar #shortcuts h3 {
-    font-family: "muli", "avenir", "Georgia", "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
+    font-family: "muli", "Nunito", "Georgia", "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
 }
 
 h2{
