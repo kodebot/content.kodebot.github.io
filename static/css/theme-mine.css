@@ -225,6 +225,7 @@ h1{
     .main-menu .logo{
         display: block;
         margin: 0 auto;
+        padding-top: 5px;
     }
     .main-menu > ul > li > a{
         padding-top: 3px;

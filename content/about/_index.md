@@ -8,4 +8,9 @@ disableBreadcrumb: true
 ---
 
 
-I am independent software developer based in UK. This is my business website. I use this space to for tutorials, blog posts and as a host for my pet projects.
+We are software consultancy based in Leeds, UK. We use this space for tutorials, blog posts and as a host for our open source projects and tools/apps.
+
+We develop website and mobile apps for your requirement.
+
+## Contact Us
+email: [info@kodebot.com](mailto:info@kodebot.com)
