@@ -1,4 +1,4 @@
-baseURL = "http://kodebot.com/"
+baseURL = "https://kodebot.com/"
 languageCode = "en-GB"
 title = "kodebot"
 theme = "hugo-theme-learn"

@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Library on kodebot</title>
-    <link>http://kodebot.com/tags/library/</link>
+    <link>https://kodebot.com/tags/library/</link>
     <description>Recent content in Library on kodebot</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-GB</language>
     <lastBuildDate>Wed, 20 May 2015 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://kodebot.com/tags/library/feed.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://kodebot.com/tags/library/feed.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>How to isolate AutoMapper in Unit Tests?</title>
-      <link>http://kodebot.com/blog/2015/how-to-mock-automapper-in-unit-tests/</link>
+      <link>https://kodebot.com/blog/2015/how-to-mock-automapper-in-unit-tests/</link>
       <pubDate>Wed, 20 May 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://kodebot.com/blog/2015/how-to-mock-automapper-in-unit-tests/</guid>
+      <guid>https://kodebot.com/blog/2015/how-to-mock-automapper-in-unit-tests/</guid>
       <description>Introduction
 When it comes to Unit testing, the rule is to isolate&amp;nbsp;all the dependencies and focus only on the unit of code you are testing. I have been silently ignoring this for AutoMapper until I found a proper way to isolate and replace the behavior of mapping.
 When I was looking for a proper way to do this, I come across many posts but none of them were having full working example without any additional layer between the function/class that wants to use AutoMapper and AutoMapper itself.</description>

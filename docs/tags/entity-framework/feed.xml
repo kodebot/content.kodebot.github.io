@@ -2,30 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Entity Framework on kodebot</title>
-    <link>http://kodebot.com/tags/entity-framework/</link>
+    <link>https://kodebot.com/tags/entity-framework/</link>
     <description>Recent content in Entity Framework on kodebot</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-GB</language>
     <lastBuildDate>Thu, 13 Aug 2015 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://kodebot.com/tags/entity-framework/feed.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://kodebot.com/tags/entity-framework/feed.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Unit Testing Entity Framework async Queries</title>
-      <link>http://kodebot.com/blog/2015/unit-testing-entity-framework-async-queries/</link>
+      <link>https://kodebot.com/blog/2015/unit-testing-entity-framework-async-queries/</link>
       <pubDate>Thu, 13 Aug 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://kodebot.com/blog/2015/unit-testing-entity-framework-async-queries/</guid>
+      <guid>https://kodebot.com/blog/2015/unit-testing-entity-framework-async-queries/</guid>
       <description>Introduction In my last article, we have seen how to unit test Entity Framework queries. Now, let&amp;rsquo;s look at how to unit test async queries. When using async tasks, if we don&amp;rsquo;t use it all the way then we are not using async tasks properly. For example, if you have async action method in your controller which queries database synchronously to send some data to the requester, then we are NOT using async properly as the thread is blocked during database operation.</description>
     </item>
     
     <item>
       <title>Unit Testing Entity Framework Queries</title>
-      <link>http://kodebot.com/blog/2015/unit-testing-entity-framework-queries/</link>
+      <link>https://kodebot.com/blog/2015/unit-testing-entity-framework-queries/</link>
       <pubDate>Mon, 10 Aug 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://kodebot.com/blog/2015/unit-testing-entity-framework-queries/</guid>
+      <guid>https://kodebot.com/blog/2015/unit-testing-entity-framework-queries/</guid>
       <description>Introduction When writing unit tests, we should test only one thing at once and isolate the system under test(SUT) from all the dependencies. We should follow the same approach for any LINQ queries you write to retrieve data from the underlying Database. But, I have seen many developers excluding the whole data access layer from unit testing. This is not right approach to follow IMHO. Many developers don&amp;rsquo;t bother unit testing data access layer because of the perceived effort and complexity involved in isolating the data access layer from underlying Database and ORM tools like Entity Framework.</description>
     </item>
     

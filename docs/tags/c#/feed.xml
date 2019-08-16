@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>C# on kodebot</title>
-    <link>http://kodebot.com/tags/c#/</link>
+    <link>https://kodebot.com/tags/c#/</link>
     <description>Recent content in C# on kodebot</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-GB</language>
     <lastBuildDate>Thu, 09 Apr 2015 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://kodebot.com/tags/c#/feed.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://kodebot.com/tags/c#/feed.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>TPL Task and Windows Identity Impersonation - The beauty of Closure</title>
-      <link>http://kodebot.com/blog/2015/tpl-task-and-windows-identity-impersonation-the-beauty-of-closure/</link>
+      <link>https://kodebot.com/blog/2015/tpl-task-and-windows-identity-impersonation-the-beauty-of-closure/</link>
       <pubDate>Thu, 09 Apr 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://kodebot.com/blog/2015/tpl-task-and-windows-identity-impersonation-the-beauty-of-closure/</guid>
+      <guid>https://kodebot.com/blog/2015/tpl-task-and-windows-identity-impersonation-the-beauty-of-closure/</guid>
       <description>I have created a web application with Windows Authentication and impersonation is enabled as I need the application connect to SQL Server database using Windows Authentication.
 I wanted&amp;nbsp;to run a TPL task in the impersonated context, so, I added the following code naively in a&amp;nbsp;action method of one of my controllers
 // naive task code  Task.Run(() =&amp;gt; { // Task code here }); Though, this answer&amp;nbsp;suggests that tasks will run under the same context under which it was created, it wasn&#39;t working that way in my case.</description>
@@ -24,10 +24,10 @@ I wanted&amp;nbsp;to run a TPL task in the impersonated context, so, I added the
     
     <item>
       <title>Selenium and Page Objects</title>
-      <link>http://kodebot.com/blog/2015/selenium-and-page-objects/</link>
+      <link>https://kodebot.com/blog/2015/selenium-and-page-objects/</link>
       <pubDate>Mon, 06 Apr 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://kodebot.com/blog/2015/selenium-and-page-objects/</guid>
+      <guid>https://kodebot.com/blog/2015/selenium-and-page-objects/</guid>
       <description>I use&amp;nbsp;Selenium&amp;nbsp;or Protractor&amp;nbsp;for E2E tests that require browser automation. I prefer to use Selenium when I want to write my tests in C# and Protractor for AngularJS applications.
 It doesn&#39;t matter what tool/framework you use, if you want to bring in structure and make your test code reusable when dealing with any UI automation then Page Object is your friend.
 I have been creating my Page Objects incorrectly with two major flaws until I read this&amp;nbsp;great article from Martin Fowler.</description>
@@ -35,10 +35,10 @@ I have been creating my Page Objects incorrectly with two major flaws until I re
     
     <item>
       <title>NSequenceComparer to compare two sequences</title>
-      <link>http://kodebot.com/blog/2015/nsequencecomparer-to-compare-two-sequences/</link>
+      <link>https://kodebot.com/blog/2015/nsequencecomparer-to-compare-two-sequences/</link>
       <pubDate>Sat, 21 Mar 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://kodebot.com/blog/2015/nsequencecomparer-to-compare-two-sequences/</guid>
+      <guid>https://kodebot.com/blog/2015/nsequencecomparer-to-compare-two-sequences/</guid>
       <description>I had a requirement&amp;nbsp;to compare two sequences to find the differences in .NET platform. To compare large sequences, I needed an algorithm that&amp;nbsp;does not use recursion.&amp;nbsp;I could not find anything in the internet that I can use out of the box, so, I created&amp;nbsp;this nuget package
 This package is very simple to use, you can read usage instructions&amp;nbsp;here
 Feel free to use and contribute.</description>
@@ -46,20 +46,20 @@ Feel free to use and contribute.</description>
     
     <item>
       <title>Strucuring unit tests</title>
-      <link>http://kodebot.com/blog/2015/structuring-unit-tests/</link>
+      <link>https://kodebot.com/blog/2015/structuring-unit-tests/</link>
       <pubDate>Mon, 16 Mar 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://kodebot.com/blog/2015/structuring-unit-tests/</guid>
+      <guid>https://kodebot.com/blog/2015/structuring-unit-tests/</guid>
       <description>I have been following the same unit test structure that Phil Haack described here. &amp;nbsp;But, I use slightly different version when my tests need too many repeated test setups and cleanups.&amp;nbsp;
 I like jasmine&amp;nbsp;mainly because it allows to keep the tests DRY&amp;nbsp;using nested structure. Ofcourse it is possible in jasmine because method nesting is allowed in JavaScript. I like to structure my C# test files the same way using nested classes&amp;nbsp;without using any additional libraries</description>
     </item>
     
     <item>
       <title>Decorator over Inheritance hierarchy</title>
-      <link>http://kodebot.com/blog/2015/decorator-over-inheritance-hierarchy/</link>
+      <link>https://kodebot.com/blog/2015/decorator-over-inheritance-hierarchy/</link>
       <pubDate>Sun, 15 Mar 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://kodebot.com/blog/2015/decorator-over-inheritance-hierarchy/</guid>
+      <guid>https://kodebot.com/blog/2015/decorator-over-inheritance-hierarchy/</guid>
       <description>I have used inheritance to solve a problem in many situations - some of them are correct and some of them are not when thinking about it now.
  When you are in a situation where you think you need multi-level inheritance, 9 out of 10 times you can solve the same problem using decorators.
  One of the problems I have seen recently which fits in this pattern is the implementation of ICommand interface.</description>

@@ -2,165 +2,165 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on kodebot</title>
-    <link>http://kodebot.com/tags/</link>
+    <link>https://kodebot.com/tags/</link>
     <description>Recent content in Tags on kodebot</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-GB</language>
     <lastBuildDate>Tue, 16 Jun 2015 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://kodebot.com/tags/feed.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://kodebot.com/tags/feed.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Angularjs</title>
-      <link>http://kodebot.com/tags/angularjs/</link>
+      <link>https://kodebot.com/tags/angularjs/</link>
       <pubDate>Tue, 16 Jun 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://kodebot.com/tags/angularjs/</guid>
+      <guid>https://kodebot.com/tags/angularjs/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Apache Cordova</title>
-      <link>http://kodebot.com/tags/apache-cordova/</link>
+      <link>https://kodebot.com/tags/apache-cordova/</link>
       <pubDate>Fri, 17 Jul 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://kodebot.com/tags/apache-cordova/</guid>
+      <guid>https://kodebot.com/tags/apache-cordova/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Apps</title>
-      <link>http://kodebot.com/tags/apps/</link>
+      <link>https://kodebot.com/tags/apps/</link>
       <pubDate>Fri, 17 Jul 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://kodebot.com/tags/apps/</guid>
+      <guid>https://kodebot.com/tags/apps/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Asp.net</title>
-      <link>http://kodebot.com/tags/asp.net/</link>
+      <link>https://kodebot.com/tags/asp.net/</link>
       <pubDate>Fri, 19 Jun 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://kodebot.com/tags/asp.net/</guid>
+      <guid>https://kodebot.com/tags/asp.net/</guid>
       <description></description>
     </item>
     
     <item>
       <title>C#</title>
-      <link>http://kodebot.com/tags/c#/</link>
+      <link>https://kodebot.com/tags/c#/</link>
       <pubDate>Thu, 09 Apr 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://kodebot.com/tags/c#/</guid>
+      <guid>https://kodebot.com/tags/c#/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Design Pattern</title>
-      <link>http://kodebot.com/tags/design-pattern/</link>
+      <link>https://kodebot.com/tags/design-pattern/</link>
       <pubDate>Sun, 15 Mar 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://kodebot.com/tags/design-pattern/</guid>
+      <guid>https://kodebot.com/tags/design-pattern/</guid>
       <description></description>
     </item>
     
     <item>
       <title>E2e Testing</title>
-      <link>http://kodebot.com/tags/e2e-testing/</link>
+      <link>https://kodebot.com/tags/e2e-testing/</link>
       <pubDate>Mon, 06 Apr 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://kodebot.com/tags/e2e-testing/</guid>
+      <guid>https://kodebot.com/tags/e2e-testing/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Entity Framework</title>
-      <link>http://kodebot.com/tags/entity-framework/</link>
+      <link>https://kodebot.com/tags/entity-framework/</link>
       <pubDate>Thu, 13 Aug 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://kodebot.com/tags/entity-framework/</guid>
+      <guid>https://kodebot.com/tags/entity-framework/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Javascript</title>
-      <link>http://kodebot.com/tags/javascript/</link>
+      <link>https://kodebot.com/tags/javascript/</link>
       <pubDate>Sun, 04 Oct 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://kodebot.com/tags/javascript/</guid>
+      <guid>https://kodebot.com/tags/javascript/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Library</title>
-      <link>http://kodebot.com/tags/library/</link>
+      <link>https://kodebot.com/tags/library/</link>
       <pubDate>Wed, 20 May 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://kodebot.com/tags/library/</guid>
+      <guid>https://kodebot.com/tags/library/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Mvc</title>
-      <link>http://kodebot.com/tags/mvc/</link>
+      <link>https://kodebot.com/tags/mvc/</link>
       <pubDate>Fri, 19 Jun 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://kodebot.com/tags/mvc/</guid>
+      <guid>https://kodebot.com/tags/mvc/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Nodejs</title>
-      <link>http://kodebot.com/tags/nodejs/</link>
+      <link>https://kodebot.com/tags/nodejs/</link>
       <pubDate>Sun, 04 Oct 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://kodebot.com/tags/nodejs/</guid>
+      <guid>https://kodebot.com/tags/nodejs/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Nuget</title>
-      <link>http://kodebot.com/tags/nuget/</link>
+      <link>https://kodebot.com/tags/nuget/</link>
       <pubDate>Sat, 21 Mar 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://kodebot.com/tags/nuget/</guid>
+      <guid>https://kodebot.com/tags/nuget/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Tools</title>
-      <link>http://kodebot.com/tags/tools/</link>
+      <link>https://kodebot.com/tags/tools/</link>
       <pubDate>Fri, 27 Mar 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://kodebot.com/tags/tools/</guid>
+      <guid>https://kodebot.com/tags/tools/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Typescript</title>
-      <link>http://kodebot.com/tags/typescript/</link>
+      <link>https://kodebot.com/tags/typescript/</link>
       <pubDate>Wed, 03 Jun 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://kodebot.com/tags/typescript/</guid>
+      <guid>https://kodebot.com/tags/typescript/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Unit Testing</title>
-      <link>http://kodebot.com/tags/unit-testing/</link>
+      <link>https://kodebot.com/tags/unit-testing/</link>
       <pubDate>Thu, 13 Aug 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://kodebot.com/tags/unit-testing/</guid>
+      <guid>https://kodebot.com/tags/unit-testing/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Visual Studio</title>
-      <link>http://kodebot.com/tags/visual-studio/</link>
+      <link>https://kodebot.com/tags/visual-studio/</link>
       <pubDate>Sat, 14 Mar 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://kodebot.com/tags/visual-studio/</guid>
+      <guid>https://kodebot.com/tags/visual-studio/</guid>
       <description></description>
     </item>
     

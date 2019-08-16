@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Nodejs on kodebot</title>
-    <link>http://kodebot.com/tags/nodejs/</link>
+    <link>https://kodebot.com/tags/nodejs/</link>
     <description>Recent content in Nodejs on kodebot</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-GB</language>
     <lastBuildDate>Sun, 04 Oct 2015 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://kodebot.com/tags/nodejs/feed.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://kodebot.com/tags/nodejs/feed.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>NodeJs: Loops, Closure and Async Invocation</title>
-      <link>http://kodebot.com/blog/2015/nodejs-loops/</link>
+      <link>https://kodebot.com/blog/2015/nodejs-loops/</link>
       <pubDate>Sun, 04 Oct 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://kodebot.com/blog/2015/nodejs-loops/</guid>
+      <guid>https://kodebot.com/blog/2015/nodejs-loops/</guid>
       <description>Closure Closure is something that is very familiar to all C# developers who know lambda expressions/functions but they just may not know that it is called Closure in JavaScript.
 Lets look at what is closure in JavaScript without further ado with an example:
 function outer(){ var inOuter = &amp;#34;outer&amp;#34;; inner(); function inner(){ console.log(inOuter); // prints &amp;#39;outer&amp;#39; 	} }  In this example, the variable inOuter is defined in the function outer but it is used in the function inner.</description>
@@ -24,10 +24,10 @@ function outer(){ var inOuter = &amp;#34;outer&amp;#34;; inner(); function inner
     
     <item>
       <title>Exception Handling in NodeJS</title>
-      <link>http://kodebot.com/blog/2015/exception-handling-in-nodejs/</link>
+      <link>https://kodebot.com/blog/2015/exception-handling-in-nodejs/</link>
       <pubDate>Sun, 27 Sep 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://kodebot.com/blog/2015/exception-handling-in-nodejs/</guid>
+      <guid>https://kodebot.com/blog/2015/exception-handling-in-nodejs/</guid>
       <description>Introduction Exception handling in Node might look completely different for developers coming from C# background like myself. It is mainly because of the way Node works. Node uses single thread based event loop to enable concurrency, this results in higher throughput with relatively low overhead. When it comes to exception handling, having some understanding of the event loop will help you to do the right thing.
 Event Loop Node has the following three main components to achieve concurrent, non-blocking execution</description>
     </item>

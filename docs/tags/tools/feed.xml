@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tools on kodebot</title>
-    <link>http://kodebot.com/tags/tools/</link>
+    <link>https://kodebot.com/tags/tools/</link>
     <description>Recent content in Tools on kodebot</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-GB</language>
     <lastBuildDate>Fri, 27 Mar 2015 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://kodebot.com/tags/tools/feed.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://kodebot.com/tags/tools/feed.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>ECMAScript 6 - Sublime Text editor build system</title>
-      <link>http://kodebot.com/blog/2015/ecmascript-6-sublime-text-editor-build-system/</link>
+      <link>https://kodebot.com/blog/2015/ecmascript-6-sublime-text-editor-build-system/</link>
       <pubDate>Fri, 27 Mar 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://kodebot.com/blog/2015/ecmascript-6-sublime-text-editor-build-system/</guid>
+      <guid>https://kodebot.com/blog/2015/ecmascript-6-sublime-text-editor-build-system/</guid>
       <description>The specification for ECMAScript 6 (aka ES6, ECMAScript harmony) is expected to be released in June 2015 and many tools, frameworks and browsers have started implementing the features of ES6. For example, Angular 2.0&amp;nbsp;and Aurelia&amp;nbsp;allows us to write code in ES6 now. There are transpilers as well out there, which allows us to write code in ES6 and transpile them into ES5. I have come across two major transpilers&amp;nbsp;traceur&amp;nbsp;and&amp;nbsp;babel, they are equally good.</description>
     </item>
     
