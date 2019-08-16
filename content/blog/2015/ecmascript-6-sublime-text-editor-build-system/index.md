@@ -10,7 +10,7 @@ comments: true
 draft: false
 ---
 
-<p>The specification for ECMAScript 6 (aka ES6, ECMAScript harmony) is expected to be released in June 2015 and many tools, frameworks and browers have started implementing the features of ES6. For example, <a href="https://angular.io/" target="_blank">Angular 2.0</a>&nbsp;and <a href="http://aurelia.io/" target="_blank">Aurelia</a>&nbsp;allows us to write code in ES6 now. There are transpilers as well out there, which <!-- more -->allows us to write code in ES6 and transpile them into ES5. I have come across two major transpilers&nbsp;<a href="https://github.com/google/traceur-compiler" target="_blank">traceur</a>&nbsp;and&nbsp;<a href="https://babeljs.io/">babel</a>, they are equally good.</p>
+<p>The specification for ECMAScript 6 (aka ES6, ECMAScript harmony) is expected to be released in June 2015 and many tools, frameworks and browsers have started implementing the features of ES6. For example, <a href="https://angular.io/" target="_blank">Angular 2.0</a>&nbsp;and <a href="http://aurelia.io/" target="_blank">Aurelia</a>&nbsp;allows us to write code in ES6 now. There are transpilers as well out there, which <!-- more -->allows us to write code in ES6 and transpile them into ES5. I have come across two major transpilers&nbsp;<a href="https://github.com/google/traceur-compiler" target="_blank">traceur</a>&nbsp;and&nbsp;<a href="https://babeljs.io/">babel</a>, they are equally good.</p>
 <p>I wanted to setup something like <a href="https://www.linqpad.net/">LinqPad</a>&nbsp;for JavaScript to learn and practice ES6 without using browser to see the output.</p>
 <p>The tools I used to achieve the desired setup are</p>
 <ol>
