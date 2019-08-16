@@ -1,6 +1,6 @@
 baseURL = "https://kodebot.com/"
 languageCode = "en-GB"
-title = "kodebot"
+title = "Kodebot"
 theme = "hugo-theme-learn"
 publishDir = "docs"
 
