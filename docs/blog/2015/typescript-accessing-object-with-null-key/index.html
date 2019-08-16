@@ -1,0 +1,260 @@
+
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="generator" content="Hugo 0.54.0" />
+  <meta name="description" content="">
+
+
+  <link rel="icon" href="/images/favicon.ico" type="image/png">
+  <title>TypeScript - Accessing object with null key :: kodebot</title>
+
+  
+  <link href="/css/nucleus.css?1565956016" rel="stylesheet">
+  <link href="/css/fontawesome-all.min.css?1565956016"
+    rel="stylesheet">
+  <link href="/css/hybrid.css?1565956016" rel="stylesheet">
+  <link href="/css/featherlight.min.css?1565956016" rel="stylesheet">
+  <link href="/css/perfect-scrollbar.min.css?1565956016"
+    rel="stylesheet">
+  <link href="/css/auto-complete.css?1565956016" rel="stylesheet">
+  <link href="/css/atom-one-dark-reasonable.css?1565956016"
+    rel="stylesheet">
+  <link href="/css/theme.css?1565956016" rel="stylesheet">
+  <link href="/css/hugo-theme.css?1565956016" rel="stylesheet">
+  
+  <link href="/css/theme-mine.css?1565956016"
+    rel="stylesheet">
+  
+
+  <script src="/js/jquery-3.3.1.min.js?1565956016"></script>
+
+  <style type="text/css">
+    :root #header+#content>#left>#rlblock_left {
+      display: none !important;
+    }
+
+      {
+        {
+        if .Site.Params.disableInlineCopyToClipBoard
+      }
+    }
+
+    :not(pre)>code+span.copy-to-clipboard {
+      display: none;
+    }
+
+      {
+        {
+        end
+      }
+    }
+  </style>
+  
+</head>
+
+<body class="" data-url="/blog/2015/typescript-accessing-object-with-null-key/">
+  <nav class="main-menu">
+    <div class="logo">
+        <a href="http://kodebot.com/">
+            <img src="/images/logo.png" style="background: white; padding-right: 2px;">
+        </a>
+    </div>
+    <ul>
+        
+        
+        
+                
+        <li >
+            <a href="/blog/" 
+            class="active"
+            >
+                Blog
+            </a>
+        </li>
+
+        
+                
+        <li >
+            <a href="/tutorials/" >
+                Tutorials
+            </a>
+        </li>
+
+        
+                
+        <li >
+            <a href="/about/" >
+                About
+            </a>
+        </li>
+
+        
+        
+    </ul>
+</nav>
+  <section id="body" class="no-sidebar">
+    <div id="overlay"></div>
+    <div class="padding highlightable">
+      
+      <div>
+        
+        
+        <div id="top-bar">
+          
+
+
+          <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+            <span class="links">
+              
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href='/'>Kodebot</a> > <a href='/blog/'>Blog</a> > TypeScript - Accessing object with null key
+          
+          
+          
+          
+          
+          
+            </span>
+          </div>
+        </div>
+        
+      </div>
+      
+      <div id="head-tags">
+        
+<div class="tags">
+
+  <a class="tag-link" href="/tags/typescript">TypeScript</a>
+
+</div>
+
+      </div>
+      
+        <div id="body-inner">
+          
+          <h1>
+            
+            TypeScript - Accessing object with null key
+          </h1>
+          
+
+          
+
+<p>Objects in JavaScript is just a key value pair and key is usually string and value can be anything. The following is an example of JavaScript object literal</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">car</span> <span style="color:#f92672">=</span> {
+    <span style="color:#a6e22e">wheels</span> <span style="color:#f92672">:</span> <span style="color:#ae81ff">3</span>,
+    <span style="color:#a6e22e">colour</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;red&#39;</span>,
+    <span style="color:#a6e22e">drive</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span>(){
+    ...
+    }
+}
+</code></pre></div>
+<p>The key in the object can be null. The default route in AngularJS is associated with null key, for example.</p>
+<p>We can access the value associated with the null key in JavaScript quite easily like this:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">routes</span>[<span style="color:#66d9ef">null</span>].<span style="color:#a6e22e">redirectTo</span>
+</code></pre></div>
+<p>If you do the same in TypeScript, you will get the following error</p>
+
+<p>An index expression argument must be of type <code>string</code>, <code>number</code>, <code>symbol</code>, or <code>any</code>.</p>
+
+<p>So, how do we make it work? It turns out that rather than using null key word, you can use a variable which is null. The following code is valid in TypeScript.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ts" data-lang="ts"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">nullRef</span>: <span style="color:#66d9ef">any</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span>;
+<span style="color:#a6e22e">routes</span>[<span style="color:#a6e22e">nullRef</span>].<span style="color:#a6e22e">redirectTo</span></code></pre></div>
+<p>I spent long time to get it working so posting this here for future reference.</p>
+
+
+<footer class=" footline" >
+	
+</footer>
+
+
+        
+        </div> 
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+        
+                    
+                        
+            
+            
+        
+                    
+                        
+            
+            
+        
+                    
+            
+        
+        
+        
+
+
+	 
+	 
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js?1565956016"></script>
+    <script src="/js/perfect-scrollbar.min.js?1565956016"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1565956016"></script>
+    <script src="/js/jquery.sticky.js?1565956016"></script>
+    <script src="/js/featherlight.min.js?1565956016"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1565956016"></script>
+    <script src="/js/highlight.pack.js?1565956016"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom-3.6.0.js?1565956016"></script>
+    <script src="/js/learn.js?1565956016"></script>
+    <script src="/js/hugo-learn.js?1565956016"></script>
+
+    <link href="/mermaid/mermaid.css?1565956016" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1565956016"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    
+
+  </body>
+</html>

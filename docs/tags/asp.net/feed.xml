@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Asp.net on kodebot</title>
+    <link>http://kodebot.com/tags/asp.net/</link>
+    <description>Recent content in Asp.net on kodebot</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-GB</language>
+    <lastBuildDate>Fri, 19 Jun 2015 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://kodebot.com/tags/asp.net/feed.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>ASP.NET MVC 5 - JsonResult with Http Status Code 400</title>
+      <link>http://kodebot.com/blog/2015/aspnet-mvc-5-jsonresult-with-http-status-code-400/</link>
+      <pubDate>Fri, 19 Jun 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://kodebot.com/blog/2015/aspnet-mvc-5-jsonresult-with-http-status-code-400/</guid>
+      <description>ASP.NET Web API 2 introduced several helper methods like Ok, NotFound, BadRequest, etc… . This allows us to write code which makes its intentions clear.
+In recent times, I have been working in semi-single page application which uses ASP.NET MVC 5 and AngularJS. The application is designed in a way that, there is only one view per feature and each view is SPA. So, each ASP.NET MVC controller have only one GET action that returns the view and rest of the communication is using actions that returns JsonResult that can be used by client in AJAX style just like consuming Web API.</description>
+    </item>
+    
+    <item>
+      <title>ASP.NET MVC 5 Hosting for Integration / E2E Testing</title>
+      <link>http://kodebot.com/blog/2015/aspnet-mvc-5-hosting-for-integration-e2e-testing/</link>
+      <pubDate>Sat, 30 May 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://kodebot.com/blog/2015/aspnet-mvc-5-hosting-for-integration-e2e-testing/</guid>
+      <description>Introduction When we want to do proper Integration or End to End testing of Web API, we can choose any process as host for Web API 2 or higher. This is possible because Web API supports Owin/Katana, which means, it doesn&amp;rsquo;t have any direct dependency on IIS. On the other hand MVC 5 doesn&amp;rsquo;t have support for Owin/Katana due to the fact that ASP.NET pipeline is depending on IIS. So this leaves us with only one option to host MVC 5, which is IIS, even for integration/e2e testing.</description>
+    </item>
+    
+    <item>
+      <title>ASP.NET 5 - Tag Helpers, the HTML way</title>
+      <link>http://kodebot.com/blog/2015/asp-net-5-tag-helpers-the-html-way/</link>
+      <pubDate>Thu, 14 May 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://kodebot.com/blog/2015/asp-net-5-tag-helpers-the-html-way/</guid>
+      <description>Introduction Tag Helper is not a new concept in ASP.NET but they way we use Tag Helpers in razor view is different. In the previous versions of ASP.NET, if we want to use HTML tag helper, we will be switching from HTML&amp;rsquo;s native declarative style to imperative style of C#.
+We loose the tooling support we get when editing HTML document for the most part. For example, the following code creates a label</description>
+    </item>
+    
+    <item>
+      <title>ASP.NET 5 - Environment specific pipeline configuration</title>
+      <link>http://kodebot.com/blog/2015/asp-net-5-environment-specific-pipeline-configuration/</link>
+      <pubDate>Fri, 08 May 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://kodebot.com/blog/2015/asp-net-5-environment-specific-pipeline-configuration/</guid>
+      <description>Introduction In ASP.NET 5, we configure and add middlewares (aka pipelines) using Startup class. The convention is similar to Owin/Katana but not the same.
+The Configuration method in Owin/Katana Startup class is replaced by Configure method and the parameter type is IApplicationBuilder rather than IAppBuilder and how we create and add&amp;nbsp;middleware is also different to some extend.&amp;nbsp;
+ASP.NET 5 Startup class allows us to add and configure services using ConfigureService method, this is not available in Owin/Katana Startup class.</description>
+    </item>
+    
+    <item>
+      <title>Owin - Katana core middleware patterns</title>
+      <link>http://kodebot.com/blog/2015/owin-katana-core-middleware-patterns/</link>
+      <pubDate>Wed, 29 Apr 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://kodebot.com/blog/2015/owin-katana-core-middleware-patterns/</guid>
+      <description>Introduction Katana supports 4 different convention based patterns for adding middlewares in its lowest level. They are,
+ Delegate Pattern Instance Pattern Generator/Nested Delegate Pattern Constructor Type or Type Pattern All the other formats/patterns supported through IAppBuilder&amp;rsquo;s extension methods are implemented using one of these 4 patterns under the hood.
+I couldn&amp;rsquo;t find any examples in the web which show how to use these patterns, so I am creating it for my future reference.</description>
+    </item>
+    
+    <item>
+      <title>TypeScript build automation in ASP.NET 5 (MVC6) using Gulp</title>
+      <link>http://kodebot.com/blog/2015/typescript-build-automation-in-asp-net-5-mvc6-using-gulp/</link>
+      <pubDate>Sat, 18 Apr 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://kodebot.com/blog/2015/typescript-build-automation-in-asp-net-5-mvc6-using-gulp/</guid>
+      <description>Introduction ASP.NET 5 introduces some major changes in terms of how we develop applications like no need for project and file association, wwwroot folder, first class support for JSON config files, .NET framework choice, separation of client side and server side package management and more. You can read more on this here.
+Above all of these, it supports JavaScript build automation by providing support for the nodejs&amp;nbsp;platform.&amp;nbsp;
+Visual Studio 2015 has in-built task runner to run grunt or gulp tasks, this is great because we don&amp;rsquo;t have to leave Visual Studio to run these tasks.</description>
+    </item>
+    
+    <item>
+      <title>MVC 6 Camel Case JSON</title>
+      <link>http://kodebot.com/blog/2015/mvc-6-camel-case-json/</link>
+      <pubDate>Mon, 13 Apr 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://kodebot.com/blog/2015/mvc-6-camel-case-json/</guid>
+      <description>I am excited with all the new features that are coming with MVC 6. One of the main differences between MVC 6 and previous versions is that it doesn&#39;t have two different libraries and controllers for MVC and Web API.&amp;nbsp;
+The previous versions of Asp.Net MVC uses JavaScriptSerializer&amp;nbsp;for MVC controllers and JSON.NET&amp;nbsp;for Web API controllers.
+This means, if you have an application which uses both MVC controllers and Web API controllers then you need to apply any custom JSON serialization configurations twice or you&amp;nbsp;should&amp;nbsp;replace JavaScriptSerializer with JSON.</description>
+    </item>
+    
+  </channel>
+</rss>

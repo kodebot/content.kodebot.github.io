@@ -1,0 +1,495 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Kodebot on kodebot</title>
+    <link>http://kodebot.com/</link>
+    <description>Recent content in Kodebot on kodebot</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-GB</language>
+    <lastBuildDate>Fri, 22 Feb 2019 10:25:49 +0000</lastBuildDate>
+    
+	<atom:link href="http://kodebot.com/feed.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Course overview</title>
+      <link>http://kodebot.com/tutorials/automated-unit-testing-basics/1-course-overview/</link>
+      <pubDate>Fri, 22 Feb 2019 10:25:49 +0000</pubDate>
+      
+      <guid>http://kodebot.com/tutorials/automated-unit-testing-basics/1-course-overview/</guid>
+      <description>Course overview Welcome to automated unit testing basics course.
+This course is for anyone who has some knowledge of computer programming but have limited or no knowledge of automated unit testing.
+This course is language, framework and tools agnostic. Everything you learn from this course can be applied to any programming language with the use of right tools.</description>
+    </item>
+    
+    <item>
+      <title>Result verification</title>
+      <link>http://kodebot.com/tutorials/automated-unit-testing-basics/4-verification-techniques/1-result-verification/</link>
+      <pubDate>Fri, 22 Feb 2019 10:25:49 +0000</pubDate>
+      
+      <guid>http://kodebot.com/tutorials/automated-unit-testing-basics/4-verification-techniques/1-result-verification/</guid>
+      <description>We use result verification technique when the test receives the result by running SUT.
+Consider an example of testing a function that adds two numbers and returns the result
+function add(a, b): return a+b  we verify the correctness of this function by simply checking the result returned by add function
+function test_add(): // arrange a = 10 b = 15 // act result = add(a, b) // assert areEqual(25, result) // 25 is expected  </description>
+    </item>
+    
+    <item>
+      <title>Simple test data</title>
+      <link>http://kodebot.com/tutorials/automated-unit-testing-basics/3-setup-techniques/1-simple-test-data/</link>
+      <pubDate>Fri, 22 Feb 2019 10:25:49 +0000</pubDate>
+      
+      <guid>http://kodebot.com/tutorials/automated-unit-testing-basics/3-setup-techniques/1-simple-test-data/</guid>
+      <description>When we need data, we just create variables with the data and use them in the other places within the unit test.
+consider an example of testing a function that adds two numbers
+function add(a, b): return a+b  to test this function, we need two input data. We can simply create two variables with the data in our test function and use them as arguments for add() function.
+function test_add(): // arrange a = 10 b = 15 // act add(a, b)  </description>
+    </item>
+    
+    <item>
+      <title>Structure</title>
+      <link>http://kodebot.com/tutorials/automated-unit-testing-basics/2-structure-of-unit-test/1-structure/</link>
+      <pubDate>Fri, 22 Feb 2019 10:25:49 +0000</pubDate>
+      
+      <guid>http://kodebot.com/tutorials/automated-unit-testing-basics/2-structure-of-unit-test/1-structure/</guid>
+      <description>Any unit test will have two or more of the following steps
+ Setup Run SUT Verification Cleanup  Setup One of the first step in writing unit test is Setup. In this step, we prepare test data, dependencies and/or the context for the test.
+For example, we will replace any real dependencies with fake ones and define set of good test data as part of this step.
+However, this step is not necessary for all the tests.</description>
+    </item>
+    
+    <item>
+      <title>Test driven development</title>
+      <link>http://kodebot.com/tutorials/automated-unit-testing-basics/5-test-driven-or-test-oriented/1-test-driven-development/</link>
+      <pubDate>Fri, 22 Feb 2019 10:25:49 +0000</pubDate>
+      
+      <guid>http://kodebot.com/tutorials/automated-unit-testing-basics/5-test-driven-or-test-oriented/1-test-driven-development/</guid>
+      <description>Test driven development (TDD) is a popular approach for writing unit tests.
+With this approach, we write a test first, see it fail, then write production code to make the test pass.
+Typically, we repeat the steps below in that order 1. take a small requirement 2. write failing test for the requirement 3. write production code to make test pass 4. refactor
+It is claimed that TDD helps to write code that simple, flexible and just enough to satisfy the requirement.</description>
+    </item>
+    
+    <item>
+      <title>What is automated unit testing?</title>
+      <link>http://kodebot.com/tutorials/automated-unit-testing-basics/1-introduction/1-what-is-automated-unit-testing/</link>
+      <pubDate>Fri, 22 Feb 2019 10:25:49 +0000</pubDate>
+      
+      <guid>http://kodebot.com/tutorials/automated-unit-testing-basics/1-introduction/1-what-is-automated-unit-testing/</guid>
+      <description>Let&amp;rsquo;s first understand what we call as Unit. The term unit is very subjective, so it means different things to different people. In the context of testing, I like to think of unit as one or more lines of code that does something small but tangible to move towards achieving the end goal of the program.
+What do I mean by this? Well, lets look at an example of a very simple calculator program.</description>
+    </item>
+    
+    <item>
+      <title>Data driven test</title>
+      <link>http://kodebot.com/tutorials/automated-unit-testing-basics/3-setup-techniques/2-data-driven-test/</link>
+      <pubDate>Fri, 22 Feb 2019 10:25:49 +0000</pubDate>
+      
+      <guid>http://kodebot.com/tutorials/automated-unit-testing-basics/3-setup-techniques/2-data-driven-test/</guid>
+      <description>When we want to test SUT, we usually want to test with different set of data. It is not ideal to create one test function for one set of input data. This is where data driven tests are helpful.
+Consider the same example function that adds two numbers
+function add(a, b): return a+b  To be thorough, we need to test this function with few different set of data including but not limited to negative numbers, positive numbers and zeros.</description>
+    </item>
+    
+    <item>
+      <title>State verification</title>
+      <link>http://kodebot.com/tutorials/automated-unit-testing-basics/4-verification-techniques/2-state-verification/</link>
+      <pubDate>Fri, 22 Feb 2019 10:25:49 +0000</pubDate>
+      
+      <guid>http://kodebot.com/tutorials/automated-unit-testing-basics/4-verification-techniques/2-state-verification/</guid>
+      <description>State verification is similar to result verification but rather than checking the result of SUT, we check the state of an object or something similar.
+Consider an example of testing a function that closes the database connection
+module databaseManager isOpen function close(): isOpen = false  When we call this function, it is not going to return anything, instead it is going to change the state of isOpen field
+So we need to verify the state of isOpen field to ensure the correctness of close function</description>
+    </item>
+    
+    <item>
+      <title>Test oriented development</title>
+      <link>http://kodebot.com/tutorials/automated-unit-testing-basics/5-test-driven-or-test-oriented/2-test-oriented-development/</link>
+      <pubDate>Fri, 22 Feb 2019 10:25:49 +0000</pubDate>
+      
+      <guid>http://kodebot.com/tutorials/automated-unit-testing-basics/5-test-driven-or-test-oriented/2-test-oriented-development/</guid>
+      <description>Test oriented development is another approach where it is not important to write tests first but it is important to write test while writing production code.
+Typically, we repeat the steps below in that order 1. take a small requirement 2. write production code 3. write unit tests 4. refactor</description>
+    </item>
+    
+    <item>
+      <title>Why are we writing unit tests?</title>
+      <link>http://kodebot.com/tutorials/automated-unit-testing-basics/1-introduction/2-why-are-we-writing-unit-tests/</link>
+      <pubDate>Fri, 22 Feb 2019 10:25:49 +0000</pubDate>
+      
+      <guid>http://kodebot.com/tutorials/automated-unit-testing-basics/1-introduction/2-why-are-we-writing-unit-tests/</guid>
+      <description>We can find many reasons for writing unit tests, there are three reasons that stands out in my opinion
+ Verify the correctness of the code Provide safety-net when we want to change the code (feedback mechanism) Serve as a documentation of the code  Verify the correctness of the code I don&amp;rsquo;t think any good developer will just write code and say the work is done. They will test it, either via manual steps or by writing automated unit tests, to verify whether the implementation is correct or not.</description>
+    </item>
+    
+    <item>
+      <title>Fake test dependency</title>
+      <link>http://kodebot.com/tutorials/automated-unit-testing-basics/3-setup-techniques/3-fake-test-dependency/</link>
+      <pubDate>Fri, 22 Feb 2019 10:25:49 +0000</pubDate>
+      
+      <guid>http://kodebot.com/tutorials/automated-unit-testing-basics/3-setup-techniques/3-fake-test-dependency/</guid>
+      <description>It is very common that the SUT depends on something else. The dependency could be anything like another function, object or external system and we may not be able to control their behavior all the time. A good unit test should not be affected by the changes in the dependencies of SUT.
+So, a common technique is to replace the dependencies with fake versions that we can control.
+For example, consider a function that takes age of the passenger and prints whether he/she is eligible for senior citizen discount when promotion is available.</description>
+    </item>
+    
+    <item>
+      <title>Interaction verification</title>
+      <link>http://kodebot.com/tutorials/automated-unit-testing-basics/4-verification-techniques/3-interaction-verification/</link>
+      <pubDate>Fri, 22 Feb 2019 10:25:49 +0000</pubDate>
+      
+      <guid>http://kodebot.com/tutorials/automated-unit-testing-basics/4-verification-techniques/3-interaction-verification/</guid>
+      <description>Interaction verification is completely different from result and state verification. With this technique, we will be checking whether an interaction under a specific condition has happened or not.
+Consider the example below, the databaseManager module offers a function to close database, but it neither returns any result nor changes the state. All this function does is that it calls a function in database module.
+module databaseManager function close(): database.close()  So, the only thing we can do to verify the correctness of this function is to check whether it calls close() function in database module or not</description>
+    </item>
+    
+    <item>
+      <title>What is good unit test?</title>
+      <link>http://kodebot.com/tutorials/automated-unit-testing-basics/1-introduction/3-what-is-good-unit-test/</link>
+      <pubDate>Fri, 22 Feb 2019 10:25:49 +0000</pubDate>
+      
+      <guid>http://kodebot.com/tutorials/automated-unit-testing-basics/1-introduction/3-what-is-good-unit-test/</guid>
+      <description>When writing tests for any block of code, it must be comprehensive and cover all the scenarios. If we write tests for most obvious scenarios and don&amp;rsquo;t cover the less common scenarios then we don&amp;rsquo;t know how it is going to behave on those untested scenarios.
+Each test we write should have the following qualities
+ Quick to run Repeatable Focused Isolated Self validating  Quick to run When running unit test, we don&amp;rsquo;t want to wait long.</description>
+    </item>
+    
+    <item>
+      <title>Mock dependency</title>
+      <link>http://kodebot.com/tutorials/automated-unit-testing-basics/3-setup-techniques/4-mock-dependency/</link>
+      <pubDate>Fri, 22 Feb 2019 10:25:49 +0000</pubDate>
+      
+      <guid>http://kodebot.com/tutorials/automated-unit-testing-basics/3-setup-techniques/4-mock-dependency/</guid>
+      <description>While fake dependencies are really useful for unit testing, they lack in features like tracking function calls, intercepting arguments, etc.. that makes unit testing easier. Mock dependency is a dependency which offers all the benefits of fake dependencies and more features to make unit testing easier.
+It is not going to be easy to create and maintain mock dependencies; this is why we generally use mocking libraries to create mock dependencies.</description>
+    </item>
+    
+    <item>
+      <title>Other types of automated testing</title>
+      <link>http://kodebot.com/tutorials/automated-unit-testing-basics/1-introduction/4-other-types-of-automated-testing/</link>
+      <pubDate>Fri, 22 Feb 2019 10:25:49 +0000</pubDate>
+      
+      <guid>http://kodebot.com/tutorials/automated-unit-testing-basics/1-introduction/4-other-types-of-automated-testing/</guid>
+      <description>While unit test targets small piece of code, we have other types of test that generally focus at higher level than unit tests. Two examples of such types of test we have are
+ Integration tests End to end tests  Generally, unit tests focus on small piece of code without considering the behavior of dependencies they have (usually with the help of fake dependencies). This means we will be able to verify whether the target code works on it own or not, but we will not know whether it is going to work correctly as a part of bigger program.</description>
+    </item>
+    
+    <item>
+      <title>System Under Test (SUT)</title>
+      <link>http://kodebot.com/tutorials/automated-unit-testing-basics/1-introduction/5-system-under-test/</link>
+      <pubDate>Fri, 22 Feb 2019 10:25:49 +0000</pubDate>
+      
+      <guid>http://kodebot.com/tutorials/automated-unit-testing-basics/1-introduction/5-system-under-test/</guid>
+      <description>The implementation of System Under Test (SUT) that are the target of our unit test can be one of the following
+ direct implementation indirect implementation combination of the above  Direct implementation If a function or piece of code is direct implementation, then it will take zero or more inputs and provide some results or cause state change with very little or no dependencies.
+Examples of direct implementation</description>
+    </item>
+    
+    <item>
+      <title>NodeJs: Loops, Closure and Async Invocation</title>
+      <link>http://kodebot.com/blog/2015/nodejs-loops/</link>
+      <pubDate>Sun, 04 Oct 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://kodebot.com/blog/2015/nodejs-loops/</guid>
+      <description>Closure Closure is something that is very familiar to all C# developers who know lambda expressions/functions but they just may not know that it is called Closure in JavaScript.
+Lets look at what is closure in JavaScript without further ado with an example:
+function outer(){ var inOuter = &amp;#34;outer&amp;#34;; inner(); function inner(){ console.log(inOuter); // prints &amp;#39;outer&amp;#39;  } }  In this example, the variable inOuter is defined in the function outer but it is used in the function inner.</description>
+    </item>
+    
+    <item>
+      <title>Exception Handling in NodeJS</title>
+      <link>http://kodebot.com/blog/2015/exception-handling-in-nodejs/</link>
+      <pubDate>Sun, 27 Sep 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://kodebot.com/blog/2015/exception-handling-in-nodejs/</guid>
+      <description>Introduction Exception handling in Node might look completely different for developers coming from C# background like myself. It is mainly because of the way Node works. Node uses single thread based event loop to enable concurrency, this results in higher throughput with relatively low overhead. When it comes to exception handling, having some understanding of the event loop will help you to do the right thing.
+Event Loop Node has the following three main components to achieve concurrent, non-blocking execution</description>
+    </item>
+    
+    <item>
+      <title>Unit Testing Entity Framework async Queries</title>
+      <link>http://kodebot.com/blog/2015/unit-testing-entity-framework-async-queries/</link>
+      <pubDate>Thu, 13 Aug 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://kodebot.com/blog/2015/unit-testing-entity-framework-async-queries/</guid>
+      <description>Introduction In my last article, we have seen how to unit test Entity Framework queries. Now, let&amp;rsquo;s look at how to unit test async queries. When using async tasks, if we don&amp;rsquo;t use it all the way then we are not using async tasks properly. For example, if you have async action method in your controller which queries database synchronously to send some data to the requester, then we are NOT using async properly as the thread is blocked during database operation.</description>
+    </item>
+    
+    <item>
+      <title>Unit Testing Entity Framework Queries</title>
+      <link>http://kodebot.com/blog/2015/unit-testing-entity-framework-queries/</link>
+      <pubDate>Mon, 10 Aug 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://kodebot.com/blog/2015/unit-testing-entity-framework-queries/</guid>
+      <description>Introduction When writing unit tests, we should test only one thing at once and isolate the system under test(SUT) from all the dependencies. We should follow the same approach for any LINQ queries you write to retrieve data from the underlying Database. But, I have seen many developers excluding the whole data access layer from unit testing. This is not right approach to follow IMHO. Many developers don&amp;rsquo;t bother unit testing data access layer because of the perceived effort and complexity involved in isolating the data access layer from underlying Database and ORM tools like Entity Framework.</description>
+    </item>
+    
+    <item>
+      <title>VS-TAC - Cordova version</title>
+      <link>http://kodebot.com/blog/2015/vs-tac-cordova-version/</link>
+      <pubDate>Fri, 17 Jul 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://kodebot.com/blog/2015/vs-tac-cordova-version/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://aka.ms/cordova&#34; target=&#34;_blank&#34;&gt;Visual Studio – Tools for Apache Cordova&lt;/a&gt; is a great addition to Visual Studio. It allows us to develop &lt;a href=&#34;http://cordova.apache.org/&#34; target=&#34;_blank&#34;&gt;Apache Cordova&lt;/a&gt; applications while taking all the advantages of Visual Studio. I started using it with VS 2015 RC for one of the application I am developing using &lt;a href=&#34;http://ionicframework.com/&#34; target=&#34;_blank&#34;&gt;Ionic&lt;/a&gt;. &lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>ASP.NET MVC 5 - JsonResult with Http Status Code 400</title>
+      <link>http://kodebot.com/blog/2015/aspnet-mvc-5-jsonresult-with-http-status-code-400/</link>
+      <pubDate>Fri, 19 Jun 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://kodebot.com/blog/2015/aspnet-mvc-5-jsonresult-with-http-status-code-400/</guid>
+      <description>ASP.NET Web API 2 introduced several helper methods like Ok, NotFound, BadRequest, etc… . This allows us to write code which makes its intentions clear.
+In recent times, I have been working in semi-single page application which uses ASP.NET MVC 5 and AngularJS. The application is designed in a way that, there is only one view per feature and each view is SPA. So, each ASP.NET MVC controller have only one GET action that returns the view and rest of the communication is using actions that returns JsonResult that can be used by client in AJAX style just like consuming Web API.</description>
+    </item>
+    
+    <item>
+      <title>AngularJS 1.x - Validation on File Input type</title>
+      <link>http://kodebot.com/blog/2015/angularjs-1x-validation-on-file-input-type/</link>
+      <pubDate>Tue, 16 Jun 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://kodebot.com/blog/2015/angularjs-1x-validation-on-file-input-type/</guid>
+      <description>Introduction You might already known that AngularJS 1.x doesn’t support model binding for File Input type at the moment. This means, implementing any validation on File Input type is not straight forward as validation entirely depends on model binding.
+I have come across a requirement where, I need to create a form with ‘required’ validation on File Input type and I also need to display bootstrap form feedback. There are number of great solutions out there to make file upload with angular easier but none of them provide easier way to enforce validation.</description>
+    </item>
+    
+    <item>
+      <title>Angular 1.x - Unit Testing a function that returns Promise</title>
+      <link>http://kodebot.com/blog/2015/angular-1x-unit-testing-a-function-that-returns-promise/</link>
+      <pubDate>Mon, 08 Jun 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://kodebot.com/blog/2015/angular-1x-unit-testing-a-function-that-returns-promise/</guid>
+      <description>I wrote this post few months back which show how we can mock a function that returns Promise. In this post, we will see how to test a function that returns Promise.
+We will use the following simple controller as our SUT
+var app = angular.module(&amp;#34;app&amp;#34;); app.controller(&amp;#34;studentController&amp;#34;, function($q, studentDataService){ var vm = this; vm.students = undefined; activate(); function activate (){ vm.students = getAllStudents(); } function getAllStudents(){ return studentDataService .getAll(); } });  This simple controller has getAllStudents() which returns a promise.</description>
+    </item>
+    
+    <item>
+      <title>TypeScript - Accessing object with null key</title>
+      <link>http://kodebot.com/blog/2015/typescript-accessing-object-with-null-key/</link>
+      <pubDate>Wed, 03 Jun 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://kodebot.com/blog/2015/typescript-accessing-object-with-null-key/</guid>
+      <description>Objects in JavaScript is just a key value pair and key is usually string and value can be anything. The following is an example of JavaScript object literal
+var car = { wheels : 3, colour: &amp;#39;red&amp;#39;, drive: function(){ ... } }  The key in the object can be null. The default route in AngularJS is associated with null key, for example.
+We can access the value associated with the null key in JavaScript quite easily like this:</description>
+    </item>
+    
+    <item>
+      <title>ASP.NET MVC 5 Hosting for Integration / E2E Testing</title>
+      <link>http://kodebot.com/blog/2015/aspnet-mvc-5-hosting-for-integration-e2e-testing/</link>
+      <pubDate>Sat, 30 May 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://kodebot.com/blog/2015/aspnet-mvc-5-hosting-for-integration-e2e-testing/</guid>
+      <description>Introduction When we want to do proper Integration or End to End testing of Web API, we can choose any process as host for Web API 2 or higher. This is possible because Web API supports Owin/Katana, which means, it doesn&amp;rsquo;t have any direct dependency on IIS. On the other hand MVC 5 doesn&amp;rsquo;t have support for Owin/Katana due to the fact that ASP.NET pipeline is depending on IIS. So this leaves us with only one option to host MVC 5, which is IIS, even for integration/e2e testing.</description>
+    </item>
+    
+    <item>
+      <title>How to isolate AutoMapper in Unit Tests?</title>
+      <link>http://kodebot.com/blog/2015/how-to-mock-automapper-in-unit-tests/</link>
+      <pubDate>Wed, 20 May 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://kodebot.com/blog/2015/how-to-mock-automapper-in-unit-tests/</guid>
+      <description>Introduction
+When it comes to Unit testing, the rule is to isolate&amp;nbsp;all the dependencies and focus only on the unit of code you are testing. I have been silently ignoring this for AutoMapper until I found a proper way to isolate and replace the behavior of mapping.
+When I was looking for a proper way to do this, I come across many posts but none of them were having full working example without any additional layer between the function/class that wants to use AutoMapper and AutoMapper itself.</description>
+    </item>
+    
+    <item>
+      <title>ASP.NET 5 - Tag Helpers, the HTML way</title>
+      <link>http://kodebot.com/blog/2015/asp-net-5-tag-helpers-the-html-way/</link>
+      <pubDate>Thu, 14 May 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://kodebot.com/blog/2015/asp-net-5-tag-helpers-the-html-way/</guid>
+      <description>Introduction Tag Helper is not a new concept in ASP.NET but they way we use Tag Helpers in razor view is different. In the previous versions of ASP.NET, if we want to use HTML tag helper, we will be switching from HTML&amp;rsquo;s native declarative style to imperative style of C#.
+We loose the tooling support we get when editing HTML document for the most part. For example, the following code creates a label</description>
+    </item>
+    
+    <item>
+      <title>ASP.NET 5 - Environment specific pipeline configuration</title>
+      <link>http://kodebot.com/blog/2015/asp-net-5-environment-specific-pipeline-configuration/</link>
+      <pubDate>Fri, 08 May 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://kodebot.com/blog/2015/asp-net-5-environment-specific-pipeline-configuration/</guid>
+      <description>Introduction In ASP.NET 5, we configure and add middlewares (aka pipelines) using Startup class. The convention is similar to Owin/Katana but not the same.
+The Configuration method in Owin/Katana Startup class is replaced by Configure method and the parameter type is IApplicationBuilder rather than IAppBuilder and how we create and add&amp;nbsp;middleware is also different to some extend.&amp;nbsp;
+ASP.NET 5 Startup class allows us to add and configure services using ConfigureService method, this is not available in Owin/Katana Startup class.</description>
+    </item>
+    
+    <item>
+      <title>Owin - Katana core middleware patterns</title>
+      <link>http://kodebot.com/blog/2015/owin-katana-core-middleware-patterns/</link>
+      <pubDate>Wed, 29 Apr 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://kodebot.com/blog/2015/owin-katana-core-middleware-patterns/</guid>
+      <description>Introduction Katana supports 4 different convention based patterns for adding middlewares in its lowest level. They are,
+ Delegate Pattern Instance Pattern Generator/Nested Delegate Pattern Constructor Type or Type Pattern All the other formats/patterns supported through IAppBuilder&amp;rsquo;s extension methods are implemented using one of these 4 patterns under the hood.
+I couldn&amp;rsquo;t find any examples in the web which show how to use these patterns, so I am creating it for my future reference.</description>
+    </item>
+    
+    <item>
+      <title>TypeScript - &#39;this&#39; reference in AngularJS event handler</title>
+      <link>http://kodebot.com/blog/2015/typescript-this-reference-in-angularjs-event-handler/</link>
+      <pubDate>Mon, 27 Apr 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://kodebot.com/blog/2015/typescript-this-reference-in-angularjs-event-handler/</guid>
+      <description>Let&#39;s have a look at how AngularJS 1.x controller is usually created in TypeScript before we go into details of how AngularJS event handler and how &#39;this&#39; works in the AngularJS event handler context. TypeScript encourages to type anything and everything to take full advantages of the type system and tool supports we get when working with any strongly typed language.
+So, when using TypeScript with AngularJS 1.x, class is usually created to represent the implementation of the controllers.</description>
+    </item>
+    
+    <item>
+      <title>TypeScript build automation in ASP.NET 5 (MVC6) using Gulp</title>
+      <link>http://kodebot.com/blog/2015/typescript-build-automation-in-asp-net-5-mvc6-using-gulp/</link>
+      <pubDate>Sat, 18 Apr 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://kodebot.com/blog/2015/typescript-build-automation-in-asp-net-5-mvc6-using-gulp/</guid>
+      <description>Introduction ASP.NET 5 introduces some major changes in terms of how we develop applications like no need for project and file association, wwwroot folder, first class support for JSON config files, .NET framework choice, separation of client side and server side package management and more. You can read more on this here.
+Above all of these, it supports JavaScript build automation by providing support for the nodejs&amp;nbsp;platform.&amp;nbsp;
+Visual Studio 2015 has in-built task runner to run grunt or gulp tasks, this is great because we don&amp;rsquo;t have to leave Visual Studio to run these tasks.</description>
+    </item>
+    
+    <item>
+      <title>MVC 6 Camel Case JSON</title>
+      <link>http://kodebot.com/blog/2015/mvc-6-camel-case-json/</link>
+      <pubDate>Mon, 13 Apr 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://kodebot.com/blog/2015/mvc-6-camel-case-json/</guid>
+      <description>I am excited with all the new features that are coming with MVC 6. One of the main differences between MVC 6 and previous versions is that it doesn&#39;t have two different libraries and controllers for MVC and Web API.&amp;nbsp;
+The previous versions of Asp.Net MVC uses JavaScriptSerializer&amp;nbsp;for MVC controllers and JSON.NET&amp;nbsp;for Web API controllers.
+This means, if you have an application which uses both MVC controllers and Web API controllers then you need to apply any custom JSON serialization configurations twice or you&amp;nbsp;should&amp;nbsp;replace JavaScriptSerializer with JSON.</description>
+    </item>
+    
+    <item>
+      <title>TPL Task and Windows Identity Impersonation - The beauty of Closure</title>
+      <link>http://kodebot.com/blog/2015/tpl-task-and-windows-identity-impersonation-the-beauty-of-closure/</link>
+      <pubDate>Thu, 09 Apr 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://kodebot.com/blog/2015/tpl-task-and-windows-identity-impersonation-the-beauty-of-closure/</guid>
+      <description>I have created a web application with Windows Authentication and impersonation is enabled as I need the application connect to SQL Server database using Windows Authentication.
+I wanted&amp;nbsp;to run a TPL task in the impersonated context, so, I added the following code naively in a&amp;nbsp;action method of one of my controllers
+// naive task code  Task.Run(() =&amp;gt; { // Task code here }); Though, this answer&amp;nbsp;suggests that tasks will run under the same context under which it was created, it wasn&#39;t working that way in my case.</description>
+    </item>
+    
+    <item>
+      <title>Selenium and Page Objects</title>
+      <link>http://kodebot.com/blog/2015/selenium-and-page-objects/</link>
+      <pubDate>Mon, 06 Apr 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://kodebot.com/blog/2015/selenium-and-page-objects/</guid>
+      <description>I use&amp;nbsp;Selenium&amp;nbsp;or Protractor&amp;nbsp;for E2E tests that require browser automation. I prefer to use Selenium when I want to write my tests in C# and Protractor for AngularJS applications.
+It doesn&#39;t matter what tool/framework you use, if you want to bring in structure and make your test code reusable when dealing with any UI automation then Page Object is your friend.
+I have been creating my Page Objects incorrectly with two major flaws until I read this&amp;nbsp;great article from Martin Fowler.</description>
+    </item>
+    
+    <item>
+      <title>ECMAScript 6 - Sublime Text editor build system</title>
+      <link>http://kodebot.com/blog/2015/ecmascript-6-sublime-text-editor-build-system/</link>
+      <pubDate>Fri, 27 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://kodebot.com/blog/2015/ecmascript-6-sublime-text-editor-build-system/</guid>
+      <description>The specification for ECMAScript 6 (aka ES6, ECMAScript harmony) is expected to be released in June 2015 and many tools, frameworks and browsers have started implementing the features of ES6. For example, Angular 2.0&amp;nbsp;and Aurelia&amp;nbsp;allows us to write code in ES6 now. There are transpilers as well out there, which allows us to write code in ES6 and transpile them into ES5. I have come across two major transpilers&amp;nbsp;traceur&amp;nbsp;and&amp;nbsp;babel, they are equally good.</description>
+    </item>
+    
+    <item>
+      <title>Six stars of AngularJS - Part 3</title>
+      <link>http://kodebot.com/blog/2015/six-stars-of-angularjs-part-3/</link>
+      <pubDate>Wed, 25 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://kodebot.com/blog/2015/six-stars-of-angularjs-part-3/</guid>
+      <description>In part 1&amp;nbsp;and 2&amp;nbsp;of this series, we have seen five different ways to create a service in angular.
+The last one we are going to look at in this series is &#39;decorate&#39; function of $provide service.
+Decorator The decorate function is NOT used to create a service, instead, this is used to decorate or replace an existing service. Let&#39;s look at this function with an example
+// sample 1 app.factory(&amp;#39;movieService&amp;#39;, movieService); function movieService() { return { getAllMovies: getAllMovies } function getAllMovies() { return [&amp;#39;engMovie1&amp;#39;, &amp;#39;engMovie2&amp;#39;, &amp;#39;engMovie3&amp;#39;]; } }  In this example, we have movieService which exposes a function to get all the movies.</description>
+    </item>
+    
+    <item>
+      <title>Six stars of AngularJS - Part 2</title>
+      <link>http://kodebot.com/blog/2015/six-stars-of-angularjs-part-2/</link>
+      <pubDate>Tue, 24 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://kodebot.com/blog/2015/six-stars-of-angularjs-part-2/</guid>
+      <description>In part 1&amp;nbsp;of this series, we have briefly seen how $provide and $injector work and we also took a deep dive on how we create a service using provider function of $provide service.
+Lets continue our journey and look at how and when we can&amp;nbsp;use other&amp;nbsp;functions of $provide service to create services.
+The following are the four&amp;nbsp;functions we are going to look at now
+ factory service value constant  Factory The factory is one of the functions exposed by $provide service to create services.</description>
+    </item>
+    
+    <item>
+      <title>Six stars of AngularJS - Part 1</title>
+      <link>http://kodebot.com/blog/2015/six-stars-of-angularjs-part-1/</link>
+      <pubDate>Mon, 23 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://kodebot.com/blog/2015/six-stars-of-angularjs-part-1/</guid>
+      <description>Introduction Services are one of the core buiding blocks of AngularJS. It helps us to create reusable code that can be shared accross the application(s).
+AngularJS gives us five different options to create services. We will look at what are those five options and how and when they can be used. But, before that lets take a brief look at couple of built-in angular services and how they works in the context of dependency injection.</description>
+    </item>
+    
+    <item>
+      <title>NSequenceComparer to compare two sequences</title>
+      <link>http://kodebot.com/blog/2015/nsequencecomparer-to-compare-two-sequences/</link>
+      <pubDate>Sat, 21 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://kodebot.com/blog/2015/nsequencecomparer-to-compare-two-sequences/</guid>
+      <description>I had a requirement&amp;nbsp;to compare two sequences to find the differences in .NET platform. To compare large sequences, I needed an algorithm that&amp;nbsp;does not use recursion.&amp;nbsp;I could not find anything in the internet that I can use out of the box, so, I created&amp;nbsp;this nuget package
+This package is very simple to use, you can read usage instructions&amp;nbsp;here
+Feel free to use and contribute.</description>
+    </item>
+    
+    <item>
+      <title>Mocking function that returns promise</title>
+      <link>http://kodebot.com/blog/2015/mocking-function-that-returns-promise/</link>
+      <pubDate>Mon, 16 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://kodebot.com/blog/2015/mocking-function-that-returns-promise/</guid>
+      <description>Promises are very useful to develope non-blocking web applications and it also helps to avoid pyramid of doom.
+AngularJS supports&amp;nbsp;Q&amp;nbsp;based promises, this means, we can create functions in AngularJS application that uses promises. When it comes to unit testing functions that returns promises, it is just like unit testing normal functions only if you remember&amp;nbsp;simulate scope&#39;s life cycle using $apply() or $digest()
+Let&#39;s see this with an example. The following controller loads restaurants using promise</description>
+    </item>
+    
+    <item>
+      <title>Strucuring unit tests</title>
+      <link>http://kodebot.com/blog/2015/structuring-unit-tests/</link>
+      <pubDate>Mon, 16 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://kodebot.com/blog/2015/structuring-unit-tests/</guid>
+      <description>I have been following the same unit test structure that Phil Haack described here. &amp;nbsp;But, I use slightly different version when my tests need too many repeated test setups and cleanups.&amp;nbsp;
+I like jasmine&amp;nbsp;mainly because it allows to keep the tests DRY&amp;nbsp;using nested structure. Ofcourse it is possible in jasmine because method nesting is allowed in JavaScript. I like to structure my C# test files the same way using nested classes&amp;nbsp;without using any additional libraries</description>
+    </item>
+    
+    <item>
+      <title>Decorator over Inheritance hierarchy</title>
+      <link>http://kodebot.com/blog/2015/decorator-over-inheritance-hierarchy/</link>
+      <pubDate>Sun, 15 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://kodebot.com/blog/2015/decorator-over-inheritance-hierarchy/</guid>
+      <description>I have used inheritance to solve a problem in many situations - some of them are correct and some of them are not when thinking about it now.
+ When you are in a situation where you think you need multi-level inheritance, 9 out of 10 times you can solve the same problem using decorators.
+ One of the problems I have seen recently which fits in this pattern is the implementation of ICommand interface.</description>
+    </item>
+    
+    <item>
+      <title>Organize AngularJS Tests within a test file</title>
+      <link>http://kodebot.com/blog/2015/organize-angularjs-tests-within-a-spec/</link>
+      <pubDate>Sun, 15 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://kodebot.com/blog/2015/organize-angularjs-tests-within-a-spec/</guid>
+      <description>I like to have one test file&amp;nbsp;per components of AngularJS application. So, for example, homeController will have its own test file&amp;nbsp;named homeSpec or homeControllerSpec.
+First, create a&amp;nbsp;suite to describe a component at a high level and for each scenario create&amp;nbsp;nested suits. This allows us&amp;nbsp;to define any test setup that are common for all the tests&amp;nbsp;in one place.
+For example, loading module, overriding and injecting any dependencies are done in the beforeEach method of outter test suite.</description>
+    </item>
+    
+    <item>
+      <title>Setup Chutzpah to Run Javascript Tests in VisualStudio</title>
+      <link>http://kodebot.com/blog/2015/setup-chutzpah-to-run-javascript-tests-in-visualstudio/</link>
+      <pubDate>Sat, 14 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://kodebot.com/blog/2015/setup-chutzpah-to-run-javascript-tests-in-visualstudio/</guid>
+      <description>First thing first, install Chutzpah Test Runner&amp;nbsp;and Test Adaptor for the Test Explorer.
+Next, setup your projects in Visual Studio. I personally like to keep my test code in a separate project for JavaScript as well so my project and folder structure looks like this:
+This allows you&amp;nbsp;to restrict testing frameworks and libraries like Jasmine only to&amp;nbsp;the test project. I use JavaScript&amp;nbsp;libraries directly from the main project when it is needed in test projects as well rather then adding them again in the test project (some people have different view on this but it works for me).</description>
+    </item>
+    
+  </channel>
+</rss>

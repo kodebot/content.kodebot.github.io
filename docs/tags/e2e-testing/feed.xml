@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>E2e Testing on kodebot</title>
+    <link>http://kodebot.com/tags/e2e-testing/</link>
+    <description>Recent content in E2e Testing on kodebot</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-GB</language>
+    <lastBuildDate>Mon, 06 Apr 2015 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://kodebot.com/tags/e2e-testing/feed.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Selenium and Page Objects</title>
+      <link>http://kodebot.com/blog/2015/selenium-and-page-objects/</link>
+      <pubDate>Mon, 06 Apr 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://kodebot.com/blog/2015/selenium-and-page-objects/</guid>
+      <description>I use&amp;nbsp;Selenium&amp;nbsp;or Protractor&amp;nbsp;for E2E tests that require browser automation. I prefer to use Selenium when I want to write my tests in C# and Protractor for AngularJS applications.
+It doesn&#39;t matter what tool/framework you use, if you want to bring in structure and make your test code reusable when dealing with any UI automation then Page Object is your friend.
+I have been creating my Page Objects incorrectly with two major flaws until I read this&amp;nbsp;great article from Martin Fowler.</description>
+    </item>
+    
+  </channel>
+</rss>

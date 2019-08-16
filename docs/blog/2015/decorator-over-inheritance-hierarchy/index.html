@@ -1,0 +1,397 @@
+
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="generator" content="Hugo 0.54.0" />
+  <meta name="description" content="">
+
+
+  <link rel="icon" href="/images/favicon.ico" type="image/png">
+  <title>Decorator over Inheritance hierarchy :: kodebot</title>
+
+  
+  <link href="/css/nucleus.css?1565956016" rel="stylesheet">
+  <link href="/css/fontawesome-all.min.css?1565956016"
+    rel="stylesheet">
+  <link href="/css/hybrid.css?1565956016" rel="stylesheet">
+  <link href="/css/featherlight.min.css?1565956016" rel="stylesheet">
+  <link href="/css/perfect-scrollbar.min.css?1565956016"
+    rel="stylesheet">
+  <link href="/css/auto-complete.css?1565956016" rel="stylesheet">
+  <link href="/css/atom-one-dark-reasonable.css?1565956016"
+    rel="stylesheet">
+  <link href="/css/theme.css?1565956016" rel="stylesheet">
+  <link href="/css/hugo-theme.css?1565956016" rel="stylesheet">
+  
+  <link href="/css/theme-mine.css?1565956016"
+    rel="stylesheet">
+  
+
+  <script src="/js/jquery-3.3.1.min.js?1565956016"></script>
+
+  <style type="text/css">
+    :root #header+#content>#left>#rlblock_left {
+      display: none !important;
+    }
+
+      {
+        {
+        if .Site.Params.disableInlineCopyToClipBoard
+      }
+    }
+
+    :not(pre)>code+span.copy-to-clipboard {
+      display: none;
+    }
+
+      {
+        {
+        end
+      }
+    }
+  </style>
+  
+</head>
+
+<body class="" data-url="/blog/2015/decorator-over-inheritance-hierarchy/">
+  <nav class="main-menu">
+    <div class="logo">
+        <a href="http://kodebot.com/">
+            <img src="/images/logo.png" style="background: white; padding-right: 2px;">
+        </a>
+    </div>
+    <ul>
+        
+        
+        
+                
+        <li >
+            <a href="/blog/" 
+            class="active"
+            >
+                Blog
+            </a>
+        </li>
+
+        
+                
+        <li >
+            <a href="/tutorials/" >
+                Tutorials
+            </a>
+        </li>
+
+        
+                
+        <li >
+            <a href="/about/" >
+                About
+            </a>
+        </li>
+
+        
+        
+    </ul>
+</nav>
+  <section id="body" class="no-sidebar">
+    <div id="overlay"></div>
+    <div class="padding highlightable">
+      
+      <div>
+        
+        
+        <div id="top-bar">
+          
+
+
+          <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+            <span class="links">
+              
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href='/'>Kodebot</a> > <a href='/blog/'>Blog</a> > Decorator over Inheritance hierarchy
+          
+          
+          
+          
+          
+          
+            </span>
+          </div>
+        </div>
+        
+      </div>
+      
+      <div id="head-tags">
+        
+<div class="tags">
+
+  <a class="tag-link" href="/tags/design-pattern">Design Pattern</a>
+
+  <a class="tag-link" href="/tags/c">C#</a>
+
+</div>
+
+      </div>
+      
+        <div id="body-inner">
+          
+          <h1>
+            
+            Decorator over Inheritance hierarchy
+          </h1>
+          
+
+          
+
+<p>I have used inheritance to solve a problem in many situations - some of them are correct and some of them are not when thinking about it now.</p>
+<div>
+<p>When you are in a situation where you think you need multi-level inheritance, 9 out of 10 times you can solve the same problem using decorators.</p>
+</div><!-- more -->
+<div>
+<p>One of the problems I have seen recently which fits in this pattern is the implementation of ICommand interface. See the implementation below</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Command</span> : ICommand
+   {  
+     <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">bool</span> CanExecute(<span style="color:#66d9ef">object</span> parameter)  
+     {  
+       <span style="color:#75715e">// normal can execute version  
+</span><span style="color:#75715e"></span>       <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span>;  
+     }  
+
+     <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">event</span> EventHandler CanExecuteChanged;  
+
+     <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> Execute(<span style="color:#66d9ef">object</span> parameter)  
+     {  
+       <span style="color:#75715e">// normal execute version  
+</span><span style="color:#75715e"></span>     }  
+   }  
+
+   <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">AuditedCommand</span>:Command  
+   {  
+     <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">bool</span> CanExecute(<span style="color:#66d9ef">object</span> parameter)  
+     {  
+       <span style="color:#75715e">// audited can execute version  
+</span><span style="color:#75715e"></span>       <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">base</span>.CanExecute(parameter);  
+     }  
+
+     <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> Execute(<span style="color:#66d9ef">object</span> parameter)  
+     {  
+       <span style="color:#75715e">// audited execute version  
+</span><span style="color:#75715e"></span>       <span style="color:#66d9ef">base</span>.Execute(parameter);  
+     }  
+   }  
+
+   <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SecureCommand</span> : Command  
+   {  
+     <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">bool</span> CanExecute(<span style="color:#66d9ef">object</span> parameter)  
+     {  
+       <span style="color:#75715e">// Secure can execute version  
+</span><span style="color:#75715e"></span>       <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">base</span>.CanExecute(parameter);  
+     }  
+
+     <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> Execute(<span style="color:#66d9ef">object</span> parameter)  
+     {  
+       <span style="color:#75715e">// Secure execute version  
+</span><span style="color:#75715e"></span>       <span style="color:#66d9ef">base</span>.Execute(parameter);  
+     }  
+   }  </code></pre></div>
+<p>In this example, Command class is implementing ICommand interface and it provides basic version of the Command. Two other classes AuditedCommand and SecureCommand are inherited from Command to add some additional behaviours.</p>
+<p>What do we do if we need a Command which supports Auditing and Security? There are two ways we can solve this problem using inheritance&nbsp;</p>
+<ol>
+<li>Use multi-level inheritance where SecureCommand inherits from AuditedCommand and AuditedCommand from Command</li>
+<li>Create a new class SecureAuditedCommand which inherits from &nbsp;Command</li>
+</ol>
+<div>
+<p>If we use the first approach we loose the flexibility to use just SecureCommand without going through AuditedCommand. Approach 2 is not really sustainable because we cannot create new classes for every combination of new command behaviours we might need in the future.</p>
+</div>
+<div>
+<p>Another problem with approach 2 is it violates <a href="http://en.wikipedia.org/wiki/Single_responsibility_principle" target="_blank">SRP</a>.</p>
+</div>
+<div>
+<p>So, what is the better way to solve this problem and keep our code maintainable.</p>
+</div>
+<div>
+<p>The one word answer is "Decorator".</p>
+</div>
+<div>
+<p>Here is how it looks like with Decorator pattern</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Command</span> : ICommand  
+   {  
+     <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">bool</span> CanExecute(<span style="color:#66d9ef">object</span> parameter)  
+     {  
+       <span style="color:#75715e">// normal can execute  
+</span><span style="color:#75715e"></span>       <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span>;  
+     }  
+
+     <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">event</span> EventHandler CanExecuteChanged;  
+
+     <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> Execute(<span style="color:#66d9ef">object</span> parameter)  
+     {  
+       <span style="color:#75715e">// normal execute  
+</span><span style="color:#75715e"></span>     }  
+   }  
+
+   <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">abstract</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">CommandDecorator</span> : ICommand  
+   {  
+     <span style="color:#66d9ef">private</span> ICommand _command;  
+
+     <span style="color:#66d9ef">public</span> CommandDecorator(ICommand command)  
+     {  
+       <span style="color:#66d9ef">this</span>._command = command;  
+     }  
+
+     <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">virtual</span> <span style="color:#66d9ef">bool</span> CanExecute(<span style="color:#66d9ef">object</span> parameter)  
+     {  
+       <span style="color:#66d9ef">return</span> _command.CanExecute(parameter);  
+     }  
+
+    <span style="color:#75715e">// should be a wrapper to the property in the base class
+</span><span style="color:#75715e"></span>     <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">event</span> EventHandler CanExecuteChanged; 
+
+     <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">virtual</span> <span style="color:#66d9ef">void</span> Execute(<span style="color:#66d9ef">object</span> parameter)  
+     {  
+       _command.Execute(parameter);  
+     }  
+   }  
+
+   <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">AuditedCommand</span>:CommandDecorator  
+   {  
+     <span style="color:#66d9ef">public</span> AuditedCommand(ICommand command):<span style="color:#66d9ef">base</span>(command)  
+     {  
+     }  
+
+     <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">bool</span> CanExecute(<span style="color:#66d9ef">object</span> parameter)  
+     {  
+       <span style="color:#75715e">// Audit behaviour goes here  
+</span><span style="color:#75715e"></span>       <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">base</span>.CanExecute(parameter);  
+     }  
+
+     <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">void</span> Execute(<span style="color:#66d9ef">object</span> parameter)  
+     {  
+       <span style="color:#75715e">// Audit behaviour goes here  
+</span><span style="color:#75715e"></span>       <span style="color:#66d9ef">base</span>.Execute(parameter);  
+     }  
+
+   }  
+
+   <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SecureCommand</span> : CommandDecorator  
+   {  
+     <span style="color:#66d9ef">public</span> SecureCommand(ICommand command):<span style="color:#66d9ef">base</span>(command)  
+     {  
+     }  
+
+     <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">bool</span> CanExecute(<span style="color:#66d9ef">object</span> parameter)  
+     {  
+       <span style="color:#75715e">// Secure behaviour goes here  
+</span><span style="color:#75715e"></span>       <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">base</span>.CanExecute(parameter);  
+     }  
+
+     <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">void</span> Execute(<span style="color:#66d9ef">object</span> parameter)  
+     {  
+       <span style="color:#75715e">// Secure behaviour goes here  
+</span><span style="color:#75715e"></span>       <span style="color:#66d9ef">base</span>.Execute(parameter);  
+     }  
+   }  
+
+       <span style="color:#75715e">// Here is how you compose your commands
+</span><span style="color:#75715e"></span>       ICommand auditedDecorator = <span style="color:#66d9ef">new</span> AuditedCommand(command);  
+       ICommand secureDecorator = <span style="color:#66d9ef">new</span> SecureCommand(command);  
+       ICommand auditedSecureDecorator = <span style="color:#66d9ef">new</span> SecureCommand(auditedDecorator);</code></pre></div>
+<p><p>Now, we can compose any type of command without compromising maintainability.</p>
+</div>
+</div></p>
+
+
+<footer class=" footline" >
+	
+</footer>
+
+
+        
+        </div> 
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+        
+                    
+                        
+            
+            
+        
+                    
+                        
+            
+            
+        
+                    
+            
+        
+        
+        
+
+
+	 
+	 
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js?1565956016"></script>
+    <script src="/js/perfect-scrollbar.min.js?1565956016"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1565956016"></script>
+    <script src="/js/jquery.sticky.js?1565956016"></script>
+    <script src="/js/featherlight.min.js?1565956016"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1565956016"></script>
+    <script src="/js/highlight.pack.js?1565956016"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom-3.6.0.js?1565956016"></script>
+    <script src="/js/learn.js?1565956016"></script>
+    <script src="/js/hugo-learn.js?1565956016"></script>
+
+    <link href="/mermaid/mermaid.css?1565956016" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1565956016"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    
+
+  </body>
+</html>

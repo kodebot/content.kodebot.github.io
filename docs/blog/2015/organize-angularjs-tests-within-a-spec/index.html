@@ -1,0 +1,314 @@
+
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="generator" content="Hugo 0.54.0" />
+  <meta name="description" content="">
+
+
+  <link rel="icon" href="/images/favicon.ico" type="image/png">
+  <title>Organize AngularJS Tests within a test file :: kodebot</title>
+
+  
+  <link href="/css/nucleus.css?1565956016" rel="stylesheet">
+  <link href="/css/fontawesome-all.min.css?1565956016"
+    rel="stylesheet">
+  <link href="/css/hybrid.css?1565956016" rel="stylesheet">
+  <link href="/css/featherlight.min.css?1565956016" rel="stylesheet">
+  <link href="/css/perfect-scrollbar.min.css?1565956016"
+    rel="stylesheet">
+  <link href="/css/auto-complete.css?1565956016" rel="stylesheet">
+  <link href="/css/atom-one-dark-reasonable.css?1565956016"
+    rel="stylesheet">
+  <link href="/css/theme.css?1565956016" rel="stylesheet">
+  <link href="/css/hugo-theme.css?1565956016" rel="stylesheet">
+  
+  <link href="/css/theme-mine.css?1565956016"
+    rel="stylesheet">
+  
+
+  <script src="/js/jquery-3.3.1.min.js?1565956016"></script>
+
+  <style type="text/css">
+    :root #header+#content>#left>#rlblock_left {
+      display: none !important;
+    }
+
+      {
+        {
+        if .Site.Params.disableInlineCopyToClipBoard
+      }
+    }
+
+    :not(pre)>code+span.copy-to-clipboard {
+      display: none;
+    }
+
+      {
+        {
+        end
+      }
+    }
+  </style>
+  
+</head>
+
+<body class="" data-url="/blog/2015/organize-angularjs-tests-within-a-spec/">
+  <nav class="main-menu">
+    <div class="logo">
+        <a href="http://kodebot.com/">
+            <img src="/images/logo.png" style="background: white; padding-right: 2px;">
+        </a>
+    </div>
+    <ul>
+        
+        
+        
+                
+        <li >
+            <a href="/blog/" 
+            class="active"
+            >
+                Blog
+            </a>
+        </li>
+
+        
+                
+        <li >
+            <a href="/tutorials/" >
+                Tutorials
+            </a>
+        </li>
+
+        
+                
+        <li >
+            <a href="/about/" >
+                About
+            </a>
+        </li>
+
+        
+        
+    </ul>
+</nav>
+  <section id="body" class="no-sidebar">
+    <div id="overlay"></div>
+    <div class="padding highlightable">
+      
+      <div>
+        
+        
+        <div id="top-bar">
+          
+
+
+          <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+            <span class="links">
+              
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href='/'>Kodebot</a> > <a href='/blog/'>Blog</a> > Organize AngularJS Tests within a test file
+          
+          
+          
+          
+          
+          
+            </span>
+          </div>
+        </div>
+        
+      </div>
+      
+      <div id="head-tags">
+        
+<div class="tags">
+
+  <a class="tag-link" href="/tags/unit-testing">Unit Testing</a>
+
+  <a class="tag-link" href="/tags/javascript">JavaScript</a>
+
+  <a class="tag-link" href="/tags/angularjs">AngularJS</a>
+
+</div>
+
+      </div>
+      
+        <div id="body-inner">
+          
+          <h1>
+            
+            Organize AngularJS Tests within a test file
+          </h1>
+          
+
+          
+
+<p>I like to have one test file&nbsp;per components of AngularJS application. So, for example, <code>homeController</code> will have its own test file&nbsp;named <code>homeSpec</code> or <code>homeControllerSpec.</code></p>
+<p>First, create a&nbsp;suite to describe a component at a high level and for each scenario create&nbsp;nested suits. This allows us&nbsp;to define any test setup that are common for <!-- more -->all the tests&nbsp;in one place.</p>
+<p>For example, loading module, overriding and injecting any dependencies are done in the beforeEach method of outter test suite. The setup is applicable for all the tests defined in the outter and nested test suits, so, if you don't want any setup for all the tests then do not include them here.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">$controller</span>;
+    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">calculatorService</span>;
+    
+    <span style="color:#a6e22e">beforeEach</span>(<span style="color:#66d9ef">function</span> () {
+
+        <span style="color:#75715e">// load module
+</span><span style="color:#75715e"></span>        <span style="color:#a6e22e">module</span>(<span style="color:#e6db74">&#39;app&#39;</span>);
+
+        <span style="color:#75715e">// overrides for mock injections
+</span><span style="color:#75715e"></span>        <span style="color:#a6e22e">module</span>(<span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">$provide</span>) {
+            <span style="color:#75715e">// override any dependency here
+</span><span style="color:#75715e"></span>            <span style="color:#75715e">// $provide.value(&#39;service&#39;, &#39;override&#39;); 
+</span><span style="color:#75715e"></span>
+        });
+        
+        <span style="color:#75715e">// initialise
+</span><span style="color:#75715e"></span>        <span style="color:#a6e22e">inject</span>(<span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">_$controller_</span>, <span style="color:#a6e22e">_calculatorService_</span>) {
+            <span style="color:#a6e22e">$controller</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">_$controller_</span>;
+            <span style="color:#a6e22e">calculatorService</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">_calculatorService_</span>;
+            
+        });
+
+    });
+</code></pre></div>
+<p>Next, add tests directly in the outter suite if they don't fall under any scenario. For example, test to&nbsp;verify whether the controller is created successfully or not is better kept in the outter suit directly</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">    <span style="color:#a6e22e">it</span>(<span style="color:#e6db74">&#39;should initialise the controller successfully&#39;</span>, <span style="color:#66d9ef">function</span>() {
+
+        <span style="color:#75715e">// act
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">result</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">$controller</span>(<span style="color:#e6db74">&#39;homeController&#39;</span>);
+
+        <span style="color:#75715e">// assert
+</span><span style="color:#75715e"></span>        <span style="color:#a6e22e">expect</span>(<span style="color:#a6e22e">result</span>).<span style="color:#a6e22e">toBeDefined</span>();
+
+    });
+</code></pre></div>
+<p>Finally, create test suits for each scenario and keep all the tests applicable for that scenario within the corresponding suite. Again, this allows us to keep all the setup applicable for all the tests within the suite in one place.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">    <span style="color:#a6e22e">describe</span>(<span style="color:#e6db74">&#39;when add is performed&#39;</span>, <span style="color:#66d9ef">function</span>() {
+        
+        <span style="color:#a6e22e">it</span>(<span style="color:#e6db74">&#39;should invoke add in calculatorService&#39;</span>, <span style="color:#66d9ef">function</span>() {
+
+            <span style="color:#75715e">// arrange
+</span><span style="color:#75715e"></span>            <span style="color:#75715e">// replace original method with spy
+</span><span style="color:#75715e"></span>            <span style="color:#a6e22e">calculatorService</span>.<span style="color:#a6e22e">add</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">jasmine</span>.<span style="color:#a6e22e">createSpy</span>(<span style="color:#e6db74">&#39;add&#39;</span>);
+            <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">target</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">$controller</span>(<span style="color:#e6db74">&#39;homeController&#39;</span>, { <span style="color:#a6e22e">calculatorService</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">calculatorService</span> });
+
+            <span style="color:#75715e">// act
+</span><span style="color:#75715e"></span>            <span style="color:#a6e22e">target</span>.<span style="color:#a6e22e">add</span>(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>);
+
+            <span style="color:#75715e">// assert
+</span><span style="color:#75715e"></span>            <span style="color:#a6e22e">expect</span>(<span style="color:#a6e22e">calculatorService</span>.<span style="color:#a6e22e">add</span>).<span style="color:#a6e22e">toHaveBeenCalledWith</span>(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>);
+
+        });
+</code></pre></div>
+<p>When required, create suits within nested suits to keep your&nbsp;test file&nbsp;<a href="http://en.wikipedia.org/wiki/Don%27t_repeat_yourself" target="_blank">DRY</a>.&nbsp;</p>
+<p>You may change this structure if required but most of the time sticking to this structure keeps your&nbsp;test files consistent.</p>
+<p>Leave all the dependencies to be resolved and loaded without replacing them with mock version unless it is required (some people may have different view on this).&nbsp;</p>
+<p>For example, if I just want to mock a method call then I will replace the method with jasmine spy rather then creating new mock object.&nbsp;</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">    <span style="color:#a6e22e">calculatorService</span>.<span style="color:#a6e22e">add</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">jasmine</span>.<span style="color:#a6e22e">createSpy</span>(<span style="color:#e6db74">&#39;add&#39;</span>);
+    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">target</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">$controller</span>(<span style="color:#e6db74">&#39;homeController&#39;</span>, { <span style="color:#a6e22e">calculatorService</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">calculatorService</span> });
+</code></pre></div>
+<p>But, if I need&nbsp;to replace an object with mock version then I create it and configure <code>$provide</code> to provide the mock version when requested</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">       <span style="color:#75715e">// overrides for mock injections
+</span><span style="color:#75715e"></span>        <span style="color:#a6e22e">module</span>(<span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">$provide</span>) {
+            <span style="color:#a6e22e">$provide</span>.<span style="color:#a6e22e">value</span>(<span style="color:#e6db74">&#39;claculatorService&#39;</span>, <span style="color:#e6db74">&#39;mockCalculatorService&#39;</span>); 
+
+        });
+</code></pre></div>
+<p>&nbsp;</p>
+
+
+<footer class=" footline" >
+	
+</footer>
+
+
+        
+        </div> 
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+        
+                    
+                        
+            
+            
+        
+                    
+                        
+            
+            
+        
+                    
+            
+        
+        
+        
+
+
+	 
+	 
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js?1565956016"></script>
+    <script src="/js/perfect-scrollbar.min.js?1565956016"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1565956016"></script>
+    <script src="/js/jquery.sticky.js?1565956016"></script>
+    <script src="/js/featherlight.min.js?1565956016"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1565956016"></script>
+    <script src="/js/highlight.pack.js?1565956016"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom-3.6.0.js?1565956016"></script>
+    <script src="/js/learn.js?1565956016"></script>
+    <script src="/js/hugo-learn.js?1565956016"></script>
+
+    <link href="/mermaid/mermaid.css?1565956016" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1565956016"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    
+
+  </body>
+</html>

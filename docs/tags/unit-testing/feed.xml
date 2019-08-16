@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Unit Testing on kodebot</title>
+    <link>http://kodebot.com/tags/unit-testing/</link>
+    <description>Recent content in Unit Testing on kodebot</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-GB</language>
+    <lastBuildDate>Thu, 13 Aug 2015 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://kodebot.com/tags/unit-testing/feed.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Unit Testing Entity Framework async Queries</title>
+      <link>http://kodebot.com/blog/2015/unit-testing-entity-framework-async-queries/</link>
+      <pubDate>Thu, 13 Aug 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://kodebot.com/blog/2015/unit-testing-entity-framework-async-queries/</guid>
+      <description>Introduction In my last article, we have seen how to unit test Entity Framework queries. Now, let&amp;rsquo;s look at how to unit test async queries. When using async tasks, if we don&amp;rsquo;t use it all the way then we are not using async tasks properly. For example, if you have async action method in your controller which queries database synchronously to send some data to the requester, then we are NOT using async properly as the thread is blocked during database operation.</description>
+    </item>
+    
+    <item>
+      <title>Unit Testing Entity Framework Queries</title>
+      <link>http://kodebot.com/blog/2015/unit-testing-entity-framework-queries/</link>
+      <pubDate>Mon, 10 Aug 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://kodebot.com/blog/2015/unit-testing-entity-framework-queries/</guid>
+      <description>Introduction When writing unit tests, we should test only one thing at once and isolate the system under test(SUT) from all the dependencies. We should follow the same approach for any LINQ queries you write to retrieve data from the underlying Database. But, I have seen many developers excluding the whole data access layer from unit testing. This is not right approach to follow IMHO. Many developers don&amp;rsquo;t bother unit testing data access layer because of the perceived effort and complexity involved in isolating the data access layer from underlying Database and ORM tools like Entity Framework.</description>
+    </item>
+    
+    <item>
+      <title>Angular 1.x - Unit Testing a function that returns Promise</title>
+      <link>http://kodebot.com/blog/2015/angular-1x-unit-testing-a-function-that-returns-promise/</link>
+      <pubDate>Mon, 08 Jun 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://kodebot.com/blog/2015/angular-1x-unit-testing-a-function-that-returns-promise/</guid>
+      <description>I wrote this post few months back which show how we can mock a function that returns Promise. In this post, we will see how to test a function that returns Promise.
+We will use the following simple controller as our SUT
+var app = angular.module(&amp;#34;app&amp;#34;); app.controller(&amp;#34;studentController&amp;#34;, function($q, studentDataService){ var vm = this; vm.students = undefined; activate(); function activate (){ vm.students = getAllStudents(); } function getAllStudents(){ return studentDataService .getAll(); } });  This simple controller has getAllStudents() which returns a promise.</description>
+    </item>
+    
+    <item>
+      <title>How to isolate AutoMapper in Unit Tests?</title>
+      <link>http://kodebot.com/blog/2015/how-to-mock-automapper-in-unit-tests/</link>
+      <pubDate>Wed, 20 May 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://kodebot.com/blog/2015/how-to-mock-automapper-in-unit-tests/</guid>
+      <description>Introduction
+When it comes to Unit testing, the rule is to isolate&amp;nbsp;all the dependencies and focus only on the unit of code you are testing. I have been silently ignoring this for AutoMapper until I found a proper way to isolate and replace the behavior of mapping.
+When I was looking for a proper way to do this, I come across many posts but none of them were having full working example without any additional layer between the function/class that wants to use AutoMapper and AutoMapper itself.</description>
+    </item>
+    
+    <item>
+      <title>Mocking function that returns promise</title>
+      <link>http://kodebot.com/blog/2015/mocking-function-that-returns-promise/</link>
+      <pubDate>Mon, 16 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://kodebot.com/blog/2015/mocking-function-that-returns-promise/</guid>
+      <description>Promises are very useful to develope non-blocking web applications and it also helps to avoid pyramid of doom.
+AngularJS supports&amp;nbsp;Q&amp;nbsp;based promises, this means, we can create functions in AngularJS application that uses promises. When it comes to unit testing functions that returns promises, it is just like unit testing normal functions only if you remember&amp;nbsp;simulate scope&#39;s life cycle using $apply() or $digest()
+Let&#39;s see this with an example. The following controller loads restaurants using promise</description>
+    </item>
+    
+    <item>
+      <title>Strucuring unit tests</title>
+      <link>http://kodebot.com/blog/2015/structuring-unit-tests/</link>
+      <pubDate>Mon, 16 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://kodebot.com/blog/2015/structuring-unit-tests/</guid>
+      <description>I have been following the same unit test structure that Phil Haack described here. &amp;nbsp;But, I use slightly different version when my tests need too many repeated test setups and cleanups.&amp;nbsp;
+I like jasmine&amp;nbsp;mainly because it allows to keep the tests DRY&amp;nbsp;using nested structure. Ofcourse it is possible in jasmine because method nesting is allowed in JavaScript. I like to structure my C# test files the same way using nested classes&amp;nbsp;without using any additional libraries</description>
+    </item>
+    
+    <item>
+      <title>Organize AngularJS Tests within a test file</title>
+      <link>http://kodebot.com/blog/2015/organize-angularjs-tests-within-a-spec/</link>
+      <pubDate>Sun, 15 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://kodebot.com/blog/2015/organize-angularjs-tests-within-a-spec/</guid>
+      <description>I like to have one test file&amp;nbsp;per components of AngularJS application. So, for example, homeController will have its own test file&amp;nbsp;named homeSpec or homeControllerSpec.
+First, create a&amp;nbsp;suite to describe a component at a high level and for each scenario create&amp;nbsp;nested suits. This allows us&amp;nbsp;to define any test setup that are common for all the tests&amp;nbsp;in one place.
+For example, loading module, overriding and injecting any dependencies are done in the beforeEach method of outter test suite.</description>
+    </item>
+    
+    <item>
+      <title>Setup Chutzpah to Run Javascript Tests in VisualStudio</title>
+      <link>http://kodebot.com/blog/2015/setup-chutzpah-to-run-javascript-tests-in-visualstudio/</link>
+      <pubDate>Sat, 14 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://kodebot.com/blog/2015/setup-chutzpah-to-run-javascript-tests-in-visualstudio/</guid>
+      <description>First thing first, install Chutzpah Test Runner&amp;nbsp;and Test Adaptor for the Test Explorer.
+Next, setup your projects in Visual Studio. I personally like to keep my test code in a separate project for JavaScript as well so my project and folder structure looks like this:
+This allows you&amp;nbsp;to restrict testing frameworks and libraries like Jasmine only to&amp;nbsp;the test project. I use JavaScript&amp;nbsp;libraries directly from the main project when it is needed in test projects as well rather then adding them again in the test project (some people have different view on this but it works for me).</description>
+    </item>
+    
+  </channel>
+</rss>

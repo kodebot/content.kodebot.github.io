@@ -1,0 +1,375 @@
+
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="generator" content="Hugo 0.54.0" />
+  <meta name="description" content="">
+
+
+  <link rel="icon" href="/images/favicon.ico" type="image/png">
+  <title>Owin - Katana core middleware patterns :: kodebot</title>
+
+  
+  <link href="/css/nucleus.css?1565956016" rel="stylesheet">
+  <link href="/css/fontawesome-all.min.css?1565956016"
+    rel="stylesheet">
+  <link href="/css/hybrid.css?1565956016" rel="stylesheet">
+  <link href="/css/featherlight.min.css?1565956016" rel="stylesheet">
+  <link href="/css/perfect-scrollbar.min.css?1565956016"
+    rel="stylesheet">
+  <link href="/css/auto-complete.css?1565956016" rel="stylesheet">
+  <link href="/css/atom-one-dark-reasonable.css?1565956016"
+    rel="stylesheet">
+  <link href="/css/theme.css?1565956016" rel="stylesheet">
+  <link href="/css/hugo-theme.css?1565956016" rel="stylesheet">
+  
+  <link href="/css/theme-mine.css?1565956016"
+    rel="stylesheet">
+  
+
+  <script src="/js/jquery-3.3.1.min.js?1565956016"></script>
+
+  <style type="text/css">
+    :root #header+#content>#left>#rlblock_left {
+      display: none !important;
+    }
+
+      {
+        {
+        if .Site.Params.disableInlineCopyToClipBoard
+      }
+    }
+
+    :not(pre)>code+span.copy-to-clipboard {
+      display: none;
+    }
+
+      {
+        {
+        end
+      }
+    }
+  </style>
+  
+</head>
+
+<body class="" data-url="/blog/2015/owin-katana-core-middleware-patterns/">
+  <nav class="main-menu">
+    <div class="logo">
+        <a href="http://kodebot.com/">
+            <img src="/images/logo.png" style="background: white; padding-right: 2px;">
+        </a>
+    </div>
+    <ul>
+        
+        
+        
+                
+        <li >
+            <a href="/blog/" 
+            class="active"
+            >
+                Blog
+            </a>
+        </li>
+
+        
+                
+        <li >
+            <a href="/tutorials/" >
+                Tutorials
+            </a>
+        </li>
+
+        
+                
+        <li >
+            <a href="/about/" >
+                About
+            </a>
+        </li>
+
+        
+        
+    </ul>
+</nav>
+  <section id="body" class="no-sidebar">
+    <div id="overlay"></div>
+    <div class="padding highlightable">
+      
+      <div>
+        
+        
+        <div id="top-bar">
+          
+
+
+          <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+            <span class="links">
+              
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href='/'>Kodebot</a> > <a href='/blog/'>Blog</a> > Owin - Katana core middleware patterns
+          
+          
+          
+          
+          
+          
+            </span>
+          </div>
+        </div>
+        
+      </div>
+      
+      <div id="head-tags">
+        
+<div class="tags">
+
+  <a class="tag-link" href="/tags/asp.net">ASP.NET</a>
+
+  <a class="tag-link" href="/tags/mvc">MVC</a>
+
+</div>
+
+      </div>
+      
+        <div id="body-inner">
+          
+          <h1>
+            
+            Owin - Katana core middleware patterns
+          </h1>
+          
+
+          
+
+<p><h3>Introduction</h3>
+<p>Katana supports 4 different convention based patterns for adding middlewares in its lowest level. They are,</p>
+<ol>
+<li>Delegate Pattern</li>
+<li>Instance Pattern</li>
+<li>Generator/Nested Delegate Pattern</li>
+<li>Constructor Type or Type Pattern</li>
+</ol><!-- more -->
+<p>All the other formats/patterns supported through IAppBuilder&rsquo;s extension methods are implemented using one of these 4 patterns under the hood.</p>
+<p>I couldn&rsquo;t find any examples in the web which show how to use these patterns, so I am creating it for my future reference.</p>
+<h3>Delegate Pattern</h3>
+<p>Delegate pattern accepts the following delegate as a first parameter for the Use method of IAppBuilder and any number of additional parameter of any type</p></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#75715e">// Delegate Pattern
+</span><span style="color:#75715e"></span>Func&lt;AppFunc, AppFunc&gt;</code></pre></div>
+<p>where AppFunc is <code>Func&lt;IDictionary&lt;string, object&gt;, Task&gt;&gt;</code>
+<p>The delegate takes AppFunc as parameter and returns AppFunc. The parameter represents the next middleware in the pipeline and return value represents the implementation of the middleware we are adding. </p></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#75715e">// Delegate Pattern Implementation
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> Configuration(IAppBuilder builder)
+{
+    builder.Use(<span style="color:#66d9ef">new</span> Func&lt;AppFunc, AppFunc&gt;(next =&gt; <span style="color:#66d9ef">async</span> env =&gt;
+    {
+        Console.WriteLine(<span style="color:#e6db74">&#34;From Delegate Middleware - Start&#34;</span>);
+        <span style="color:#66d9ef">await</span> next(env);
+        Console.WriteLine(<span style="color:#e6db74">&#34;From Delegate Middleware - End&#34;</span>);
+
+    }));
+}</code></pre></div>
+<p>In the example above, the middleware we are adding prints something in the console, calls next middleware in the pipeline and once it is complete, it continues by executing rest of the code in the middleware we are adding.</p>
+<p>The following example shows the delegate pattern with additional parameters</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#75715e">// Delegate Pattern with additional parameters
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> Configuration(IAppBuilder builder)
+{
+   builder.Use(<span style="color:#66d9ef">new</span> Func&lt;AppFunc, <span style="color:#66d9ef">string</span>, AppFunc&gt;((next, param) =&gt; <span style="color:#66d9ef">async</span> (env) =&gt;
+    {
+        Console.WriteLine(<span style="color:#e6db74">&#34;From Delegate Middleware with param- Start&#34;</span>);
+        Console.WriteLine(<span style="color:#e6db74">&#34;Paramater value : {0}&#34;</span>, param);
+        <span style="color:#66d9ef">await</span> next(env);
+        Console.WriteLine(<span style="color:#e6db74">&#34;From Delegate Middleware with param- End&#34;</span>);
+
+    }), <span style="color:#e6db74">&#34;additional param&#34;</span>);
+}</code></pre></div>
+<p><h3>Instance Pattern</h3>
+<p>To use this pattern to add middlewares, we need newable types with the following two methods</p></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#75715e">// Instance Pattern method signatures
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> Initialize(AppFunc next, <span style="color:#66d9ef">params</span> <span style="color:#66d9ef">object</span><span style="color:#a6e22e">[]</span> args);
+<span style="color:#66d9ef">public</span> Task Invoke(IDictionary&lt;<span style="color:#66d9ef">string</span>, <span style="color:#66d9ef">object</span>&gt; environment);</code></pre></div>
+<p>Here is an example of middleware created using instance pattern</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#75715e">// Instance Pattern with parameter
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> Configuration(IAppBuilder builder)
+{
+    builder.Use(<span style="color:#66d9ef">new</span> InstanceMiddlewareWithParam(), <span style="color:#e6db74">&#34;instance param value&#34;</span>);
+}
+
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">InstanceMiddlewareWithParam</span>
+{
+    <span style="color:#66d9ef">private</span> AppFunc _next;
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">string</span> _param;
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> Initialize(AppFunc next, <span style="color:#66d9ef">string</span> param)
+    {
+        _next = next;
+        _param = param;
+    }
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">async</span> Task Invoke(IDictionary&lt;<span style="color:#66d9ef">string</span>, <span style="color:#66d9ef">object</span>&gt; environment)
+    {
+        Console.WriteLine(<span style="color:#e6db74">&#34;From Instance Middleware with param - Start&#34;</span>);
+        Console.WriteLine(<span style="color:#e6db74">&#34;Parameter value: {0}&#34;</span>, _param);
+        <span style="color:#66d9ef">await</span> _next(environment);
+        Console.WriteLine(<span style="color:#e6db74">&#34;From Instance Middleware with param - Start&#34;</span>);
+    }
+
+}</code></pre></div>
+<p><h3>Generator/Nested Delegate Pattern</h3>
+<p>To use this pattern to create middlewares, we need a newable type with the following method</p></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#75715e">// Generator / Nested Delegate pattern
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">public</span> AppFunc Invoke(AppFunc next, <span style="color:#66d9ef">params</span> <span style="color:#66d9ef">object</span><span style="color:#a6e22e">[]</span> args);</code></pre></div>
+<p>This method takes next middleware in the pipeline and any number of additional arguments and returns the implementation of current middleware. Here is an example</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#75715e">// Middleware using Generator / Nested Delegate pattern
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> Configuration(IAppBuilder builder)
+{
+ builder.Use(<span style="color:#66d9ef">new</span> GeneratorMiddlewareWithParam(), <span style="color:#e6db74">&#34;generator param value&#34;</span>);
+}
+
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">InstanceMiddlewareWithParam</span>
+{
+    <span style="color:#66d9ef">private</span> AppFunc _next;
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">string</span> _param;
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> Initialize(AppFunc next, <span style="color:#66d9ef">string</span> param)
+    {
+        _next = next;
+        _param = param;
+    }
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">async</span> Task Invoke(IDictionary&lt;<span style="color:#66d9ef">string</span>, <span style="color:#66d9ef">object</span>&gt; environment)
+    {
+        Console.WriteLine(<span style="color:#e6db74">&#34;From Instance Middleware with param - Start&#34;</span>);
+        Console.WriteLine(<span style="color:#e6db74">&#34;Parameter value: {0}&#34;</span>, _param);
+        <span style="color:#66d9ef">await</span> _next(environment);
+        Console.WriteLine(<span style="color:#e6db74">&#34;From Instance Middleware with param - Start&#34;</span>);
+    }
+
+}</code></pre></div>
+<p><h3>Constructor Type / Type Pattern</h3>
+<p>A type with the following constructor and method can be added a middleware using this pattern</p></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"> <span style="color:#75715e">// Constructor Type / Type pattern
+</span><span style="color:#75715e"></span> <span style="color:#66d9ef">public</span> Ctor(AppFunc next, <span style="color:#66d9ef">params</span> <span style="color:#66d9ef">object</span><span style="color:#a6e22e">[]</span> args);
+ <span style="color:#66d9ef">public</span> Task Invoke(IDictionary&lt;<span style="color:#66d9ef">string</span>, <span style="color:#66d9ef">object</span>&gt; env);</code></pre></div>
+<p>Here is an example</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#75715e">// Middleware using Constructor Type / Type pattern
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> Configuration(IAppBuilder builder)
+{
+     builder.Use(<span style="color:#66d9ef">typeof</span>(ConstructorTypeMiddlewareWithParam), <span style="color:#e6db74">&#34;type param value&#34;</span>);
+}
+
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ConstructorTypeMiddlewareWithParam</span>
+{
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">readonly</span> AppFunc _next;
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">readonly</span> <span style="color:#66d9ef">string</span> _param;
+
+    <span style="color:#66d9ef">public</span> ConstructorTypeMiddlewareWithParam(AppFunc next, <span style="color:#66d9ef">string</span> param)
+    {
+        _next = next;
+        _param = param;
+    }
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">async</span> Task Invoke(IDictionary&lt;<span style="color:#66d9ef">string</span>, <span style="color:#66d9ef">object</span>&gt; env)
+    {
+        Console.WriteLine(<span style="color:#e6db74">&#34;From Constructor Type Middleware - Start&#34;</span>);
+        Console.WriteLine(<span style="color:#e6db74">&#34;Parameter value: {0}&#34;</span>, _param);
+        <span style="color:#66d9ef">await</span> _next(env);
+        Console.WriteLine(<span style="color:#e6db74">&#34;From Constructor Type Middleware - End&#34;</span>);
+    }
+}</code></pre></div>
+
+<footer class=" footline" >
+	
+</footer>
+
+
+        
+        </div> 
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+        
+                    
+                        
+            
+            
+        
+                    
+                        
+            
+            
+        
+                    
+            
+        
+        
+        
+
+
+	 
+	 
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js?1565956016"></script>
+    <script src="/js/perfect-scrollbar.min.js?1565956016"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1565956016"></script>
+    <script src="/js/jquery.sticky.js?1565956016"></script>
+    <script src="/js/featherlight.min.js?1565956016"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1565956016"></script>
+    <script src="/js/highlight.pack.js?1565956016"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom-3.6.0.js?1565956016"></script>
+    <script src="/js/learn.js?1565956016"></script>
+    <script src="/js/hugo-learn.js?1565956016"></script>
+
+    <link href="/mermaid/mermaid.css?1565956016" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1565956016"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    
+
+  </body>
+</html>

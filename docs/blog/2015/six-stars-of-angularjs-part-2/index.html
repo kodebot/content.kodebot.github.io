@@ -1,0 +1,330 @@
+
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="generator" content="Hugo 0.54.0" />
+  <meta name="description" content="">
+
+
+  <link rel="icon" href="/images/favicon.ico" type="image/png">
+  <title>Six stars of AngularJS - Part 2 :: kodebot</title>
+
+  
+  <link href="/css/nucleus.css?1565956016" rel="stylesheet">
+  <link href="/css/fontawesome-all.min.css?1565956016"
+    rel="stylesheet">
+  <link href="/css/hybrid.css?1565956016" rel="stylesheet">
+  <link href="/css/featherlight.min.css?1565956016" rel="stylesheet">
+  <link href="/css/perfect-scrollbar.min.css?1565956016"
+    rel="stylesheet">
+  <link href="/css/auto-complete.css?1565956016" rel="stylesheet">
+  <link href="/css/atom-one-dark-reasonable.css?1565956016"
+    rel="stylesheet">
+  <link href="/css/theme.css?1565956016" rel="stylesheet">
+  <link href="/css/hugo-theme.css?1565956016" rel="stylesheet">
+  
+  <link href="/css/theme-mine.css?1565956016"
+    rel="stylesheet">
+  
+
+  <script src="/js/jquery-3.3.1.min.js?1565956016"></script>
+
+  <style type="text/css">
+    :root #header+#content>#left>#rlblock_left {
+      display: none !important;
+    }
+
+      {
+        {
+        if .Site.Params.disableInlineCopyToClipBoard
+      }
+    }
+
+    :not(pre)>code+span.copy-to-clipboard {
+      display: none;
+    }
+
+      {
+        {
+        end
+      }
+    }
+  </style>
+  
+</head>
+
+<body class="" data-url="/blog/2015/six-stars-of-angularjs-part-2/">
+  <nav class="main-menu">
+    <div class="logo">
+        <a href="http://kodebot.com/">
+            <img src="/images/logo.png" style="background: white; padding-right: 2px;">
+        </a>
+    </div>
+    <ul>
+        
+        
+        
+                
+        <li >
+            <a href="/blog/" 
+            class="active"
+            >
+                Blog
+            </a>
+        </li>
+
+        
+                
+        <li >
+            <a href="/tutorials/" >
+                Tutorials
+            </a>
+        </li>
+
+        
+                
+        <li >
+            <a href="/about/" >
+                About
+            </a>
+        </li>
+
+        
+        
+    </ul>
+</nav>
+  <section id="body" class="no-sidebar">
+    <div id="overlay"></div>
+    <div class="padding highlightable">
+      
+      <div>
+        
+        
+        <div id="top-bar">
+          
+
+
+          <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+            <span class="links">
+              
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href='/'>Kodebot</a> > <a href='/blog/'>Blog</a> > Six stars of AngularJS - Part 2
+          
+          
+          
+          
+          
+          
+            </span>
+          </div>
+        </div>
+        
+      </div>
+      
+      <div id="head-tags">
+        
+<div class="tags">
+
+  <a class="tag-link" href="/tags/javascript">JavaScript</a>
+
+  <a class="tag-link" href="/tags/angularjs">AngularJS</a>
+
+</div>
+
+      </div>
+      
+        <div id="body-inner">
+          
+          <h1>
+            
+            Six stars of AngularJS - Part 2
+          </h1>
+          
+
+          
+
+<p>In <a href="../six-stars-of-angularjs-part-1" target="_blank">part 1</a>&nbsp;of this series, we have briefly seen how <code>$provide</code> and <code>$injector</code> work and we also took a deep dive on how we create a service using provider function of <code>$provide</code> service.</p><!-- more -->
+<p>Lets continue our journey and look at how and when we can&nbsp;use other&nbsp;functions of <code>$provide</code> service to create services.</p>
+<p>The following are the four&nbsp;functions we are going to look at now</p>
+<ol>
+<li>factory</li>
+<li>service</li>
+<li>value</li>
+<li>constant</li>
+</ol>
+<h2>Factory</h2>
+<p>The factory is one of the functions exposed by $provide service to create services. Here is an example of service created using factory function of <code>$provide</code> service</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// sample 1
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">$provide</span>.<span style="color:#a6e22e">factory</span>(<span style="color:#e6db74">&#39;movieService&#39;</span>, <span style="color:#a6e22e">movieService</span>);
+<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">movieService</span>() {
+    <span style="color:#66d9ef">return</span> { <span style="color:#75715e">// service
+</span><span style="color:#75715e"></span>      <span style="color:#a6e22e">getAllMovies</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">getAllMovies</span>
+    };
+
+    <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">getAllMovies</span>() {
+        <span style="color:#66d9ef">return</span> [<span style="color:#e6db74">&#39;engMovie1&#39;</span>, <span style="color:#e6db74">&#39;engMovie2&#39;</span>, <span style="color:#e6db74">&#39;engMovie3&#39;</span>];
+    }
+}
+</code></pre></div>
+<p>Here is the same service created using factory function&nbsp;available in module.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// sample 2
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">app</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">angular</span>.<span style="color:#a6e22e">module</span>(<span style="color:#e6db74">&#39;app&#39;</span>);
+<span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">factory</span>(<span style="color:#e6db74">&#39;movieService&#39;</span>, <span style="color:#a6e22e">movieService</span>);
+<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">movieService</span>() {
+    <span style="color:#66d9ef">return</span> { <span style="color:#75715e">// service
+</span><span style="color:#75715e"></span>      <span style="color:#a6e22e">getAllMovies</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">getAllMovies</span>
+    };
+
+    <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">getAllMovies</span>() {
+        <span style="color:#66d9ef">return</span> [<span style="color:#e6db74">&#39;engMovie1&#39;</span>, <span style="color:#e6db74">&#39;engMovie2&#39;</span>, <span style="color:#e6db74">&#39;engMovie3&#39;</span>];
+    }
+}
+</code></pre></div>
+<p>Note, module doesn't implement this function, it just allows us to invoke factory function of <code>$provide</code> in a convenient way.</p>
+<p>You would have recognized by now that the factory function takes the service factory as second parameter, this is same as what we assign to $get member of service provider. Of course, the first parameter is name of the service we are creating.</p>
+<p>When we create a service using factory function, <code>$provide</code>&nbsp;wraps it with service provider and registers it with <code>$injector</code>. We cannot create configurable services when factory function is used. So, if you don't want to create configurable service, you can use factory function. This is most used function to create services.</p>
+<h2>Service&nbsp;</h2>
+<p>The service function is used to create services if the service definition is defined as JavaScript class/type. The function name 'service' is kind of misleading in a way that it will make you think that this 'THE' function to create services.</p>
+<p>When we use provider or factory function, the service factory typically uses module or revealing module pattern and returns an object with all the public functions. So, if we need to create an instance of the service, we just need to invoke service factory method. In the context of angular, <code>$injector</code> will invoke service factory method to get service instance.</p>
+<p>When we use 'service' method of <code>$provide</code>, we will be defining our service as type/class and <code>$injector</code> will invoke it using new keyword, in other words, the function will be treated as constructor function.</p>
+<p>Here is an example of how we use 'service' function to create services</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">    <span style="color:#75715e">// sample 3
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">service</span>(<span style="color:#e6db74">&#39;movieService&#39;</span>, <span style="color:#a6e22e">movieService</span>);
+
+    <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">movieService</span>() {
+        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">getAllMovies</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">getAllMovies</span>;
+
+        <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">getAllMovies</span>() {
+            <span style="color:#66d9ef">return</span> [<span style="color:#e6db74">&#39;engMovie1&#39;</span>, <span style="color:#e6db74">&#39;engMovie2&#39;</span>, <span style="color:#e6db74">&#39;engMovie3&#39;</span>];
+        }
+    }
+</code></pre></div>
+<p>Note: this example uses the method available in module.</p>
+<p>If you look at the service factory function, the public functions exposed by underlying service is attached to <code>this</code>. So, if we create new instance using new keyword, we can invoke the functions attached to <code>this</code>.</p>
+<p>This way of creating services is recommended when we need to use class/type as a service.&nbsp;</p>
+<h2>Value</h2>
+<p>The value function is the simplest way to create a service if the service doesn't have any dependencies. This function takes service itself as second parameter(not the service provider or service factory) and simply returns&nbsp;it when requested. If we specify function as second parameter then the function is returned when the instance of the service is requested. Note, it will not invoke the function, it will just return it as if it is an object. We can use any value for the second parameter including string, number, object literal, function, etc...</p>
+<p>The following are some&nbsp;examples of service created using value</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">    <span style="color:#75715e">// sample 4 
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">value</span>(<span style="color:#e6db74">&#39;movieService&#39;</span>, <span style="color:#a6e22e">movieService</span>()); <span style="color:#75715e">// Note : function is invoked
+</span><span style="color:#75715e"></span>
+    <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">movieService</span>() {
+        <span style="color:#66d9ef">return</span> {
+            <span style="color:#a6e22e">getAllMovies</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">getAllMovies</span>
+        }
+
+        <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">getAllMovies</span>() {
+            <span style="color:#66d9ef">return</span> [<span style="color:#e6db74">&#39;engMovie1&#39;</span>, <span style="color:#e6db74">&#39;engMovie2&#39;</span>, <span style="color:#e6db74">&#39;engMovie3&#39;</span>];
+        }
+    }
+
+   <span style="color:#75715e">// sample 5
+</span><span style="color:#75715e"></span>   <span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">value</span>(<span style="color:#e6db74">&#39;movieService&#39;</span>, { <span style="color:#a6e22e">getAllMovies</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">getAllMovies</span>});
+
+   <span style="color:#75715e">// sample 6
+</span><span style="color:#75715e"></span>   <span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">value</span>(<span style="color:#e6db74">&#39;movieService&#39;</span>, <span style="color:#e6db74">&#34;sample service&#34;</span>);
+</code></pre></div>
+<p>Generally, this function is used to create services when we know that the service doesn't have any dependencies.</p>
+<h2>Constant</h2>
+<p>The constant is a special function to create constants. One of the specialty is that constants created this way can be injected into config block of a module but, we know only providers can be injected into config method of a module. How does it work? The works because the constant name is also the name of the provider. The second parameter we specify will be both service provider and service instance. Also, $provide won't suffix 'Provider' at the end of first parameter to create provider name. So, if we specify constant name as dependency in config function of a module, it will be seen as provider and <code>$injector</code> will inject it.</p>
+<p>Here is an example of how constant is created</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// sample 7
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">constant</span>(<span style="color:#e6db74">&#39;PI&#39;</span>, <span style="color:#ae81ff">3.14</span>);
+</code></pre></div>
+<p>We have seen all five ways to create services in angular. But, wait, did we not say there are six stars in angular? Yes, there are six and the sixth one is decorator function. We will have a look at decorator in the next post.</p>
+
+
+<footer class=" footline" >
+	
+</footer>
+
+
+        
+        </div> 
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+        
+                    
+                        
+            
+            
+        
+                    
+                        
+            
+            
+        
+                    
+            
+        
+        
+        
+
+
+	 
+	 
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js?1565956016"></script>
+    <script src="/js/perfect-scrollbar.min.js?1565956016"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1565956016"></script>
+    <script src="/js/jquery.sticky.js?1565956016"></script>
+    <script src="/js/featherlight.min.js?1565956016"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1565956016"></script>
+    <script src="/js/highlight.pack.js?1565956016"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom-3.6.0.js?1565956016"></script>
+    <script src="/js/learn.js?1565956016"></script>
+    <script src="/js/hugo-learn.js?1565956016"></script>
+
+    <link href="/mermaid/mermaid.css?1565956016" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1565956016"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    
+
+  </body>
+</html>

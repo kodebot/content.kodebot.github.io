@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Automated unit testing basics on kodebot</title>
+    <link>http://kodebot.com/tutorials/automated-unit-testing-basics/</link>
+    <description>Recent content in Automated unit testing basics on kodebot</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-GB</language>
+    <lastBuildDate>Fri, 22 Feb 2019 10:25:49 +0000</lastBuildDate>
+    
+	<atom:link href="http://kodebot.com/tutorials/automated-unit-testing-basics/feed.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Course overview</title>
+      <link>http://kodebot.com/tutorials/automated-unit-testing-basics/1-course-overview/</link>
+      <pubDate>Fri, 22 Feb 2019 10:25:49 +0000</pubDate>
+      
+      <guid>http://kodebot.com/tutorials/automated-unit-testing-basics/1-course-overview/</guid>
+      <description>Course overview Welcome to automated unit testing basics course.
+This course is for anyone who has some knowledge of computer programming but have limited or no knowledge of automated unit testing.
+This course is language, framework and tools agnostic. Everything you learn from this course can be applied to any programming language with the use of right tools.</description>
+    </item>
+    
+  </channel>
+</rss>

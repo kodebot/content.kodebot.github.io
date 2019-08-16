@@ -1,0 +1,360 @@
+
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="generator" content="Hugo 0.54.0" />
+  <meta name="description" content="">
+
+
+  <link rel="icon" href="/images/favicon.ico" type="image/png">
+  <title>Six stars of AngularJS - Part 1 :: kodebot</title>
+
+  
+  <link href="/css/nucleus.css?1565956016" rel="stylesheet">
+  <link href="/css/fontawesome-all.min.css?1565956016"
+    rel="stylesheet">
+  <link href="/css/hybrid.css?1565956016" rel="stylesheet">
+  <link href="/css/featherlight.min.css?1565956016" rel="stylesheet">
+  <link href="/css/perfect-scrollbar.min.css?1565956016"
+    rel="stylesheet">
+  <link href="/css/auto-complete.css?1565956016" rel="stylesheet">
+  <link href="/css/atom-one-dark-reasonable.css?1565956016"
+    rel="stylesheet">
+  <link href="/css/theme.css?1565956016" rel="stylesheet">
+  <link href="/css/hugo-theme.css?1565956016" rel="stylesheet">
+  
+  <link href="/css/theme-mine.css?1565956016"
+    rel="stylesheet">
+  
+
+  <script src="/js/jquery-3.3.1.min.js?1565956016"></script>
+
+  <style type="text/css">
+    :root #header+#content>#left>#rlblock_left {
+      display: none !important;
+    }
+
+      {
+        {
+        if .Site.Params.disableInlineCopyToClipBoard
+      }
+    }
+
+    :not(pre)>code+span.copy-to-clipboard {
+      display: none;
+    }
+
+      {
+        {
+        end
+      }
+    }
+  </style>
+  
+</head>
+
+<body class="" data-url="/blog/2015/six-stars-of-angularjs-part-1/">
+  <nav class="main-menu">
+    <div class="logo">
+        <a href="http://kodebot.com/">
+            <img src="/images/logo.png" style="background: white; padding-right: 2px;">
+        </a>
+    </div>
+    <ul>
+        
+        
+        
+                
+        <li >
+            <a href="/blog/" 
+            class="active"
+            >
+                Blog
+            </a>
+        </li>
+
+        
+                
+        <li >
+            <a href="/tutorials/" >
+                Tutorials
+            </a>
+        </li>
+
+        
+                
+        <li >
+            <a href="/about/" >
+                About
+            </a>
+        </li>
+
+        
+        
+    </ul>
+</nav>
+  <section id="body" class="no-sidebar">
+    <div id="overlay"></div>
+    <div class="padding highlightable">
+      
+      <div>
+        
+        
+        <div id="top-bar">
+          
+
+
+          <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+            <span class="links">
+              
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href='/'>Kodebot</a> > <a href='/blog/'>Blog</a> > Six stars of AngularJS - Part 1
+          
+          
+          
+          
+          
+          
+            </span>
+          </div>
+        </div>
+        
+      </div>
+      
+      <div id="head-tags">
+        
+<div class="tags">
+
+  <a class="tag-link" href="/tags/javascript">JavaScript</a>
+
+  <a class="tag-link" href="/tags/angularjs">AngularJS</a>
+
+</div>
+
+      </div>
+      
+        <div id="body-inner">
+          
+          <h1>
+            
+            Six stars of AngularJS - Part 1
+          </h1>
+          
+
+          
+
+<p><h2>Introduction</h2>
+<p>Services are one of the core buiding blocks of AngularJS. It helps us to create reusable code that can be shared accross the application(s).</p><!-- more -->
+<p>AngularJS gives us five different options to create services. We will look at what are those five options and how and when they can be used. But, before that lets take a brief look at couple of built-in angular services and how they works in the context of dependency injection.</p>
+<ol>
+<li><a href="https://docs.angularjs.org/api/auto/service/$injector" target="_blank">$injector</a> - This is a special service which creates and injects any injectable dependencies.</li>
+<li><a href="https://docs.angularjs.org/api/auto/service/$provide" target="_blank">$provide</a>&nbsp;- This is another special service which tells <code>$injector</code> that a particular service is injectable and&nbsp;shares&nbsp;information to create new instance when required</li>
+</ol>
+<p>So, <code>$provide</code> is our gateway to introduce any services into our angular application. This is how it works at a very high level</p>
+<ol>
+<li>We will tell <code>$provide</code> that this is a new service that I would like to use in my application</li>
+<li><code>$provide</code> will register it with <code>$injector</code></li>
+<li><code>$injector</code> will create a new instance and inject it when requested</li>
+</ol>
+<h2>Provider</h2>
+<p>As described in AngularJS API documentation, <code>$provide</code> takes service provider which wraps service factory and service factory wraps the service.</p>
+<p>To create service provider and register it with <code>$injector</code>, we use provider function of <code>$provide</code> service. Here is an example of simple service provider created using provider function</p></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">       <span style="color:#75715e">// provider sample 1
+</span><span style="color:#75715e"></span>       <span style="color:#a6e22e">$provide</span>.<span style="color:#a6e22e">provider</span>(<span style="color:#e6db74">&#39;movieService&#39;</span>, <span style="color:#a6e22e">movieServiceProvider</span>);
+
+            <span style="color:#75715e">// provider
+</span><span style="color:#75715e"></span>            <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">movieServiceProvider</span>() {
+            <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">self</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>;
+            <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">$get</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">movieService</span>; <span style="color:#75715e">// factory
+</span><span style="color:#75715e"></span>            <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">isFrench</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>;
+        
+            <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">movieService</span>() {
+                <span style="color:#66d9ef">return</span> { <span style="color:#75715e">// service
+</span><span style="color:#75715e"></span>                    <span style="color:#a6e22e">getAllMovies</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">getAllMovies</span>
+                };
+
+                <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">getAllMovies</span>() {
+
+                    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">self</span>.<span style="color:#a6e22e">isFrench</span>) {
+                        <span style="color:#66d9ef">return</span> [<span style="color:#e6db74">&#39;frenchMovie1&#39;</span>, <span style="color:#e6db74">&#39;frenchMovie2&#39;</span>, <span style="color:#e6db74">&#39;frenchMovie3&#39;</span>];
+                    } <span style="color:#66d9ef">else</span> {
+                        <span style="color:#66d9ef">return</span> [<span style="color:#e6db74">&#39;engMovie1&#39;</span>, <span style="color:#e6db74">&#39;engMovie2&#39;</span>, <span style="color:#e6db74">&#39;engMovie3&#39;</span>];
+                    }
+                }
+
+            }
+        }
+</code></pre></div>
+<p>The first parameter is name of the service we want to create (note: this is name of the service, not the name of the service provider, angular will automatically append 'Provider' at the end of the name you specify here and create provider name. So, the provider name created for movieService will be&nbsp;movieServiceProvider) and the second parameter is service provider itself.</p>
+<p>The service provider function must have <code>$get</code> member which should be or hold reference to service factory. The service provider&nbsp;can have any number of other member. We will generally create additional members to configure the service before creating them.</p>
+<p>In the example above, we have <code>movieService</code> function which is assigned to <code>$get</code> member. The <code>movieService</code> is a service factory and when invoked, it returns an object with all the functions we expose from the <code>movieService</code>. When injector needs to create an instance of the service, it will simply invoke <code>$get</code>.</p>
+<p>The <code>movieServiceProvider</code> also has a member <code>isFrench</code>. This can be used to configure how service is created or how it behaves. In this case, the behaviour of the service is modified to return french movies or english movies.&nbsp;</p>
+<p>The configuration of providers can only be done during configuration phase of a module where the provider is defined.</p>
+<p>Let's take a quick detour and understand what we mean by 'configuration phase of a module' to understand providers throughly.</p>
+<p>When a module is defined, we can setup zero or more configuration blocks and run blocks. When a module is created by angular, it will execute all the configuration blocks in the order they were defined first and then it will run all the run blocks in the order they were defined.</p>
+<p>The service provider is configured in the configuration phase by defining it as one of the step in module's config function.</p>
+<p>Here is an example of how <code>movieServiceProvider</code> is configured as part of module's configuration phase&nbsp;</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">    <span style="color:#75715e">// provider sample 2
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">app</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">angular</span>.<span style="color:#a6e22e">module</span>(<span style="color:#e6db74">&#39;app&#39;</span>, []);
+
+    <span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">config</span>(<span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">$provide</span>) {
+
+        <span style="color:#75715e">// creates and register&#39;s provider
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">movieServiceProviderInstance</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">$provide</span>.<span style="color:#a6e22e">provider</span>(<span style="color:#e6db74">&#39;movieService&#39;</span>,  <span style="color:#a6e22e">movieServiceProvider</span>);
+
+        <span style="color:#75715e">// configures provider
+</span><span style="color:#75715e"></span>        <span style="color:#a6e22e">movieServiceProviderInstance</span>.<span style="color:#a6e22e">isFrench</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>;
+
+        <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">movieServiceProvider</span>() {
+            <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">self</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>;
+            <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">$get</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">movieService</span>;
+            <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">isFrench</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>;
+
+            <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">movieService</span>() {
+                <span style="color:#66d9ef">return</span> {
+                    <span style="color:#a6e22e">getAllMovies</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">getAllMovies</span>
+                };
+
+                <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">getAllMovies</span>() {
+
+                    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">self</span>.<span style="color:#a6e22e">isFrench</span>) {
+                        <span style="color:#66d9ef">return</span> [<span style="color:#e6db74">&#39;frenchMovie1&#39;</span>, <span style="color:#e6db74">&#39;frenchMovie2&#39;</span>, <span style="color:#e6db74">&#39;frenchMovie3&#39;</span>];
+                    } <span style="color:#66d9ef">else</span> {
+                        <span style="color:#66d9ef">return</span> [<span style="color:#e6db74">&#39;engMovie1&#39;</span>, <span style="color:#e6db74">&#39;engMovie2&#39;</span>, <span style="color:#e6db74">&#39;engMovie3&#39;</span>];
+                    }
+                }
+
+            }
+        }
+
+    });
+</code></pre></div>
+<p>Usually, if you want to do anything&nbsp;when the module is create, you will keep them in module's run function.&nbsp;</p>
+<p>One of the important thing to note here is, the <code>$provide</code> service can be injected only into the config function of a module and the same is true for providers as well.</p>
+<p>This means, services or in this case service providers can be created only in the config phase of a module and the code to create them should be kept inside the config method. It is not really convenient mainly when we want to keep the services in their own files. Angular rescues us from this situation by exposing the methods we use to create services as a member of module as well.</p>
+<p>So, you can use provider function of <code>$provide</code> from an instance of a module. For example, the following is same as the first sample</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">    <span style="color:#75715e">// Sample 3
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">app</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">angular</span>.<span style="color:#a6e22e">module</span>(<span style="color:#e6db74">&#39;app&#39;</span>);
+    <span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">provider</span>(<span style="color:#e6db74">&#39;movieService&#39;</span>, <span style="color:#a6e22e">movieServiceProvider</span>);
+
+    <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">movieServiceProvider</span>() {
+        <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">self</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>;
+        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">$get</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">movieService</span>;
+        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">isFrench</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>;
+
+        <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">movieService</span>() {
+            <span style="color:#66d9ef">return</span> {
+                <span style="color:#a6e22e">getAllMovies</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">getAllMovies</span>
+            };
+
+            <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">getAllMovies</span>() {
+
+                <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">self</span>.<span style="color:#a6e22e">isFrench</span>) {
+                    <span style="color:#66d9ef">return</span> [<span style="color:#e6db74">&#39;frenchMovie1&#39;</span>, <span style="color:#e6db74">&#39;frenchMovie2&#39;</span>, <span style="color:#e6db74">&#39;frenchMovie3&#39;</span>];
+                } <span style="color:#66d9ef">else</span> {
+                    <span style="color:#66d9ef">return</span> [<span style="color:#e6db74">&#39;engMovie1&#39;</span>, <span style="color:#e6db74">&#39;engMovie2&#39;</span>, <span style="color:#e6db74">&#39;engMovie3&#39;</span>];
+                }
+            }
+
+        }
+    }
+</code></pre></div>
+<p><h2>When to use?</h2>
+<p>As you would have understood by now, providers are the lowest level function available to create services. It gives you options to configure the services during its creation. It is recommended to use this function only when you need to create configurable services. You are better off with other functions&nbsp;available to create services if you don&rsquo;t want them to be configurable.</p>
+<p>We will look at other options to create services in <a href="../six-stars-of-angularjs-part-2" target="_blank">part 2</a>&nbsp;of this post.</p></p>
+
+
+<footer class=" footline" >
+	
+</footer>
+
+
+        
+        </div> 
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+        
+                    
+                        
+            
+            
+        
+                    
+                        
+            
+            
+        
+                    
+            
+        
+        
+        
+
+
+	 
+	 
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js?1565956016"></script>
+    <script src="/js/perfect-scrollbar.min.js?1565956016"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1565956016"></script>
+    <script src="/js/jquery.sticky.js?1565956016"></script>
+    <script src="/js/featherlight.min.js?1565956016"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1565956016"></script>
+    <script src="/js/highlight.pack.js?1565956016"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom-3.6.0.js?1565956016"></script>
+    <script src="/js/learn.js?1565956016"></script>
+    <script src="/js/hugo-learn.js?1565956016"></script>
+
+    <link href="/mermaid/mermaid.css?1565956016" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1565956016"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    
+
+  </body>
+</html>

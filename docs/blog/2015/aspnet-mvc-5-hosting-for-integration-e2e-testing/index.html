@@ -1,0 +1,313 @@
+
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="generator" content="Hugo 0.54.0" />
+  <meta name="description" content="">
+
+
+  <link rel="icon" href="/images/favicon.ico" type="image/png">
+  <title>ASP.NET MVC 5 Hosting for Integration / E2E Testing :: kodebot</title>
+
+  
+  <link href="/css/nucleus.css?1565956016" rel="stylesheet">
+  <link href="/css/fontawesome-all.min.css?1565956016"
+    rel="stylesheet">
+  <link href="/css/hybrid.css?1565956016" rel="stylesheet">
+  <link href="/css/featherlight.min.css?1565956016" rel="stylesheet">
+  <link href="/css/perfect-scrollbar.min.css?1565956016"
+    rel="stylesheet">
+  <link href="/css/auto-complete.css?1565956016" rel="stylesheet">
+  <link href="/css/atom-one-dark-reasonable.css?1565956016"
+    rel="stylesheet">
+  <link href="/css/theme.css?1565956016" rel="stylesheet">
+  <link href="/css/hugo-theme.css?1565956016" rel="stylesheet">
+  
+  <link href="/css/theme-mine.css?1565956016"
+    rel="stylesheet">
+  
+
+  <script src="/js/jquery-3.3.1.min.js?1565956016"></script>
+
+  <style type="text/css">
+    :root #header+#content>#left>#rlblock_left {
+      display: none !important;
+    }
+
+      {
+        {
+        if .Site.Params.disableInlineCopyToClipBoard
+      }
+    }
+
+    :not(pre)>code+span.copy-to-clipboard {
+      display: none;
+    }
+
+      {
+        {
+        end
+      }
+    }
+  </style>
+  
+</head>
+
+<body class="" data-url="/blog/2015/aspnet-mvc-5-hosting-for-integration-e2e-testing/">
+  <nav class="main-menu">
+    <div class="logo">
+        <a href="http://kodebot.com/">
+            <img src="/images/logo.png" style="background: white; padding-right: 2px;">
+        </a>
+    </div>
+    <ul>
+        
+        
+        
+                
+        <li >
+            <a href="/blog/" 
+            class="active"
+            >
+                Blog
+            </a>
+        </li>
+
+        
+                
+        <li >
+            <a href="/tutorials/" >
+                Tutorials
+            </a>
+        </li>
+
+        
+                
+        <li >
+            <a href="/about/" >
+                About
+            </a>
+        </li>
+
+        
+        
+    </ul>
+</nav>
+  <section id="body" class="no-sidebar">
+    <div id="overlay"></div>
+    <div class="padding highlightable">
+      
+      <div>
+        
+        
+        <div id="top-bar">
+          
+
+
+          <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+            <span class="links">
+              
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href='/'>Kodebot</a> > <a href='/blog/'>Blog</a> > ASP.NET MVC 5 Hosting for Integration / E2E Testing
+          
+          
+          
+          
+          
+          
+            </span>
+          </div>
+        </div>
+        
+      </div>
+      
+      <div id="head-tags">
+        
+<div class="tags">
+
+  <a class="tag-link" href="/tags/asp.net">ASP.NET</a>
+
+  <a class="tag-link" href="/tags/mvc">MVC</a>
+
+</div>
+
+      </div>
+      
+        <div id="body-inner">
+          
+          <h1>
+            
+            ASP.NET MVC 5 Hosting for Integration / E2E Testing
+          </h1>
+          
+
+          
+
+<p><h4>Introduction</h4>
+<p>When we want to do proper Integration or End to End testing of Web API, we can choose any process as host for Web API 2 or higher. This is possible because Web API supports Owin/Katana, which means, <!-- more -->it doesn&rsquo;t have any direct dependency on IIS. On the other hand MVC 5 doesn&rsquo;t have support for Owin/Katana due to the fact that ASP.NET pipeline is depending on IIS. So this leaves us with only one option to host MVC 5, which is IIS, even for integration/e2e testing.</p>
+<h4>How do we do it?</h4>
+<p>When we do integration/e2e testing, for most scenarios we would want the application in clean state and at the same time we want our tests to run fast. For many reasons, the simplest option to achieve this is to use IIS Express rather than standard version.</p>
+<p>We can write an utility class that will start the IIS Express with the the application we are testing for each test and close it at the end of the test. This many not be super fast but fast enough to use.</p>
+<p>Here is the utility class I created to start and stop IIS Express:</p></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ApplicationUtilities</span>
+{
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> Process _webHostProcess;
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">string</span> WEB_APP_NAME = <span style="color:#e6db74">&#34;BookShop.Web&#34;</span>;
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">int</span> WEB_APP_PORT = <span style="color:#ae81ff">12345</span>;
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> StartApplication()
+    {
+        <span style="color:#66d9ef">var</span> webHostStartInfo = GetProcessStartInfo();
+        _webHostProcess = Process.Start(webHostStartInfo);
+        _webHostProcess.TieLifecycleToParentProcess();
+    }
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> StopApplication()
+    {
+        <span style="color:#66d9ef">if</span> (_webHostProcess == <span style="color:#66d9ef">null</span>)
+            <span style="color:#66d9ef">return</span>;
+        <span style="color:#66d9ef">if</span> (!_webHostProcess.HasExited)
+            _webHostProcess.Kill();
+        _webHostProcess.Dispose();
+    }
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">string</span> ApplicationBaseUrl
+    {
+        <span style="color:#66d9ef">get</span> { <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">string</span>.Format(<span style="color:#e6db74">&#34;http://localhost:{0}&#34;</span>, WEB_APP_PORT); }
+    }
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">string</span> GetFullUrl(<span style="color:#66d9ef">string</span> relativePath)
+    {
+        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">string</span>.Format(<span style="color:#e6db74">&#34;{0}{1}&#34;</span>, ApplicationUtilities.ApplicationBaseUrl, relativePath);
+    }
+
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">string</span> GetSolutionFolderPath()
+    {
+        <span style="color:#66d9ef">var</span> directory = <span style="color:#66d9ef">new</span> DirectoryInfo(Environment.CurrentDirectory);
+
+        <span style="color:#66d9ef">while</span> (directory.GetFiles(<span style="color:#e6db74">&#34;*.sln&#34;</span>).Length == <span style="color:#ae81ff">0</span>)
+        {
+            directory = directory.Parent;
+        }
+        <span style="color:#66d9ef">return</span> directory.FullName;
+    }
+
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> ProcessStartInfo GetProcessStartInfo()
+    {
+        <span style="color:#66d9ef">var</span> key = Environment.Is64BitOperatingSystem ? <span style="color:#e6db74">&#34;programfiles(x86)&#34;</span> : <span style="color:#e6db74">&#34;programfiles&#34;</span>;
+        <span style="color:#66d9ef">var</span> programfiles = Environment.GetEnvironmentVariable(key);
+
+        <span style="color:#66d9ef">var</span> startInfo = <span style="color:#66d9ef">new</span> ProcessStartInfo
+        {
+            WindowStyle = ProcessWindowStyle.Normal,
+            ErrorDialog = <span style="color:#66d9ef">true</span>,
+            LoadUserProfile = <span style="color:#66d9ef">true</span>,
+            CreateNoWindow = <span style="color:#66d9ef">false</span>,
+            UseShellExecute = <span style="color:#66d9ef">false</span>,
+            Arguments = String.Format(<span style="color:#e6db74">&#34;/path:\&#34;{0}\&#34; /port:{1}&#34;</span>, Path.Combine(GetSolutionFolderPath(), <span style="color:#e6db74">@&#34;src\&#34;</span> + WEB_APP_NAME), WEB_APP_PORT),
+            FileName = <span style="color:#66d9ef">string</span>.Format(<span style="color:#e6db74">&#34;{0}\\IIS Express\\iisexpress.exe&#34;</span>, programfiles)
+        };
+
+        <span style="color:#75715e">// Add any environment variables
+</span><span style="color:#75715e"></span>        <span style="color:#75715e">// startInfo.EnvironmentVariables.Add(key, value);
+</span><span style="color:#75715e"></span>
+        <span style="color:#66d9ef">return</span> startInfo;
+    }
+}</code></pre></div>
+<p>This code is self explanatory so, I am not going to try to explain this. One thing to note though is, it uses third party package(<a href="https://github.com/Holf/AllForOne">AllForOne</a>) to kill child processes when parent is not running anymore.</p>
+
+
+<footer class=" footline" >
+	
+</footer>
+
+
+        
+        </div> 
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+        
+                    
+                        
+            
+            
+        
+                    
+                        
+            
+            
+        
+                    
+            
+        
+        
+        
+
+
+	 
+	 
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js?1565956016"></script>
+    <script src="/js/perfect-scrollbar.min.js?1565956016"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1565956016"></script>
+    <script src="/js/jquery.sticky.js?1565956016"></script>
+    <script src="/js/featherlight.min.js?1565956016"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1565956016"></script>
+    <script src="/js/highlight.pack.js?1565956016"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom-3.6.0.js?1565956016"></script>
+    <script src="/js/learn.js?1565956016"></script>
+    <script src="/js/hugo-learn.js?1565956016"></script>
+
+    <link href="/mermaid/mermaid.css?1565956016" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1565956016"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    
+
+  </body>
+</html>

@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Javascript on kodebot</title>
+    <link>http://kodebot.com/tags/javascript/</link>
+    <description>Recent content in Javascript on kodebot</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-GB</language>
+    <lastBuildDate>Sun, 04 Oct 2015 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://kodebot.com/tags/javascript/feed.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>NodeJs: Loops, Closure and Async Invocation</title>
+      <link>http://kodebot.com/blog/2015/nodejs-loops/</link>
+      <pubDate>Sun, 04 Oct 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://kodebot.com/blog/2015/nodejs-loops/</guid>
+      <description>Closure Closure is something that is very familiar to all C# developers who know lambda expressions/functions but they just may not know that it is called Closure in JavaScript.
+Lets look at what is closure in JavaScript without further ado with an example:
+function outer(){ var inOuter = &amp;#34;outer&amp;#34;; inner(); function inner(){ console.log(inOuter); // prints &amp;#39;outer&amp;#39;  } }  In this example, the variable inOuter is defined in the function outer but it is used in the function inner.</description>
+    </item>
+    
+    <item>
+      <title>Exception Handling in NodeJS</title>
+      <link>http://kodebot.com/blog/2015/exception-handling-in-nodejs/</link>
+      <pubDate>Sun, 27 Sep 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://kodebot.com/blog/2015/exception-handling-in-nodejs/</guid>
+      <description>Introduction Exception handling in Node might look completely different for developers coming from C# background like myself. It is mainly because of the way Node works. Node uses single thread based event loop to enable concurrency, this results in higher throughput with relatively low overhead. When it comes to exception handling, having some understanding of the event loop will help you to do the right thing.
+Event Loop Node has the following three main components to achieve concurrent, non-blocking execution</description>
+    </item>
+    
+    <item>
+      <title>AngularJS 1.x - Validation on File Input type</title>
+      <link>http://kodebot.com/blog/2015/angularjs-1x-validation-on-file-input-type/</link>
+      <pubDate>Tue, 16 Jun 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://kodebot.com/blog/2015/angularjs-1x-validation-on-file-input-type/</guid>
+      <description>Introduction You might already known that AngularJS 1.x doesn’t support model binding for File Input type at the moment. This means, implementing any validation on File Input type is not straight forward as validation entirely depends on model binding.
+I have come across a requirement where, I need to create a form with ‘required’ validation on File Input type and I also need to display bootstrap form feedback. There are number of great solutions out there to make file upload with angular easier but none of them provide easier way to enforce validation.</description>
+    </item>
+    
+    <item>
+      <title>Angular 1.x - Unit Testing a function that returns Promise</title>
+      <link>http://kodebot.com/blog/2015/angular-1x-unit-testing-a-function-that-returns-promise/</link>
+      <pubDate>Mon, 08 Jun 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://kodebot.com/blog/2015/angular-1x-unit-testing-a-function-that-returns-promise/</guid>
+      <description>I wrote this post few months back which show how we can mock a function that returns Promise. In this post, we will see how to test a function that returns Promise.
+We will use the following simple controller as our SUT
+var app = angular.module(&amp;#34;app&amp;#34;); app.controller(&amp;#34;studentController&amp;#34;, function($q, studentDataService){ var vm = this; vm.students = undefined; activate(); function activate (){ vm.students = getAllStudents(); } function getAllStudents(){ return studentDataService .getAll(); } });  This simple controller has getAllStudents() which returns a promise.</description>
+    </item>
+    
+    <item>
+      <title>ECMAScript 6 - Sublime Text editor build system</title>
+      <link>http://kodebot.com/blog/2015/ecmascript-6-sublime-text-editor-build-system/</link>
+      <pubDate>Fri, 27 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://kodebot.com/blog/2015/ecmascript-6-sublime-text-editor-build-system/</guid>
+      <description>The specification for ECMAScript 6 (aka ES6, ECMAScript harmony) is expected to be released in June 2015 and many tools, frameworks and browsers have started implementing the features of ES6. For example, Angular 2.0&amp;nbsp;and Aurelia&amp;nbsp;allows us to write code in ES6 now. There are transpilers as well out there, which allows us to write code in ES6 and transpile them into ES5. I have come across two major transpilers&amp;nbsp;traceur&amp;nbsp;and&amp;nbsp;babel, they are equally good.</description>
+    </item>
+    
+    <item>
+      <title>Six stars of AngularJS - Part 3</title>
+      <link>http://kodebot.com/blog/2015/six-stars-of-angularjs-part-3/</link>
+      <pubDate>Wed, 25 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://kodebot.com/blog/2015/six-stars-of-angularjs-part-3/</guid>
+      <description>In part 1&amp;nbsp;and 2&amp;nbsp;of this series, we have seen five different ways to create a service in angular.
+The last one we are going to look at in this series is &#39;decorate&#39; function of $provide service.
+Decorator The decorate function is NOT used to create a service, instead, this is used to decorate or replace an existing service. Let&#39;s look at this function with an example
+// sample 1 app.factory(&amp;#39;movieService&amp;#39;, movieService); function movieService() { return { getAllMovies: getAllMovies } function getAllMovies() { return [&amp;#39;engMovie1&amp;#39;, &amp;#39;engMovie2&amp;#39;, &amp;#39;engMovie3&amp;#39;]; } }  In this example, we have movieService which exposes a function to get all the movies.</description>
+    </item>
+    
+    <item>
+      <title>Six stars of AngularJS - Part 2</title>
+      <link>http://kodebot.com/blog/2015/six-stars-of-angularjs-part-2/</link>
+      <pubDate>Tue, 24 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://kodebot.com/blog/2015/six-stars-of-angularjs-part-2/</guid>
+      <description>In part 1&amp;nbsp;of this series, we have briefly seen how $provide and $injector work and we also took a deep dive on how we create a service using provider function of $provide service.
+Lets continue our journey and look at how and when we can&amp;nbsp;use other&amp;nbsp;functions of $provide service to create services.
+The following are the four&amp;nbsp;functions we are going to look at now
+ factory service value constant  Factory The factory is one of the functions exposed by $provide service to create services.</description>
+    </item>
+    
+    <item>
+      <title>Six stars of AngularJS - Part 1</title>
+      <link>http://kodebot.com/blog/2015/six-stars-of-angularjs-part-1/</link>
+      <pubDate>Mon, 23 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://kodebot.com/blog/2015/six-stars-of-angularjs-part-1/</guid>
+      <description>Introduction Services are one of the core buiding blocks of AngularJS. It helps us to create reusable code that can be shared accross the application(s).
+AngularJS gives us five different options to create services. We will look at what are those five options and how and when they can be used. But, before that lets take a brief look at couple of built-in angular services and how they works in the context of dependency injection.</description>
+    </item>
+    
+    <item>
+      <title>Mocking function that returns promise</title>
+      <link>http://kodebot.com/blog/2015/mocking-function-that-returns-promise/</link>
+      <pubDate>Mon, 16 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://kodebot.com/blog/2015/mocking-function-that-returns-promise/</guid>
+      <description>Promises are very useful to develope non-blocking web applications and it also helps to avoid pyramid of doom.
+AngularJS supports&amp;nbsp;Q&amp;nbsp;based promises, this means, we can create functions in AngularJS application that uses promises. When it comes to unit testing functions that returns promises, it is just like unit testing normal functions only if you remember&amp;nbsp;simulate scope&#39;s life cycle using $apply() or $digest()
+Let&#39;s see this with an example. The following controller loads restaurants using promise</description>
+    </item>
+    
+    <item>
+      <title>Organize AngularJS Tests within a test file</title>
+      <link>http://kodebot.com/blog/2015/organize-angularjs-tests-within-a-spec/</link>
+      <pubDate>Sun, 15 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://kodebot.com/blog/2015/organize-angularjs-tests-within-a-spec/</guid>
+      <description>I like to have one test file&amp;nbsp;per components of AngularJS application. So, for example, homeController will have its own test file&amp;nbsp;named homeSpec or homeControllerSpec.
+First, create a&amp;nbsp;suite to describe a component at a high level and for each scenario create&amp;nbsp;nested suits. This allows us&amp;nbsp;to define any test setup that are common for all the tests&amp;nbsp;in one place.
+For example, loading module, overriding and injecting any dependencies are done in the beforeEach method of outter test suite.</description>
+    </item>
+    
+    <item>
+      <title>Setup Chutzpah to Run Javascript Tests in VisualStudio</title>
+      <link>http://kodebot.com/blog/2015/setup-chutzpah-to-run-javascript-tests-in-visualstudio/</link>
+      <pubDate>Sat, 14 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://kodebot.com/blog/2015/setup-chutzpah-to-run-javascript-tests-in-visualstudio/</guid>
+      <description>First thing first, install Chutzpah Test Runner&amp;nbsp;and Test Adaptor for the Test Explorer.
+Next, setup your projects in Visual Studio. I personally like to keep my test code in a separate project for JavaScript as well so my project and folder structure looks like this:
+This allows you&amp;nbsp;to restrict testing frameworks and libraries like Jasmine only to&amp;nbsp;the test project. I use JavaScript&amp;nbsp;libraries directly from the main project when it is needed in test projects as well rather then adding them again in the test project (some people have different view on this but it works for me).</description>
+    </item>
+    
+  </channel>
+</rss>

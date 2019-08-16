@@ -1,0 +1,323 @@
+
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="generator" content="Hugo 0.54.0" />
+  <meta name="description" content="">
+
+
+  <link rel="icon" href="/images/favicon.ico" type="image/png">
+  <title>Exception Handling in NodeJS :: kodebot</title>
+
+  
+  <link href="/css/nucleus.css?1565956016" rel="stylesheet">
+  <link href="/css/fontawesome-all.min.css?1565956016"
+    rel="stylesheet">
+  <link href="/css/hybrid.css?1565956016" rel="stylesheet">
+  <link href="/css/featherlight.min.css?1565956016" rel="stylesheet">
+  <link href="/css/perfect-scrollbar.min.css?1565956016"
+    rel="stylesheet">
+  <link href="/css/auto-complete.css?1565956016" rel="stylesheet">
+  <link href="/css/atom-one-dark-reasonable.css?1565956016"
+    rel="stylesheet">
+  <link href="/css/theme.css?1565956016" rel="stylesheet">
+  <link href="/css/hugo-theme.css?1565956016" rel="stylesheet">
+  
+  <link href="/css/theme-mine.css?1565956016"
+    rel="stylesheet">
+  
+
+  <script src="/js/jquery-3.3.1.min.js?1565956016"></script>
+
+  <style type="text/css">
+    :root #header+#content>#left>#rlblock_left {
+      display: none !important;
+    }
+
+      {
+        {
+        if .Site.Params.disableInlineCopyToClipBoard
+      }
+    }
+
+    :not(pre)>code+span.copy-to-clipboard {
+      display: none;
+    }
+
+      {
+        {
+        end
+      }
+    }
+  </style>
+  
+</head>
+
+<body class="" data-url="/blog/2015/exception-handling-in-nodejs/">
+  <nav class="main-menu">
+    <div class="logo">
+        <a href="http://kodebot.com/">
+            <img src="/images/logo.png" style="background: white; padding-right: 2px;">
+        </a>
+    </div>
+    <ul>
+        
+        
+        
+                
+        <li >
+            <a href="/blog/" 
+            class="active"
+            >
+                Blog
+            </a>
+        </li>
+
+        
+                
+        <li >
+            <a href="/tutorials/" >
+                Tutorials
+            </a>
+        </li>
+
+        
+                
+        <li >
+            <a href="/about/" >
+                About
+            </a>
+        </li>
+
+        
+        
+    </ul>
+</nav>
+  <section id="body" class="no-sidebar">
+    <div id="overlay"></div>
+    <div class="padding highlightable">
+      
+      <div>
+        
+        
+        <div id="top-bar">
+          
+
+
+          <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+            <span class="links">
+              
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href='/'>Kodebot</a> > <a href='/blog/'>Blog</a> > Exception Handling in NodeJS
+          
+          
+          
+          
+          
+          
+            </span>
+          </div>
+        </div>
+        
+      </div>
+      
+      <div id="head-tags">
+        
+<div class="tags">
+
+  <a class="tag-link" href="/tags/nodejs">NodeJS</a>
+
+  <a class="tag-link" href="/tags/javascript">JavaScript</a>
+
+</div>
+
+      </div>
+      
+        <div id="body-inner">
+          
+          <h1>
+            
+            Exception Handling in NodeJS
+          </h1>
+          
+
+          
+
+
+
+<h2 id="introduction">Introduction</h2>
+
+<p>Exception handling in Node might look completely different for developers coming from C# background like myself.
+It is mainly because of the way Node works. Node uses single thread based event loop to enable concurrency, this results in higher throughput with relatively low overhead.
+When it comes to exception handling, having some understanding of the event loop will help you to do the right thing.</p>
+
+<h2 id="event-loop">Event Loop</h2>
+
+<p>Node has the following three main components to achieve concurrent, non-blocking execution<br />
+    1. Event Demultiplexer<br />
+    2. Event Loop<br />
+    3. Event Queue</p>
+
+<p>To put it simply, any function/piece of code which depends on time consuming, non-cpu intensive I/O operation registers itself with Event Demultiplexer along with a handler.
+Event demultiplexer deals with the underlying I/O operation and when the data is available to process, it adds the registered event to the Event Queue to make the data available for further processing.
+The Event Loop simply dequeue the event and runs its associated handler.</p>
+
+<h2 id="synchronous-block">Synchronous Block</h2>
+
+<p>Now, with the high level understanding of how Node&rsquo;s Event Loop works, we will look at how exception handling works in a synchronous block of code.</p>
+
+<p>If you don&rsquo;t wrap your exception prone code in <code>try..catch</code> block then the exception would simply reach event loop and your app will crash.
+Any exception reaching event loop would simply result in application crash, it&rsquo;s that simple.
+This means, if you want to provide nice user experience you have to handle the exception properly.
+For, synchronous block of code, this is as simple as wrapping your code in <code>try..catch</code> and do whatever you want to do in the catch block.</p>
+
+<div class="notices note" ><p>You should not let the exception bubble up using <code>throw</code> to avoid it reaching event loop and application crash.</p>
+</div>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">divide</span>(<span style="color:#a6e22e">x</span>, <span style="color:#a6e22e">y</span>){
+    <span style="color:#66d9ef">try</span>{
+        <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">x</span><span style="color:#960050;background-color:#1e0010">/y;</span>
+    }
+    <span style="color:#66d9ef">catch</span>(<span style="color:#a6e22e">e</span>){
+        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;Error::&#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">message</span>);
+        <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+    }
+}
+</code></pre></div>
+<p>In this, example the message is displayed in the console and value 0 is returned from the catch block.</p>
+
+<h2 id="asynchronous-block">Asynchronous Block</h2>
+
+<p>Node is known for it callbacks. These callbacks are nothing but the handlers that are registered with Event Demultiplexer.
+Because these handlers/callbacks are executed directly by event loop, we need to wrap anything and everything in the <code>try..catch</code> block to make sure the exception is not reaching the event loop.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">fs</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;fs&#39;</span>);
+<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">path</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;C:\temp\tempFile.txt&#39;</span>;
+
+<span style="color:#66d9ef">try</span>{
+    <span style="color:#a6e22e">fs</span>.<span style="color:#a6e22e">stat</span>(<span style="color:#a6e22e">path</span>, <span style="color:#a6e22e">statCallback</span>);    
+}
+<span style="color:#66d9ef">catch</span>(<span style="color:#a6e22e">e</span>){
+    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;Error::&#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">message</span>);
+    <span style="color:#66d9ef">return</span>;
+}
+<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">statCallback</span>(<span style="color:#a6e22e">err</span>, <span style="color:#a6e22e">stats</span>){
+    <span style="color:#66d9ef">try</span>{
+        <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">stats</span>.<span style="color:#a6e22e">isFile</span>();
+    }
+    <span style="color:#66d9ef">catch</span>(<span style="color:#a6e22e">e</span>){
+        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;Error::&#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">message</span>);
+        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span>;
+    }
+}
+</code></pre></div>
+<p>If you look at the example above, the we use two <code>try..catch</code> blocks one for the code around <code>fs.stat()</code> and another one is inside the callback function.
+This is required because, as we saw earlier the callback is executed directly by the event loop so any unhandled exceptions in the callback will reach event loop.</p>
+
+<p>This will be annoying when we have nested callbacks as we need to wrap each callback in its own <code>try..catch</code> block.</p>
+
+<p>Node provides <a href="https://nodejs.org/api/domain.html">domain</a> to make this process simple but it is deprecated at the moment in favour of better solution which is not available yet.</p>
+
+<h2 id="unhandled-exceptions">Unhandled Exceptions</h2>
+
+<p>When event loop encounters any unhandled exceptions, it emits <code>uncaughtException</code>. We can use this to log the error before let the application crash.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">process</span>.<span style="color:#a6e22e">on</span>(<span style="color:#e6db74">&#39;uncaughtException&#39;</span>, <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">err</span>){
+    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">err</span>);
+});
+</code></pre></div>
+<p>You can find lot more information on this topic <a href="http://www.joyent.com/developers/node/design/errors">here</a>, including event emitters - which is not covered in this post, in the official documentation.</p>
+
+
+<footer class=" footline" >
+	
+</footer>
+
+
+        
+        </div> 
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+        
+                    
+                        
+            
+            
+        
+                    
+                        
+            
+            
+        
+                    
+            
+        
+        
+        
+
+
+	 
+	 
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js?1565956016"></script>
+    <script src="/js/perfect-scrollbar.min.js?1565956016"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1565956016"></script>
+    <script src="/js/jquery.sticky.js?1565956016"></script>
+    <script src="/js/featherlight.min.js?1565956016"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1565956016"></script>
+    <script src="/js/highlight.pack.js?1565956016"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom-3.6.0.js?1565956016"></script>
+    <script src="/js/learn.js?1565956016"></script>
+    <script src="/js/hugo-learn.js?1565956016"></script>
+
+    <link href="/mermaid/mermaid.css?1565956016" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1565956016"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    
+
+  </body>
+</html>

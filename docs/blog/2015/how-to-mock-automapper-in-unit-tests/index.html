@@ -1,0 +1,312 @@
+
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="generator" content="Hugo 0.54.0" />
+  <meta name="description" content="">
+
+
+  <link rel="icon" href="/images/favicon.ico" type="image/png">
+  <title>How to isolate AutoMapper in Unit Tests? :: kodebot</title>
+
+  
+  <link href="/css/nucleus.css?1565956016" rel="stylesheet">
+  <link href="/css/fontawesome-all.min.css?1565956016"
+    rel="stylesheet">
+  <link href="/css/hybrid.css?1565956016" rel="stylesheet">
+  <link href="/css/featherlight.min.css?1565956016" rel="stylesheet">
+  <link href="/css/perfect-scrollbar.min.css?1565956016"
+    rel="stylesheet">
+  <link href="/css/auto-complete.css?1565956016" rel="stylesheet">
+  <link href="/css/atom-one-dark-reasonable.css?1565956016"
+    rel="stylesheet">
+  <link href="/css/theme.css?1565956016" rel="stylesheet">
+  <link href="/css/hugo-theme.css?1565956016" rel="stylesheet">
+  
+  <link href="/css/theme-mine.css?1565956016"
+    rel="stylesheet">
+  
+
+  <script src="/js/jquery-3.3.1.min.js?1565956016"></script>
+
+  <style type="text/css">
+    :root #header+#content>#left>#rlblock_left {
+      display: none !important;
+    }
+
+      {
+        {
+        if .Site.Params.disableInlineCopyToClipBoard
+      }
+    }
+
+    :not(pre)>code+span.copy-to-clipboard {
+      display: none;
+    }
+
+      {
+        {
+        end
+      }
+    }
+  </style>
+  
+</head>
+
+<body class="" data-url="/blog/2015/how-to-mock-automapper-in-unit-tests/">
+  <nav class="main-menu">
+    <div class="logo">
+        <a href="http://kodebot.com/">
+            <img src="/images/logo.png" style="background: white; padding-right: 2px;">
+        </a>
+    </div>
+    <ul>
+        
+        
+        
+                
+        <li >
+            <a href="/blog/" 
+            class="active"
+            >
+                Blog
+            </a>
+        </li>
+
+        
+                
+        <li >
+            <a href="/tutorials/" >
+                Tutorials
+            </a>
+        </li>
+
+        
+                
+        <li >
+            <a href="/about/" >
+                About
+            </a>
+        </li>
+
+        
+        
+    </ul>
+</nav>
+  <section id="body" class="no-sidebar">
+    <div id="overlay"></div>
+    <div class="padding highlightable">
+      
+      <div>
+        
+        
+        <div id="top-bar">
+          
+
+
+          <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+            <span class="links">
+              
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href='/'>Kodebot</a> > <a href='/blog/'>Blog</a> > How to isolate AutoMapper in Unit Tests?
+          
+          
+          
+          
+          
+          
+            </span>
+          </div>
+        </div>
+        
+      </div>
+      
+      <div id="head-tags">
+        
+<div class="tags">
+
+  <a class="tag-link" href="/tags/unit-testing">Unit Testing</a>
+
+  <a class="tag-link" href="/tags/library">Library</a>
+
+</div>
+
+      </div>
+      
+        <div id="body-inner">
+          
+          <h1>
+            
+            How to isolate AutoMapper in Unit Tests?
+          </h1>
+          
+
+          
+
+<p><strong>Introduction</strong></p>
+<p>When it comes to Unit testing, the rule is to isolate&nbsp;all the dependencies and focus only on the unit of code you are testing. I have been silently ignoring this for <a href="http://automapper.org/">AutoMapper</a> until I <!-- more -->found a proper way to isolate and replace the behavior of mapping.</p>
+<p>When I was looking for a proper way to do this, I come across many posts but none of them were having full working example without any additional layer between the function/class that wants to use AutoMapper and AutoMapper itself.</p>
+<p><strong>IMappingEngine</strong></p>
+<p>AutoMapper comes with a static class Mapper which has almost all the methods we need to work with AutoMapper. I we want to create a new mapping, we can use Mapper.CreateMap() method (we can also use AutoMapper <a href="https://github.com/AutoMapper/AutoMapper/wiki/Configuration">Profile instances</a>) and if we want to perform mapping between pre-configured objects we can use Mapper.Map() method.</p>
+<p>The Mapper class exposes a property Engine which holds all the mapping configurations. This property is of type IMappingEngine.</p>
+<p>When we invoke Map method on Mapper class, it in-turn calls Map method of Engine property.</p>
+<p>So, all we need to do to isolate and control the behavior of mapping in our unit test is to replace the Engine property with our own implementation.</p>
+<p><strong>But, how?</strong></p>
+<p>The Engine is static property in Mapper class which is also static. We know very well that it is nearly impossible to replace the implementation of static members without using some fancy tools or test patterns.</p>
+<p>Fortunately, the type of Engine property is interface IMappingEngine. This means, we can declare IMappingEngine as a dependency of SUT and ask DI framework to provide it with the instance, in this case Mapper.Engine.</p>
+<p>Here is how it looks like if you use Ninject</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs">kernel.Bind&lt;IMappingEngine&gt;().ToConstant(Mapper.Engine);</code></pre></div>
+<p>And with ASP.NET 5 built-in DI</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs">services.AddInstance&lt;IMappingEngine&gt;(Mapper.Engine);</code></pre></div>
+<p>In the unit test method, you need to create Test Double which implements IMappingEngine and create SUT with Test Double as input for dependency. The easiest way to create Test Double is to create it as a Mock using your favourite mocking framework.</p>
+<p>Here is an example using Moq,</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#66d9ef">var</span> mockMapper = <span style="color:#66d9ef">new</span> Mock&lt;IMappingEngine&gt;();
+
+mockMapper.Setup(mock =&gt; mock.Map&lt;TargetType&gt;(It.IsAny&lt;SourceType&gt;())).Returns(targetInstance);</code></pre></div>
+<p><strong>Full example</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">User</span>
+    {
+        <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> Id { <span style="color:#66d9ef">get</span>; <span style="color:#66d9ef">set</span>; }
+        <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">string</span> FirstName { <span style="color:#66d9ef">get</span>; <span style="color:#66d9ef">set</span>; }
+        <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">string</span> LastName { <span style="color:#66d9ef">get</span>; <span style="color:#66d9ef">set</span>; }
+        <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> Age { <span style="color:#66d9ef">get</span>; <span style="color:#66d9ef">set</span>; }
+    }
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">UserDto</span>
+    {
+        <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> Id { <span style="color:#66d9ef">get</span>; <span style="color:#66d9ef">set</span>; }
+        <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">string</span> FirstName { <span style="color:#66d9ef">get</span>; <span style="color:#66d9ef">set</span>; }
+
+    }
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Sut</span>
+    {
+        <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">readonly</span> IMappingEngine _mapper;
+
+        <span style="color:#66d9ef">public</span> Sut(IMappingEngine mapper)
+        {
+            _mapper = mapper;
+        }
+
+        <span style="color:#66d9ef">public</span> User Run(UserDto dto)
+        {
+            <span style="color:#66d9ef">return</span> _mapper.Map&lt;User&gt;(dto);
+        }
+    }
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SutTests</span>
+    {<span style="color:#a6e22e">
+</span><span style="color:#a6e22e">        [Fact]</span>
+        <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> RunShouldReturnUserCorrectly()
+        {
+            <span style="color:#75715e">// arrange
+</span><span style="color:#75715e"></span>            <span style="color:#66d9ef">var</span> stubUser = <span style="color:#66d9ef">new</span> User();
+            <span style="color:#66d9ef">var</span> stubUserDto = <span style="color:#66d9ef">new</span> UserDto();
+            <span style="color:#66d9ef">var</span> mockMapper = <span style="color:#66d9ef">new</span> Mock&lt;IMappingEngine&gt;();
+            mockMapper.Setup(mock =&gt; mock.Map&lt;User&gt;(It.Is&lt;UserDto&gt;(stubUserDto))).Returns(stubUser);
+
+            <span style="color:#66d9ef">var</span> target = <span style="color:#66d9ef">new</span> Sut(mockMapper.Object);
+
+            <span style="color:#75715e">// act
+</span><span style="color:#75715e"></span>            <span style="color:#66d9ef">var</span> actual = target.Run(stubUserDto);
+
+            <span style="color:#75715e">// assert
+</span><span style="color:#75715e"></span>            Assert.AreEquals(stubUser, actual);
+
+        }
+    }</code></pre></div>
+
+<footer class=" footline" >
+	
+</footer>
+
+
+        
+        </div> 
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+        
+                    
+                        
+            
+            
+        
+                    
+                        
+            
+            
+        
+                    
+            
+        
+        
+        
+
+
+	 
+	 
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js?1565956016"></script>
+    <script src="/js/perfect-scrollbar.min.js?1565956016"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1565956016"></script>
+    <script src="/js/jquery.sticky.js?1565956016"></script>
+    <script src="/js/featherlight.min.js?1565956016"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1565956016"></script>
+    <script src="/js/highlight.pack.js?1565956016"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom-3.6.0.js?1565956016"></script>
+    <script src="/js/learn.js?1565956016"></script>
+    <script src="/js/hugo-learn.js?1565956016"></script>
+
+    <link href="/mermaid/mermaid.css?1565956016" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1565956016"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    
+
+  </body>
+</html>
