@@ -4,7 +4,7 @@
 	"title": "Automated unit testing basics",
 	"tags": [],
 	"description": "",
-	"content": " Table of content  Course overview     Introduction    What is automated unit testing?     Why are we writing unit tests?     What is good unit test?     Other types of automated testing     System Under Test (SUT)      Structure of unit test    Structure      Setup techniques    Simple test data     Data driven test     Fake test dependency     Mock dependency      Verification techniques    Result verification     State verification     Interaction verification      Test driven or test oriented    Test driven development    Course overview   Introduction   Structure of unit test   Setup techniques   Verification techniques   Test driven or test oriented    Test oriented development      "
+	"content": " Table of content  Course overview     Introduction    What is automated unit testing?     Why are we writing unit tests?     What is good unit test?     Other types of automated testing     System Under Test (SUT)      Structure of unit test    Structure      Setup techniques    Simple test data     Data driven test     Fake test dependency     Mock dependency      Verification techniques    Result verification     State verification     Interaction verification      Test driven or test oriented    Test driven development     Test oriented development      "
 },
 {
 	"uri": "https://kodebot.com/tutorials/automated-unit-testing-basics/1-course-overview/",
