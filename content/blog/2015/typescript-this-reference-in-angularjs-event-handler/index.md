@@ -104,7 +104,7 @@ module App.Home {
         }
 
         private hookEventHandlers(): void {
-            this.$rootScope.$on("$routeChangeStart",() =&gt; {
+            this.$rootScope.$on("$routeChangeStart",() =>; {
                 this.onRouteChangeStart.call(this);
             });
         }
