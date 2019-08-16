@@ -40,7 +40,7 @@
       <section class="recent-posts">
         <h3>Recent posts</h3>
         <ul>
-          {{range first 10 (where .Data.Pages "Section" "blog").Reverse}}
+          {{range first 10 (where .Data.Pages "Section" "blog").ByDate.Reverse}}
           <li>
             <a href="{{.RelPermalink}}">
               {{safeHTML .Params.Pre}}{{or .Params.menuTitle .LinkTitle .Title}}{{safeHTML .Params.Post}}
