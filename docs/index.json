@@ -102,7 +102,7 @@
 	"title": "Kodebot",
 	"tags": [],
 	"description": "",
-	"content": "   \n add all blog contents with correct cross references and images\n show latest blog entries with some images\n show slider for tutorials\n add more content to about page\n  "
+	"content": ""
 },
 {
 	"uri": "http://kodebot.com/tutorials/automated-unit-testing-basics/3-setup-techniques/3-fake-test-dependency/",
