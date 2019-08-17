@@ -18,6 +18,6 @@ When writing tests for any application, we should use Integration and End to end
 
 People use the following pyramid diagram to show the distribution of these three types of tests that we should have for any program/application.
 
-*provide pyramid example diagram*
+{{% img "images/testing pyramid.png" "" 250 %}}
 
 As we can see, Unit tests should be the majority. We should use Integration and End to end tests as and when they are required but they are small in number compared to Unit tests.
