@@ -32,12 +32,8 @@ For example, if we have a function to validate bank account number then we shoul
 * verify account number is exactly 8 characters
 * verify account number is only contains digits
 
-*TODO:add picture*
-
 ## Isolated
 Any test should not depend on any other test(s). Although it is very common for a function or object to depend on other functions or objects, the test we write targeting a particular block of code should not be affected if the behavior of any of its dependent function or object changes.
-
-*add picture*
 
 ## Self validating
 Each test we write should give us the feedback at the end on its own. We should not rely on anything other than the test itself for the result.
