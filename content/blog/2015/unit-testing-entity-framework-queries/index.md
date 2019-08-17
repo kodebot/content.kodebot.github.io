@@ -4,8 +4,6 @@ date: 2015-08-10T00:00:00+00:00
 publishdate: 2015-08-10T00:00:00+00:00
 lastmod: 2015-08-10T00:00:00+00:00
 tags: ["Unit Testing", "entity framework"]
-disableNextPrev: true
-hidden: true
 comments: true
 draft: false
 ---

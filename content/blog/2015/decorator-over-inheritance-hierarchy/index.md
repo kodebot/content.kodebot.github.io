@@ -4,8 +4,6 @@ date: 2015-03-15T00:00:00+00:00
 publishdate: 2015-03-15T00:00:00+00:00
 lastmod: 2015-03-15T00:00:00+00:00
 tags: ["Design Pattern", "C#"]
-disableNextPrev: true
-hidden: true
 comments: true
 draft: false
 ---

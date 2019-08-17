@@ -4,8 +4,6 @@ date: 2015-07-17T00:00:00+00:00
 publishdate: 2015-07-17T00:00:00+00:00
 lastmod: 2015-07-17T00:00:00+00:00
 tags: ["Apps", "Apache Cordova"]
-disableNextPrev: true
-hidden: true
 comments: true
 draft: false
 ---

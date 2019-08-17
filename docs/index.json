@@ -4,7 +4,7 @@
 	"title": "Automated unit testing basics",
 	"tags": [],
 	"description": "",
-	"content": " Table of content  Course overview     Introduction     Structure of unit test    Structure      Setup techniques    Simple test data     Data driven test     Fake test dependency     Mock dependency      Verification techniques    Result verification     State verification     Interaction verification      Test driven or test oriented    Test driven development     Test oriented development      "
+	"content": " Table of content  Course overview     Introduction    What is automated unit testing?     Why are we writing unit tests?     What is good unit test?     Other types of automated testing     System Under Test (SUT)      Structure of unit test    Structure      Setup techniques    Simple test data     Data driven test     Fake test dependency     Mock dependency      Verification techniques    Result verification     State verification     Interaction verification      Test driven or test oriented    Test driven development     Test oriented development      "
 },
 {
 	"uri": "https://kodebot.com/tutorials/automated-unit-testing-basics/1-course-overview/",
@@ -382,7 +382,7 @@
 	"title": "About",
 	"tags": [],
 	"description": "",
-	"content": " We are software consultancy based in Leeds, UK. We use this space for tutorials, blog posts and as a host for our open source projects and tools/apps.\nWe develop website and mobile apps for your requirement.\nContact Us email: info@kodebot.com\n"
+	"content": " We are software consultancy based in Leeds, UK. We use this space for tutorials, blog posts, as a host for our open source projects and tools/apps.\nWe develop websites and mobile apps for your requirement.\nContact Us email: info@kodebot.com\n"
 },
 {
 	"uri": "https://kodebot.com/tags/angularjs/",
