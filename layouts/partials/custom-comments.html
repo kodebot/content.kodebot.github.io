@@ -1,1 +1,5 @@
-{{ template "_internal/disqus.html" . }}
+{{ $currentNode := . }}
+
+{{ if ne $currentNode.Title "About"}}
+    {{ template "_internal/disqus.html" . }}
+{{end}}
