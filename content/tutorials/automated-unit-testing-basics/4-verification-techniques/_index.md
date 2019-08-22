@@ -18,3 +18,7 @@ We generally use one of the following three verification techniques depending on
 1. result verification
 2. state verification
 3. interaction verification
+
+***
+{{% colorbtn href="https://www.youtube.com/watch?v=UgCtY8UELLI" icon="fab fa-youtube" color="red"%}} Watch video {{% /colorbtn%}}
+***

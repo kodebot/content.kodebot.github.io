@@ -4,7 +4,7 @@
 	"title": "Automated unit testing basics",
 	"tags": [],
 	"description": "",
-	"content": " Table of content  Course overview     Introduction    What is automated unit testing?     Why are we writing unit tests?     What is good unit test?     Other types of automated testing     System Under Test (SUT)      Structure of unit test    Structure      Setup techniques    Simple test data     Data driven test     Fake test dependency     Mock dependency      Verification techniques    Result verification     State verification     Interaction verification      Test driven or test oriented    Test driven development     Test oriented development      "
+	"content": " Table of content  Course overview     Introduction    What is automated unit testing?     Why are we writing unit tests?     What is good unit test?     Other types of automated testing     System Under Test (SUT)      Structure of unit test    Structure      Setup techniques    Simple test data     Data driven test     Fake test dependency     Mock dependency      Verification techniques    Result verification     State verification     Interaction verification      Test driven or test oriented    Test driven development     Test oriented development      This course is also available as a video to watch if you prefer that\n  "
 },
 {
 	"uri": "https://kodebot.com/tutorials/automated-unit-testing-basics/1-course-overview/",
@@ -18,7 +18,7 @@
 	"title": "Introduction",
 	"tags": [],
 	"description": "",
-	"content": " Chapter 1 Introduction In this chapter, we will see what is automated unit testing, why we need them, what are the qualities of good unit tests and what are the other types of tests we have.\nFinally, we will take a brief look at different implementation types of the code that we need to be aware of when writing unit tests.\n"
+	"content": " Chapter 1 Introduction In this chapter, we will see what is automated unit testing, why we need them, what are the qualities of good unit tests and what are the other types of tests we have.\nFinally, we will take a brief look at different implementation types of the code that we need to be aware of when writing unit tests.\n Watch video  "
 },
 {
 	"uri": "https://kodebot.com/tutorials/automated-unit-testing-basics/4-verification-techniques/1-result-verification/",
@@ -81,7 +81,7 @@
 	"title": "Structure of unit test",
 	"tags": [],
 	"description": "",
-	"content": " Chapter 2 Structure of unit test In this chapter, let\u0026rsquo;s look at the structure of the unit test.\n"
+	"content": " Chapter 2 Structure of unit test In this chapter, let\u0026rsquo;s look at the structure of the unit test.\n Watch video  "
 },
 {
 	"uri": "https://kodebot.com/tutorials/automated-unit-testing-basics/5-test-driven-or-test-oriented/2-test-oriented-development/",
@@ -123,7 +123,7 @@
 	"title": "Setup techniques",
 	"tags": [],
 	"description": "",
-	"content": " Chapter 3 Setup techniques Let\u0026rsquo;s look at some of the basic techniques we use at the setup stage of our unit test\nWe are going to look at the following techniques\n simple test data data driven test Fake test dependency or test double Mock dependency  "
+	"content": " Chapter 3 Setup techniques Let\u0026rsquo;s look at some of the basic techniques we use at the setup stage of our unit test\nWe are going to look at the following techniques\n simple test data data driven test Fake test dependency or test double Mock dependency   Watch video  "
 },
 {
 	"uri": "https://kodebot.com/tutorials/automated-unit-testing-basics/1-introduction/3-what-is-good-unit-test/",
@@ -151,14 +151,14 @@
 	"title": "Verification techniques",
 	"tags": [],
 	"description": "",
-	"content": " Chapter 4 Verification techniques One of the very important step in unit test is verification. We verify whether the SUT works as expected or not with the test data.\nWe generally use one of the following three verification techniques depending on the situation\n result verification state verification interaction verification  "
+	"content": " Chapter 4 Verification techniques One of the very important step in unit test is verification. We verify whether the SUT works as expected or not with the test data.\nWe generally use one of the following three verification techniques depending on the situation\n result verification state verification interaction verification   Watch video  "
 },
 {
 	"uri": "https://kodebot.com/tutorials/automated-unit-testing-basics/5-test-driven-or-test-oriented/",
 	"title": "Test driven or test oriented",
 	"tags": [],
 	"description": "",
-	"content": " Chapter 5 Test driven or test oriented In this chapter, we will look at two different approaches to writing unit tests.\n Test driven development (TDD) Test oriented development  I like to mix these two approaches depending on the situation.\n"
+	"content": " Chapter 5 Test driven or test oriented In this chapter, we will look at two different approaches to writing unit tests.\n Test driven development (TDD) Test oriented development  I like to mix these two approaches depending on the situation.\n Watch video  "
 },
 {
 	"uri": "https://kodebot.com/tutorials/automated-unit-testing-basics/1-introduction/5-system-under-test/",

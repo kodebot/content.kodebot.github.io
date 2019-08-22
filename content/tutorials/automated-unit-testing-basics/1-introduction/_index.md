@@ -14,3 +14,7 @@ draft: false
 In this chapter, we will see what is automated unit testing, why we need them, what are the qualities of good unit tests and what are the other types of tests we have. 
 
 Finally, we will take a brief look at different implementation types of the code that we need to be aware of when writing unit tests.
+
+***
+{{% colorbtn href="https://www.youtube.com/watch?v=UgCtY8UELLI" icon="fab fa-youtube" color="red"%}} Watch video {{% /colorbtn%}}
+***

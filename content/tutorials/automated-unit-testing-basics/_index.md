@@ -8,3 +8,6 @@ draft: false
 ## Table of content
 
 {{% children style="li" depth="3" showhidden="true" %}}
+
+This course is also available as a video to watch if you prefer that
+{{<youtube UgCtY8UELLI>}}
