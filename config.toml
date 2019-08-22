@@ -6,6 +6,8 @@ publishDir = "docs"
 
 pygmentsCodeFences= true
 
+disqusShortname="kodebot"
+
 [outputs]
 home = ["HTML", "RSS", "JSON"]
 
