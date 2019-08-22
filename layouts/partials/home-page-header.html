@@ -28,6 +28,8 @@
     rel="stylesheet">
   {{end}}
 
+  {{ partial "custom-header.html" . }}
+
   <script src="{{"js/jquery-3.3.1.min.js"| relURL}}{{ if $assetBusting }}?{{ now.Unix }}{{ end }}"></script>
 </head>
 

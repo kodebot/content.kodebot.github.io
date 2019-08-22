@@ -30,4 +30,20 @@
 </div>
 {{end}}
 
+<!-- cookie message start -->
+<script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js" data-cfasync="false"></script>
+<script>
+window.cookieconsent.initialise({
+  "palette": {
+    "popup": {
+      "background": "#3937a3"
+    },
+    "button": {
+      "background": "red"
+    }
+  }
+});
+</script>
+<!-- cookie message end -->
+
 {{ template "_internal/google_analytics_async.html" . }}
