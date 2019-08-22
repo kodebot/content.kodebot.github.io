@@ -10,6 +10,8 @@ Mock dependency is a dependency which offers all the benefits of fake dependenci
 
 It is not going to be easy to create and maintain mock dependencies; this is why we generally use mocking libraries to create mock dependencies.
 
+{{% img "images/mock-dependency.png" "" 350 %}}
+
 If we take the same passenger discount example that we have seen previously
 
 ```

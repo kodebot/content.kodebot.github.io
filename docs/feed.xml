@@ -126,13 +126,13 @@ Typically, we repeat the steps below in that order
     
     <item>
       <title>Fake test dependency</title>
-      <link>https://kodebot.com/tutorials/automated-unit-testing-basics/3-setup-techniques/3-fake-test-dependency/</link>
+      <link>https://kodebot.com/tutorials/automated-unit-testing-basics/3-setup-techniques/3-fake-test-depencency/</link>
       <pubDate>Fri, 22 Feb 2019 10:25:49 +0000</pubDate>
       
-      <guid>https://kodebot.com/tutorials/automated-unit-testing-basics/3-setup-techniques/3-fake-test-dependency/</guid>
+      <guid>https://kodebot.com/tutorials/automated-unit-testing-basics/3-setup-techniques/3-fake-test-depencency/</guid>
       <description>It is very common that the SUT depends on something else. The dependency could be anything like another function, object or external system and we may not be able to control their behavior all the time. A good unit test should not be affected by the changes in the dependencies of SUT.
 So, a common technique is to replace the dependencies with fake versions that we can control.
-For example, consider a function that takes age of the passenger and prints whether he/she is eligible for senior citizen discount when promotion is available.</description>
+   For example, consider a function that takes age of the passenger and prints whether he/she is eligible for senior citizen discount when promotion is available.</description>
     </item>
     
     <item>

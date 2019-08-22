@@ -9,6 +9,8 @@ It is very common that the SUT depends on something else. The dependency could b
 
 So, a common technique is to replace the dependencies with fake versions that we can control.
 
+{{% img "images/fake-dependency.png" "" 350 %}}
+
 For example, consider a function that takes age of the passenger and prints whether he/she is eligible for senior citizen discount when promotion is available.
 
 The function which tells whether the promotion is available or not is defined in another module and we don't have control over its behavior
