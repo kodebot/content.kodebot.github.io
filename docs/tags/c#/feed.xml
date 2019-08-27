@@ -19,7 +19,7 @@
       <guid>https://kodebot.com/blog/2015/tpl-task-and-windows-identity-impersonation-the-beauty-of-closure/</guid>
       <description>I have created a web application with Windows Authentication and impersonation is enabled as I need the application connect to SQL Server database using Windows Authentication.
 I wanted&amp;nbsp;to run a TPL task in the impersonated context, so, I added the following code naively in a&amp;nbsp;action method of one of my controllers
-// naive task code  Task.Run(() =&amp;gt; { // Task code here }); Though, this answer&amp;nbsp;suggests that tasks will run under the same context under which it was created, it wasn&#39;t working that way in my case.</description>
+// naive task code  Task.Run(() =&amp;gt; { // Task code here });  Though, this answer&amp;nbsp;suggests that tasks will run under the same context under which it was created, it wasn&#39;t working that way in my case.</description>
     </item>
     
     <item>

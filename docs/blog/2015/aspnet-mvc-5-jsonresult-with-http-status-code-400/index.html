@@ -5,7 +5,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="generator" content="Hugo 0.54.0" />
+  <meta name="generator" content="Hugo 0.57.2" />
   <meta name="description" content="">
 
 
@@ -13,24 +13,24 @@
   <title>ASP.NET MVC 5 - JsonResult with Http Status Code 400 - Kodebot</title>
 
   
-  <link href="/css/nucleus.css?1566514330" rel="stylesheet">
-  <link href="/css/fontawesome-all.min.css?1566514330"
+  <link href="/css/nucleus.css?1566905909" rel="stylesheet">
+  <link href="/css/fontawesome-all.min.css?1566905909"
     rel="stylesheet">
-  <link href="/css/hybrid.css?1566514330" rel="stylesheet">
-  <link href="/css/featherlight.min.css?1566514330" rel="stylesheet">
-  <link href="/css/perfect-scrollbar.min.css?1566514330"
+  <link href="/css/hybrid.css?1566905909" rel="stylesheet">
+  <link href="/css/featherlight.min.css?1566905909" rel="stylesheet">
+  <link href="/css/perfect-scrollbar.min.css?1566905909"
     rel="stylesheet">
-  <link href="/css/auto-complete.css?1566514330" rel="stylesheet">
-  <link href="/css/atom-one-dark-reasonable.css?1566514330"
+  <link href="/css/auto-complete.css?1566905909" rel="stylesheet">
+  <link href="/css/atom-one-dark-reasonable.css?1566905909"
     rel="stylesheet">
-  <link href="/css/theme.css?1566514330" rel="stylesheet">
-  <link href="/css/hugo-theme.css?1566514330" rel="stylesheet">
+  <link href="/css/theme.css?1566905909" rel="stylesheet">
+  <link href="/css/hugo-theme.css?1566905909" rel="stylesheet">
   
-  <link href="/css/theme-mine.css?1566514330"
+  <link href="/css/theme-mine.css?1566905909"
     rel="stylesheet">
   
 
-  <script src="/js/jquery-3.3.1.min.js?1566514330"></script>
+  <script src="/js/jquery-3.3.1.min.js?1566905909"></script>
 
   <style type="text/css">
     :root #header+#content>#left>#rlblock_left {
@@ -164,7 +164,8 @@ With this design, I have to send JsonResult for everything, but, the Http Status
 
 <p>First, I set the status code directly in Response in the action method and then returned JsonResult like this:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs">Response.StatusCode = <span style="color:#ae81ff">400</span>;
-<span style="color:#66d9ef">return</span> Json(data);</code></pre></div>
+<span style="color:#66d9ef">return</span> Json(data);
+</code></pre></div>
 <p>Soon, I noticed doing this in too many places and I though this is obscure. To address this, I created a custom result type called <code>BadRequest</code> and moved this code into that class and I used the BadRequest class in my action methods. This made the code more intention revealing and DRY.</p>
 <p>Here is the code for BadRequest ActionResult:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">BadRequest</span> : JsonResult
@@ -189,7 +190,8 @@ With this design, I have to send JsonResult for everything, but, the Http Status
         <span style="color:#66d9ef">base</span>.ExecuteResult(context);
     }
 
-}</code></pre></div>
+}
+</code></pre></div>
 <p>Here is how you use it:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#a6e22e">[HttpPost]</span>
 <span style="color:#66d9ef">public</span> ActionResult Add(Author author, HttpPostedFileBase photoContent)
@@ -202,7 +204,8 @@ With this design, I have to send JsonResult for everything, but, the Http Status
     .
     .
     .
-}</code></pre></div>
+}
+</code></pre></div>
 <p>You can create similar classes for all other type of results that you would want to send to client. </p>
 <p>As always, please let me know if there is a better way for doing this.</p>
 
@@ -788,8 +791,330 @@ With this design, I have to send JsonResult for everything, but, the Http Status
 
                     
                     
+                        
+                    
                     
 
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
                     
             
         
@@ -1113,6 +1438,22 @@ With this design, I have to send JsonResult for everything, but, the Http Status
                     
             
         
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
                     
             
         
@@ -1147,20 +1488,20 @@ With this design, I have to send JsonResult for everything, but, the Http Status
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1566514330"></script>
-    <script src="/js/perfect-scrollbar.min.js?1566514330"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1566514330"></script>
-    <script src="/js/jquery.sticky.js?1566514330"></script>
-    <script src="/js/featherlight.min.js?1566514330"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1566514330"></script>
-    <script src="/js/highlight.pack.js?1566514330"></script>
+    <script src="/js/clipboard.min.js?1566905909"></script>
+    <script src="/js/perfect-scrollbar.min.js?1566905909"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1566905909"></script>
+    <script src="/js/jquery.sticky.js?1566905909"></script>
+    <script src="/js/featherlight.min.js?1566905909"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1566905909"></script>
+    <script src="/js/highlight.pack.js?1566905909"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1566514330"></script>
-    <script src="/js/learn.js?1566514330"></script>
-    <script src="/js/hugo-learn.js?1566514330"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1566905909"></script>
+    <script src="/js/learn.js?1566905909"></script>
+    <script src="/js/hugo-learn.js?1566905909"></script>
 
-    <link href="/mermaid/mermaid.css?1566514330" type="text/css" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1566514330"></script>
+    <link href="/mermaid/mermaid.css?1566905909" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1566905909"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

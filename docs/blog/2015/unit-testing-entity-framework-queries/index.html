@@ -5,7 +5,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="generator" content="Hugo 0.54.0" />
+  <meta name="generator" content="Hugo 0.57.2" />
   <meta name="description" content="">
 
 
@@ -13,24 +13,24 @@
   <title>Unit Testing Entity Framework Queries - Kodebot</title>
 
   
-  <link href="/css/nucleus.css?1566514330" rel="stylesheet">
-  <link href="/css/fontawesome-all.min.css?1566514330"
+  <link href="/css/nucleus.css?1566905909" rel="stylesheet">
+  <link href="/css/fontawesome-all.min.css?1566905909"
     rel="stylesheet">
-  <link href="/css/hybrid.css?1566514330" rel="stylesheet">
-  <link href="/css/featherlight.min.css?1566514330" rel="stylesheet">
-  <link href="/css/perfect-scrollbar.min.css?1566514330"
+  <link href="/css/hybrid.css?1566905909" rel="stylesheet">
+  <link href="/css/featherlight.min.css?1566905909" rel="stylesheet">
+  <link href="/css/perfect-scrollbar.min.css?1566905909"
     rel="stylesheet">
-  <link href="/css/auto-complete.css?1566514330" rel="stylesheet">
-  <link href="/css/atom-one-dark-reasonable.css?1566514330"
+  <link href="/css/auto-complete.css?1566905909" rel="stylesheet">
+  <link href="/css/atom-one-dark-reasonable.css?1566905909"
     rel="stylesheet">
-  <link href="/css/theme.css?1566514330" rel="stylesheet">
-  <link href="/css/hugo-theme.css?1566514330" rel="stylesheet">
+  <link href="/css/theme.css?1566905909" rel="stylesheet">
+  <link href="/css/hugo-theme.css?1566905909" rel="stylesheet">
   
-  <link href="/css/theme-mine.css?1566514330"
+  <link href="/css/theme-mine.css?1566905909"
     rel="stylesheet">
   
 
-  <script src="/js/jquery-3.3.1.min.js?1566514330"></script>
+  <script src="/js/jquery-3.3.1.min.js?1566905909"></script>
 
   <style type="text/css">
     :root #header+#content>#left>#rlblock_left {
@@ -174,16 +174,17 @@
     }
 
     <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">virtual</span> DbSet&lt;Movie&gt; Movies { <span style="color:#66d9ef">get</span>; <span style="color:#66d9ef">set</span>; }
-}</code></pre></div>
+}
+</code></pre></div>
 <p>First, we need to make two changes to isolate this DbContext from unit testing
 <ol>
     <li> Replace DbSet with IDbSet </li>
     <li> Extract interface from MoviesContext and use the interface wherever you want to use the DbContext </li>
 </ol></p>
 
-<div class="notices note" ><p>You should not create instance of DbContext directly, instead use your faviroute DI Framework to inject it as dependency when requested.</p>
+<div class="notices note" >
+You should not create instance of DbContext directly, instead use your faviroute DI Framework to inject it as dependency when requested. 
 </div>
-
 
 <p>Updated DbContext class and interface should look like this</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MoviesContext</span> : DbContext, IMoviesContext
@@ -199,7 +200,8 @@
 <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> IMoviesContext
 {
     IDbSet&lt;Movie&gt; Movies { <span style="color:#66d9ef">get</span>; <span style="color:#66d9ef">set</span>; }
-}</code></pre></div>
+}
+</code></pre></div>
 <p>Now, let&rsquo;s create a MovieFinder with a method <code>GetTopFiveMovies</code> to return top 5 movies for a given year as follows</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MovieFinder</span>
 {
@@ -217,14 +219,15 @@
             .OrderByDescending(movie =&gt; movie.Rating)
             .Take(<span style="color:#ae81ff">5</span>);
     }
-}</code></pre></div>
+}
+</code></pre></div>
 <h2 id="unit-testing">Unit Testing</h2>
 
 <p>To write unit tests for <code>GetTopFiveMovies</code>, we need to mock <code>MoviesContext</code> to provide testable implementation for <code>Movies</code> properties. For this example, I am going to use Moq but you can use any mocking framework you like. The completed unit test method would look like this</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#a6e22e">[TestClass]</span>
 <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MovieFinderTests</span>
-{<span style="color:#a6e22e">
-</span><span style="color:#a6e22e">    [TestMethod]</span>
+{
+<span style="color:#a6e22e">    [TestMethod]</span>
     <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> GetTopFiveMoviesShouldReturnTopFiveMoviesSuccessfully()
     {
         <span style="color:#75715e">// Fixture Setup
@@ -263,7 +266,8 @@
         <span style="color:#75715e">// Fixture Teardown
 </span><span style="color:#75715e"></span>    }
 
-}</code></pre></div>
+}
+</code></pre></div>
 <p>First, we are creating test movie data and then a mock <code>DbSet&lt;Movie&gt;</code> is created. The value of properties used by LINQ to support querying (<code>Provider</code>, <code>Expression</code>, <code>ElementType</code>) are replaced by the values from test data list <code>movieList</code>.
 Then, enumerator of DbSet is assigned to the enumerator of test data list <code>movieList</code>. Finally, the mock <code>DbContext</code> returns the mock <code>DbSet&lt;Movie&gt;</code> when Movie property is accessed.</p>
 
@@ -851,8 +855,330 @@ Then, enumerator of DbSet is assigned to the enumerator of test data list <code>
 
                     
                     
+                        
+                    
                     
 
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
                     
             
         
@@ -1176,6 +1502,22 @@ Then, enumerator of DbSet is assigned to the enumerator of test data list <code>
                     
             
         
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
                     
             
         
@@ -1210,20 +1552,20 @@ Then, enumerator of DbSet is assigned to the enumerator of test data list <code>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1566514330"></script>
-    <script src="/js/perfect-scrollbar.min.js?1566514330"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1566514330"></script>
-    <script src="/js/jquery.sticky.js?1566514330"></script>
-    <script src="/js/featherlight.min.js?1566514330"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1566514330"></script>
-    <script src="/js/highlight.pack.js?1566514330"></script>
+    <script src="/js/clipboard.min.js?1566905909"></script>
+    <script src="/js/perfect-scrollbar.min.js?1566905909"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1566905909"></script>
+    <script src="/js/jquery.sticky.js?1566905909"></script>
+    <script src="/js/featherlight.min.js?1566905909"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1566905909"></script>
+    <script src="/js/highlight.pack.js?1566905909"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1566514330"></script>
-    <script src="/js/learn.js?1566514330"></script>
-    <script src="/js/hugo-learn.js?1566514330"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1566905909"></script>
+    <script src="/js/learn.js?1566905909"></script>
+    <script src="/js/hugo-learn.js?1566905909"></script>
 
-    <link href="/mermaid/mermaid.css?1566514330" type="text/css" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1566514330"></script>
+    <link href="/mermaid/mermaid.css?1566905909" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1566905909"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

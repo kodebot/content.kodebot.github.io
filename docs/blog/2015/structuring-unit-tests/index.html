@@ -5,7 +5,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="generator" content="Hugo 0.54.0" />
+  <meta name="generator" content="Hugo 0.57.2" />
   <meta name="description" content="">
 
 
@@ -13,24 +13,24 @@
   <title>Strucuring unit tests - Kodebot</title>
 
   
-  <link href="/css/nucleus.css?1566514330" rel="stylesheet">
-  <link href="/css/fontawesome-all.min.css?1566514330"
+  <link href="/css/nucleus.css?1566905909" rel="stylesheet">
+  <link href="/css/fontawesome-all.min.css?1566905909"
     rel="stylesheet">
-  <link href="/css/hybrid.css?1566514330" rel="stylesheet">
-  <link href="/css/featherlight.min.css?1566514330" rel="stylesheet">
-  <link href="/css/perfect-scrollbar.min.css?1566514330"
+  <link href="/css/hybrid.css?1566905909" rel="stylesheet">
+  <link href="/css/featherlight.min.css?1566905909" rel="stylesheet">
+  <link href="/css/perfect-scrollbar.min.css?1566905909"
     rel="stylesheet">
-  <link href="/css/auto-complete.css?1566514330" rel="stylesheet">
-  <link href="/css/atom-one-dark-reasonable.css?1566514330"
+  <link href="/css/auto-complete.css?1566905909" rel="stylesheet">
+  <link href="/css/atom-one-dark-reasonable.css?1566905909"
     rel="stylesheet">
-  <link href="/css/theme.css?1566514330" rel="stylesheet">
-  <link href="/css/hugo-theme.css?1566514330" rel="stylesheet">
+  <link href="/css/theme.css?1566905909" rel="stylesheet">
+  <link href="/css/hugo-theme.css?1566905909" rel="stylesheet">
   
-  <link href="/css/theme-mine.css?1566514330"
+  <link href="/css/theme-mine.css?1566905909"
     rel="stylesheet">
   
 
-  <script src="/js/jquery-3.3.1.min.js?1566514330"></script>
+  <script src="/js/jquery-3.3.1.min.js?1566905909"></script>
 
   <style type="text/css">
     :root #header+#content>#left>#rlblock_left {
@@ -193,32 +193,33 @@
             <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span>;
         }
         
-    }</code></pre></div>
+    }
+</code></pre></div>
 <p>The test class for this System Under Test looks like this</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#a6e22e">    [TestClass]</span>
     <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">AddressVaidatorTests</span>
     {
 
-        <span style="color:#66d9ef">private</span> AddressValidator _target;<span style="color:#a6e22e">
-</span><span style="color:#a6e22e">
+        <span style="color:#66d9ef">private</span> AddressValidator _target;
+<span style="color:#a6e22e">
 </span><span style="color:#a6e22e">        [TestInitialize]</span>
         <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">virtual</span> <span style="color:#66d9ef">void</span> TestSetup()
         {
             _target = <span style="color:#66d9ef">new</span> AddressValidator();
             <span style="color:#75715e">// other test setups that are common for all the tests in this file.
-</span><span style="color:#75715e"></span>        }<span style="color:#a6e22e">
-</span><span style="color:#a6e22e">
+</span><span style="color:#75715e"></span>        }
+<span style="color:#a6e22e">
 </span><span style="color:#a6e22e">        [TestClass]</span>
         <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TheIsValidMethod</span> : AddressVaidatorTests
-        {<span style="color:#a6e22e">
-</span><span style="color:#a6e22e">
+        {
+<span style="color:#a6e22e">
 </span><span style="color:#a6e22e">            [TestInitialize]</span>
             <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">void</span> TestSetup()
             {
                 <span style="color:#66d9ef">base</span>.TestSetup();
                 <span style="color:#75715e">// additional test setups applicable for the current method under test
-</span><span style="color:#75715e"></span>            }<span style="color:#a6e22e">
-</span><span style="color:#a6e22e">
+</span><span style="color:#75715e"></span>            }
+<span style="color:#a6e22e">
 </span><span style="color:#a6e22e">            [TestClass]</span>
             <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">WhenTheAddressIsNull</span> : TheIsValidMethod
             {
@@ -226,8 +227,8 @@
                 <span style="color:#75715e">// add test initialiser here to setup anything that are 
 </span><span style="color:#75715e"></span>                <span style="color:#75715e">// applicable for the current scenario
 </span><span style="color:#75715e"></span><span style="color:#a6e22e">
-</span><span style="color:#a6e22e">                [TestMethod]
-</span><span style="color:#a6e22e">                [ExpectedException(typeof(ArgumentNullException))]</span>
+</span><span style="color:#a6e22e">                [TestMethod]</span>
+<span style="color:#a6e22e">                [ExpectedException(typeof(ArgumentNullException))]</span>
                 <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> ShouldThrowArgumentNullException()
                 {
                     <span style="color:#75715e">// arrange
@@ -243,8 +244,8 @@
 
                 <span style="color:#75715e">// add test cleanups here
 </span><span style="color:#75715e"></span>
-            }<span style="color:#a6e22e">
-</span><span style="color:#a6e22e">
+            }
+<span style="color:#a6e22e">
 </span><span style="color:#a6e22e">            [TestClass]</span>
             <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">WhenAddressLine1AndPostcodeArePresent</span> : TheIsValidMethod
             {
@@ -275,30 +276,30 @@
 
             <span style="color:#75715e">// add test cleanups here
 </span><span style="color:#75715e"></span>
-        }<span style="color:#a6e22e">
-</span><span style="color:#a6e22e">
+        }
+<span style="color:#a6e22e">
 </span><span style="color:#a6e22e">        [TestClass]</span>
         <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TheIsUkAddressMethod</span> : AddressValidator
         {
             <span style="color:#75715e">// tests
-</span><span style="color:#75715e"></span>        }<span style="color:#a6e22e">
-</span><span style="color:#a6e22e">
+</span><span style="color:#75715e"></span>        }
+<span style="color:#a6e22e">
 </span><span style="color:#a6e22e">        [TestCleanup]</span>
         <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">virtual</span> <span style="color:#66d9ef">void</span> TestCleanup()
         {
             <span style="color:#75715e">// any cleanups
 </span><span style="color:#75715e"></span>        }
 
-    }</code></pre></div>
+    }
+</code></pre></div>
 <p>So, the first improvement is creating nested test classes for each scenario. This allows us&nbsp;to create test inputs applicable for the current scenario only once regarless of the number of tests defined in the scenario.&nbsp;</p>
 <p>Next one is keeping <code>TestSetup()</code> and <code>TestCleanup()</code> virtual so that we can add additional setups/cleanups by chaining method calls using base keyword. This also allows us to completly replace the setup/cleanup if it is required for any special cases by overriding the methods without chaining.&nbsp;</p>
 <p>One of the additional benefit of this structuring is that when you group tests by class in the Test Explorer, the tests are nicely arranged&nbsp;like this</p>
 
 <figure>
-	<img src="/blog/2015/structuring-unit-tests/images/test-explorer.png" alt="" height="" width="" />
-	<figcaption></figcaption>
+    <img src="/blog/2015/structuring-unit-tests/images/test-explorer.png" alt="" height="" width="" />
+    <figcaption></figcaption>
 </figure>
-
 
 <p>&nbsp;</p>
 
@@ -884,8 +885,330 @@
 
                     
                     
+                        
+                    
                     
 
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
                     
             
         
@@ -1209,6 +1532,22 @@
                     
             
         
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
                     
             
         
@@ -1243,20 +1582,20 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1566514330"></script>
-    <script src="/js/perfect-scrollbar.min.js?1566514330"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1566514330"></script>
-    <script src="/js/jquery.sticky.js?1566514330"></script>
-    <script src="/js/featherlight.min.js?1566514330"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1566514330"></script>
-    <script src="/js/highlight.pack.js?1566514330"></script>
+    <script src="/js/clipboard.min.js?1566905909"></script>
+    <script src="/js/perfect-scrollbar.min.js?1566905909"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1566905909"></script>
+    <script src="/js/jquery.sticky.js?1566905909"></script>
+    <script src="/js/featherlight.min.js?1566905909"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1566905909"></script>
+    <script src="/js/highlight.pack.js?1566905909"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1566514330"></script>
-    <script src="/js/learn.js?1566514330"></script>
-    <script src="/js/hugo-learn.js?1566514330"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1566905909"></script>
+    <script src="/js/learn.js?1566905909"></script>
+    <script src="/js/hugo-learn.js?1566905909"></script>
 
-    <link href="/mermaid/mermaid.css?1566514330" type="text/css" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1566514330"></script>
+    <link href="/mermaid/mermaid.css?1566905909" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1566905909"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

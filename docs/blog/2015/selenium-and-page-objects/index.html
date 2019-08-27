@@ -5,7 +5,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="generator" content="Hugo 0.54.0" />
+  <meta name="generator" content="Hugo 0.57.2" />
   <meta name="description" content="">
 
 
@@ -13,24 +13,24 @@
   <title>Selenium and Page Objects - Kodebot</title>
 
   
-  <link href="/css/nucleus.css?1566514330" rel="stylesheet">
-  <link href="/css/fontawesome-all.min.css?1566514330"
+  <link href="/css/nucleus.css?1566905909" rel="stylesheet">
+  <link href="/css/fontawesome-all.min.css?1566905909"
     rel="stylesheet">
-  <link href="/css/hybrid.css?1566514330" rel="stylesheet">
-  <link href="/css/featherlight.min.css?1566514330" rel="stylesheet">
-  <link href="/css/perfect-scrollbar.min.css?1566514330"
+  <link href="/css/hybrid.css?1566905909" rel="stylesheet">
+  <link href="/css/featherlight.min.css?1566905909" rel="stylesheet">
+  <link href="/css/perfect-scrollbar.min.css?1566905909"
     rel="stylesheet">
-  <link href="/css/auto-complete.css?1566514330" rel="stylesheet">
-  <link href="/css/atom-one-dark-reasonable.css?1566514330"
+  <link href="/css/auto-complete.css?1566905909" rel="stylesheet">
+  <link href="/css/atom-one-dark-reasonable.css?1566905909"
     rel="stylesheet">
-  <link href="/css/theme.css?1566514330" rel="stylesheet">
-  <link href="/css/hugo-theme.css?1566514330" rel="stylesheet">
+  <link href="/css/theme.css?1566905909" rel="stylesheet">
+  <link href="/css/hugo-theme.css?1566905909" rel="stylesheet">
   
-  <link href="/css/theme-mine.css?1566514330"
+  <link href="/css/theme-mine.css?1566905909"
     rel="stylesheet">
   
 
-  <script src="/js/jquery-3.3.1.min.js?1566514330"></script>
+  <script src="/js/jquery-3.3.1.min.js?1566905909"></script>
 
   <style type="text/css">
     :root #header+#content>#left>#rlblock_left {
@@ -229,12 +229,14 @@
             }
 
         }
-    }</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs">	<span style="color:#75715e">// Search Result
+    }
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs">	<span style="color:#75715e">// Search Result
 </span><span style="color:#75715e"></span>  	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">BingSearchResult</span>
     {
         <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">string</span> DisplayText { <span style="color:#66d9ef">get</span>; <span style="color:#66d9ef">set</span>; }
         <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">string</span> Link { <span style="color:#66d9ef">get</span>; <span style="color:#66d9ef">set</span>; }
-    }</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs">	<span style="color:#75715e">// Browser abstraction 
+    }
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs">	<span style="color:#75715e">// Browser abstraction 
 </span><span style="color:#75715e"></span>	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Browser</span>
     {
         <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> IWebDriver _driver;
@@ -254,7 +256,8 @@
         {
             _driver.Close();
         }
-    }</code></pre></div>
+    }
+</code></pre></div>
 <p>If you look at the <code>BingSearch</code> class it doesn&rsquo;t expose any Selenium objects but it has a list for <code>SearchResults</code> which uses <code>BingSearchResult</code> as its generic type. The <code>BingSearchResult</code> represents only one result in the page. Because I don&rsquo;t want to page through the search result I didn&rsquo;t bother creating any type to support it.</p>
 
 <p>Browser is represented using static class in this sample but it doesn&rsquo;t have to be static class.</p>
@@ -841,8 +844,330 @@
 
                     
                     
+                        
+                    
                     
 
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
                     
             
         
@@ -1166,6 +1491,22 @@
                     
             
         
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
                     
             
         
@@ -1200,20 +1541,20 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1566514330"></script>
-    <script src="/js/perfect-scrollbar.min.js?1566514330"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1566514330"></script>
-    <script src="/js/jquery.sticky.js?1566514330"></script>
-    <script src="/js/featherlight.min.js?1566514330"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1566514330"></script>
-    <script src="/js/highlight.pack.js?1566514330"></script>
+    <script src="/js/clipboard.min.js?1566905909"></script>
+    <script src="/js/perfect-scrollbar.min.js?1566905909"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1566905909"></script>
+    <script src="/js/jquery.sticky.js?1566905909"></script>
+    <script src="/js/featherlight.min.js?1566905909"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1566905909"></script>
+    <script src="/js/highlight.pack.js?1566905909"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1566514330"></script>
-    <script src="/js/learn.js?1566514330"></script>
-    <script src="/js/hugo-learn.js?1566514330"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1566905909"></script>
+    <script src="/js/learn.js?1566905909"></script>
+    <script src="/js/hugo-learn.js?1566905909"></script>
 
-    <link href="/mermaid/mermaid.css?1566514330" type="text/css" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1566514330"></script>
+    <link href="/mermaid/mermaid.css?1566905909" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1566905909"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

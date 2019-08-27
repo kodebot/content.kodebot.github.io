@@ -5,7 +5,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="generator" content="Hugo 0.54.0" />
+  <meta name="generator" content="Hugo 0.57.2" />
   <meta name="description" content="">
 
 
@@ -13,24 +13,24 @@
   <title>Owin - Katana core middleware patterns - Kodebot</title>
 
   
-  <link href="/css/nucleus.css?1566514330" rel="stylesheet">
-  <link href="/css/fontawesome-all.min.css?1566514330"
+  <link href="/css/nucleus.css?1566905909" rel="stylesheet">
+  <link href="/css/fontawesome-all.min.css?1566905909"
     rel="stylesheet">
-  <link href="/css/hybrid.css?1566514330" rel="stylesheet">
-  <link href="/css/featherlight.min.css?1566514330" rel="stylesheet">
-  <link href="/css/perfect-scrollbar.min.css?1566514330"
+  <link href="/css/hybrid.css?1566905909" rel="stylesheet">
+  <link href="/css/featherlight.min.css?1566905909" rel="stylesheet">
+  <link href="/css/perfect-scrollbar.min.css?1566905909"
     rel="stylesheet">
-  <link href="/css/auto-complete.css?1566514330" rel="stylesheet">
-  <link href="/css/atom-one-dark-reasonable.css?1566514330"
+  <link href="/css/auto-complete.css?1566905909" rel="stylesheet">
+  <link href="/css/atom-one-dark-reasonable.css?1566905909"
     rel="stylesheet">
-  <link href="/css/theme.css?1566514330" rel="stylesheet">
-  <link href="/css/hugo-theme.css?1566514330" rel="stylesheet">
+  <link href="/css/theme.css?1566905909" rel="stylesheet">
+  <link href="/css/hugo-theme.css?1566905909" rel="stylesheet">
   
-  <link href="/css/theme-mine.css?1566514330"
+  <link href="/css/theme-mine.css?1566905909"
     rel="stylesheet">
   
 
-  <script src="/js/jquery-3.3.1.min.js?1566514330"></script>
+  <script src="/js/jquery-3.3.1.min.js?1566905909"></script>
 
   <style type="text/css">
     :root #header+#content>#left>#rlblock_left {
@@ -170,7 +170,8 @@
 <h3>Delegate Pattern</h3>
 <p>Delegate pattern accepts the following delegate as a first parameter for the Use method of IAppBuilder and any number of additional parameter of any type</p></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#75715e">// Delegate Pattern
-</span><span style="color:#75715e"></span>Func&lt;AppFunc, AppFunc&gt;</code></pre></div>
+</span><span style="color:#75715e"></span>Func&lt;AppFunc, AppFunc&gt;
+</code></pre></div>
 <p>where AppFunc is <code>Func&lt;IDictionary&lt;string, object&gt;, Task&gt;&gt;</code>
 <p>The delegate takes AppFunc as parameter and returns AppFunc. The parameter represents the next middleware in the pipeline and return value represents the implementation of the middleware we are adding. </p></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#75715e">// Delegate Pattern Implementation
@@ -183,7 +184,8 @@
         Console.WriteLine(<span style="color:#e6db74">&#34;From Delegate Middleware - End&#34;</span>);
 
     }));
-}</code></pre></div>
+}
+</code></pre></div>
 <p>In the example above, the middleware we are adding prints something in the console, calls next middleware in the pipeline and once it is complete, it continues by executing rest of the code in the middleware we are adding.</p>
 <p>The following example shows the delegate pattern with additional parameters</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#75715e">// Delegate Pattern with additional parameters
@@ -197,12 +199,14 @@
         Console.WriteLine(<span style="color:#e6db74">&#34;From Delegate Middleware with param- End&#34;</span>);
 
     }), <span style="color:#e6db74">&#34;additional param&#34;</span>);
-}</code></pre></div>
+}
+</code></pre></div>
 <p><h3>Instance Pattern</h3>
 <p>To use this pattern to add middlewares, we need newable types with the following two methods</p></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#75715e">// Instance Pattern method signatures
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> Initialize(AppFunc next, <span style="color:#66d9ef">params</span> <span style="color:#66d9ef">object</span><span style="color:#a6e22e">[]</span> args);
-<span style="color:#66d9ef">public</span> Task Invoke(IDictionary&lt;<span style="color:#66d9ef">string</span>, <span style="color:#66d9ef">object</span>&gt; environment);</code></pre></div>
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> Initialize(AppFunc next, <span style="color:#66d9ef">params</span> <span style="color:#66d9ef">object</span>[] args);
+<span style="color:#66d9ef">public</span> Task Invoke(IDictionary&lt;<span style="color:#66d9ef">string</span>, <span style="color:#66d9ef">object</span>&gt; environment);
+</code></pre></div>
 <p>Here is an example of middleware created using instance pattern</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#75715e">// Instance Pattern with parameter
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> Configuration(IAppBuilder builder)
@@ -228,11 +232,13 @@
         Console.WriteLine(<span style="color:#e6db74">&#34;From Instance Middleware with param - Start&#34;</span>);
     }
 
-}</code></pre></div>
+}
+</code></pre></div>
 <p><h3>Generator/Nested Delegate Pattern</h3>
 <p>To use this pattern to create middlewares, we need a newable type with the following method</p></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#75715e">// Generator / Nested Delegate pattern
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">public</span> AppFunc Invoke(AppFunc next, <span style="color:#66d9ef">params</span> <span style="color:#66d9ef">object</span><span style="color:#a6e22e">[]</span> args);</code></pre></div>
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">public</span> AppFunc Invoke(AppFunc next, <span style="color:#66d9ef">params</span> <span style="color:#66d9ef">object</span>[] args);
+</code></pre></div>
 <p>This method takes next middleware in the pipeline and any number of additional arguments and returns the implementation of current middleware. Here is an example</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#75715e">// Middleware using Generator / Nested Delegate pattern
 </span><span style="color:#75715e"></span>
@@ -259,12 +265,14 @@
         Console.WriteLine(<span style="color:#e6db74">&#34;From Instance Middleware with param - Start&#34;</span>);
     }
 
-}</code></pre></div>
+}
+</code></pre></div>
 <p><h3>Constructor Type / Type Pattern</h3>
 <p>A type with the following constructor and method can be added a middleware using this pattern</p></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"> <span style="color:#75715e">// Constructor Type / Type pattern
-</span><span style="color:#75715e"></span> <span style="color:#66d9ef">public</span> Ctor(AppFunc next, <span style="color:#66d9ef">params</span> <span style="color:#66d9ef">object</span><span style="color:#a6e22e">[]</span> args);
- <span style="color:#66d9ef">public</span> Task Invoke(IDictionary&lt;<span style="color:#66d9ef">string</span>, <span style="color:#66d9ef">object</span>&gt; env);</code></pre></div>
+</span><span style="color:#75715e"></span> <span style="color:#66d9ef">public</span> Ctor(AppFunc next, <span style="color:#66d9ef">params</span> <span style="color:#66d9ef">object</span>[] args);
+ <span style="color:#66d9ef">public</span> Task Invoke(IDictionary&lt;<span style="color:#66d9ef">string</span>, <span style="color:#66d9ef">object</span>&gt; env);
+</code></pre></div>
 <p>Here is an example</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#75715e">// Middleware using Constructor Type / Type pattern
 </span><span style="color:#75715e"></span>
@@ -291,7 +299,8 @@
         <span style="color:#66d9ef">await</span> _next(env);
         Console.WriteLine(<span style="color:#e6db74">&#34;From Constructor Type Middleware - End&#34;</span>);
     }
-}</code></pre></div>
+}
+</code></pre></div>
 
 <footer class=" footline" >
 	
@@ -874,8 +883,330 @@
 
                     
                     
+                        
+                    
                     
 
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
                     
             
         
@@ -1199,6 +1530,22 @@
                     
             
         
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
                     
             
         
@@ -1233,20 +1580,20 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1566514330"></script>
-    <script src="/js/perfect-scrollbar.min.js?1566514330"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1566514330"></script>
-    <script src="/js/jquery.sticky.js?1566514330"></script>
-    <script src="/js/featherlight.min.js?1566514330"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1566514330"></script>
-    <script src="/js/highlight.pack.js?1566514330"></script>
+    <script src="/js/clipboard.min.js?1566905909"></script>
+    <script src="/js/perfect-scrollbar.min.js?1566905909"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1566905909"></script>
+    <script src="/js/jquery.sticky.js?1566905909"></script>
+    <script src="/js/featherlight.min.js?1566905909"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1566905909"></script>
+    <script src="/js/highlight.pack.js?1566905909"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1566514330"></script>
-    <script src="/js/learn.js?1566514330"></script>
-    <script src="/js/hugo-learn.js?1566514330"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1566905909"></script>
+    <script src="/js/learn.js?1566905909"></script>
+    <script src="/js/hugo-learn.js?1566905909"></script>
 
-    <link href="/mermaid/mermaid.css?1566514330" type="text/css" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1566514330"></script>
+    <link href="/mermaid/mermaid.css?1566905909" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1566905909"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
