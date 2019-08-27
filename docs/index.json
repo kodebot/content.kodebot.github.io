@@ -35,13 +35,6 @@
 	"content": "When we need data, we just create variables with the data and use them in the other places within the unit test.\nconsider an example of testing a function that adds two numbers\nfunction add(a, b): return a+b  to test this function, we need two input data. We can simply create two variables with the data in our test function and use them as arguments for add() function.\nfunction test_add(): // arrange a = 10 b = 15 // act add(a, b)  "
 },
 {
-	"uri": "https://kodebot.com/tutorials/solid-principles/",
-	"title": "SOLID principles",
-	"tags": [],
-	"description": "",
-	"content": ""
-},
-{
 	"uri": "https://kodebot.com/tutorials/automated-unit-testing-basics/2-structure-of-unit-test/1-structure/",
 	"title": "Structure",
 	"tags": [],
@@ -179,7 +172,7 @@
 	"title": "Tutorials",
 	"tags": [],
 	"description": "",
-	"content": " Automated unit testing basics   SOLID principles   "
+	"content": " Automated unit testing basics   "
 },
 {
 	"uri": "https://kodebot.com/tags/javascript/",
