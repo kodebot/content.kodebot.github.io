@@ -5,5 +5,5 @@ draft: false
 hidden: false
 ---
 
-{{% children style="li" %}}
+{{% children style="li" depth="1" %}}
 

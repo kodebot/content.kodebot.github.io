@@ -5,4 +5,4 @@ disableToc: true
 ---
 ## Posts
 
-{{% children style="div" showhidden="true" %}}
+{{% children style="div" %}}
