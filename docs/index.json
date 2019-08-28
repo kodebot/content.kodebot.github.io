@@ -4,14 +4,7 @@
 	"title": "Automated unit testing basics",
 	"tags": [],
 	"description": "",
-	"content": " Table of content \rCourse overview\r\r\r\rIntroduction\r\r\r\rWhat is automated unit testing?\r\r\rWhy are we writing unit tests?\r\r\rWhat is good unit test?\r\r\rOther types of automated testing\r\r\rSystem Under Test (SUT)\r\r\r\rStructure of unit test\r\r\r\rStructure\r\r\r\rSetup techniques\r\r\r\rSimple test data\r\r\rData driven test\r\r\rFake test dependency\r\r\rMock dependency\r\r\r\rVerification techniques\r\r\r\rResult verification\r\r\rState verification\r\r\rInteraction verification\r\r\r\rTest driven or test oriented\r\r\r\rTest driven development\r\r\rTest oriented development\r\r\r\r\rIntroduction\r\r\r\rWhat is automated unit testing?\r\r\r\r\rWhy are we writing unit tests?\r\r\r\r\rWhat is good unit test?\r\r\r\r\rOther types of automated testing\r\r\r\r\rSystem Under Test (SUT)\r\r\r\r\r\rStructure of unit test\r\r\r\rStructure\r\r\r\r\r\rSetup techniques\r\r\r\rSimple test data\r\r\r\r\rData driven test\r\r\r\r\rFake test dependency\r\r\r\r\rMock dependency\r\r\r\r\r\rVerification techniques\r\r\r\rResult verification\r\r\r\r\rState verification\r\r\r\r\rInteraction verification\r\r\r\r\r\rTest driven or test oriented\r\r\r\rTest driven development\r\r\r\r\rTest oriented development\r\r\r\r\r\rThis course is also available as a video to watch if you prefer that\n  "
-},
-{
-	"uri": "https://kodebot.com/tutorials/automated-unit-testing-basics/1-course-overview/",
-	"title": "Course overview",
-	"tags": [],
-	"description": "",
-	"content": " Course overview Welcome to automated unit testing basics course.\nThis course is for anyone who has some knowledge of computer programming but have limited or no knowledge of automated unit testing.\nThis course is language, framework and tools agnostic. Everything you learn from this course can be applied to any programming language with the use of right tools.\n"
+	"content": "Welcome to automated unit testing basics course.\nThis course is for anyone who has some knowledge of computer programming but have limited or no knowledge of automated unit testing.\nThis course is language, framework and tools agnostic. Everything you learn from this course can be applied to any programming language with the use of right tools.\nThis course is also available as a video to watch if you prefer that   "
 },
 {
 	"uri": "https://kodebot.com/tutorials/automated-unit-testing-basics/1-introduction/",

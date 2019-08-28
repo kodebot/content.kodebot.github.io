@@ -12,17 +12,6 @@
     
     
     <item>
-      <title>Course overview</title>
-      <link>https://kodebot.com/tutorials/automated-unit-testing-basics/1-course-overview/</link>
-      <pubDate>Fri, 22 Feb 2019 10:25:49 +0000</pubDate>
-      
-      <guid>https://kodebot.com/tutorials/automated-unit-testing-basics/1-course-overview/</guid>
-      <description>Course overview Welcome to automated unit testing basics course.
-This course is for anyone who has some knowledge of computer programming but have limited or no knowledge of automated unit testing.
-This course is language, framework and tools agnostic. Everything you learn from this course can be applied to any programming language with the use of right tools.</description>
-    </item>
-    
-    <item>
       <title>Result verification</title>
       <link>https://kodebot.com/tutorials/automated-unit-testing-basics/4-verification-techniques/1-result-verification/</link>
       <pubDate>Fri, 22 Feb 2019 10:25:49 +0000</pubDate>
