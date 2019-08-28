@@ -13,24 +13,24 @@
   <title>Unit Testing Entity Framework Queries - Kodebot</title>
 
   
-  <link href="/css/nucleus.css?1566996705" rel="stylesheet">
-  <link href="/css/fontawesome-all.min.css?1566996705"
+  <link href="/css/nucleus.css?1566999555" rel="stylesheet">
+  <link href="/css/fontawesome-all.min.css?1566999555"
     rel="stylesheet">
-  <link href="/css/hybrid.css?1566996705" rel="stylesheet">
-  <link href="/css/featherlight.min.css?1566996705" rel="stylesheet">
-  <link href="/css/perfect-scrollbar.min.css?1566996705"
+  <link href="/css/hybrid.css?1566999555" rel="stylesheet">
+  <link href="/css/featherlight.min.css?1566999555" rel="stylesheet">
+  <link href="/css/perfect-scrollbar.min.css?1566999555"
     rel="stylesheet">
-  <link href="/css/auto-complete.css?1566996705" rel="stylesheet">
-  <link href="/css/atom-one-dark-reasonable.css?1566996705"
+  <link href="/css/auto-complete.css?1566999555" rel="stylesheet">
+  <link href="/css/atom-one-dark-reasonable.css?1566999555"
     rel="stylesheet">
-  <link href="/css/theme.css?1566996705" rel="stylesheet">
-  <link href="/css/hugo-theme.css?1566996705" rel="stylesheet">
+  <link href="/css/theme.css?1566999555" rel="stylesheet">
+  <link href="/css/hugo-theme.css?1566999555" rel="stylesheet">
   
-  <link href="/css/theme-mine.css?1566996705"
+  <link href="/css/theme-mine.css?1566999555"
     rel="stylesheet">
   
 
-  <script src="/js/jquery-3.3.1.min.js?1566996705"></script>
+  <script src="/js/jquery-3.3.1.min.js?1566999555"></script>
 
   <style type="text/css">
     :root #header+#content>#left>#rlblock_left {
@@ -182,9 +182,10 @@
     <li> Extract interface from MoviesContext and use the interface wherever you want to use the DbContext </li>
 </ol></p>
 
-<div class="notices note" >
-You should not create instance of DbContext directly, instead use your faviroute DI Framework to inject it as dependency when requested. 
+
+<div class="notices note" ><p>You should not create instance of DbContext directly, instead use your faviroute DI Framework to inject it as dependency when requested.</p>
 </div>
+
 
 <p>Updated DbContext class and interface should look like this</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MoviesContext</span> : DbContext, IMoviesContext
@@ -1536,20 +1537,19 @@ Then, enumerator of DbSet is assigned to the enumerator of test data list <code>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1566996705"></script>
-    <script src="/js/perfect-scrollbar.min.js?1566996705"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1566996705"></script>
-    <script src="/js/jquery.sticky.js?1566996705"></script>
-    <script src="/js/featherlight.min.js?1566996705"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1566996705"></script>
-    <script src="/js/highlight.pack.js?1566996705"></script>
+    <script src="/js/clipboard.min.js?1566999555"></script>
+    <script src="/js/perfect-scrollbar.min.js?1566999555"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1566999555"></script>
+    <script src="/js/jquery.sticky.js?1566999555"></script>
+    <script src="/js/featherlight.min.js?1566999555"></script>
+    <script src="/js/highlight.pack.js?1566999555"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1566996705"></script>
-    <script src="/js/learn.js?1566996705"></script>
-    <script src="/js/hugo-learn.js?1566996705"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1566999555"></script>
+    <script src="/js/learn.js?1566999555"></script>
+    <script src="/js/hugo-learn.js?1566999555"></script>
 
-    <link href="/mermaid/mermaid.css?1566996705" type="text/css" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1566996705"></script>
+    <link href="/mermaid/mermaid.css?1566999555" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1566999555"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
