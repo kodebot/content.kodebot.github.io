@@ -1,13 +1,13 @@
 ---
-title: "Automated unit testing basics"
-date: 2019-02-22T10:25:49Z
+title: "SOLID Principle"
+date: 2019-09-09T15:47:00Z
 weight: 1
-draft: false
+draft: true
 ---
 
-Welcome to automated unit testing basics course.
+Welcome to SOLID principle tutorial.
 
-This course is for anyone who has some knowledge of computer programming but have limited or no knowledge of automated unit testing.
+This tutorial is for anyone who has some knowledge of any object oriented programming and wants to develp or improve the skills of writing maintainable code.
 
 This course is language, framework and tools agnostic. Everything you learn from this course can be applied to any programming language with the use of right tools.
 
