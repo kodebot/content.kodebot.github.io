@@ -1,16 +1,22 @@
-
 ---
-title: "Introduction"
-date: 2019-09-09T10:25:49Z
-chapter: true
-pre: "<b>1. </b>"
+title: "What is SOLID principles?"
+date: 2019-02-22T10:25:49Z
 weight: 1
 draft: false
-desc: "Covers what is automated unit testing, why we need them, what is good unit test and other types of tests"
 ---
 
-### Chapter 1
+SOLID is mnemonic acronym. Each letter represents one principle.
 
-# Introduction
+The principles were frist introduced by Robert C. Martin but the acronym was later introduced by Micheal Feathers.
 
-In this chapter, what we cover in this chapter?
+The following are the principles that are part of SOLID principles
+
+* Single Responsibility Principle
+* Open Closed Principle
+* Liskov Substitution Principle
+* Interface Segregation Principle
+* Dependency Inversion Principle
+
+When designing software using object oriented principles, the SOLID principles help to keep the design readable, flexible and maintainable.
+
+In the upcoming chapters, we cover each of these principles in details by taking a look at the problem and how applying the principle improve the situation.
