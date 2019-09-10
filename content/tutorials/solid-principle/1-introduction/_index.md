@@ -15,6 +15,12 @@ desc: "Covers what is automated unit testing, why we need them, what is good uni
 
 In this chapter, we will look at what is SOLID.
 
-what is solid? it is acronym
+what is solid? it is mnemonic acronym
+
+makes design easy to understand, makes it flexible and maintainable
+
+
+the principles are first introduced by Robert C. Martin but the acronym was first introduced by Michael Feathers
+
 
 who conined the term first and who made it popular on what book
