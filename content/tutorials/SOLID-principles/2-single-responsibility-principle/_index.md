@@ -6,14 +6,35 @@ draft: false
 ---
 
 
-Single Responsibility Principle (SRP) states that every class should have only one responsibility. Another way to look at it is that every class should have only one reason to change.
+Single Responsibility Principle (SRP) states that every **class** should have only one responsibility. Another way to look at it is that every class should have only one reason to change.
 
-Lets look at an example of 
+?? should the definition be extended to module and functions ??
 
+What we perceive as responsibility or reason to change may be different based on the domain and the problem we are solving.
 
-explain single responsibility principle
+Lets look at an example class that does not follow single responsibility principle
 
-Single Responsibility Priciple basically says a class should have only one responsiblity. When we responsibility, it can be seen as reason for change. So, a class should have only reason to change. 
+```csharp
+
+public class InvoiceManager
+{
+    public void Print()
+    {
+        
+    }
+
+    public void AddItem(string description, decimal cost){
+
+    }
+
+    public decimal GetTotal(){
+        
+    }
+
+}
+
+```
+
 
 example for class that doesn't follow SRP
 
