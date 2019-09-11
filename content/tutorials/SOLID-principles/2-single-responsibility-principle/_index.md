@@ -14,6 +14,11 @@ What we perceive as responsibility or reason to change may be different based on
 
 Lets look at an example class that does not follow single responsibility principle
 
+
+https://8thlight.com/blog/uncle-bob/2014/05/08/SingleReponsibilityPrinciple.html
+
+>> Gather together the things that chagne for the same reasons and separate those things that change for different reason
+
 ```csharp
 
 public class InvoiceManager
@@ -28,7 +33,7 @@ public class InvoiceManager
     }
 
     public decimal GetTotal(){
-        
+
     }
 
 }
