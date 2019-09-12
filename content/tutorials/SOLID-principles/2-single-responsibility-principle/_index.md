@@ -14,7 +14,7 @@ Robert C. Martin who introduced this principle clarified that this principle is 
 
 > **Gather together the things that change for the same reasons and separate those things that change for different reason**
 
-So, changes to a class should originate from only single person or a group of people representing a department or business division or similar.
+So, changes to a class should originate from only single person or a group of people representing a department or business division or similar within the company.
 
 If changes to a class is originating from more than one person/department/division then the class is said to have multiple responsibilities and it violates single responsibility principle.
 
