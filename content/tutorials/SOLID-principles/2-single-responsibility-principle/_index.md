@@ -8,7 +8,7 @@ draft: false
 
 Single Responsibility Principle (SRP) is about how we separate or modularise code in object oriented design. This principle says that **a class should have only one reason to change**. 
 
-Robert C. Martin who first introduced this principle says that changes in a class should originate from only single person or a group of people representing a department or business division.
+Robert C. Martin who introduced this principle says that changes in a class should originate from only single person or a group of people representing a department or business division or similar.
 
 If changes to a class is originating from more than one person/department/division then the class is said to have multiple responsibility and it violates single responsibility principle.
 In the context of this principle, we can think of responsibility as "reason to change"
