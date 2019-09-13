@@ -14,7 +14,7 @@ Robert C. Martin who introduced this principle clarified that this principle is 
 
 If changes to a class is originating from more than one person/department/division then the class is said to have multiple responsibilities and it violates single responsibility principle.
 
-The reason for this is that say you have a class `Student` that calculates grade for students and also tracks the books they borrowed from library. 
+For example, say you have a class `Student` that calculates grade for students and also tracks the books they borrowed from library. 
 
 ``` csharp
 
@@ -41,7 +41,7 @@ public class Student
 Any changes to this class can be requested by one of two departments
 
 * teaching department may ask to change the way we calculate grading
-* library department may ask changes to the way we record borrowed and returned books
+* library department may ask for changes to the way we record borrowed and returned books
 
 So, two different departments are responsible for this class. In other words, this class fulfils different requirements of two different departments.
 
@@ -49,22 +49,26 @@ So, two different departments are responsible for this class. In other words, th
 In the context of this principle, we can think of responsibility as "reason to change". What we perceive as responsibility or reason to change may be different based on the domain and the problem we are solving.
 {{%/notice%}}
 
-If you are wondering why having a class that changes for more than one reason is not a good idea is that say library department asks for some changes to the way books are borrowed. While making the changes for library department, there is very high risk of breaking `CalculateGrade()` method. This because we don't know how the code is intertwined within the class. This could happen in many different ways, one of them is that, you may have a `private` method shared by `CalculateGrade()` and `BorrowBook()` methods so if you have changed the shared `private` method, you have high risk of breaking `CalculateGrade()` method. Even if you are very careful and made sure the functionality of the `CalculateGrade()` method is unaffected, at the very least you need to ask teaching department to test grade calculation and this is not ideal.
+If you are wondering why having a class that changes for more than one reason is not a good idea, then say library department asks for some changes to the way books are borrowed. While making the changes for library department, there is very high risk of breaking `CalculateGrade()` method.
 
-So, separating methods into different classes is a good idea, at the same time, we need to make sure we don't end up with atomised classes.
+This is because we don't know how the code is intertwined within the class. 
+
+Even if you are very careful and made sure the functionality of the `CalculateGrade()` method is unaffected, at the very least you need to ask teaching department to test grade calculation and this is not ideal.
+
+So, separating **unrelated** methods into different classes is a good idea, but at the same time, we need to make sure we don't end up with atomised classes.
 
 Robert C. Martin also provided the following complementing definition to clear some of the misinterpretation of this principle
 
 > **Gather together the things that change for the same reasons and separate those things that change for different reason**
 
-The complementing definition sort of says that we need to increase cohesion and decrease coupling of classes. This will help us to avoid atomised classes.
+This complementing definition sort of says that we need to increase cohesion and decrease coupling of classes. This will help us to avoid atomised classes.
 
-In the context of a class,
-Cohesion means the methods and properties must be closed related.
-Coupling means the the interdependencies between classes
+{{% notice note %}}
+In the context of a class, **cohesion** means the methods and properties must be closed related and **coupling** means the level of interdependencies between classes.
+{{% /notice %}}
 
 
-So, we can refactor the `Student` class as follow
+With all these in mind, we can refactor the `Student` class as follow
 
 ``` csharp
 
@@ -100,7 +104,8 @@ Note here, we have not split the original class into three different class each 
 This is because we have taken the complementary principle into account and **gathered `BorrowBook()` and `ReturnBook()` into one class because they changes for the same reason and separated `CalculateGrade()` to different class because it is not changing for the same reason as the other two methods**.
 
 
-References:
-
-https://8thlight.com/blog/uncle-bob/2014/05/08/SingleReponsibilityPrinciple.html
-https://hackernoon.com/you-dont-understand-the-single-responsibility-principle-abfdd005b137
+### References
+1. https://en.wikipedia.org/wiki/Single_responsibility_principle
+2. https://8thlight.com/blog/uncle-bob/2014/05/08/SingleReponsibilityPrinciple.html
+3. https://hackernoon.com/you-dont-understand-the-single-responsibility-principle-abfdd005b137
+4. http://www.butunclebob.com/ArticleS.UncleBob.PrinciplesOfOod
