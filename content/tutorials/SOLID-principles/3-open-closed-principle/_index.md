@@ -19,7 +19,7 @@ Lets try to understand this in detail. How can a software be open for extension 
 
 The principle says that we need to identify changes that are frequent and keep the parts affected by that change open for extension and keep the parts that are not affected close for modification.
 
-Lets look at an example to make this clear,
+Lets look at an example to make this clear. We have a `TaxCalculator` here that calculates tax for given income. 
 
 ``` csharp
 public class TaxCalculator
@@ -30,6 +30,43 @@ public class TaxCalculator
 }
 
 ```
+We know that tax rates differ by country in addition to several other factors. For simplicity, we will assume that each county has fixed tax rate and not affected by anything else.
+
+We can say the code in the example above confirms to open-closed principle as long as the calculate method doesn't need to be changed. This will be the case when the `TaxCalculator` class supports only one country assuming tax rates for the country is not changed frequently.
+
+On the other hand, if we want to support tax calculation for other countries and we frequently add support for new country then each time we add support for new country, we need to "modify" `Calculate()` as in the example below
+
+``` csharp
+public class TaxCalculator
+{
+    private readonly Country _country;
+    
+    public TaxCalculator(Country country)
+    {
+        _country = country;
+    }
+
+    public decimal Calculate(decimal income)
+    {
+        switch(_country)
+        {
+            case Country.UK:
+                return income * 0.2m;
+            case Country.USA:
+                return income * 0.25m
+        }
+    }
+}
+
+```
+
+This is definitely not confirming to open-closed principle.
+
+Now we know that the way we calculate tax is different for each country and we are going to add support for more countries frequently. So, we need to make the code in `Calculate()` method open for extension but keep the `TaxCalculator` class and its contract closed for modification. This is because, we don't want to affect the consumers of `TaxCalculator` class affected whenever a new country is added.
+
+
+One of the way we can achieve this is using abstraction. We can 
+
 
 Add new features without changing old code
 
