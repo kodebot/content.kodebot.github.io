@@ -106,6 +106,9 @@ This is because we have taken the complementary principle into account and **gat
 
 ### References
 1. https://en.wikipedia.org/wiki/Single_responsibility_principle
+
 2. https://8thlight.com/blog/uncle-bob/2014/05/08/SingleReponsibilityPrinciple.html
+
 3. https://hackernoon.com/you-dont-understand-the-single-responsibility-principle-abfdd005b137
+
 4. http://www.butunclebob.com/ArticleS.UncleBob.PrinciplesOfOod

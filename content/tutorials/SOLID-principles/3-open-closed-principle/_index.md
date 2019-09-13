@@ -5,7 +5,7 @@ weight: 3
 draft: false
 ---
 
-Open-Closed Principle says software must be open for extension but closed for modification. When you first hear this, it might sound like oxymoron but it is not when you understand this properly. 
+Open-Closed Principle says software must be open for extension but closed for modification. When we first hear this, it might sound like oxymoron but it is not when we understand this principle correctly. 
 
 This principle was first introduced by Bertrand Meyer and his definition of this principle is:
 
@@ -13,40 +13,42 @@ This principle was first introduced by Bertrand Meyer and his definition of this
 
 Later, Robert C. Martin provided the following improved definition which is suitable for modern software development
 
-> You should be able to extend the behaviour of a system without having to modify that system
+> You should be able to extend the behaviour of a system without having to modify that system.
 
-Lets try to understand this in detail. How can a software be open for extension and closed for modification? After all, if you want to add new functionality or change existing functionality, you need to change the code. And yes, this is correct. So what this principle is actually talking about?
+Let's try to understand this in detail. How can a software be open for extension and closed for modification? After all, if we want to add a new functionality or change an existing functionality, we need to change the code. So what this principle is actually talking about then?
 
-The principle says that we need to identify changes that are frequent and keep the parts affected by that change open for extension and keep the parts that are not affected close for modification.
+The principle says
 
-Lets look at an example to make this clear. We have a `TaxCalculator` here that calculates tax for given income. 
+1. identify changes that are frequent 
+2. keep the parts are affected by those frequent changes open for extension
+3. keep the parts that are not affected by those changes closed for modification
+
+Let's look at an example to make this clear. We have an `Accountant` class here that calculates tax for given income
 
 ``` csharp
-public class TaxCalculator
+public class Accountant
 {
-    public decimal Calculate(decimal income){
+    public decimal CalculateTax(decimal income){
         return income * 0.2m;
     }
 }
 
 ```
-We know that tax rates differ by country in addition to several other factors. For simplicity, we will assume that each county has fixed tax rate and not affected by anything else.
+We can say, the code in the example above confirms to open-closed principle as long as the `CalculateTax()` method doesn't need to be changed frequently. It doesn't need to be changed when the `Accountant` class supports only one country and the tax rules or laws for that country is not changed frequently.
 
-We can say the code in the example above confirms to open-closed principle as long as the calculate method doesn't need to be changed. This will be the case when the `TaxCalculator` class supports only one country assuming tax rates for the country is not changed frequently.
-
-On the other hand, if we want to support tax calculation for other countries and we frequently add support for new country then each time we add support for new country, we need to "modify" `Calculate()` as in the example below
+On the other hand, if we want to support tax calculation for other countries then we can "modify" `CalculateTax()` method, like in the example below, to have different calculation per country
 
 ``` csharp
-public class TaxCalculator
+public class Accountant
 {
     private readonly Country _country;
     
-    public TaxCalculator(Country country)
+    public Accountant(Country country)
     {
         _country = country;
     }
 
-    public decimal Calculate(decimal income)
+    public decimal CalculateTax(decimal income)
     {
         switch(_country)
         {
@@ -60,44 +62,64 @@ public class TaxCalculator
 
 ```
 
-This is definitely not confirming to open-closed principle.
+Every time we add support for new country, the `CalculateTax()` method need to be updated.
 
-Now we know that the way we calculate tax is different for each country and we are going to add support for more countries frequently. So, we need to make the code in `Calculate()` method open for extension but keep the `TaxCalculator` class and its contract closed for modification. This is because, we don't want to affect the consumers of `TaxCalculator` class affected whenever a new country is added.
+Note, in this example, we have introduced a new constructor parameter of type `Country` enum. This represents a country that need to be used when calculating tax. The `CalculateTax()` method is modified to use different tax calculation based on the country that was passed in when `Accountant` class was constructed.
 
+If we know that we are going to add support for more countries frequently, then `Accountant` class is definitely not confirming to open-closed principle.
 
-One of the way we can achieve this is using abstraction. We can 
+To confirm to open-closed principle, we need to make the code in `CalculateTax()` method open for extension but keep the `Accountant` class and its contract closed for modification. 
 
+We need to keep `Accountant` class and its contract closed because, we don't want the consumers of `Accountant` class affected whenever a new country is added. That is, if the contract (i.e. public signature) of `Accountant` class is changed then we need to update all the existing consumers or if the `CalculateTax()` method body is changed then we have high risk of breaking existing functionality and some or all of the existing consumers may be affected. Neither of those scenarios are ideal.
 
-Add new features without changing old code
-
-plugin model is best example
-
-code injections - functions, interface/abstract class or partial abstract classes
-
-You need to find out what you want to close and what you want to open for extension and design the system accordingly
-
-educated guess
-
-
-strategy pattern
-
-template method pattern (partial abstract class)
+One of the ways of making `Accountant` class confirming to open-closed principle is by using abstraction. We can abstract the tax calculation by creating an interface. The interface will have just one method in this case and that will take the income as input and return tax as a result.
 
 ``` csharp
-
-// tax calculator example
-
+public interface ITaxCalculator
+{
+    decimal Calculate(decimal income);
+}
 ```
 
-provide an example of change to the closed module - there may be scenarios where you might need to change the closed module
+Now we need to change the constructor of `Accountant` class to accept `ITaxCalculator` instead of `Country` enum as parameter.
 
-You need to guess the part you want to closed and the part you want to open. confirming to this principle is expensive in terms of initial development cost so you need to find right balance
+The new version of `Accountant` class that confirms to open-closed principle will look like the following
 
-we need to find out the parts that will change frequently early as changes in the later stages are generally more difficult
+```csharp
+public class Accountant
+{
+    private readonly ITaxCalculator _taxCalculator;
+
+    public TaxCalculator(ITaxCalculator taxCalculator)
+    {
+        _taxCalculator = taxCalculator;
+    }
+
+    public decimal CalculateTax(decimal income)
+    {
+        return _taxCalculator.Calculate(income);
+    }
+}
+```
+We can create concrete versions of this interface for each country implementing tax calculation applicable for each of those countries without changing `Accountant` class. 
+
+Another example for open-closed principle is "plugin" model implementation. Plugins allow extending the functionality of host program with out changing its code.
+
+When confirming to open-closed principle, more often than not, we might need to make some modification but, those modification are usually isolated and trivial. For example, when creating a new class supporting tax calculation for a new country, the `Country` enum need to be updated to include the new country and any logic that we have to map `Country` enum value to tax calculation class need to be updated to include the new ones.
+
+If we look at the essence of the example we have seen so far, it is all about swapping the tax calculation logic at runtime. We don't necessarily need to use interface to achieve this. We can use higher order function (i.e. function taking another function as a parameter), abstract class or anything that allows swapping code at runtime to get the same end result.
+
+Designing a software that confirms to open-closed principle for every possible change that may occur in the future is impossible and trying to do that will only create unnecessary complexity and increase the cost of initial development. 
 
 Robert C. Martin says "Resisting premature abstraction is as important as abstraction itself"
 
+So, we need to identify what to design that confirms to open-closed principle and what not to. Sometimes we can identify this by making an educated guess based on our experience or by talking to domain experts but sometimes we need to wait until the first change occurs. 
+
+Sometimes, we may get it wrong and design something that rarely changes but confirms to open-closed principle. so, as you guessed, the challenge is not in applying open-closed principle but identifying what should be designed confirming this principle.
 
 ### References
-https://hackernoon.com/why-the-open-closed-principle-is-the-one-you-need-to-know-but-dont-176f7e4416d
-https://blog.cleancoder.com/uncle-bob/2014/05/12/TheOpenClosedPrinciple.html
+1. https://hackernoon.com/why-the-open-closed-principle-is-the-one-you-need-to-know-but-dont-176f7e4416d
+
+2. https://blog.cleancoder.com/uncle-bob/2014/05/12/TheOpenClosedPrinciple.html
+
+3. Chapter 9 - Agile Principles, Patterns, and Practices in C# by Robert C. Martin and Micah Martin
