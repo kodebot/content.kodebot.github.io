@@ -18,11 +18,6 @@ public class MusicPlayer
     {
         // play song
     }
-
-    public virtual void SkipNext()
-    {
-        // play next song
-    }
 }
 ```
 
@@ -31,34 +26,57 @@ public class TrialMusicPlayer : MusicPlayer
 {
     public override void Play()
     {
-        // play song for 30 seconds
-    }
+        if(_songsPlayedToday >= 5)
+        {
+            throw new Exception("Skip next feature is not available in Trial player");
+        }
 
-    public override void SkipNext()
-    {
-        throw new Exception("Skip next feature is not available in Trial player");
+        // play song
     }
 }
 ```
 
+`TrialMusicPlayer` class overrides `Play()` method to allow playing only 5 songs a day.
 
-explain what is Liskov Substitution Principle
+We have another class `PlayerWidget`. This class represents a type of user interface that user can use to control the media playback and it simply delegates user requests to the `MusicPlayer`.
 
-example for class that doesn't follow Liskov Substitution Principle
+``` csharp
+public class PlayerWidget
+{
+    private readonly MusicPlayer _player;
+    public PlayerController(MusicPlayer player)
+    {
+        _player = player;
+    }
 
-list the problems it causes
+    public void PlayButtonPressed()
+    {
+        _player.Play();
+    }
+}
+```
 
-show how it can be refactored to adhere to Liskov Substitution Principle
+The essence of Liskov Substitution Principle is that we should be able to use objects of derived type in place of objects of base type without altering the behaviour of the program that is using those objects
 
-Contravariance of method arguments in subtype - if parent takes list of Animal, the subtype cannot take list of Cat
-Covariance of return types in the subtype
-No new exception from the method (except the subtype of the exception thrown by base class)
+In this example, `TrialMusicPlayer` is not qualified to be subtype of `MusicPlayer` because, we cannot substitute the object of `TrialMusicPlayer` for the object of `MusicPlayer` without changing (or breaking) `PlayerWidget`. This is because `PlayerWidget` is not built to handle the new exception thrown by `TrialMusicPlayer` when more than 5 songs are played.
 
+There are many subtle ways in which we can break this substitutability. 
 
-Preconditions cannot be strengthened in a subtype.
-Postconditions cannot be weakened in a subtype.
-Invariants of the supertype must be preserved in a subtype.
-History constraint (the "history rule") - adding new method only in subtype that allows state change
+The following are the general rules to follow to avoid breaking substitutability
+
+* No new exception from any method in the subtype. However, we can throw new exception which is subtype of the exception thrown by base class.
+
+* Contravariance of method arguments in subtype - if parent takes list of Animal, the subtype cannot take list of Cat
+
+* Covariance of return types in the subtype
+
+* Preconditions cannot be strengthened in a subtype
+
+* Postconditions cannot be weakened in a subtype
+
+* Invariants of the supertype must be preserved in a subtype
+
+* History constraint (the "history rule") - adding new method only in subtype that allows state change
 
 
 ### References
