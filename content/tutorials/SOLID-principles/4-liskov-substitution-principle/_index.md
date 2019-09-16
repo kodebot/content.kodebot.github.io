@@ -64,7 +64,7 @@ There are many subtle ways in which we can break this substitutability.
 
 The following are the general rules to follow to avoid breaking substitutability
 
-* No new exception from any method in the subtype. However, we can throw new exception which is subtype of the exception thrown by base class.
+* No new exception from any method in the subtype. However, we can throw new exception which is subtype of the exception thrown by base class. This is because the exception handler of a type will handle the exceptions of derived exception type as well.
 
 * Contravariance of method arguments in subtype - if parent takes list of Animal, the subtype cannot take list of Cat
 
