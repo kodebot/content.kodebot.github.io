@@ -5,11 +5,15 @@ weight: 4
 draft: false
 ---
 
+This principle is about substitution one object for another without affecting the program that uses those objects.
+
 Barbara Liskov introduced this principle and she says
 
 > What is wanted here is something like the following substitution property: If for each object o1 of type S there is an object o2 of type T such that for all programs P defined in terms of T, the behaviour of P is unchanged when o1 is substituted for o2 then S is a subtype of T.
 
-Let's understand this with an example. Suppose we have a class `MusicPlayer` and its subtype `TrialMusicPlayer`
+Let's understand this with an example. 
+
+Suppose we have a class `MusicPlayer` which allows users to play music
 
 ``` csharp
 public class MusicPlayer
@@ -20,6 +24,8 @@ public class MusicPlayer
     }
 }
 ```
+
+We have `TrialMusicPlayer` which is inherited from `MusicPlayer` class
 
 ``` csharp
 public class TrialMusicPlayer : MusicPlayer
@@ -38,7 +44,7 @@ public class TrialMusicPlayer : MusicPlayer
 
 `TrialMusicPlayer` class overrides `Play()` method to allow playing only 5 songs a day.
 
-We have another class `PlayerWidget`. This class represents a type of user interface that user can use to control the media playback and it simply delegates user requests to the `MusicPlayer`.
+We have another class `PlayerWidget`.
 
 ``` csharp
 public class PlayerWidget
@@ -55,28 +61,36 @@ public class PlayerWidget
     }
 }
 ```
+ This class represents one of the user interfaces that user can use to control the media playback and it simply delegates user requests to the `MusicPlayer`.
 
-The essence of Liskov Substitution Principle is that we should be able to use objects of derived type in place of objects of base type without altering the behaviour of the program that is using those objects
+The essence of Liskov Substitution Principle is that we should be able to use objects of derived type in place of objects of base type without altering the behaviour of the program that is using those objects, only then we can call the derived type as **subtype**.
 
 In this example, `TrialMusicPlayer` is not qualified to be subtype of `MusicPlayer` because, we cannot substitute the object of `TrialMusicPlayer` for the object of `MusicPlayer` without changing (or breaking) `PlayerWidget`. This is because `PlayerWidget` is not built to handle the new exception thrown by `TrialMusicPlayer` when more than 5 songs are played.
 
-There are many subtle ways in which we can break this substitutability. 
+There are many subtle ways in which we can break substitutability of objects. 
 
 The following are the general rules to follow to avoid breaking substitutability
 
-* No new exception from any method in the subtype. However, we can throw new exception which is subtype of the exception thrown by base class. This is because the exception handler of a type will handle the exceptions of derived exception type as well.
+#### No new exception
+No new exception from any method in the subtype. However, we can throw new exception which is subtype of the exception thrown by base class. This is because the exception handler of a type will handle the exceptions of derived exception type as well.
 
-* Contravariance of method arguments in subtype - if parent takes list of Animal, the subtype cannot take list of Cat
+#### Contravariance
+Contravariance of method arguments in subtype - if parent takes list of Animal, the subtype cannot take list of Cat
 
-* Covariance of return types in the subtype
+#### Covariance
+Covariance of return types in the subtype
 
-* Preconditions cannot be strengthened in a subtype
+#### Preconditions
+Preconditions cannot be strengthened in a subtype
 
-* Postconditions cannot be weakened in a subtype
+#### Postconditions
+Postconditions cannot be weakened in a subtype
 
-* Invariants of the supertype must be preserved in a subtype
+#### Invariants
+Invariants of the supertype must be preserved in a subtype
 
-* History constraint (the "history rule") - adding new method only in subtype that allows state change
+#### History constraints
+History constraint (the "history rule") - adding new method only in subtype that allows state change
 
 
 ### References
