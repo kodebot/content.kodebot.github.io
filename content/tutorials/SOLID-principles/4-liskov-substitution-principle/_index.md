@@ -96,7 +96,7 @@ If `List<Person>` and `List<Employee>` are not substitutable for each other then
 
 The method arguments in subtype must must be contravariant to preserve substitutability
 
-#### Covariance
+#### Covariance of return type in subtype
 Return types in the subtype must be covariant
 
 #### Preconditions
