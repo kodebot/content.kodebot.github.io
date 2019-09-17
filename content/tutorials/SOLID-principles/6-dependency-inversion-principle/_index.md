@@ -122,7 +122,7 @@ The `BureauDataProvider` class in `BureauData` module implements `IApplicationBu
 Similarly, `BureauDataProvider` depends on `IDataCleaner` interface defined in `BureauData` module and `DataCleaner` class in `Utility` module is implementing `IDataCleaner` interface.
 
 
-As you can see, the advantage of this design is that the changes to `BureauDataProvider` cannot affect `Application` because `BureauDataProvider` implements `IApplicationBureauDataProvider` and it cannot change the contract. Also, we can easily reuse `Application` class with another bureau data provider as long as the new bureau data provider implements `IApplicationBureauDataProvider`.
+As we can see, the advantage of this design is that the changes to `BureauDataProvider` cannot affect `Application` because `BureauDataProvider` implements `IApplicationBureauDataProvider` and it cannot change the contract. Also, we can easily reuse `Application` class with another bureau data provider as long as the new bureau data provider implements `IApplicationBureauDataProvider`.
 
 
 {{% notice note %}}
