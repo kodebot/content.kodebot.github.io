@@ -7,7 +7,7 @@ draft: false
 
 SOLID is mnemonic acronym. Each letter represents one principle.
 
-The principles were first introduced by Robert C. Martin but the acronym was later introduced by Micheal Feathers.
+The principles were first introduced by [Robert C. Martin](https://en.wikipedia.org/wiki/Robert_C._Martin) but the acronym was later introduced by Michael Feathers.
 
 The following are the principles that are part of SOLID principles
 
@@ -19,4 +19,4 @@ The following are the principles that are part of SOLID principles
 
 When designing software using object oriented methodology, the SOLID principles help to keep the design readable, flexible and maintainable.
 
-In the upcoming chapters, we cover each of these principles in details with example for code that violates these principle and refactored code that confirms to these principles.
+In the upcoming chapters, we cover each of these principles in details with example for code that violates the principle and refactored code that confirms to the principle.
