@@ -112,3 +112,17 @@ namespace Utility: IDataCleaner
     }
 }
 ```
+
+Now if we look at the `Application` class in `Mortgage` module, it depends on `IApplicationBureauDataProvider` interface which is defined in `Mortgage` module itself. So, `Application` class depends on the abstraction rather than the concrete implementation detail.
+
+The `BureauDataProvider` class in `BureauData` module implements `IApplicationBureauDataProvider` from `Mortgage` module. So, the detail implementation class implements(depends on) the abstraction forced by higher level module.
+
+Similarly, `BureauDataProvider` depends on `IDataCleaner` interface defined in `BureauData` module and `DataCleaner` class in `Utility` module is implementing `IDataCleaner` interface.
+
+
+As you can see, the advantage of this design is that the changes to `BureauDataProvider` cannot affect `Application` because it uses interface `IApplicationBureauDataProvider` which will still be preserved. Also, we can easily reuse `Application` class with another bureau data provider as long as the new bureau data provider implements `IApplicationBureauDataProvider`.
+
+
+{{% notice note %}}
+It is not necessary that the interfaces higher level module depend on should be packaged in the same module. It can be in different module as long it is owned by the higher level module (i.e. changed only when needed for higher level module).
+{{% /notice %}}
