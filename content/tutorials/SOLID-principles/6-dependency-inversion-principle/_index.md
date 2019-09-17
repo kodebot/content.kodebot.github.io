@@ -59,7 +59,7 @@ Here the higher level `Application` class directly depends on next level `Bureau
 
 This is not a good situation. The higher level module should control the lower level module, not the other way around. Otherwise, changes in lower level classes would force changes on higher level classes and their consumers without adding any value.
 
-In addition to this, when higher level classes directly depends on lower level classes, it is very difficult to reuse higher level classes in different context.
+In addition to this, when higher level classes directly depend on lower level classes, it is very difficult to reuse higher level classes in different context.
 
 We can use Dependency Inversion Principle to address this issue. We first need to define the abstractions (interfaces) that higher level modules should work with then make the lower level modules implement them.
 
@@ -122,7 +122,7 @@ The `BureauDataProvider` class in `BureauData` module implements `IApplicationBu
 Similarly, `BureauDataProvider` depends on `IDataCleaner` interface defined in `BureauData` module and `DataCleaner` class in `Utility` module is implementing `IDataCleaner` interface.
 
 
-As you can see, the advantage of this design is that the changes to `BureauDataProvider` cannot affect `Application` because it uses interface `IApplicationBureauDataProvider` which will still be preserved. Also, we can easily reuse `Application` class with another bureau data provider as long as the new bureau data provider implements `IApplicationBureauDataProvider`.
+As you can see, the advantage of this design is that the changes to `BureauDataProvider` cannot affect `Application` because `BureauDataProvider` implements `IApplicationBureauDataProvider` and it cannot change the contract. Also, we can easily reuse `Application` class with another bureau data provider as long as the new bureau data provider implements `IApplicationBureauDataProvider`.
 
 
 {{% notice note %}}
