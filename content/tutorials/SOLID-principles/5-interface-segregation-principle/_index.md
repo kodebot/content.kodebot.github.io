@@ -8,9 +8,13 @@ Interface Segregation Principle was introduced by Robert C. Martin. His definiti
 
 > Clients should not be forced to depend on methods it does not use
 
-There may be scenarios where we may have a class that provides the functionalities used by two or more clients. When changing something on that class used by a particular client, all the clients of the class, even the ones that are not using the changing functionality, are affected.
+There may be scenarios where we may have a class that has members used by two or more clients. When changing any of the members used by one client, all the clients of the class, even the ones that are not using the changing members, are affected. 
 
-This is better understood with an example. Let's say we have `Order`
+Robert C. Martin describes these type of classes as "Interface Pollution". In this context, "interface" refers to the public members (fields, properties and methods) of the class.
+
+As per Interface Segregation Principle, we should have one interface per client with just enough members needed for that client.
+
+This is better understood with an example. Let's say we have `Order` class
 
 ``` csharp
 public class Order
@@ -62,11 +66,13 @@ public class Order
 }
 ```
 
-This class clearly contains methods that are used by two different clients - Customer UI and Seller UI.
+This class clearly contains methods that are used by two different clients - Customer user interface and Seller user interface.
 
-While it is best to avoid this type of classes, it is not always possible. Robert C. Martin describes these type of classes as "Interface Pollution". In this context, "interface" refers to the public members (fields, properties and methods) of the class.
+While it is best to avoid this type of classes, it is not always possible. 
 
-While the problems we face with this type of classes is debatable, it is definitely good idea to have client specific interface that exposes just enough member for the client it is used by. Martin Fowler calls this type of interface as [role interface](https://www.martinfowler.com/bliki/RoleInterface.html)
+The problems we face with this type of classes may be debatable, however it is definitely a good idea to have client specific interface that exposes just enough members for the client it is used by. The key benefit of having client specific interface is that we allow clients to see only what it needs to see so the collaboration between the class and the client is clear. Also, we completely eliminate the chance of misuse.
+ 
+Martin Fowler calls this type of interface as [role interface](https://www.martinfowler.com/bliki/RoleInterface.html)
 
 In our example, we will have the following two interfaces
 
@@ -91,9 +97,12 @@ public interface ISellerOrder
 }
 ```
 
-The `Order` class will implement both `ICustomerOrder` and `ISellerOrder` interfaces.
+The `Order` class still contains all the methods but it now implements both `ICustomerOrder` and `ISellerOrder` interfaces.
 
-Now, the customer user interface can use the `ICustomerOrder` abstraction rather than `Order` class directly. Likewise, seller user interface can use `ISellerOrder`
+The customer user interface can use the `ICustomerOrder` abstraction rather than `Order` class directly. This way, customer user interface won't see any methods that it should not use. 
+
+Likewise, seller user interface can use `ISellerOrder` and it won't see any methods that it should not use.
+
 
 ### References
 
