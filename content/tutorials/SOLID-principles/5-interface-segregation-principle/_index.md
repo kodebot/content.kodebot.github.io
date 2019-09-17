@@ -4,13 +4,13 @@ date: 2019-02-22T10:25:49Z
 weight: 5
 draft: false
 ---
-Interface Segregation Principle was introduced by Robert C. Martin. He says
+Interface Segregation Principle was introduced by [Robert C. Martin](https://en.wikipedia.org/wiki/Robert_C._Martin). He says
 
 > Clients should not be forced to depend on methods it does not use
 
-There may be scenarios where we may have a class that has members used by two or more clients. When changing any of the members used by one client, all the clients of the class, even the ones that are not using the changing members, are affected. 
+There may be scenarios where we may have a class that has members(fields, properties or methods) used by two or more clients. When changing any of the members used by one client, all the clients of the class, even the ones that are not using the changing members, are affected. 
 
-Robert C. Martin describes these type of classes as "Interface Pollution". In this context, "interface" refers to the public members (fields, properties and methods) of the class.
+[Robert C. Martin](https://en.wikipedia.org/wiki/Robert_C._Martin) describes these type of classes as **Interface Pollution**. In this context, _interface_ refers to the public members (fields, properties and methods) of the class.
 
 As per Interface Segregation Principle, we should have one interface per client with just enough members needed for that client.
 
@@ -70,11 +70,15 @@ This class clearly contains methods that are used by two different clients - Cus
 
 While it is best to avoid this type of classes, it is not always possible. 
 
-The problems we face with this type of classes may be debatable, however it is definitely a good idea to have client specific interface that exposes just enough members for each client. 
+In situations like this, it is a good idea to have client specific interface that exposes just enough members for each client. 
 
-The key benefit of having client specific interface is that it allows clients to see only what it needs to see so the collaboration between the class and the client is clear. Also, it completely eliminates the chance of misuse, i.e. client user interface calling `Dispatch()` method.
+The key benefit of having client specific interface are 
+
+1. it allows clients to see only what it needs to see so the collaboration between the class and the client is clear
+
+2. it completely eliminates the chance of misuse. For example, Customer user interface calling `Dispatch()` method
  
-Martin Fowler calls this type of interface as [role interface](https://www.martinfowler.com/bliki/RoleInterface.html)
+[Martin Fowler](https://en.wikipedia.org/wiki/Martin_Fowler_(software_engineer)) calls this type of interface as [role interface](https://www.martinfowler.com/bliki/RoleInterface.html)
 
 In our example, we will create the following two interfaces, one for each client, as per Interface Segregation Principle
 

@@ -7,7 +7,7 @@ draft: false
 
 This principle is about substitution one object for another without affecting the program that uses those objects.
 
-Barbara Liskov introduced this principle and she says
+[Barbara Liskov](https://en.wikipedia.org/wiki/Barbara_Liskov) introduced this principle and she says
 
 > What is wanted here is something like the following substitution property: If for each object o1 of type S there is an object o2 of type T such that for all programs P defined in terms of T, the behaviour of P is unchanged when o1 is substituted for o2 then S is a subtype of T.
 
