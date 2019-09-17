@@ -11,11 +11,11 @@ The principles were first introduced by Robert C. Martin but the acronym was lat
 
 The following are the principles that are part of SOLID principles
 
-* Single Responsibility Principle
-* Open Closed Principle
-* Liskov Substitution Principle
-* Interface Segregation Principle
-* Dependency Inversion Principle
+* [Single Responsibility Principle](../2-single-responsibility-principle/)
+* [Open Closed Principle](../3-open-closed-principle)
+* [Liskov Substitution Principle](../4-liskov-substitution-principle)
+* [Interface Segregation Principle](../5-interface-segregation-principle)
+* [Dependency Inversion Principle](../6-dependency-inversion-principle)
 
 When designing software using object oriented methodology, the SOLID principles help to keep the design readable, flexible and maintainable.
 
