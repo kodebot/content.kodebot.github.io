@@ -291,22 +291,18 @@ div.box p:first-child:after {
     left: 2rem;
 }
 div.box.info p {
-    border-top: 30px solid #F0B37E;
     background: #FFF2DB;
 }
 
 div.box.warning p {
-    border-top: 30px solid rgba(217, 83, 79, 0.8);
     background: #FAE2E2;
 }
 
 div.box.note p {
-    border-top: 30px solid #6AB0DE;
     background: #E7F2FA;
 }
 
 div.box.tip p {
-    border-top: 30px solid rgba(92, 184, 92, 0.8);
     background: #E6F9E6;
 }
 

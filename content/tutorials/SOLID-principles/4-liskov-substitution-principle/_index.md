@@ -75,32 +75,41 @@ The following are the general rules to follow to avoid breaking substitutability
 No new exception from any method in the subtype. However, we can throw new exception which is subtype of the exception thrown by base class. This is because the exception handler of a type will handle the exceptions of derived exception type as well.
 
 #### Contravariance of method arguments in subtype
+{{%box tip %}}
 
 Just to give brief introduction on **variance**. [Wikipedia](https://en.wikipedia.org/wiki/Covariance_and_contravariance_(computer_science)) says
 
-> Variance refers to how subtyping between more complex types relates to subtyping between their components
+<cite>Variance refers to how subtyping between more complex types relates to subtyping between their components</cite>
 
 For simplicity, we will understand this with an example. We will assume that we have a base class `Person` and `Employee` class derived from `Person`. Variance comes into picture when we have complex type with one or more independent type components. So, we will assume a complex generic type `List<T>`
 
-If `List<Person>` is substitutable for `List<Employee>` then `List<T>` is covariant
 
-Contravariance of method arguments in subtype - if parent takes list of Animal, the subtype cannot take list of Cat
+If `List<Person>` is substitutable for `List<Employee>` then `List<T>` is **covariant**
+
+If `List<Employee>` is substitutable for `List<Person>` then `List<T>` is **contravariant**
+
+If `List<Person>` is substitutable for `List<Employee>` and `List<Employee>` is substitutable for `List<Person>` then `List<T>` is **bivariant**
+
+If `List<Person>` and `List<Employee>` are not substitutable for each other then `List<T>` is **invariant**
+
+{{%/box%}}
+
+The method arguments in subtype must must be contravariant to preserve substitutability
 
 #### Covariance
-Covariance of return types in the subtype
+Return types in the subtype must be covariant
 
 #### Preconditions
-Preconditions cannot be strengthened in a subtype
+Preconditions are any validation that we perform before executing a method and it should be strengthened in a subtype
 
 #### Postconditions
-Postconditions cannot be weakened in a subtype
+Postconditions are any validation that we perform after the method is executed and it should not be weakened in a subtype
 
 #### Invariants
-Invariants of the supertype must be preserved in a subtype
+Invariant refers to a state that preserved when method is executed and any such invariants of supertype must be preserved in a subtype
 
-#### History constraints
-History constraint (the "history rule") - adding new method only in subtype that allows state change
-
+#### History constraint
+Subtype should not introduce a new method that allows mutating state that is immutable in supertype
 
 ### References
 
