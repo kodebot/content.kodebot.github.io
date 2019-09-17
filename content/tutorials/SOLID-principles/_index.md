@@ -1,8 +1,8 @@
 ---
 title: "SOLID Principles"
-date: 2019-09-09T15:47:00Z
+date: 2019-9-18T00:00:00Z
 weight: 1
-draft: true
+draft: false
 ---
 
 Welcome to this tutorial on SOLID principles.

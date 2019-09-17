@@ -1,11 +1,11 @@
 ---
 title: "Dependency Inversion Principle"
-date: 2019-02-22T10:25:49Z
+date: 2019-9-18T00:00:00Z
 weight: 6
 draft: false
 ---
 
-Dependency Inversion Principle is introduced by [Robert C. Martin](https://en.wikipedia.org/wiki/Robert_C._Martin) and his definition is
+Dependency Inversion Principle(DIP) is introduced by [Robert C. Martin](https://en.wikipedia.org/wiki/Robert_C._Martin) and his definition is
 
 > A. High-level modules should not depend on low-level modules. Both should depend on abstractions.
 
