@@ -5,7 +5,7 @@ weight: 4
 draft: false
 ---
 
-This principle is about substitution one object for another without affecting the program that uses those objects.
+This principle is about substitution of one object for another without affecting the program that uses those objects.
 
 [Barbara Liskov](https://en.wikipedia.org/wiki/Barbara_Liskov) introduced this principle and she says
 
@@ -61,7 +61,7 @@ public class PlayerWidget
     }
 }
 ```
- This class represents one of the user interfaces that user can use to control the media playback and it simply delegates user requests to the `MusicPlayer`.
+ This class represents one of the user interfaces that user can use to control the music player and it simply delegates user requests to the `MusicPlayer`.
 
 The essence of Liskov Substitution Principle is that we should be able to use objects of derived type in place of objects of base type without altering the behaviour of the program that is using those objects, only then we can call the derived type as **subtype**.
 
@@ -74,7 +74,16 @@ The following are the general rules to follow to avoid breaking substitutability
 #### No new exception
 No new exception from any method in the subtype. However, we can throw new exception which is subtype of the exception thrown by base class. This is because the exception handler of a type will handle the exceptions of derived exception type as well.
 
-#### Contravariance
+#### Contravariance of method arguments in subtype
+
+Just to give brief introduction on **variance**. [Wikipedia](https://en.wikipedia.org/wiki/Covariance_and_contravariance_(computer_science)) says
+
+> Variance refers to how subtyping between more complex types relates to subtyping between their components
+
+For simplicity, we will understand this with an example. We will assume that we have a base class `Person` and `Employee` class derived from `Person`. Variance comes into picture when we have complex type with one or more independent type components. So, we will assume a complex generic type `List<T>`
+
+If `List<Person>` is substitutable for `List<Employee>` then `List<T>` is covariant
+
 Contravariance of method arguments in subtype - if parent takes list of Animal, the subtype cannot take list of Cat
 
 #### Covariance
@@ -95,6 +104,8 @@ History constraint (the "history rule") - adding new method only in subtype that
 
 ### References
 
-https://en.wikipedia.org/wiki/Liskov_substitution_principle
+1. https://en.wikipedia.org/wiki/Liskov_substitution_principle
 
-https://www.hpl.hp.com/techreports/90/HPL-90-121.pdf
+2. https://www.hpl.hp.com/techreports/90/HPL-90-121.pdf
+
+3. https://en.wikipedia.org/wiki/Covariance_and_contravariance_(computer_science)

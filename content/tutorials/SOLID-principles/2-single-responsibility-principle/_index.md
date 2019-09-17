@@ -10,9 +10,9 @@ Single Responsibility Principle (SRP) is about how we separate or modularise cod
 
 > A class should have only one reason to change
 
-If we naively apply this principle, we will end up with several classes where each class contains just one method that just does one small thing. This leads to unnecessary complexity. This is clearly not what we want to achieve with this principle.
+If we naively apply this principle, we will end up with several classes where each class contains just one method and that just does one small thing. This leads to unnecessary complexity. This is clearly not what we want to achieve with this principle.
 
-[Robert C. Martin](https://en.wikipedia.org/wiki/Robert_C._Martin) who introduced this principle clarified that this principle is "about people". Any changes to a class should originate from only single person or a group of people representing a department or business division or similar within the company/organisation that uses the application.
+[Robert C. Martin](https://en.wikipedia.org/wiki/Robert_C._Martin) who introduced this principle clarified that this principle is **"about people"**. Any changes to a class should originate from a single person or a group of people representing a department or business division or similar within the company/organisation that uses the application.
 
 If changes to a class is originating from more than one person/department/division then the class is said to have multiple responsibilities and it violates single responsibility principle.
 
@@ -59,7 +59,11 @@ Even if we are very careful and made sure the functionality of the `CalculateGra
 
 So, separating **unrelated** methods into different classes is a good idea, but at the same time, we need to make sure we don't end up with atomised classes.
 
-[Robert C. Martin](https://en.wikipedia.org/wiki/Robert_C._Martin) also provided the following complementing definition to clear some of the misinterpretation of this principle
+{{%notice tip%}}
+Atomised class refers to a class that is unnecessarily designed to have very few methods (usually just one method) which achieves very small thing.
+{{%/notice%}}
+
+[Robert C. Martin](https://en.wikipedia.org/wiki/Robert_C._Martin) provided the following complementing definition to clear some of the misinterpretation of this principle
 
 > Gather together the things that change for the same reasons and separate those things that change for different reason
 
