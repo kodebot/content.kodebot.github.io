@@ -4,7 +4,7 @@ date: 2019-02-22T10:25:49Z
 weight: 5
 draft: false
 ---
-Interface Segregation Principle was introduced by Robert C. Martin. His definition of this principle is
+Interface Segregation Principle was introduced by Robert C. Martin. He says
 
 > Clients should not be forced to depend on methods it does not use
 
