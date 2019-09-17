@@ -268,3 +268,56 @@ h1{
 .custom-footer .license{
     font-size: .6em;
 }
+
+/* box shortcode styles */
+
+div.box {
+    margin: 2rem 0;
+    position: relative;
+}
+div.box p {
+    padding: 15px;
+    display: block;
+    font-size: 1rem;
+    margin-top: 0rem;
+    margin-bottom: 0rem;
+    color: #666;
+}
+
+div.box p:first-child:after {
+    position: absolute;
+    top: 2px;
+    color: #fff;
+    left: 2rem;
+}
+div.box.info p {
+    background: #FFF2DB;
+}
+
+div.box.warning p {
+    background: #FAE2E2;
+}
+
+div.box.note p {
+    background: #E7F2FA;
+}
+
+div.box.tip p {
+    background: #E6F9E6;
+}
+
+/* blockquote customisation */
+
+blockquote {
+    border-left: 5px solid rgb(255, 0, 0);
+}
+blockquote p {
+    font-size: 1.2rem;
+    color: #555;
+}
+blockquote cite {
+    display: block;
+    text-align: right;
+    color: #666;
+    font-size: 1.2rem;
+}
