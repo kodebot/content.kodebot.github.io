@@ -126,3 +126,15 @@ As you can see, the advantage of this design is that the changes to `BureauDataP
 {{% notice note %}}
 It is not necessary that the interfaces higher level module depend on should be packaged in the same module. It can be in different module as long it is owned by the higher level module (i.e. changed only when needed for higher level module).
 {{% /notice %}}
+
+{{% notice tip %}}
+This principle is also referred to as **Hollywood Principle**. This is because _"Don't call us, we will call you"_ phrase is used in Hollywood auditions and this the communication pattern we achieve with Dependency Inversion Principle.
+{{% /notice %}}
+
+
+### References
+1. https://en.wikipedia.org/wiki/Dependency_inversion_principle
+
+2. Chapter 11, Agile Principles, Patterns, and Practices in C# by Robert C. Martin; Micah Martin
+
+3. https://en.wiktionary.org/wiki/Hollywood_principle
