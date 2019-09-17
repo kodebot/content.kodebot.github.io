@@ -70,11 +70,13 @@ This class clearly contains methods that are used by two different clients - Cus
 
 While it is best to avoid this type of classes, it is not always possible. 
 
-The problems we face with this type of classes may be debatable, however it is definitely a good idea to have client specific interface that exposes just enough members for the client it is used by. The key benefit of having client specific interface is that we allow clients to see only what it needs to see so the collaboration between the class and the client is clear. Also, we completely eliminate the chance of misuse.
+The problems we face with this type of classes may be debatable, however it is definitely a good idea to have client specific interface that exposes just enough members for each client. 
+
+The key benefit of having client specific interface is that it allows clients to see only what it needs to see so the collaboration between the class and the client is clear. Also, it completely eliminates the chance of misuse, i.e. client user interface calling `Dispatch()` method.
  
 Martin Fowler calls this type of interface as [role interface](https://www.martinfowler.com/bliki/RoleInterface.html)
 
-In our example, we will have the following two interfaces
+In our example, we will create the following two interfaces, one for each client, as per Interface Segregation Principle
 
 ``` csharp
 public interface ICustomerOrder
@@ -97,7 +99,57 @@ public interface ISellerOrder
 }
 ```
 
-The `Order` class still contains all the methods but it now implements both `ICustomerOrder` and `ISellerOrder` interfaces.
+The `Order` class still contains all the methods but it now implements both `ICustomerOrder` and `ISellerOrder` interfaces
+
+``` csharp
+public class Order : ICustomerOrder, ISellerOrder
+{
+    pubic void Create()
+    {
+        // create order for product(s)
+    }
+
+    public void Update()
+    {
+        // update order
+    }
+
+    public void Cancel()
+    {
+        // cancel order
+    }
+
+    public void Return()
+    {
+        // return ordered product(s)
+    }
+
+    public void Track()
+    {
+        // track order 
+    }
+
+    public void Process()
+    {
+        // process order
+    }
+
+    public void Dispatch()
+    {
+        // dispatch order
+    }
+
+    public void ProcessCancellation()
+    {
+        // process cancellation
+    }
+
+    public void ProcessReturn()
+    {
+        // process return
+    }
+}
+```
 
 The customer user interface can use the `ICustomerOrder` abstraction rather than `Order` class directly. This way, customer user interface won't see any methods that it should not use. 
 
