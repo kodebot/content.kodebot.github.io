@@ -43,6 +43,14 @@
   </url>
   
   <url>
+    <loc>https://kodebot.com/tutorials/solid-principles/</loc>
+  </url>
+  
+  <url>
+    <loc>https://kodebot.com/tutorials/solid-principles/1-introduction/</loc>
+  </url>
+  
+  <url>
     <loc>https://kodebot.com/tutorials/automated-unit-testing-basics/3-setup-techniques/2-data-driven-test/</loc>
     <lastmod>2019-02-22T10:25:49+00:00</lastmod>
   </url>
@@ -73,6 +81,10 @@
   </url>
   
   <url>
+    <loc>https://kodebot.com/tutorials/solid-principles/2-single-responsibility-principle/</loc>
+  </url>
+  
+  <url>
     <loc>https://kodebot.com/tutorials/automated-unit-testing-basics/3-setup-techniques/3-fake-test-depencency/</loc>
     <lastmod>2019-02-22T10:25:49+00:00</lastmod>
   </url>
@@ -93,6 +105,10 @@
   </url>
   
   <url>
+    <loc>https://kodebot.com/tutorials/solid-principles/3-open-closed-principle/</loc>
+  </url>
+  
+  <url>
     <loc>https://kodebot.com/tutorials/automated-unit-testing-basics/3-setup-techniques/4-mock-dependency/</loc>
     <lastmod>2019-02-22T10:25:49+00:00</lastmod>
   </url>
@@ -108,13 +124,25 @@
   </url>
   
   <url>
+    <loc>https://kodebot.com/tutorials/solid-principles/4-liskov-substitution-principle/</loc>
+  </url>
+  
+  <url>
     <loc>https://kodebot.com/tutorials/automated-unit-testing-basics/5-test-driven-or-test-oriented/</loc>
     <lastmod>2019-02-22T10:25:49+00:00</lastmod>
   </url>
   
   <url>
+    <loc>https://kodebot.com/tutorials/solid-principles/5-interface-segregation-principle/</loc>
+  </url>
+  
+  <url>
     <loc>https://kodebot.com/tutorials/automated-unit-testing-basics/1-introduction/5-system-under-test/</loc>
     <lastmod>2019-02-22T10:25:49+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kodebot.com/tutorials/solid-principles/6-dependency-inversion-principle/</loc>
   </url>
   
   <url>
