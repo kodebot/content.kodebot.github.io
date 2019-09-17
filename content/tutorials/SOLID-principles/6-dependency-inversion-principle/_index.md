@@ -5,13 +5,15 @@ weight: 6
 draft: false
 ---
 
-Dependency Inversion Principle is introduced by Robert C. Martin and his definition is
+Dependency Inversion Principle is introduced by [Robert C. Martin](https://en.wikipedia.org/wiki/Robert_C._Martin) and his definition is
 
 > A. High-level modules should not depend on low-level modules. Both should depend on abstractions.
 
 > B. Abstractions should not depend upon details. Details should depend upon abstractions.
 
-Let's look at an example of hypothetical mortgage application system. We have higher level `Mortgage` module with `Application` class and `BureauData` module at the next level with `BureauDataProvider` class and at lower level we have `Utility` module with `DataCleaner` class
+Let's look at an example of hypothetical mortgage application system. 
+
+We have higher level `Mortgage` module with `Application` class and `BureauData` module at the next level with `BureauDataProvider` class and at lower level we have `Utility` module with `DataCleaner` class
 
 ``` csharp
 using BureauData;
