@@ -66,6 +66,9 @@ public class Order
 }
 ```
 
+{{% img "images/ISP_violation.png" "" 250 %}}
+
+
 This class clearly contains methods that are used by two different clients - Customer user interface and Seller user interface.
 
 While it is best to avoid this type of classes, it is not always possible. 
@@ -104,6 +107,8 @@ public interface ISellerOrder
 ```
 
 The `Order` class still contains all the methods but it now implements both `ICustomerOrder` and `ISellerOrder` interfaces
+
+{{% img "images/ISP.png" "" 500 %}}
 
 ``` csharp
 public class Order : ICustomerOrder, ISellerOrder
