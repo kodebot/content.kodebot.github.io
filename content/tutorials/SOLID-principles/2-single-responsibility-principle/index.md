@@ -18,6 +18,8 @@ If changes to a class is originating from more than one person/department/divisi
 
 For example, say we have a class `Student` that calculates grade for students and also tracks the books they borrowed from library. 
 
+{{% img "images/SRP_violation.png" "" 250 %}}
+
 ``` csharp
 
 public class Student
@@ -103,7 +105,13 @@ public class StudentLibraryTracker
 }
 ```
 
-Now, `StudentGrade` class only fulfils the requirements of teaching department so it will only change for the requests from teaching department and `StudentLibraryTracker` class only fulfils the requirements of library department and any changes needed will only originate from library department.
+{{% img "images/SRP_1.png" "" 150 %}}
+
+Now, `StudentGrade` class only fulfils the requirements of teaching department so it will only change for the requests from teaching department.
+
+{{% img "images/SRP_2.png" "" 150 %}}
+
+`StudentLibraryTracker` class only fulfils the requirements of library department and any changes needed will only originate from library department.
 
 Note here, we have not split the original class into three different class each with one method. We have `StudentLibraryTracker` class with two methods and `StudentGrade` class with one method. 
 
