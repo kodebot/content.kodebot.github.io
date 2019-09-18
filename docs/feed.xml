@@ -114,6 +114,17 @@ Typically, we repeat the steps below in that order
     </item>
     
     <item>
+      <title>Single Responsibility Principle</title>
+      <link>https://kodebot.com/tutorials/solid-principles/2-single-responsibility-principle/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://kodebot.com/tutorials/solid-principles/2-single-responsibility-principle/</guid>
+      <description>Single Responsibility Principle (SRP) is about how we separate or modularise code in object oriented design. This principle says that
+ A class should have only one reason to change
+ If we naively apply this principle, we will end up with several classes where each class contains just one method and that just does one small thing. This leads to unnecessary complexity. This is clearly not what we want to achieve with this principle.</description>
+    </item>
+    
+    <item>
       <title>Fake test dependency</title>
       <link>https://kodebot.com/tutorials/automated-unit-testing-basics/3-setup-techniques/3-fake-test-depencency/</link>
       <pubDate>Fri, 22 Feb 2019 10:25:49 +0000</pubDate>
@@ -147,6 +158,18 @@ Each test we write should have the following qualities
     </item>
     
     <item>
+      <title>Open-Closed Principle</title>
+      <link>https://kodebot.com/tutorials/solid-principles/3-open-closed-principle/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://kodebot.com/tutorials/solid-principles/3-open-closed-principle/</guid>
+      <description>Open-Closed Principle(OCP) says software must be open for extension but closed for modification. When we first hear this, it might sound like oxymoron but it is not when we understand this principle correctly.
+This principle was first introduced by Bertrand Meyer and his definition of this principle is:
+ Software entities (classes, modules, functions, etc.) should be open for extension, but closed for modification.
+ Later, Robert C. Martin provided the following improved definition which is suitable for modern software development</description>
+    </item>
+    
+    <item>
       <title>Mock dependency</title>
       <link>https://kodebot.com/tutorials/automated-unit-testing-basics/3-setup-techniques/4-mock-dependency/</link>
       <pubDate>Fri, 22 Feb 2019 10:25:49 +0000</pubDate>
@@ -167,6 +190,28 @@ It is not going to be easy to create and maintain mock dependencies; this is why
     </item>
     
     <item>
+      <title>Liskov Substitution Principle</title>
+      <link>https://kodebot.com/tutorials/solid-principles/4-liskov-substitution-principle/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://kodebot.com/tutorials/solid-principles/4-liskov-substitution-principle/</guid>
+      <description>Liskov Substitution Principle(LSP) is about substitution of one object for another without affecting the program that uses those objects.
+Barbara Liskov introduced this principle and she says
+ What is wanted here is something like the following substitution property: If for each object o1 of type S there is an object o2 of type T such that for all programs P defined in terms of T, the behaviour of P is unchanged when o1 is substituted for o2 then S is a subtype of T.</description>
+    </item>
+    
+    <item>
+      <title>Interface Segregation Principle</title>
+      <link>https://kodebot.com/tutorials/solid-principles/5-interface-segregation-principle/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://kodebot.com/tutorials/solid-principles/5-interface-segregation-principle/</guid>
+      <description>Interface Segregation Principle(ISP) was introduced by Robert C. Martin. He says
+ Clients should not be forced to depend on methods it does not use
+ There may be scenarios where we may have a class that has members(fields, properties or methods) used by two or more clients. When changing any of the members used by one client, all the clients of the class, even the ones that are not using the changing members, are affected.</description>
+    </item>
+    
+    <item>
       <title>System Under Test (SUT)</title>
       <link>https://kodebot.com/tutorials/automated-unit-testing-basics/1-introduction/5-system-under-test/</link>
       <pubDate>Fri, 22 Feb 2019 10:25:49 +0000</pubDate>
@@ -175,6 +220,19 @@ It is not going to be easy to create and maintain mock dependencies; this is why
       <description>The implementation of System Under Test (SUT) that are the target of our unit test can be one of the following
  direct implementation indirect implementation combination of the above  Direct implementation If a function or piece of code is direct implementation, then it will take zero or more inputs and provide some results or cause state change with very little or no dependencies.
 Examples of direct implementation</description>
+    </item>
+    
+    <item>
+      <title>Dependency Inversion Principle</title>
+      <link>https://kodebot.com/tutorials/solid-principles/6-dependency-inversion-principle/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://kodebot.com/tutorials/solid-principles/6-dependency-inversion-principle/</guid>
+      <description>Dependency Inversion Principle(DIP) is introduced by Robert C. Martin and his definition is
+ A. High-level modules should not depend on low-level modules. Both should depend on abstractions.
+B. Abstractions should not depend upon details. Details should depend upon abstractions.
+ Let&amp;rsquo;s look at an example of hypothetical mortgage application system.
+We have higher level Mortgage module with Application class and BureauData module at the next level with BureauDataProvider class and at lower level we have Utility module with DataCleaner class</description>
     </item>
     
     <item>
