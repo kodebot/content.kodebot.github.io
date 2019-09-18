@@ -64,6 +64,8 @@ public class Accountant
 
 ```
 
+{{% img "images/OCP_violation_2.png" "" 100 %}}
+
 Every time we add support for new country, the `CalculateTax()` method need to be updated.
 
 Note, in this example, we have introduced a new constructor parameter of type `Country` enum. This represents a country that need to be used when calculating tax. The `CalculateTax()` method is modified to use different tax calculation based on the country that was passed in when `Accountant` class was constructed.
@@ -105,6 +107,9 @@ public class Accountant
     }
 }
 ```
+
+{{% img "images/OCP.png" "" 250 %}}
+
 We can create concrete versions of this interface for each country implementing tax calculation applicable for each of those countries without changing `Accountant` class. 
 
 Another example for Open-Closed Principle is "plugin" model implementation. Plugins allow extending the functionality of host program with out changing its code.
