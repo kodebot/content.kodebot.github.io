@@ -3,6 +3,7 @@ title: "SOLID Principles"
 date: 2019-9-18T00:00:00Z
 weight: 1
 draft: false
+images: ["banner.jpg"]
 ---
 
 {{% img "banner.jpg" "" "10%" "100%"%}}
