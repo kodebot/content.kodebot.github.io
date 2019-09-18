@@ -60,7 +60,7 @@
 	"title": "SOLID Principles",
 	"tags": [],
 	"description": "",
-	"content": "Welcome to this tutorial on SOLID principles.\nThis tutorial is for anyone who has some knowledge of any object oriented programming language and want to develop or improve the skills of designing flexible and maintainable software.\nThe examples in the tutorial use C#, but anyone with some experience on any object oriented programming language can follow along easily.\n"
+	"content": "   Welcome to this tutorial on SOLID principles.\nThis tutorial is for anyone who has some knowledge of any object oriented programming language and want to develop or improve the skills of designing flexible and maintainable software.\nThe examples in the tutorial use C#, but anyone with some experience on any object oriented programming language can follow along easily.\n"
 },
 {
 	"uri": "https://kodebot.com/tutorials/solid-principles/1-introduction/",

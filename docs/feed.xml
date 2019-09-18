@@ -70,6 +70,18 @@ What do I mean by this? Well, lets look at an example of a very simple calculato
     </item>
     
     <item>
+      <title>What is SOLID principles?</title>
+      <link>https://kodebot.com/tutorials/solid-principles/1-introduction/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://kodebot.com/tutorials/solid-principles/1-introduction/</guid>
+      <description>SOLID is mnemonic acronym where each letter represents one principle.
+The principles were first introduced by Robert C. Martin but the acronym was later introduced by Michael Feathers.
+The following are the principles that makes up SOLID
+ Single Responsibility Principle Open-Closed Principle Liskov Substitution Principle Interface Segregation Principle Dependency Inversion Principle  When designing software using object oriented methodology, the SOLID principles help to keep the design readable, flexible and maintainable.</description>
+    </item>
+    
+    <item>
       <title>Data driven test</title>
       <link>https://kodebot.com/tutorials/automated-unit-testing-basics/3-setup-techniques/2-data-driven-test/</link>
       <pubDate>Fri, 22 Feb 2019 10:25:49 +0000</pubDate>
