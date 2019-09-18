@@ -5,6 +5,8 @@ weight: 1
 draft: false
 ---
 
+{{% img "banner.jpg" "" "10%" "100%"%}}
+
 Welcome to this tutorial on SOLID principles.
 
 This tutorial is for anyone who has some knowledge of any object oriented programming language and want to develop or improve the skills of designing flexible and maintainable software.
