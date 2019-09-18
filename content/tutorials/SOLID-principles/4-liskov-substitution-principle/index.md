@@ -50,7 +50,7 @@ We have another class `PlayerWidget`.
 public class PlayerWidget
 {
     private readonly MusicPlayer _player;
-    public PlayerController(MusicPlayer player)
+    public PlayerWidget(MusicPlayer player)
     {
         _player = player;
     }
@@ -62,6 +62,9 @@ public class PlayerWidget
 }
 ```
  This class represents one of the user interfaces that user can use to control the music player and it simply delegates user requests to the `MusicPlayer`.
+
+{{% img "images/LSP.png" "" 250 %}}
+
 
 The essence of Liskov Substitution Principle is that we should be able to use objects of derived type in place of objects of base type without altering the behaviour of the program that is using those objects, only then we can call the derived type as **subtype**.
 
@@ -81,8 +84,7 @@ Just to give brief introduction on **variance**. [Wikipedia](https://en.wikipedi
 
 <cite>Variance refers to how subtyping between more complex types relates to subtyping between their components</cite>
 
-For simplicity, we will understand this with an example. We will assume that we have a base class `Person` and `Employee` class derived from `Person`. Variance comes into picture when we have complex type with one or more independent type components. So, we will assume a complex generic type `List<T>`
-
+Let's try to understand this with examples. We will assume that we have a base class `Person`. We have another class `Employee` which is derived from `Person`. Variance comes into picture when we have complex type with one or more independent type components. Generics is one such complex, so we will use generic type `List<T>` in our examples
 
 If `List<Person>` is substitutable for `List<Employee>` then `List<T>` is **covariant**
 
@@ -91,6 +93,8 @@ If `List<Employee>` is substitutable for `List<Person>` then `List<T>` is **cont
 If `List<Person>` is substitutable for `List<Employee>` and `List<Employee>` is substitutable for `List<Person>` then `List<T>` is **bivariant**
 
 If `List<Person>` and `List<Employee>` are not substitutable for each other then `List<T>` is **invariant**
+
+**Note:** there is lot more to understand about _variance_, we covered just enough in the context of Liskov Substitution Principle
 
 {{%/box%}}
 
