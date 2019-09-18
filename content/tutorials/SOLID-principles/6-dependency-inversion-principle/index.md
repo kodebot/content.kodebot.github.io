@@ -15,6 +15,8 @@ Let's look at an example of hypothetical mortgage application system.
 
 We have higher level `Mortgage` module with `Application` class and `BureauData` module at the next level with `BureauDataProvider` class and at lower level we have `Utility` module with `DataCleaner` class
 
+{{% img "images/DIP_violation.png" "" 350 %}}
+
 ``` csharp
 using BureauData;
 
@@ -62,6 +64,8 @@ This is not a good situation. The higher level module should control the lower l
 In addition to this, when higher level classes directly depend on lower level classes, it is very difficult to reuse higher level classes in different context.
 
 We can use Dependency Inversion Principle to address this issue. We first need to define the abstractions (interfaces) that higher level modules should work with then make the lower level modules implement them.
+
+{{% img "images/DIP.png" "" 400 %}}
 
 Here is the revised example
 
