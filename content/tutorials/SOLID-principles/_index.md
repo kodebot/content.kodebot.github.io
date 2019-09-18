@@ -6,7 +6,7 @@ draft: false
 images: ["banner.jpg"]
 ---
 
-{{% img "banner.jpg" "" "10%" "100%"%}}
+{{% img "banner.jpg" "" "" "100%"%}}
 
 Welcome to this tutorial on SOLID principles.
 
