@@ -110,7 +110,11 @@ Preconditions are any validation that we perform before executing a method and i
 Postconditions are any validation that we perform after the method is executed and it should not be weakened in a subtype
 
 #### Invariants
-Invariant refers to a state that preserved when method is executed and any such invariants of supertype must be preserved in a subtype
+Invariant refers to properties or states that are preserved when method is executed and any such invariants of supertype must be preserved in a subtype
+
+{{%notice info%}}
+What we refer as **invariant** is different from the one we have see as part of **variance** above. You can learn more about **Precondiations**, **Postconditions** and **invariants** [here](https://en.wikipedia.org/wiki/Design_by_contract).
+{{% /notice%}}
 
 #### History constraint
 Subtype should not introduce a new method that allows mutating state that is immutable in supertype
@@ -121,4 +125,4 @@ Subtype should not introduce a new method that allows mutating state that is imm
 
 2. https://www.hpl.hp.com/techreports/90/HPL-90-121.pdf
 
-3. https://en.wikipedia.org/wiki/Covariance_and_contravariance_(computer_science)
+3. [Covariance and Contravariance - Wikipedia](https://en.wikipedia.org/wiki/Covariance_and_contravariance_(computer_science))
