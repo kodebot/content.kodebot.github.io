@@ -77,44 +77,44 @@ The following are the general rules to follow to avoid breaking substitutability
 #### No new exception
 No new exception from any method in the subtype. However, we can throw new exception which is subtype of the exception thrown by base class. This is because the exception handler of a type will handle the exceptions of derived exception type as well.
 
-#### Contravariance of method arguments in subtype
-{{%box tip %}}
+#### Covariance of return type and Contravariance of arguments in subtype methods
 
-Just to give brief introduction on **variance**. [Wikipedia](https://en.wikipedia.org/wiki/Covariance_and_contravariance_(computer_science)) says
+Let's first understand what **covariance** and **contravariance** mean. 
 
-<cite>Variance refers to how subtyping between more complex types relates to subtyping between their components</cite>
+Covariance and Contravariance come into picture when we are dealing with complex type with one or more independent type components in them. Generics is one such type so we use custom generic type `ISpecialList<T>` for our example. 
 
-Let's try to understand this with examples. We will assume that we have a base class `Person`. We have another class `Employee` which is derived from `Person`. Variance comes into picture when we have complex type with one or more independent type components. Generics is one such complex, so we will use generic type `List<T>` in our examples
+Let's say we have a base class `Person`. We have another class `Employee` which is derived from `Person`. 
 
-If `List<Person>` is substitutable for `List<Employee>` then `List<T>` is **covariant**
+In general, if can assign object of `Employee` to type `Person`, but assigning object of `Person` to type `Employee` is not allowed.
 
-If `List<Employee>` is substitutable for `List<Person>` then `List<T>` is **contravariant**
+```csharp
+    Person p = new Employee(); // OK
+    Employee e = new Person(); // Compile time error
+```
 
-If `List<Person>` is substitutable for `List<Employee>` and `List<Employee>` is substitutable for `List<Person>` then `List<T>` is **bivariant**
+This is not true by default for generic types like `ISpecialList<T>`. We cannot assign object of `ISpecialList<Employee>` to type `ISpecialList<Person>` or vice versa.
 
-If `List<Person>` and `List<Employee>` are not substitutable for each other then `List<T>` is **invariant**
+However, we can allow these assignments to work using _variance_.
 
-**Note:** there is lot more to understand about _variance_, we covered just enough in the context of Liskov Substitution Principle
+If we allow assigning the object of `ISpecialList<Employee>` to type `ISpecialList<Person>` then we say `ISpecialList<T>` is **covariant**
 
-{{%/box%}}
+If we allow assigning the object of `ISpecialList<Person>` to type `ISpecialList<Employee>` then we say `ISpecialList<T>` is **contravariant**
 
-The method arguments in subtype must must be contravariant to preserve substitutability
+In order to avoid breaking substitutability, the method arguments must be contravariant and return type must be covariant in subtype.
 
-#### Covariance of return type in subtype
-Return types in the subtype must be covariant
+{{% notice tip %}}
+In C#, you can create covariant interface using `out` keyword and contravariant interface using `in` keyword. For example,
+`ISpecialList<out T>` is covariant and `ISpecialList<in T>` is contravariant.
+{{% /notice%}}
 
-#### Preconditions
-Preconditions are any validation that we perform before executing a method and it should be strengthened in a subtype
+#### No strengthening of Preconditions
+Preconditions are any validation that we perform before executing a method and it should not be strengthened in a subtype
 
-#### Postconditions
+#### No weakening Postconditions
 Postconditions are any validation that we perform after the method is executed and it should not be weakened in a subtype
 
-#### Invariants
-Invariant refers to properties or states that are preserved when method is executed and any such invariants of supertype must be preserved in a subtype
-
-{{%notice info%}}
-What we refer as **invariant** is different from the one we have see as part of **variance** above. You can learn more about **Precondiations**, **Postconditions** and **invariants** [here](https://en.wikipedia.org/wiki/Design_by_contract).
-{{% /notice%}}
+#### Preserve Invariants
+Invariant refers to properties or states that are preserved when the method is executed. Any such invariants of supertype must be preserved in a subtype
 
 #### History constraint
 Subtype should not introduce a new method that allows mutating state that is immutable in supertype
