@@ -93,7 +93,7 @@ public class StudentGrade
 ``` csharp
 public class StudentLibraryTracker
 {
-        public void BorrowBook(int bookId)
+    public void BorrowBook(int bookId)
     {
         // record the book borrowed
     }
@@ -115,7 +115,7 @@ Now, `StudentGrade` class only fulfils the requirements of teaching department s
 
 Note here, we have not split the original class into three different class each with one method. We have `StudentLibraryTracker` class with two methods and `StudentGrade` class with one method. 
 
-This is because we have taken the complementary principle into account and gathered `BorrowBook()` and `ReturnBook()` into one class because they changes for the same reason and separated `CalculateGrade()` to different class because it is not changing for the same reason as the other two methods.
+This is because we have taken the complementary principle into account and gathered `BorrowBook()` and `ReturnBook()` into one class because they change for the same reason and separated `CalculateGrade()` to different class because it is not changing for the same reason as the other two methods.
 
 
 ### References

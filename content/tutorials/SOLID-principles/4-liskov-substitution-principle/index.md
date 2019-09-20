@@ -34,7 +34,7 @@ public class TrialMusicPlayer : MusicPlayer
     {
         if(_songsPlayedToday >= 5)
         {
-            throw new Exception("Skip next feature is not available in Trial player");
+            throw new Exception("Only 5 songs are allowed in a day.");
         }
 
         // play song
