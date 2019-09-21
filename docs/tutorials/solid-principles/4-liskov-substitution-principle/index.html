@@ -11,20 +11,20 @@
     <title>Liskov Substitution Principle :: Kodebot</title>
 
     
-    <link href="/css/nucleus.css?1568820994" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1568820994" rel="stylesheet">
-    <link href="/css/hybrid.css?1568820994" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1568820994" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1568820994" rel="stylesheet">
-    <link href="/css/auto-complete.css?1568820994" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1568820994" rel="stylesheet">
-    <link href="/css/theme.css?1568820994" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1568820994" rel="stylesheet">
+    <link href="/css/nucleus.css?1569051929" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1569051929" rel="stylesheet">
+    <link href="/css/hybrid.css?1569051929" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1569051929" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1569051929" rel="stylesheet">
+    <link href="/css/auto-complete.css?1569051929" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1569051929" rel="stylesheet">
+    <link href="/css/theme.css?1569051929" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1569051929" rel="stylesheet">
     
-      <link href="/css/theme-mine.css?1568820994" rel="stylesheet">
+      <link href="/css/theme-mine.css?1569051929" rel="stylesheet">
     
 
-    <script src="/js/jquery-3.3.1.min.js?1568820994"></script>
+    <script src="/js/jquery-3.3.1.min.js?1569051929"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -55,14 +55,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1568820994"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1568820994"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1569051929"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1569051929"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/kodebot.com\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1568820994"></script>
+<script type="text/javascript" src="/js/search.js?1569051929"></script>
 
     
   </div>
@@ -792,11 +792,10 @@
 <li>
 <ul>
 <li><a href="#no-new-exception">No new exception</a></li>
-<li><a href="#contravariance-of-method-arguments-in-subtype">Contravariance of method arguments in subtype</a></li>
-<li><a href="#covariance-of-return-type-in-subtype">Covariance of return type in subtype</a></li>
-<li><a href="#preconditions">Preconditions</a></li>
-<li><a href="#postconditions">Postconditions</a></li>
-<li><a href="#invariants">Invariants</a></li>
+<li><a href="#covariance-of-return-type-and-contravariance-of-arguments-in-subtype-methods">Covariance of return type and Contravariance of arguments in subtype methods</a></li>
+<li><a href="#no-strengthening-of-preconditions">No strengthening of Preconditions</a></li>
+<li><a href="#no-weakening-postconditions">No weakening Postconditions</a></li>
+<li><a href="#preserve-invariants">Preserve Invariants</a></li>
 <li><a href="#history-constraint">History constraint</a></li>
 </ul></li>
 <li><a href="#references">References</a></li>
@@ -855,7 +854,7 @@
     {
         <span style="color:#66d9ef">if</span>(_songsPlayedToday &gt;= <span style="color:#ae81ff">5</span>)
         {
-            <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> Exception(<span style="color:#e6db74">&#34;Skip next feature is not available in Trial player&#34;</span>);
+            <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> Exception(<span style="color:#e6db74">&#34;Only 5 songs are allowed in a day.&#34;</span>);
         }
 
         <span style="color:#75715e">// play song
@@ -898,43 +897,45 @@
 
 <p>No new exception from any method in the subtype. However, we can throw new exception which is subtype of the exception thrown by base class. This is because the exception handler of a type will handle the exceptions of derived exception type as well.</p>
 
-<h4 id="contravariance-of-method-arguments-in-subtype">Contravariance of method arguments in subtype</h4>
+<h4 id="covariance-of-return-type-and-contravariance-of-arguments-in-subtype-methods">Covariance of return type and Contravariance of arguments in subtype methods</h4>
+
+<p>Let&rsquo;s first understand what <strong>covariance</strong> and <strong>contravariance</strong> mean.</p>
+
+<p>Covariance and Contravariance come into picture when we are dealing with complex type with one or more independent type components in them. Generics is one such type so we use custom generic type <code>ISpecialList&lt;T&gt;</code> for our example.</p>
+
+<p>Let&rsquo;s say we have a base class <code>Person</code>. We have another class <code>Employee</code> which is derived from <code>Person</code>.</p>
+
+<p>In general, if can assign object of <code>Employee</code> to type <code>Person</code>, but assigning object of <code>Person</code> to type <code>Employee</code> is not allowed.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp">    Person p = <span style="color:#66d9ef">new</span> Employee(); <span style="color:#75715e">// OK
+</span><span style="color:#75715e"></span>    Employee e = <span style="color:#66d9ef">new</span> Person(); <span style="color:#75715e">// Compile time error
+</span></code></pre></div>
+<p>This is not true by default for generic types like <code>ISpecialList&lt;T&gt;</code>. We cannot assign object of <code>ISpecialList&lt;Employee&gt;</code> to type <code>ISpecialList&lt;Person&gt;</code> or vice versa.</p>
+
+<p>However, we can allow these assignments to work using <em>variance</em>.</p>
+
+<p>If we allow assigning the object of <code>ISpecialList&lt;Employee&gt;</code> to type <code>ISpecialList&lt;Person&gt;</code> then we say <code>ISpecialList&lt;T&gt;</code> is <strong>covariant</strong></p>
+
+<p>If we allow assigning the object of <code>ISpecialList&lt;Person&gt;</code> to type <code>ISpecialList&lt;Employee&gt;</code> then we say <code>ISpecialList&lt;T&gt;</code> is <strong>contravariant</strong></p>
+
+<p>In order to avoid breaking substitutability, the method arguments must be contravariant and return type must be covariant in subtype.</p>
 
 
-<div class="box tip" ><p>Just to give brief introduction on <strong>variance</strong>. <a href="https://en.wikipedia.org/wiki/Covariance_and_contravariance_(computer_science)">Wikipedia</a> says</p>
-
-<p><cite>Variance refers to how subtyping between more complex types relates to subtyping between their components</cite></p>
-
-<p>Let&rsquo;s try to understand this with examples. We will assume that we have a base class <code>Person</code>. We have another class <code>Employee</code> which is derived from <code>Person</code>. Variance comes into picture when we have complex type with one or more independent type components. Generics is one such complex, so we will use generic type <code>List&lt;T&gt;</code> in our examples</p>
-
-<p>If <code>List&lt;Person&gt;</code> is substitutable for <code>List&lt;Employee&gt;</code> then <code>List&lt;T&gt;</code> is <strong>covariant</strong></p>
-
-<p>If <code>List&lt;Employee&gt;</code> is substitutable for <code>List&lt;Person&gt;</code> then <code>List&lt;T&gt;</code> is <strong>contravariant</strong></p>
-
-<p>If <code>List&lt;Person&gt;</code> is substitutable for <code>List&lt;Employee&gt;</code> and <code>List&lt;Employee&gt;</code> is substitutable for <code>List&lt;Person&gt;</code> then <code>List&lt;T&gt;</code> is <strong>bivariant</strong></p>
-
-<p>If <code>List&lt;Person&gt;</code> and <code>List&lt;Employee&gt;</code> are not substitutable for each other then <code>List&lt;T&gt;</code> is <strong>invariant</strong></p>
-
-<p><strong>Note:</strong> there is lot more to understand about <em>variance</em>, we covered just enough in the context of Liskov Substitution Principle</p>
+<div class="notices tip" ><p>In C#, you can create covariant interface using <code>out</code> keyword and contravariant interface using <code>in</code> keyword. For example,
+<code>ISpecialList&lt;out T&gt;</code> is covariant and <code>ISpecialList&lt;in T&gt;</code> is contravariant.</p>
 </div>
 
-<p>The method arguments in subtype must must be contravariant to preserve substitutability</p>
 
-<h4 id="covariance-of-return-type-in-subtype">Covariance of return type in subtype</h4>
+<h4 id="no-strengthening-of-preconditions">No strengthening of Preconditions</h4>
 
-<p>Return types in the subtype must be covariant</p>
+<p>Preconditions are any validation that we perform before executing a method and it should not be strengthened in a subtype</p>
 
-<h4 id="preconditions">Preconditions</h4>
-
-<p>Preconditions are any validation that we perform before executing a method and it should be strengthened in a subtype</p>
-
-<h4 id="postconditions">Postconditions</h4>
+<h4 id="no-weakening-postconditions">No weakening Postconditions</h4>
 
 <p>Postconditions are any validation that we perform after the method is executed and it should not be weakened in a subtype</p>
 
-<h4 id="invariants">Invariants</h4>
+<h4 id="preserve-invariants">Preserve Invariants</h4>
 
-<p>Invariant refers to a state that preserved when method is executed and any such invariants of supertype must be preserved in a subtype</p>
+<p>Invariant refers to properties or states that are preserved when the method is executed. Any such invariants of supertype must be preserved in a subtype</p>
 
 <h4 id="history-constraint">History constraint</h4>
 
@@ -947,7 +948,7 @@
 
 <li><p><a href="https://www.hpl.hp.com/techreports/90/HPL-90-121.pdf">https://www.hpl.hp.com/techreports/90/HPL-90-121.pdf</a></p></li>
 
-<li><p><a href="https://en.wikipedia.org/wiki/Covariance_and_contravariance_(computer_science">https://en.wikipedia.org/wiki/Covariance_and_contravariance_(computer_science</a>)</p></li>
+<li><p><a href="https://en.wikipedia.org/wiki/Covariance_and_contravariance_(computer_science)">Covariance and Contravariance - Wikipedia</a></p></li>
 </ol>
 
 
@@ -1994,19 +1995,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1568820994"></script>
-    <script src="/js/perfect-scrollbar.min.js?1568820994"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1568820994"></script>
-    <script src="/js/jquery.sticky.js?1568820994"></script>
-    <script src="/js/featherlight.min.js?1568820994"></script>
-    <script src="/js/highlight.pack.js?1568820994"></script>
+    <script src="/js/clipboard.min.js?1569051929"></script>
+    <script src="/js/perfect-scrollbar.min.js?1569051929"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1569051929"></script>
+    <script src="/js/jquery.sticky.js?1569051929"></script>
+    <script src="/js/featherlight.min.js?1569051929"></script>
+    <script src="/js/highlight.pack.js?1569051929"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1568820994"></script>
-    <script src="/js/learn.js?1568820994"></script>
-    <script src="/js/hugo-learn.js?1568820994"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1569051929"></script>
+    <script src="/js/learn.js?1569051929"></script>
+    <script src="/js/hugo-learn.js?1569051929"></script>
 
-    <link href="/mermaid/mermaid.css?1568820994" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1568820994"></script>
+    <link href="/mermaid/mermaid.css?1569051929" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1569051929"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

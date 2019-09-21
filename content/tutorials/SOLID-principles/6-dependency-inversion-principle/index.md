@@ -134,7 +134,7 @@ It is not necessary that the interfaces higher level module depend on should be 
 {{% /notice %}}
 
 {{% notice tip %}}
-This principle is also referred to as **Hollywood Principle**. This is because _"Don't call us, we will call you"_ phrase is used in Hollywood auditions and this the communication pattern we achieve with Dependency Inversion Principle.
+This principle is also referred to as **Hollywood Principle**. This is because _"Don't call us, we will call you"_ phrase is used in Hollywood auditions and this is the communication pattern we achieve with Dependency Inversion Principle.
 {{% /notice %}}
 
 
