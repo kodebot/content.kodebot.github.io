@@ -4,6 +4,11 @@ date: 2019-9-18T00:00:00Z
 weight: 5
 draft: false
 ---
+
+***
+{{% colorbtn href="https://youtu.be/StT2I0mwjus?t=1046" icon="fab fa-youtube" color="red"%}} Watch video {{% /colorbtn%}}
+***
+
 Interface Segregation Principle(ISP) was introduced by [Robert C. Martin](https://en.wikipedia.org/wiki/Robert_C._Martin). He says
 
 > Clients should not be forced to depend on methods it does not use

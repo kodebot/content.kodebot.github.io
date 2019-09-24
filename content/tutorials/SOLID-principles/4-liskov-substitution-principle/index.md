@@ -5,6 +5,10 @@ weight: 4
 draft: false
 ---
 
+***
+{{% colorbtn href="https://youtu.be/StT2I0mwjus?t=731" icon="fab fa-youtube" color="red"%}} Watch video {{% /colorbtn%}}
+***
+
 Liskov Substitution Principle(LSP) is about substitution of one object for another without affecting the program that uses those objects.
 
 [Barbara Liskov](https://en.wikipedia.org/wiki/Barbara_Liskov) introduced this principle and she says
