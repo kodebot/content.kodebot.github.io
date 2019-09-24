@@ -5,6 +5,10 @@ weight: 1
 draft: false
 ---
 
+***
+{{% colorbtn href="https://youtu.be/StT2I0mwjus?t=33" icon="fab fa-youtube" color="red"%}} Watch video {{% /colorbtn%}}
+***
+
 SOLID is mnemonic acronym where each letter represents one principle.
 
 The principles were first introduced by [Robert C. Martin](https://en.wikipedia.org/wiki/Robert_C._Martin) but the acronym was later introduced by Michael Feathers.

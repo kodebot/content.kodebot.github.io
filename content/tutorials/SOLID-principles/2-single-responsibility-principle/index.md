@@ -5,6 +5,9 @@ weight: 2
 draft: false
 ---
 
+***
+{{% colorbtn href="https://youtu.be/StT2I0mwjus?t=89" icon="fab fa-youtube" color="red"%}} Watch video {{% /colorbtn%}}
+***
 
 Single Responsibility Principle (SRP) is about how we separate or modularise code in object oriented design. This principle says that 
 

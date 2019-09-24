@@ -5,6 +5,10 @@ weight: 3
 draft: false
 ---
 
+***
+{{% colorbtn href="https://youtu.be/StT2I0mwjus?t=368" icon="fab fa-youtube" color="red"%}} Watch video {{% /colorbtn%}}
+***
+
 Open-Closed Principle(OCP) says software must be open for extension but closed for modification. When we first hear this, it might sound like oxymoron but it is not when we understand this principle correctly. 
 
 This principle was first introduced by [Bertrand Meyer](https://en.wikipedia.org/wiki/Bertrand_Meyer) and his definition of this principle is:
