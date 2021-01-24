@@ -5,7 +5,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="generator" content="Hugo 0.57.2" />
+  <meta name="generator" content="Hugo 0.80.0" />
   <meta name="description" content="">
 
 
@@ -13,24 +13,24 @@
   <title>ECMAScript 6 - Sublime Text editor build system - Kodebot</title>
 
   
-  <link href="/css/nucleus.css?1569361479" rel="stylesheet">
-  <link href="/css/fontawesome-all.min.css?1569361479"
+  <link href="/css/nucleus.css?1611527255" rel="stylesheet">
+  <link href="/css/fontawesome-all.min.css?1611527255"
     rel="stylesheet">
-  <link href="/css/hybrid.css?1569361479" rel="stylesheet">
-  <link href="/css/featherlight.min.css?1569361479" rel="stylesheet">
-  <link href="/css/perfect-scrollbar.min.css?1569361479"
+  <link href="/css/hybrid.css?1611527255" rel="stylesheet">
+  <link href="/css/featherlight.min.css?1611527255" rel="stylesheet">
+  <link href="/css/perfect-scrollbar.min.css?1611527255"
     rel="stylesheet">
-  <link href="/css/auto-complete.css?1569361479" rel="stylesheet">
-  <link href="/css/atom-one-dark-reasonable.css?1569361479"
+  <link href="/css/auto-complete.css?1611527255" rel="stylesheet">
+  <link href="/css/atom-one-dark-reasonable.css?1611527255"
     rel="stylesheet">
-  <link href="/css/theme.css?1569361479" rel="stylesheet">
-  <link href="/css/hugo-theme.css?1569361479" rel="stylesheet">
+  <link href="/css/theme.css?1611527255" rel="stylesheet">
+  <link href="/css/hugo-theme.css?1611527255" rel="stylesheet">
   
-  <link href="/css/theme-mine.css?1569361479"
+  <link href="/css/theme-mine.css?1611527255"
     rel="stylesheet">
   
 
-  <script src="/js/jquery-3.3.1.min.js?1569361479"></script>
+  <script src="/js/jquery-3.3.1.min.js?1611527255"></script>
 
   <style type="text/css">
     :root #header+#content>#left>#rlblock_left {
@@ -105,34 +105,6 @@
       <div>
         
         
-        <div id="top-bar">
-          
-
-
-          <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
-            <span class="links">
-              
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          <a href='/'>Kodebot</a> > <a href='/blog/'>Blog</a> > ECMAScript 6 - Sublime Text editor build system
-          
-          
-          
-          
-          
-          
-            </span>
-          </div>
-        </div>
-        
       </div>
       
       <div id="head-tags">
@@ -157,17 +129,7 @@
 
           
 
-<p>The specification for ECMAScript 6 (aka ES6, ECMAScript harmony) is expected to be released in June 2015 and many tools, frameworks and browsers have started implementing the features of ES6. For example, <a href="https://angular.io/" target="_blank">Angular 2.0</a>&nbsp;and <a href="http://aurelia.io/" target="_blank">Aurelia</a>&nbsp;allows us to write code in ES6 now. There are transpilers as well out there, which <!-- more -->allows us to write code in ES6 and transpile them into ES5. I have come across two major transpilers&nbsp;<a href="https://github.com/google/traceur-compiler" target="_blank">traceur</a>&nbsp;and&nbsp;<a href="https://babeljs.io/">babel</a>, they are equally good.</p>
-<p>I wanted to setup something like <a href="https://www.linqpad.net/">LinqPad</a>&nbsp;for JavaScript to learn and practice ES6 without using browser to see the output.</p>
-<p>The tools I used to achieve the desired setup are</p>
-<ol>
-<li><a href="http://www.sublimetext.com/" target="_blank">Sublime text</a>&nbsp;- primary editor</li>
-<li><a href="https://nodejs.org/" target="_blank">Nodejs</a>&nbsp;- runs ES5</li>
-<li><a href="https://babeljs.io/" target="_blank">Babel</a>&nbsp;- ES6 to ES5 transpiler</li>
-<li><a href="http://gulpjs.com/" target="_blank">Gulp</a>&nbsp;with <a href="https://github.com/babel/gulp-babel" target="_blank">gulp-babel</a>&nbsp;and <a href="https://github.com/sun-zheng-an/gulp-shell" target="_blank">gulp-shell</a>&nbsp;plugins - task runner</li>
-</ol>
-<p>I took advantage of Sublime text build system by creating a new one for ES6 using gulp task. The gulp task will transpile the code from ES6 to ES5 and run it as a normal node program.</p>
-<p>Let's start from the gulp task, here is the task I have created</p>
+<!-- raw HTML omitted -->
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// gulpfile.js
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">gulp</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;gulp&#39;</span>);
 <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">babel</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;gulp-babel&#39;</span>);
@@ -180,37 +142,16 @@
 			.<span style="color:#a6e22e">pipe</span>(<span style="color:#a6e22e">shell</span>([<span style="color:#e6db74">&#39;node result\\app.js&#39;</span>]));
 			
 });
-</code></pre></div>
-<p>This task simple takes the source file named app.js and applies babel task to convert from ES6 to ES5, stores the output in result folder and finally runs the output file as a normal node program using grunt's shell plugin.</p>
-<p>Here is the build system I created for ES6</p>
+</code></pre></div><!-- raw HTML omitted -->
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">{
   <span style="color:#e6db74">&#34;cmd&#34;</span><span style="color:#f92672">:</span> [<span style="color:#e6db74">&#34;gulp.cmd&#34;</span>, <span style="color:#e6db74">&#34;run&#34;</span>]
 }
-</code></pre></div>
-<p>Note: If you are using Windows 8, you must use gulp.cmd rather than gulp.</p>
-<p>The build script simply invokes gulp to run a task named <code>run</code>.</p>
-<p>I have also installed <a href="https://packagecontrol.io/packages/JavaScriptNext%20-%20ES6%20Syntax" target="_blank">this</a>&nbsp;package to enable ES6 syntax highlight feature in Sublime text.</p>
-<p>My file structure looks like this in the end</p>
-
-<figure>
-    <img src="/blog/2015/ecmascript-6-sublime-text-editor-build-system/images/Untitled.png" alt="" height="" width="" />
-    <figcaption></figcaption>
-</figure>
-
-<p>The code looks like this with syntax highlight feature</p>
-
-<figure>
-    <img src="/blog/2015/ecmascript-6-sublime-text-editor-build-system/images/Capture3.PNG" alt="" height="" width="" />
-    <figcaption></figcaption>
-</figure>
-
-<p>Finally, output looks like this when I use Ctrl+B to run the build</p>
-
-<figure>
-    <img src="/blog/2015/ecmascript-6-sublime-text-editor-build-system/images/Capture5.PNG" alt="" height="" width="" />
-    <figcaption></figcaption>
-</figure>
-
+</code></pre></div><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 
 <div class="notices note" ><p>This setup is only recommended if you just want to play with ES6 like me. The grunt task uses hard coded files names and you need to use the same file name to get it working.</p>
 </div>
@@ -1253,19 +1194,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1569361479"></script>
-    <script src="/js/perfect-scrollbar.min.js?1569361479"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1569361479"></script>
-    <script src="/js/jquery.sticky.js?1569361479"></script>
-    <script src="/js/featherlight.min.js?1569361479"></script>
-    <script src="/js/highlight.pack.js?1569361479"></script>
+    <script src="/js/clipboard.min.js?1611527255"></script>
+    <script src="/js/perfect-scrollbar.min.js?1611527255"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1611527255"></script>
+    <script src="/js/jquery.sticky.js?1611527255"></script>
+    <script src="/js/featherlight.min.js?1611527255"></script>
+    <script src="/js/highlight.pack.js?1611527255"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1569361479"></script>
-    <script src="/js/learn.js?1569361479"></script>
-    <script src="/js/hugo-learn.js?1569361479"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1611527255"></script>
+    <script src="/js/learn.js?1611527255"></script>
+    <script src="/js/hugo-learn.js?1611527255"></script>
 
-    <link href="/mermaid/mermaid.css?1569361479" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1569361479"></script>
+    <link href="/mermaid/mermaid.css?1611527255" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1611527255"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
@@ -1274,7 +1215,7 @@
 
     <div class="custom-footer">
         <div class="copy">
-            &copy; 2014 - 2019 Kodebot Limited. All Rights Reserved.<br>
+            &copy; Copyright 2021, Kodebot.<br>
         </div>
         <div class="license">
             All content on this website is licensed under the <a href="http://creativecommons.org/licenses/by-sa/3.0/">
@@ -1292,7 +1233,7 @@
             up to date or complete. Any use or reliance on any content or materials published, mentioned or linked here
             is
             at your own risk and
-            the Kodebot Limited and author/authors accept no liability or responsibility for.
+            the Kodebot and author/authors accept no liability or responsibility for.
         </div>
     </div>
 

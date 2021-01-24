@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.57.2" />
+    <meta name="generator" content="Hugo 0.80.0" />
     <meta name="description" content="">
 
 
@@ -11,20 +11,20 @@
     <title>Dependency Inversion Principle :: Kodebot</title>
 
     
-    <link href="/css/nucleus.css?1569361479" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1569361479" rel="stylesheet">
-    <link href="/css/hybrid.css?1569361479" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1569361479" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1569361479" rel="stylesheet">
-    <link href="/css/auto-complete.css?1569361479" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1569361479" rel="stylesheet">
-    <link href="/css/theme.css?1569361479" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1569361479" rel="stylesheet">
+    <link href="/css/nucleus.css?1611527256" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1611527256" rel="stylesheet">
+    <link href="/css/hybrid.css?1611527256" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1611527256" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1611527256" rel="stylesheet">
+    <link href="/css/auto-complete.css?1611527256" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1611527256" rel="stylesheet">
+    <link href="/css/theme.css?1611527256" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1611527256" rel="stylesheet">
     
-      <link href="/css/theme-mine.css?1569361479" rel="stylesheet">
+      <link href="/css/theme-mine.css?1611527256" rel="stylesheet">
     
 
-    <script src="/js/jquery-3.3.1.min.js?1569361479"></script>
+    <script src="/js/jquery-3.3.1.min.js?1611527256"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -55,14 +55,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1569361479"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1569361479"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1611527256"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1611527256"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/kodebot.com\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1569361479"></script>
+<script type="text/javascript" src="/js/search.js?1611527256"></script>
 
     
   </div>
@@ -724,7 +724,7 @@
     
     <section id="footer">
       
-&copy; 2014 - 2019 Kodebot Limited.
+&copy; Copyright 2021, Kodebot.
     </section>
   </div>
 </nav>
@@ -784,15 +784,13 @@
                     <div class="progress">
     <div class="wrapper">
 <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#references">References</a></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#references">References</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
     </div>
 </div>
@@ -817,10 +815,7 @@
 
 
 
-
-
-<hr />
-
+<hr>
 
 
 
@@ -836,25 +831,17 @@
     
   </a>
   
-
-<hr />
-
+<hr>
 <p>Dependency Inversion Principle(DIP) is introduced by <a href="https://en.wikipedia.org/wiki/Robert_C._Martin">Robert C. Martin</a> and his definition is</p>
-
 <blockquote>
 <p>A. High-level modules should not depend on low-level modules. Both should depend on abstractions.</p>
-
+</blockquote>
+<blockquote>
 <p>B. Abstractions should not depend upon details. Details should depend upon abstractions.</p>
 </blockquote>
-
 <p>Let&rsquo;s look at an example of hypothetical mortgage application system.</p>
-
 <p>We have higher level <code>Mortgage</code> module with <code>Application</code> class and <code>BureauData</code> module at the next level with <code>BureauDataProvider</code> class and at lower level we have <code>Utility</code> module with <code>DataCleaner</code> class</p>
-
-<figure>
-    <img src="/tutorials/solid-principles/6-dependency-inversion-principle/images/DIP_violation.png" alt="" height="350" width="" />
-    <figcaption></figcaption>
-</figure>
+<!-- raw HTML omitted -->
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#66d9ef">using</span> BureauData;
 
 <span style="color:#66d9ef">namespace</span> Mortgage
@@ -886,20 +873,11 @@
 
     }
 }
-</code></pre></div>
-<p>Here the higher level <code>Application</code> class directly depends on next level <code>BureauDataProvider</code> class and it directly depends on <code>DataCleaner</code> class in the lower level. <code>Application</code> class indirectly depends on <code>DataCleaner</code>. Now, changes to <code>DataCleaner</code> or <code>BureauDataProvider</code> class may directly affect <code>Application</code> class.</p>
-
+</code></pre></div><p>Here the higher level <code>Application</code> class directly depends on next level <code>BureauDataProvider</code> class and it directly depends on <code>DataCleaner</code> class in the lower level. <code>Application</code> class indirectly depends on <code>DataCleaner</code>. Now, changes to <code>DataCleaner</code> or <code>BureauDataProvider</code> class may directly affect <code>Application</code> class.</p>
 <p>This is not a good situation. The higher level module should control the lower level module, not the other way around. Otherwise, changes in lower level classes would force changes on higher level classes and their consumers without adding any value.</p>
-
 <p>In addition to this, when higher level classes directly depend on lower level classes, it is very difficult to reuse higher level classes in different context.</p>
-
 <p>We can use Dependency Inversion Principle to address this issue. We first need to define the abstractions (interfaces) that higher level modules should work with then make the lower level modules implement them.</p>
-
-<figure>
-    <img src="/tutorials/solid-principles/6-dependency-inversion-principle/images/DIP.png" alt="" height="400" width="" />
-    <figcaption></figcaption>
-</figure>
-
+<!-- raw HTML omitted -->
 <p>Here is the revised example</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#66d9ef">namespace</span> Mortgage
 {
@@ -942,33 +920,29 @@
 
     }
 }
-</code></pre></div>
-<p>Now if we look at the <code>Application</code> class in <code>Mortgage</code> module, it depends on <code>IApplicationBureauDataProvider</code> interface which is defined in <code>Mortgage</code> module itself. So, <code>Application</code> class depends on the abstraction rather than the concrete implementation detail.</p>
-
+</code></pre></div><p>Now if we look at the <code>Application</code> class in <code>Mortgage</code> module, it depends on <code>IApplicationBureauDataProvider</code> interface which is defined in <code>Mortgage</code> module itself. So, <code>Application</code> class depends on the abstraction rather than the concrete implementation detail.</p>
 <p>The <code>BureauDataProvider</code> class in <code>BureauData</code> module implements <code>IApplicationBureauDataProvider</code> from <code>Mortgage</code> module. So, the detail implementation class implements(depends on) the abstraction forced by higher level module.</p>
-
 <p>Similarly, <code>BureauDataProvider</code> depends on <code>IDataCleaner</code> interface defined in <code>BureauData</code> module and <code>DataCleaner</code> class in <code>Utility</code> module is implementing <code>IDataCleaner</code> interface.</p>
-
 <p>As we can see, the advantage of this design is that the changes to <code>BureauDataProvider</code> cannot affect <code>Application</code> because <code>BureauDataProvider</code> implements <code>IApplicationBureauDataProvider</code> and it cannot change the contract. Also, we can easily reuse <code>Application</code> class with another bureau data provider as long as the new bureau data provider implements <code>IApplicationBureauDataProvider</code>.</p>
-
 
 <div class="notices note" ><p>It is not necessary that the interfaces higher level module depend on should be packaged in the same module. It can be in different module as long it is owned by the higher level module (i.e. changed only when needed for higher level module).</p>
 </div>
 
 
-
 <div class="notices tip" ><p>This principle is also referred to as <strong>Hollywood Principle</strong>. This is because <em>&ldquo;Don&rsquo;t call us, we will call you&rdquo;</em> phrase is used in Hollywood auditions and this is the communication pattern we achieve with Dependency Inversion Principle.</p>
 </div>
 
-
 <h3 id="references">References</h3>
-
 <ol>
-<li><p><a href="https://en.wikipedia.org/wiki/Dependency_inversion_principle">https://en.wikipedia.org/wiki/Dependency_inversion_principle</a></p></li>
-
-<li><p>Chapter 11, Agile Principles, Patterns, and Practices in C# by Robert C. Martin; Micah Martin</p></li>
-
-<li><p><a href="https://en.wiktionary.org/wiki/Hollywood_principle">https://en.wiktionary.org/wiki/Hollywood_principle</a></p></li>
+<li>
+<p><a href="https://en.wikipedia.org/wiki/Dependency_inversion_principle">https://en.wikipedia.org/wiki/Dependency_inversion_principle</a></p>
+</li>
+<li>
+<p>Chapter 11, Agile Principles, Patterns, and Practices in C# by Robert C. Martin; Micah Martin</p>
+</li>
+<li>
+<p><a href="https://en.wiktionary.org/wiki/Hollywood_principle">https://en.wiktionary.org/wiki/Hollywood_principle</a></p>
+</li>
 </ol>
 
 
@@ -2012,30 +1986,30 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1569361479"></script>
-    <script src="/js/perfect-scrollbar.min.js?1569361479"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1569361479"></script>
-    <script src="/js/jquery.sticky.js?1569361479"></script>
-    <script src="/js/featherlight.min.js?1569361479"></script>
-    <script src="/js/highlight.pack.js?1569361479"></script>
+    <script src="/js/clipboard.min.js?1611527256"></script>
+    <script src="/js/perfect-scrollbar.min.js?1611527256"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1611527256"></script>
+    <script src="/js/jquery.sticky.js?1611527256"></script>
+    <script src="/js/featherlight.min.js?1611527256"></script>
+    <script src="/js/highlight.pack.js?1611527256"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1569361479"></script>
-    <script src="/js/learn.js?1569361479"></script>
-    <script src="/js/hugo-learn.js?1569361479"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1611527256"></script>
+    <script src="/js/learn.js?1611527256"></script>
+    <script src="/js/hugo-learn.js?1611527256"></script>
 
-    <link href="/mermaid/mermaid.css?1569361479" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1569361479"></script>
+    <link href="/mermaid/mermaid.css?1611527256" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1611527256"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
     
 
 
-<div id="body"> 
+<div id="body" style="margin-top: auto;"> 
 
     <div class="custom-footer">
         <div class="copy">
-            &copy; 2014 - 2019 Kodebot Limited. All Rights Reserved.<br>
+            &copy; Copyright 2021, Kodebot.<br>
         </div>
         <div class="license">
             All content on this website is licensed under the <a href="http://creativecommons.org/licenses/by-sa/3.0/">
@@ -2053,7 +2027,7 @@
             up to date or complete. Any use or reliance on any content or materials published, mentioned or linked here
             is
             at your own risk and
-            the Kodebot Limited and author/authors accept no liability or responsibility for.
+            the Kodebot and author/authors accept no liability or responsibility for.
         </div>
     </div>
 

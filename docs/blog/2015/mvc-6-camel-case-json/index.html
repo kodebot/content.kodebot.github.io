@@ -5,7 +5,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="generator" content="Hugo 0.57.2" />
+  <meta name="generator" content="Hugo 0.80.0" />
   <meta name="description" content="">
 
 
@@ -13,24 +13,24 @@
   <title>MVC 6 Camel Case JSON - Kodebot</title>
 
   
-  <link href="/css/nucleus.css?1569361479" rel="stylesheet">
-  <link href="/css/fontawesome-all.min.css?1569361479"
+  <link href="/css/nucleus.css?1611527255" rel="stylesheet">
+  <link href="/css/fontawesome-all.min.css?1611527255"
     rel="stylesheet">
-  <link href="/css/hybrid.css?1569361479" rel="stylesheet">
-  <link href="/css/featherlight.min.css?1569361479" rel="stylesheet">
-  <link href="/css/perfect-scrollbar.min.css?1569361479"
+  <link href="/css/hybrid.css?1611527255" rel="stylesheet">
+  <link href="/css/featherlight.min.css?1611527255" rel="stylesheet">
+  <link href="/css/perfect-scrollbar.min.css?1611527255"
     rel="stylesheet">
-  <link href="/css/auto-complete.css?1569361479" rel="stylesheet">
-  <link href="/css/atom-one-dark-reasonable.css?1569361479"
+  <link href="/css/auto-complete.css?1611527255" rel="stylesheet">
+  <link href="/css/atom-one-dark-reasonable.css?1611527255"
     rel="stylesheet">
-  <link href="/css/theme.css?1569361479" rel="stylesheet">
-  <link href="/css/hugo-theme.css?1569361479" rel="stylesheet">
+  <link href="/css/theme.css?1611527255" rel="stylesheet">
+  <link href="/css/hugo-theme.css?1611527255" rel="stylesheet">
   
-  <link href="/css/theme-mine.css?1569361479"
+  <link href="/css/theme-mine.css?1611527255"
     rel="stylesheet">
   
 
-  <script src="/js/jquery-3.3.1.min.js?1569361479"></script>
+  <script src="/js/jquery-3.3.1.min.js?1611527255"></script>
 
   <style type="text/css">
     :root #header+#content>#left>#rlblock_left {
@@ -105,34 +105,6 @@
       <div>
         
         
-        <div id="top-bar">
-          
-
-
-          <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
-            <span class="links">
-              
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          <a href='/'>Kodebot</a> > <a href='/blog/'>Blog</a> > MVC 6 Camel Case JSON
-          
-          
-          
-          
-          
-          
-            </span>
-          </div>
-        </div>
-        
       </div>
       
       <div id="head-tags">
@@ -157,14 +129,9 @@
 
           
 
-<p>I am excited with all the new features that are coming with MVC 6. One of the main differences between MVC 6 and previous versions is that it doesn't have two different libraries and controllers for MVC and Web <!-- more -->API.&nbsp;</p>
-<p>The previous versions of Asp.Net MVC uses <a href="https://msdn.microsoft.com/en-us/library/system.web.script.serialization.javascriptserializer(v=vs.110).aspx" target="_blank">JavaScriptSerializer</a>&nbsp;for MVC controllers and <a href="http://www.newtonsoft.com/json" target="_blank">JSON.NET</a>&nbsp;for Web API controllers.</p>
-
-<p>This means, if you have an application which uses both MVC controllers and Web API controllers then you need to apply any custom JSON serialization configurations twice or you&nbsp;should&nbsp;replace <code>JavaScriptSerializer</code> with JSON.NET.</p>
-
-<p>Asp.Net MVC 6 uses <a href="http://www.newtonsoft.com/json" target="_blank">JSON.NET</a>&nbsp;by default for JSON serialization and because it doesn't use two different controller base classes for MVC and Web API, we apply any custom JSON&nbsp;settings once that will be used by MVC and Web API.</p>
-<p>We can apply these settings in ConfigureServices method when adding MVC service in the&nbsp;Startup class.</p>
-<p>Here is an example how we can change JSON output formatter to use camel case</p>
+<!-- raw HTML omitted -->
+<p>This means, if you have an application which uses both MVC controllers and Web API controllers then you need to apply any custom JSON serialization configurations twice or you should replace <code>JavaScriptSerializer</code> with JSON.NET.</p>
+<!-- raw HTML omitted -->
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#75715e">// Sample
 </span><span style="color:#75715e"></span> <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Startup</span>
     {
@@ -186,14 +153,7 @@
 				
         }
     }
-</code></pre></div>
-<p>In this example, I simply created JsonOutputFormatter with custom settings and added it as a first item in the output formatters list.</p>
-<p>You can also achieve the same result&nbsp;by any of the following approaches</p>
-<ol>
-<li>replace all&nbsp;existing JSON formatter with new custom formatter</li>
-<li>update existing JSON formatter with custom settings</li>
-</ol>
-<p>&nbsp;I am just using the easiest approach in this case.</p>
+</code></pre></div><!-- raw HTML omitted -->
 
 
 <footer class=" footline" >
@@ -1232,19 +1192,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1569361479"></script>
-    <script src="/js/perfect-scrollbar.min.js?1569361479"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1569361479"></script>
-    <script src="/js/jquery.sticky.js?1569361479"></script>
-    <script src="/js/featherlight.min.js?1569361479"></script>
-    <script src="/js/highlight.pack.js?1569361479"></script>
+    <script src="/js/clipboard.min.js?1611527255"></script>
+    <script src="/js/perfect-scrollbar.min.js?1611527255"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1611527255"></script>
+    <script src="/js/jquery.sticky.js?1611527255"></script>
+    <script src="/js/featherlight.min.js?1611527255"></script>
+    <script src="/js/highlight.pack.js?1611527255"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1569361479"></script>
-    <script src="/js/learn.js?1569361479"></script>
-    <script src="/js/hugo-learn.js?1569361479"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1611527255"></script>
+    <script src="/js/learn.js?1611527255"></script>
+    <script src="/js/hugo-learn.js?1611527255"></script>
 
-    <link href="/mermaid/mermaid.css?1569361479" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1569361479"></script>
+    <link href="/mermaid/mermaid.css?1611527255" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1611527255"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
@@ -1253,7 +1213,7 @@
 
     <div class="custom-footer">
         <div class="copy">
-            &copy; 2014 - 2019 Kodebot Limited. All Rights Reserved.<br>
+            &copy; Copyright 2021, Kodebot.<br>
         </div>
         <div class="license">
             All content on this website is licensed under the <a href="http://creativecommons.org/licenses/by-sa/3.0/">
@@ -1271,7 +1231,7 @@
             up to date or complete. Any use or reliance on any content or materials published, mentioned or linked here
             is
             at your own risk and
-            the Kodebot Limited and author/authors accept no liability or responsibility for.
+            the Kodebot and author/authors accept no liability or responsibility for.
         </div>
     </div>
 

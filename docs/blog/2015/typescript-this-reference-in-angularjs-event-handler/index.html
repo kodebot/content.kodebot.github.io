@@ -5,7 +5,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="generator" content="Hugo 0.57.2" />
+  <meta name="generator" content="Hugo 0.80.0" />
   <meta name="description" content="">
 
 
@@ -13,24 +13,24 @@
   <title>TypeScript - &#39;this&#39; reference in AngularJS event handler - Kodebot</title>
 
   
-  <link href="/css/nucleus.css?1569361479" rel="stylesheet">
-  <link href="/css/fontawesome-all.min.css?1569361479"
+  <link href="/css/nucleus.css?1611527255" rel="stylesheet">
+  <link href="/css/fontawesome-all.min.css?1611527255"
     rel="stylesheet">
-  <link href="/css/hybrid.css?1569361479" rel="stylesheet">
-  <link href="/css/featherlight.min.css?1569361479" rel="stylesheet">
-  <link href="/css/perfect-scrollbar.min.css?1569361479"
+  <link href="/css/hybrid.css?1611527255" rel="stylesheet">
+  <link href="/css/featherlight.min.css?1611527255" rel="stylesheet">
+  <link href="/css/perfect-scrollbar.min.css?1611527255"
     rel="stylesheet">
-  <link href="/css/auto-complete.css?1569361479" rel="stylesheet">
-  <link href="/css/atom-one-dark-reasonable.css?1569361479"
+  <link href="/css/auto-complete.css?1611527255" rel="stylesheet">
+  <link href="/css/atom-one-dark-reasonable.css?1611527255"
     rel="stylesheet">
-  <link href="/css/theme.css?1569361479" rel="stylesheet">
-  <link href="/css/hugo-theme.css?1569361479" rel="stylesheet">
+  <link href="/css/theme.css?1611527255" rel="stylesheet">
+  <link href="/css/hugo-theme.css?1611527255" rel="stylesheet">
   
-  <link href="/css/theme-mine.css?1569361479"
+  <link href="/css/theme-mine.css?1611527255"
     rel="stylesheet">
   
 
-  <script src="/js/jquery-3.3.1.min.js?1569361479"></script>
+  <script src="/js/jquery-3.3.1.min.js?1611527255"></script>
 
   <style type="text/css">
     :root #header+#content>#left>#rlblock_left {
@@ -105,34 +105,6 @@
       <div>
         
         
-        <div id="top-bar">
-          
-
-
-          <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
-            <span class="links">
-              
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          <a href='/'>Kodebot</a> > <a href='/blog/'>Blog</a> > TypeScript - 'this' reference in AngularJS event handler
-          
-          
-          
-          
-          
-          
-            </span>
-          </div>
-        </div>
-        
       </div>
       
       <div id="head-tags">
@@ -157,9 +129,7 @@
 
           
 
-<p>Let's have a look at how AngularJS 1.x controller is usually created in TypeScript before we go into details of how AngularJS event handler and how 'this' works in the AngularJS event handler context. </p>
-<p>TypeScript encourages to type anything and everything to take full advantages of the type system and tool supports we get when working with any strongly typed language.</p><!-- more -->
-<p>So, when using TypeScript with AngularJS 1.x, class is usually created to represent the implementation of the controllers. Here is an example of how this would look like</p>
+<!-- raw HTML omitted -->
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ts" data-lang="ts"><span style="color:#75715e">// Controller using class
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">module</span> <span style="color:#a6e22e">App.Home</span> {
 
@@ -179,16 +149,11 @@
 
     <span style="color:#a6e22e">angular</span>.<span style="color:#a6e22e">module</span>(<span style="color:#e6db74">&#34;app&#34;</span>)
         .<span style="color:#a6e22e">controller</span>(<span style="color:#e6db74">&#34;homeController&#34;</span>, <span style="color:#a6e22e">HomeController</span>);
-}</code></pre></div>
-<p>In this example, an interface called <code>IHomeViewModel</code> is created to represent the public members of the controller and a class <code>HomeController</code> is created which implements the interface.</p></p>
-
+}
+</code></pre></div><p>In this example, an interface called <code>IHomeViewModel</code> is created to represent the public members of the controller and a class <code>HomeController</code> is created which implements the interface.<!-- raw HTML omitted --></p>
 <p>Dependencies are injected using static <code>$inject</code> member and injected dependencies are declared as private members.</p>
-
-<p>Finally, the controller is created using Angular module's controller method which takes name of the controller and constructor function (in this case, class) which represents the controller's implementation as parameters. </p>
-
-<p>In AngularJS 1.x, events are one of the communication enablers among components. AngularJS itself raises various built in events and allows application to raise any custom events as well.</p>
-<p>We can add handlers to these events to do something useful when the events are raised.</p>
-
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <p>Here is an example of how we will add handler to Angular&rsquo;s <code>$routeChangeStart</code> event which is raised when route change is initiated</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ts" data-lang="ts"><span style="color:#75715e">// Event handlers
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">private</span> <span style="color:#a6e22e">hookEventHandlers</span>()<span style="color:#f92672">:</span><span style="color:#66d9ef">void</span> {
@@ -197,13 +162,11 @@
 
 <span style="color:#66d9ef">private</span> <span style="color:#a6e22e">onRouteChangeStart</span>()<span style="color:#f92672">:</span><span style="color:#66d9ef">void</span> {
         <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">title</span>);
-}</code></pre></div>
-<p>The hookEventHandlers method is called from the constructor of the controller which adds handler to <code>$routeChangeStart</code> event and the handler simply logs <code>title</code> member of the class into console.</p>
-
+}
+</code></pre></div><p>The hookEventHandlers method is called from the constructor of the controller which adds handler to <code>$routeChangeStart</code> event and the handler simply logs <code>title</code> member of the class into console.</p>
 <p>When this method is run, you would expect it to show &lsquo;Welcome!!!&rsquo; in the console but it shows <code>undefined</code> instead.</p>
-
-<p>This is happening because the caller of the method is NOT the instance of the class where it is defined, so <code>this</code> doesn&rsquo;t have a member named <code>title</code>.
-<p>Fortunately, it is very easy to get around this problem in TypeScript using arrow function. Here is an example</p></p>
+<p>This is happening because the caller of the method is NOT the instance of the class where it is defined, so <code>this</code> doesn&rsquo;t have a member named <code>title</code>.</p>
+<!-- raw HTML omitted -->
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ts" data-lang="ts"><span style="color:#75715e">// Event handler using arrow function
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">private</span> <span style="color:#a6e22e">hookEventHandlers</span>()<span style="color:#f92672">:</span> <span style="color:#66d9ef">void</span> {
         <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">$rootScope</span>.<span style="color:#a6e22e">$on</span>(<span style="color:#e6db74">&#34;$routeChangeStart&#34;</span>,() <span style="color:#f92672">=&gt;</span> {
@@ -213,13 +176,11 @@
 
 <span style="color:#66d9ef">private</span> <span style="color:#a6e22e">onRouteChangeStart</span>()<span style="color:#f92672">:</span> <span style="color:#66d9ef">void</span> {
         <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">title</span>);
-}</code></pre></div>
-<p>Now, when this function is executed, 'Welcome!!!' is printed in the console window as expected.</p>
-
+}
+</code></pre></div><!-- raw HTML omitted -->
 <p>In this example, we have changed our event handler to be arrow function and the arrow function invokes <code>onRouteChangeStart</code> using call function and passing current instance of the class where it is defined as <code>this</code> reference.</p>
-
-<p>But, how does arrow function has correct reference of <code>this</code>? When arrow function is created, <code>this</code> is lexically bound to the location where it is created. In this case, arrow function is created inside the member of a class where <code>this</code> represents the current instance of the class. So <code>this</code> reference inside the arrow function also represents the current instance of the class where it is created. That&rsquo;s it :)
-<p>Full code example here,</p></p>
+<p>But, how does arrow function has correct reference of <code>this</code>? When arrow function is created, <code>this</code> is lexically bound to the location where it is created. In this case, arrow function is created inside the member of a class where <code>this</code> represents the current instance of the class. So <code>this</code> reference inside the arrow function also represents the current instance of the class where it is created. That&rsquo;s it :)</p>
+<!-- raw HTML omitted -->
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ts" data-lang="ts"><span style="color:#75715e">// Full code example
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">module</span> <span style="color:#a6e22e">App.Home</span> {
 
@@ -251,7 +212,8 @@
 
     <span style="color:#a6e22e">angular</span>.<span style="color:#a6e22e">module</span>(<span style="color:#e6db74">&#34;app&#34;</span>)
         .<span style="color:#a6e22e">controller</span>(<span style="color:#e6db74">&#34;homeController&#34;</span>, <span style="color:#a6e22e">HomeController</span>);
-}</code></pre></div>
+}
+</code></pre></div>
 
 <footer class=" footline" >
 	
@@ -1289,19 +1251,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1569361479"></script>
-    <script src="/js/perfect-scrollbar.min.js?1569361479"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1569361479"></script>
-    <script src="/js/jquery.sticky.js?1569361479"></script>
-    <script src="/js/featherlight.min.js?1569361479"></script>
-    <script src="/js/highlight.pack.js?1569361479"></script>
+    <script src="/js/clipboard.min.js?1611527255"></script>
+    <script src="/js/perfect-scrollbar.min.js?1611527255"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1611527255"></script>
+    <script src="/js/jquery.sticky.js?1611527255"></script>
+    <script src="/js/featherlight.min.js?1611527255"></script>
+    <script src="/js/highlight.pack.js?1611527255"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1569361479"></script>
-    <script src="/js/learn.js?1569361479"></script>
-    <script src="/js/hugo-learn.js?1569361479"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1611527255"></script>
+    <script src="/js/learn.js?1611527255"></script>
+    <script src="/js/hugo-learn.js?1611527255"></script>
 
-    <link href="/mermaid/mermaid.css?1569361479" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1569361479"></script>
+    <link href="/mermaid/mermaid.css?1611527255" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1611527255"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
@@ -1310,7 +1272,7 @@
 
     <div class="custom-footer">
         <div class="copy">
-            &copy; 2014 - 2019 Kodebot Limited. All Rights Reserved.<br>
+            &copy; Copyright 2021, Kodebot.<br>
         </div>
         <div class="license">
             All content on this website is licensed under the <a href="http://creativecommons.org/licenses/by-sa/3.0/">
@@ -1328,7 +1290,7 @@
             up to date or complete. Any use or reliance on any content or materials published, mentioned or linked here
             is
             at your own risk and
-            the Kodebot Limited and author/authors accept no liability or responsibility for.
+            the Kodebot and author/authors accept no liability or responsibility for.
         </div>
     </div>
 

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Introduction on Kodebot</title>
@@ -6,11 +6,7 @@
     <description>Recent content in Introduction on Kodebot</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-GB</language>
-    <lastBuildDate>Fri, 22 Feb 2019 10:25:49 +0000</lastBuildDate>
-    
-	<atom:link href="https://kodebot.com/tutorials/automated-unit-testing-basics/1-introduction/feed.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Fri, 22 Feb 2019 10:25:49 +0000</lastBuildDate><atom:link href="https://kodebot.com/tutorials/automated-unit-testing-basics/1-introduction/feed.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>What is automated unit testing?</title>
       <link>https://kodebot.com/tutorials/automated-unit-testing-basics/1-introduction/1-what-is-automated-unit-testing/</link>
@@ -60,7 +56,8 @@ Each test we write should have the following qualities
       <guid>https://kodebot.com/tutorials/automated-unit-testing-basics/1-introduction/5-system-under-test/</guid>
       <description>The implementation of System Under Test (SUT) that are the target of our unit test can be one of the following
  direct implementation indirect implementation combination of the above  Direct implementation If a function or piece of code is direct implementation, then it will take zero or more inputs and provide some results or cause state change with very little or no dependencies.
-Examples of direct implementation</description>
+Examples of direct implementation
+ Functions that implement individual operations of a calculator program like addition, subtraction, etc&amp;hellip; Function that creates new student object Function that validates bank account number  Indirect implementation Normally a function or piece of code falls under this type when it gets something done via one or more of its dependencies rather than doing it on its own.</description>
     </item>
     
   </channel>

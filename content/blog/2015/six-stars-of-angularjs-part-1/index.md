@@ -6,6 +6,7 @@ lastmod: 2015-03-23T00:00:00+00:00
 tags: ["JavaScript", "AngularJS"]
 comments: true
 draft: false
+disableBreadcrumb: true
 ---
 
 <h2>Introduction</h2>

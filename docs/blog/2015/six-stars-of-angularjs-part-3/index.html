@@ -5,7 +5,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="generator" content="Hugo 0.57.2" />
+  <meta name="generator" content="Hugo 0.80.0" />
   <meta name="description" content="">
 
 
@@ -13,24 +13,24 @@
   <title>Six stars of AngularJS - Part 3 - Kodebot</title>
 
   
-  <link href="/css/nucleus.css?1569361479" rel="stylesheet">
-  <link href="/css/fontawesome-all.min.css?1569361479"
+  <link href="/css/nucleus.css?1611527255" rel="stylesheet">
+  <link href="/css/fontawesome-all.min.css?1611527255"
     rel="stylesheet">
-  <link href="/css/hybrid.css?1569361479" rel="stylesheet">
-  <link href="/css/featherlight.min.css?1569361479" rel="stylesheet">
-  <link href="/css/perfect-scrollbar.min.css?1569361479"
+  <link href="/css/hybrid.css?1611527255" rel="stylesheet">
+  <link href="/css/featherlight.min.css?1611527255" rel="stylesheet">
+  <link href="/css/perfect-scrollbar.min.css?1611527255"
     rel="stylesheet">
-  <link href="/css/auto-complete.css?1569361479" rel="stylesheet">
-  <link href="/css/atom-one-dark-reasonable.css?1569361479"
+  <link href="/css/auto-complete.css?1611527255" rel="stylesheet">
+  <link href="/css/atom-one-dark-reasonable.css?1611527255"
     rel="stylesheet">
-  <link href="/css/theme.css?1569361479" rel="stylesheet">
-  <link href="/css/hugo-theme.css?1569361479" rel="stylesheet">
+  <link href="/css/theme.css?1611527255" rel="stylesheet">
+  <link href="/css/hugo-theme.css?1611527255" rel="stylesheet">
   
-  <link href="/css/theme-mine.css?1569361479"
+  <link href="/css/theme-mine.css?1611527255"
     rel="stylesheet">
   
 
-  <script src="/js/jquery-3.3.1.min.js?1569361479"></script>
+  <script src="/js/jquery-3.3.1.min.js?1611527255"></script>
 
   <style type="text/css">
     :root #header+#content>#left>#rlblock_left {
@@ -105,34 +105,6 @@
       <div>
         
         
-        <div id="top-bar">
-          
-
-
-          <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
-            <span class="links">
-              
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          <a href='/'>Kodebot</a> > <a href='/blog/'>Blog</a> > Six stars of AngularJS - Part 3
-          
-          
-          
-          
-          
-          
-            </span>
-          </div>
-        </div>
-        
       </div>
       
       <div id="head-tags">
@@ -157,10 +129,7 @@
 
           
 
-<p>In part <a href="../six-stars-of-angularjs-part-1" target="_blank">1</a>&nbsp;and <a href="../six-stars-of-angularjs-part-2" target="_blank">2</a>&nbsp;of this series, we have seen five different ways to create a service in angular.</p><!-- more -->
-<p>The last one we are going to look at in this series is 'decorate' function of $provide service.</p>
-<h2>Decorator</h2>
-<p>The decorate function is NOT used to create a service, instead, this is used to decorate or replace an existing service. Let's look at this function with an example</p>
+<!-- raw HTML omitted -->
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// sample 1
 </span><span style="color:#75715e"></span><span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">factory</span>(<span style="color:#e6db74">&#39;movieService&#39;</span>, <span style="color:#a6e22e">movieService</span>);
 
@@ -173,9 +142,7 @@
             <span style="color:#66d9ef">return</span> [<span style="color:#e6db74">&#39;engMovie1&#39;</span>, <span style="color:#e6db74">&#39;engMovie2&#39;</span>, <span style="color:#e6db74">&#39;engMovie3&#39;</span>];
         }
     }
-</code></pre></div>
-<p>In this example, we have movieService which exposes a function to get all the movies. Now, Let's create a decorator for this service to change the behavior of getAllMovies to return only the first 2 items.</p>
-<p>The following is a decorator created for <code>movieService</code></p>
+</code></pre></div><!-- raw HTML omitted -->
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// sample 2
 </span><span style="color:#75715e"></span> <span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">config</span>(<span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">$provide</span>) {
         <span style="color:#a6e22e">$provide</span>.<span style="color:#a6e22e">decorator</span>(<span style="color:#e6db74">&#39;movieService&#39;</span>, <span style="color:#a6e22e">movieServiceDecorator</span>);
@@ -192,13 +159,7 @@
 
         }
     });
-</code></pre></div>
-<p>Note: decorate function is not available to invoke from module.</p>
-<p>The first parameter of the decorate function is the name of the service we want to decorate with and second parameter is the decorator function.</p>
-<p>The decorator is invoked using <code>$injector</code> so, we can annotate dependencies as we do with any other services. The <code>$delegate</code> is one of the special dependencies we can use with decorator. It provides the original instance of a service so that we can decorate or replace it in whole or parts of it.</p>
-<p>If you look at the code, all we have done is replaced getAllMovies with a new function and the new function makes use of the original function to get full result and slices it with two results. Finally, we are returning the modified service.</p>
-<p>Under the hood, when <code>$injector</code> creates an instance of a service, it calls any decorators in the order they were defined and stores the decorated instance in the instance cache.</p>
-<p>We can use decorator to override any service which is not in our control.</p>
+</code></pre></div><!-- raw HTML omitted -->
 
 
 <footer class=" footline" >
@@ -1237,19 +1198,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1569361479"></script>
-    <script src="/js/perfect-scrollbar.min.js?1569361479"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1569361479"></script>
-    <script src="/js/jquery.sticky.js?1569361479"></script>
-    <script src="/js/featherlight.min.js?1569361479"></script>
-    <script src="/js/highlight.pack.js?1569361479"></script>
+    <script src="/js/clipboard.min.js?1611527255"></script>
+    <script src="/js/perfect-scrollbar.min.js?1611527255"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1611527255"></script>
+    <script src="/js/jquery.sticky.js?1611527255"></script>
+    <script src="/js/featherlight.min.js?1611527255"></script>
+    <script src="/js/highlight.pack.js?1611527255"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1569361479"></script>
-    <script src="/js/learn.js?1569361479"></script>
-    <script src="/js/hugo-learn.js?1569361479"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1611527255"></script>
+    <script src="/js/learn.js?1611527255"></script>
+    <script src="/js/hugo-learn.js?1611527255"></script>
 
-    <link href="/mermaid/mermaid.css?1569361479" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1569361479"></script>
+    <link href="/mermaid/mermaid.css?1611527255" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1611527255"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
@@ -1258,7 +1219,7 @@
 
     <div class="custom-footer">
         <div class="copy">
-            &copy; 2014 - 2019 Kodebot Limited. All Rights Reserved.<br>
+            &copy; Copyright 2021, Kodebot.<br>
         </div>
         <div class="license">
             All content on this website is licensed under the <a href="http://creativecommons.org/licenses/by-sa/3.0/">
@@ -1276,7 +1237,7 @@
             up to date or complete. Any use or reliance on any content or materials published, mentioned or linked here
             is
             at your own risk and
-            the Kodebot Limited and author/authors accept no liability or responsibility for.
+            the Kodebot and author/authors accept no liability or responsibility for.
         </div>
     </div>
 

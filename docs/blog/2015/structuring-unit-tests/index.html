@@ -5,7 +5,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="generator" content="Hugo 0.57.2" />
+  <meta name="generator" content="Hugo 0.80.0" />
   <meta name="description" content="">
 
 
@@ -13,24 +13,24 @@
   <title>Strucuring unit tests - Kodebot</title>
 
   
-  <link href="/css/nucleus.css?1569361479" rel="stylesheet">
-  <link href="/css/fontawesome-all.min.css?1569361479"
+  <link href="/css/nucleus.css?1611527255" rel="stylesheet">
+  <link href="/css/fontawesome-all.min.css?1611527255"
     rel="stylesheet">
-  <link href="/css/hybrid.css?1569361479" rel="stylesheet">
-  <link href="/css/featherlight.min.css?1569361479" rel="stylesheet">
-  <link href="/css/perfect-scrollbar.min.css?1569361479"
+  <link href="/css/hybrid.css?1611527255" rel="stylesheet">
+  <link href="/css/featherlight.min.css?1611527255" rel="stylesheet">
+  <link href="/css/perfect-scrollbar.min.css?1611527255"
     rel="stylesheet">
-  <link href="/css/auto-complete.css?1569361479" rel="stylesheet">
-  <link href="/css/atom-one-dark-reasonable.css?1569361479"
+  <link href="/css/auto-complete.css?1611527255" rel="stylesheet">
+  <link href="/css/atom-one-dark-reasonable.css?1611527255"
     rel="stylesheet">
-  <link href="/css/theme.css?1569361479" rel="stylesheet">
-  <link href="/css/hugo-theme.css?1569361479" rel="stylesheet">
+  <link href="/css/theme.css?1611527255" rel="stylesheet">
+  <link href="/css/hugo-theme.css?1611527255" rel="stylesheet">
   
-  <link href="/css/theme-mine.css?1569361479"
+  <link href="/css/theme-mine.css?1611527255"
     rel="stylesheet">
   
 
-  <script src="/js/jquery-3.3.1.min.js?1569361479"></script>
+  <script src="/js/jquery-3.3.1.min.js?1611527255"></script>
 
   <style type="text/css">
     :root #header+#content>#left>#rlblock_left {
@@ -105,34 +105,6 @@
       <div>
         
         
-        <div id="top-bar">
-          
-
-
-          <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
-            <span class="links">
-              
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          <a href='/'>Kodebot</a> > <a href='/blog/'>Blog</a> > Strucuring unit tests
-          
-          
-          
-          
-          
-          
-            </span>
-          </div>
-        </div>
-        
       </div>
       
       <div id="head-tags">
@@ -157,9 +129,7 @@
 
           
 
-<p>I have been following the same unit test structure that Phil Haack described <a href="http://haacked.com/archive/2012/01/02/structuring-unit-tests.aspx/" target="_blank">here</a>. &nbsp;But, I use slightly different version when my tests need too many repeated test setups and cleanups.&nbsp;</p><!-- more -->
-<p>I like <a href="http://jasmine.github.io/" target="_blank">jasmine</a>&nbsp;mainly because it allows to keep the tests <a href="http://en.wikipedia.org/wiki/Don%27t_repeat_yourself" target="_blank">DRY</a>&nbsp;using nested structure. Ofcourse it is possible in jasmine because method nesting is allowed in JavaScript. I like to structure my C# test files the same way using nested classes&nbsp;without using any additional libraries</p>
-<p>For example, consider the following System Under Test class</p>
+<!-- raw HTML omitted -->
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs">    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">AddressValidator</span>
     {
         <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">bool</span> IsValid(IList&lt;<span style="color:#66d9ef">string</span>&gt; addressLines)
@@ -194,8 +164,7 @@
         }
         
     }
-</code></pre></div>
-<p>The test class for this System Under Test looks like this</p>
+</code></pre></div><!-- raw HTML omitted -->
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#a6e22e">    [TestClass]</span>
     <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">AddressVaidatorTests</span>
     {
@@ -291,17 +260,9 @@
 </span><span style="color:#75715e"></span>        }
 
     }
-</code></pre></div>
-<p>So, the first improvement is creating nested test classes for each scenario. This allows us&nbsp;to create test inputs applicable for the current scenario only once regarless of the number of tests defined in the scenario.&nbsp;</p>
-<p>Next one is keeping <code>TestSetup()</code> and <code>TestCleanup()</code> virtual so that we can add additional setups/cleanups by chaining method calls using base keyword. This also allows us to completly replace the setup/cleanup if it is required for any special cases by overriding the methods without chaining.&nbsp;</p>
-<p>One of the additional benefit of this structuring is that when you group tests by class in the Test Explorer, the tests are nicely arranged&nbsp;like this</p>
-
-<figure>
-    <img src="/blog/2015/structuring-unit-tests/images/test-explorer.png" alt="" height="" width="" />
-    <figcaption></figcaption>
-</figure>
-
-<p>&nbsp;</p>
+</code></pre></div><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 
 
 <footer class=" footline" >
@@ -1340,19 +1301,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1569361479"></script>
-    <script src="/js/perfect-scrollbar.min.js?1569361479"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1569361479"></script>
-    <script src="/js/jquery.sticky.js?1569361479"></script>
-    <script src="/js/featherlight.min.js?1569361479"></script>
-    <script src="/js/highlight.pack.js?1569361479"></script>
+    <script src="/js/clipboard.min.js?1611527255"></script>
+    <script src="/js/perfect-scrollbar.min.js?1611527255"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1611527255"></script>
+    <script src="/js/jquery.sticky.js?1611527255"></script>
+    <script src="/js/featherlight.min.js?1611527255"></script>
+    <script src="/js/highlight.pack.js?1611527255"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1569361479"></script>
-    <script src="/js/learn.js?1569361479"></script>
-    <script src="/js/hugo-learn.js?1569361479"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1611527255"></script>
+    <script src="/js/learn.js?1611527255"></script>
+    <script src="/js/hugo-learn.js?1611527255"></script>
 
-    <link href="/mermaid/mermaid.css?1569361479" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1569361479"></script>
+    <link href="/mermaid/mermaid.css?1611527255" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1611527255"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
@@ -1361,7 +1322,7 @@
 
     <div class="custom-footer">
         <div class="copy">
-            &copy; 2014 - 2019 Kodebot Limited. All Rights Reserved.<br>
+            &copy; Copyright 2021, Kodebot.<br>
         </div>
         <div class="license">
             All content on this website is licensed under the <a href="http://creativecommons.org/licenses/by-sa/3.0/">
@@ -1379,7 +1340,7 @@
             up to date or complete. Any use or reliance on any content or materials published, mentioned or linked here
             is
             at your own risk and
-            the Kodebot Limited and author/authors accept no liability or responsibility for.
+            the Kodebot and author/authors accept no liability or responsibility for.
         </div>
     </div>
 

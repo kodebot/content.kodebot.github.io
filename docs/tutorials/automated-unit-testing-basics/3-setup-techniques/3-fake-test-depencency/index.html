@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.57.2" />
+    <meta name="generator" content="Hugo 0.80.0" />
     <meta name="description" content="">
 
 
@@ -11,20 +11,20 @@
     <title>Fake test dependency :: Kodebot</title>
 
     
-    <link href="/css/nucleus.css?1569361479" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1569361479" rel="stylesheet">
-    <link href="/css/hybrid.css?1569361479" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1569361479" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1569361479" rel="stylesheet">
-    <link href="/css/auto-complete.css?1569361479" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1569361479" rel="stylesheet">
-    <link href="/css/theme.css?1569361479" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1569361479" rel="stylesheet">
+    <link href="/css/nucleus.css?1611527255" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1611527255" rel="stylesheet">
+    <link href="/css/hybrid.css?1611527255" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1611527255" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1611527255" rel="stylesheet">
+    <link href="/css/auto-complete.css?1611527255" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1611527255" rel="stylesheet">
+    <link href="/css/theme.css?1611527255" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1611527255" rel="stylesheet">
     
-      <link href="/css/theme-mine.css?1569361479" rel="stylesheet">
+      <link href="/css/theme-mine.css?1611527255" rel="stylesheet">
     
 
-    <script src="/js/jquery-3.3.1.min.js?1569361479"></script>
+    <script src="/js/jquery-3.3.1.min.js?1611527255"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -55,14 +55,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1569361479"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1569361479"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1611527255"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1611527255"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/kodebot.com\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1569361479"></script>
+<script type="text/javascript" src="/js/search.js?1611527255"></script>
 
     
   </div>
@@ -724,7 +724,7 @@
     
     <section id="footer">
       
-&copy; 2014 - 2019 Kodebot Limited.
+&copy; Copyright 2021, Kodebot.
     </section>
   </div>
 </nav>
@@ -789,7 +789,7 @@
                 
                     <div class="progress">
     <div class="wrapper">
-
+<nav id="TableOfContents"></nav>
     </div>
 </div>
 
@@ -814,45 +814,29 @@
 
 
 <p>It is very common that the SUT depends on something else. The dependency could be anything like another function, object or external system and we may not be able to control their behavior all the time. A good unit test should not be affected by the changes in the dependencies of SUT.</p>
-
 <p>So, a common technique is to replace the dependencies with fake versions that we can control.</p>
-
-<figure>
-    <img src="/tutorials/automated-unit-testing-basics/3-setup-techniques/3-fake-test-depencency/images/fake-dependency.png" alt="" height="350" width="" />
-    <figcaption></figcaption>
-</figure>
-
+<!-- raw HTML omitted -->
 <p>For example, consider a function that takes age of the passenger and prints whether he/she is eligible for senior citizen discount when promotion is available.</p>
-
 <p>The function which tells whether the promotion is available or not is defined in another module and we don&rsquo;t have control over its behavior</p>
-
 <pre><code>module promotions
     function isPromotionsAvailable():
         .
         .
         .
-</code></pre>
-
-<pre><code>module discounts
+</code></pre><pre><code>module discounts
 
 function isDiscountAvailable(age):
     if promotions.isPromotionAvailable() &amp;&amp; age &gt; 60:
         print(&quot;discount available&quot;)
     else:
         print(&quot;discount not available&quot;)
-</code></pre>
-
-<p>However, in order to test all the branches and conditions of <code>isDiscountAvailable()</code> function, we need to be able to control the result of <code>isPromotionAvailable()</code> function. So, we first create fake version of <code>isPromotionAvailable()</code> function in <code>fakePromotions</code> module with an option for us to control the result</p>
-
+</code></pre><p>However, in order to test all the branches and conditions of <code>isDiscountAvailable()</code> function, we need to be able to control the result of <code>isPromotionAvailable()</code> function. So, we first create fake version of <code>isPromotionAvailable()</code> function in <code>fakePromotions</code> module with an option for us to control the result</p>
 <pre><code>module fakePromotions
     offerPromotion = true
 
     function isPromotionAvailable():
         return offerPromotion
-</code></pre>
-
-<p>then replace the promotion with fakePromotion inside the test</p>
-
+</code></pre><p>then replace the promotion with fakePromotion inside the test</p>
 <pre><code>function test_isDiscountAvailable():
     // arrange
     promotions  = fakePromotions  //replace promotions module with fakePromotions module
@@ -862,9 +846,7 @@ function isDiscountAvailable(age):
     // act
     result = discounts.isDiscountAvailable(age)
 
-</code></pre>
-
-<p>Depending on the language and framework we use, the way we replace the real dependency with fake one will be different.</p>
+</code></pre><p>Depending on the language and framework we use, the way we replace the real dependency with fake one will be different.</p>
 
 
 <footer class=" footline" >
@@ -1911,30 +1893,30 @@ function isDiscountAvailable(age):
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1569361479"></script>
-    <script src="/js/perfect-scrollbar.min.js?1569361479"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1569361479"></script>
-    <script src="/js/jquery.sticky.js?1569361479"></script>
-    <script src="/js/featherlight.min.js?1569361479"></script>
-    <script src="/js/highlight.pack.js?1569361479"></script>
+    <script src="/js/clipboard.min.js?1611527255"></script>
+    <script src="/js/perfect-scrollbar.min.js?1611527255"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1611527255"></script>
+    <script src="/js/jquery.sticky.js?1611527255"></script>
+    <script src="/js/featherlight.min.js?1611527255"></script>
+    <script src="/js/highlight.pack.js?1611527255"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1569361479"></script>
-    <script src="/js/learn.js?1569361479"></script>
-    <script src="/js/hugo-learn.js?1569361479"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1611527255"></script>
+    <script src="/js/learn.js?1611527255"></script>
+    <script src="/js/hugo-learn.js?1611527255"></script>
 
-    <link href="/mermaid/mermaid.css?1569361479" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1569361479"></script>
+    <link href="/mermaid/mermaid.css?1611527255" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1611527255"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
     
 
 
-<div id="body"> 
+<div id="body" style="margin-top: auto;"> 
 
     <div class="custom-footer">
         <div class="copy">
-            &copy; 2014 - 2019 Kodebot Limited. All Rights Reserved.<br>
+            &copy; Copyright 2021, Kodebot.<br>
         </div>
         <div class="license">
             All content on this website is licensed under the <a href="http://creativecommons.org/licenses/by-sa/3.0/">
@@ -1952,7 +1934,7 @@ function isDiscountAvailable(age):
             up to date or complete. Any use or reliance on any content or materials published, mentioned or linked here
             is
             at your own risk and
-            the Kodebot Limited and author/authors accept no liability or responsibility for.
+            the Kodebot and author/authors accept no liability or responsibility for.
         </div>
     </div>
 

@@ -6,6 +6,7 @@ lastmod: 2015-03-16T00:00:00+00:00
 tags: ["Unit Testing", "JavaScript", "AngularJS"]
 comments: true
 draft: false
+disableBreadcrumb: true
 ---
 
 <p>Promises are very useful to develope non-blocking web applications and it also helps to avoid <a href="http://calculist.org/blog/2011/12/14/why-coroutines-wont-work-on-the-web/" target="_blank">pyramid of doom</a>.</p>

@@ -3,6 +3,7 @@ languageCode = "en-GB"
 title = "Kodebot"
 theme = "hugo-theme-learn"
 publishDir = "docs"
+enableEmoji = true
 
 pygmentsCodeFences= true
 

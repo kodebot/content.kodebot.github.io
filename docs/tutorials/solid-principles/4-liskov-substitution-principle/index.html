@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.57.2" />
+    <meta name="generator" content="Hugo 0.80.0" />
     <meta name="description" content="">
 
 
@@ -11,20 +11,20 @@
     <title>Liskov Substitution Principle :: Kodebot</title>
 
     
-    <link href="/css/nucleus.css?1569361479" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1569361479" rel="stylesheet">
-    <link href="/css/hybrid.css?1569361479" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1569361479" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1569361479" rel="stylesheet">
-    <link href="/css/auto-complete.css?1569361479" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1569361479" rel="stylesheet">
-    <link href="/css/theme.css?1569361479" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1569361479" rel="stylesheet">
+    <link href="/css/nucleus.css?1611527255" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1611527255" rel="stylesheet">
+    <link href="/css/hybrid.css?1611527255" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1611527255" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1611527255" rel="stylesheet">
+    <link href="/css/auto-complete.css?1611527255" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1611527255" rel="stylesheet">
+    <link href="/css/theme.css?1611527255" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1611527255" rel="stylesheet">
     
-      <link href="/css/theme-mine.css?1569361479" rel="stylesheet">
+      <link href="/css/theme-mine.css?1611527255" rel="stylesheet">
     
 
-    <script src="/js/jquery-3.3.1.min.js?1569361479"></script>
+    <script src="/js/jquery-3.3.1.min.js?1611527255"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -55,14 +55,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1569361479"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1569361479"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1611527255"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1611527255"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/kodebot.com\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1569361479"></script>
+<script type="text/javascript" src="/js/search.js?1611527255"></script>
 
     
   </div>
@@ -724,7 +724,7 @@
     
     <section id="footer">
       
-&copy; 2014 - 2019 Kodebot Limited.
+&copy; Copyright 2021, Kodebot.
     </section>
   </div>
 </nav>
@@ -784,24 +784,14 @@
                     <div class="progress">
     <div class="wrapper">
 <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#no-new-exception">No new exception</a></li>
-<li><a href="#covariance-of-return-type-and-contravariance-of-arguments-in-subtype-methods">Covariance of return type and Contravariance of arguments in subtype methods</a></li>
-<li><a href="#no-strengthening-of-preconditions">No strengthening of Preconditions</a></li>
-<li><a href="#no-weakening-postconditions">No weakening Postconditions</a></li>
-<li><a href="#preserve-invariants">Preserve Invariants</a></li>
-<li><a href="#history-constraint">History constraint</a></li>
-</ul></li>
-<li><a href="#references">References</a></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li>
+      <ul>
+        <li></li>
+        <li><a href="#references">References</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
     </div>
 </div>
@@ -826,10 +816,7 @@
 
 
 
-
-
-<hr />
-
+<hr>
 
 
 
@@ -845,19 +832,13 @@
     
   </a>
   
-
-<hr />
-
+<hr>
 <p>Liskov Substitution Principle(LSP) is about substitution of one object for another without affecting the program that uses those objects.</p>
-
 <p><a href="https://en.wikipedia.org/wiki/Barbara_Liskov">Barbara Liskov</a> introduced this principle and she says</p>
-
 <blockquote>
 <p>What is wanted here is something like the following substitution property: If for each object o1 of type S there is an object o2 of type T such that for all programs P defined in terms of T, the behaviour of P is unchanged when o1 is substituted for o2 then S is a subtype of T.</p>
 </blockquote>
-
 <p>Let&rsquo;s understand this with an example.</p>
-
 <p>Suppose we have a class <code>MusicPlayer</code> which allows users to play music</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MusicPlayer</span>
 {
@@ -866,8 +847,7 @@
         <span style="color:#75715e">// play song
 </span><span style="color:#75715e"></span>    }
 }
-</code></pre></div>
-<p>We have <code>TrialMusicPlayer</code> which is inherited from <code>MusicPlayer</code> class</p>
+</code></pre></div><p>We have <code>TrialMusicPlayer</code> which is inherited from <code>MusicPlayer</code> class</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TrialMusicPlayer</span> : MusicPlayer
 {
     <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">void</span> Play()
@@ -880,9 +860,7 @@
         <span style="color:#75715e">// play song
 </span><span style="color:#75715e"></span>    }
 }
-</code></pre></div>
-<p><code>TrialMusicPlayer</code> class overrides <code>Play()</code> method to allow playing only 5 songs a day.</p>
-
+</code></pre></div><p><code>TrialMusicPlayer</code> class overrides <code>Play()</code> method to allow playing only 5 songs a day.</p>
 <p>We have another class <code>PlayerWidget</code>.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">PlayerWidget</span>
 {
@@ -897,78 +875,50 @@
         _player.Play();
     }
 }
-</code></pre></div>
-<p>This class represents one of the user interfaces that user can use to control the music player and it simply delegates user requests to the <code>MusicPlayer</code>.</p>
-
-<figure>
-    <img src="/tutorials/solid-principles/4-liskov-substitution-principle/images/LSP.png" alt="" height="250" width="" />
-    <figcaption></figcaption>
-</figure>
-
+</code></pre></div><p>This class represents one of the user interfaces that user can use to control the music player and it simply delegates user requests to the <code>MusicPlayer</code>.</p>
+<!-- raw HTML omitted -->
 <p>The essence of Liskov Substitution Principle is that we should be able to use objects of derived type in place of objects of base type without altering the behaviour of the program that is using those objects, only then we can call the derived type as <strong>subtype</strong>.</p>
-
 <p>In this example, <code>TrialMusicPlayer</code> is not qualified to be subtype of <code>MusicPlayer</code> because, we cannot substitute the object of <code>TrialMusicPlayer</code> for the object of <code>MusicPlayer</code> without changing (or breaking) <code>PlayerWidget</code>. This is because <code>PlayerWidget</code> is not built to handle the new exception thrown by <code>TrialMusicPlayer</code> when more than 5 songs are played.</p>
-
 <p>There are many subtle ways in which we can break substitutability of objects.</p>
-
 <p>The following are the general rules to follow to avoid breaking substitutability</p>
-
 <h4 id="no-new-exception">No new exception</h4>
-
 <p>No new exception from any method in the subtype. However, we can throw new exception which is subtype of the exception thrown by base class. This is because the exception handler of a type will handle the exceptions of derived exception type as well.</p>
-
 <h4 id="covariance-of-return-type-and-contravariance-of-arguments-in-subtype-methods">Covariance of return type and Contravariance of arguments in subtype methods</h4>
-
 <p>Let&rsquo;s first understand what <strong>covariance</strong> and <strong>contravariance</strong> mean.</p>
-
 <p>Covariance and Contravariance come into picture when we are dealing with complex type with one or more independent type components in them. Generics is one such type so we use custom generic type <code>ISpecialList&lt;T&gt;</code> for our example.</p>
-
 <p>Let&rsquo;s say we have a base class <code>Person</code>. We have another class <code>Employee</code> which is derived from <code>Person</code>.</p>
-
 <p>In general, if can assign object of <code>Employee</code> to type <code>Person</code>, but assigning object of <code>Person</code> to type <code>Employee</code> is not allowed.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp">    Person p = <span style="color:#66d9ef">new</span> Employee(); <span style="color:#75715e">// OK
 </span><span style="color:#75715e"></span>    Employee e = <span style="color:#66d9ef">new</span> Person(); <span style="color:#75715e">// Compile time error
-</span></code></pre></div>
-<p>This is not true by default for generic types like <code>ISpecialList&lt;T&gt;</code>. We cannot assign object of <code>ISpecialList&lt;Employee&gt;</code> to type <code>ISpecialList&lt;Person&gt;</code> or vice versa.</p>
-
+</span></code></pre></div><p>This is not true by default for generic types like <code>ISpecialList&lt;T&gt;</code>. We cannot assign object of <code>ISpecialList&lt;Employee&gt;</code> to type <code>ISpecialList&lt;Person&gt;</code> or vice versa.</p>
 <p>However, we can allow these assignments to work using <em>variance</em>.</p>
-
 <p>If we allow assigning the object of <code>ISpecialList&lt;Employee&gt;</code> to type <code>ISpecialList&lt;Person&gt;</code> then we say <code>ISpecialList&lt;T&gt;</code> is <strong>covariant</strong></p>
-
 <p>If we allow assigning the object of <code>ISpecialList&lt;Person&gt;</code> to type <code>ISpecialList&lt;Employee&gt;</code> then we say <code>ISpecialList&lt;T&gt;</code> is <strong>contravariant</strong></p>
-
 <p>In order to avoid breaking substitutability, the method arguments must be contravariant and return type must be covariant in subtype.</p>
-
 
 <div class="notices tip" ><p>In C#, you can create covariant interface using <code>out</code> keyword and contravariant interface using <code>in</code> keyword. For example,
 <code>ISpecialList&lt;out T&gt;</code> is covariant and <code>ISpecialList&lt;in T&gt;</code> is contravariant.</p>
 </div>
 
-
 <h4 id="no-strengthening-of-preconditions">No strengthening of Preconditions</h4>
-
 <p>Preconditions are any validation that we perform before executing a method and it should not be strengthened in a subtype</p>
-
 <h4 id="no-weakening-postconditions">No weakening Postconditions</h4>
-
 <p>Postconditions are any validation that we perform after the method is executed and it should not be weakened in a subtype</p>
-
 <h4 id="preserve-invariants">Preserve Invariants</h4>
-
 <p>Invariant refers to properties or states that are preserved when the method is executed. Any such invariants of supertype must be preserved in a subtype</p>
-
 <h4 id="history-constraint">History constraint</h4>
-
 <p>Subtype should not introduce a new method that allows mutating state that is immutable in supertype</p>
-
 <h3 id="references">References</h3>
-
 <ol>
-<li><p><a href="https://en.wikipedia.org/wiki/Liskov_substitution_principle">https://en.wikipedia.org/wiki/Liskov_substitution_principle</a></p></li>
-
-<li><p><a href="https://www.hpl.hp.com/techreports/90/HPL-90-121.pdf">https://www.hpl.hp.com/techreports/90/HPL-90-121.pdf</a></p></li>
-
-<li><p><a href="https://en.wikipedia.org/wiki/Covariance_and_contravariance_(computer_science)">Covariance and Contravariance - Wikipedia</a></p></li>
+<li>
+<p><a href="https://en.wikipedia.org/wiki/Liskov_substitution_principle">https://en.wikipedia.org/wiki/Liskov_substitution_principle</a></p>
+</li>
+<li>
+<p><a href="https://www.hpl.hp.com/techreports/90/HPL-90-121.pdf">https://www.hpl.hp.com/techreports/90/HPL-90-121.pdf</a></p>
+</li>
+<li>
+<p><a href="https://en.wikipedia.org/wiki/Covariance_and_contravariance_(computer_science)">Covariance and Contravariance - Wikipedia</a></p>
+</li>
 </ol>
 
 
@@ -2015,30 +1965,30 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1569361479"></script>
-    <script src="/js/perfect-scrollbar.min.js?1569361479"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1569361479"></script>
-    <script src="/js/jquery.sticky.js?1569361479"></script>
-    <script src="/js/featherlight.min.js?1569361479"></script>
-    <script src="/js/highlight.pack.js?1569361479"></script>
+    <script src="/js/clipboard.min.js?1611527256"></script>
+    <script src="/js/perfect-scrollbar.min.js?1611527256"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1611527256"></script>
+    <script src="/js/jquery.sticky.js?1611527256"></script>
+    <script src="/js/featherlight.min.js?1611527256"></script>
+    <script src="/js/highlight.pack.js?1611527256"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1569361479"></script>
-    <script src="/js/learn.js?1569361479"></script>
-    <script src="/js/hugo-learn.js?1569361479"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1611527256"></script>
+    <script src="/js/learn.js?1611527256"></script>
+    <script src="/js/hugo-learn.js?1611527256"></script>
 
-    <link href="/mermaid/mermaid.css?1569361479" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1569361479"></script>
+    <link href="/mermaid/mermaid.css?1611527256" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1611527256"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
     
 
 
-<div id="body"> 
+<div id="body" style="margin-top: auto;"> 
 
     <div class="custom-footer">
         <div class="copy">
-            &copy; 2014 - 2019 Kodebot Limited. All Rights Reserved.<br>
+            &copy; Copyright 2021, Kodebot.<br>
         </div>
         <div class="license">
             All content on this website is licensed under the <a href="http://creativecommons.org/licenses/by-sa/3.0/">
@@ -2056,7 +2006,7 @@
             up to date or complete. Any use or reliance on any content or materials published, mentioned or linked here
             is
             at your own risk and
-            the Kodebot Limited and author/authors accept no liability or responsibility for.
+            the Kodebot and author/authors accept no liability or responsibility for.
         </div>
     </div>
 

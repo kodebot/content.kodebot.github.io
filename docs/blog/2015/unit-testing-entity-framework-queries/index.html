@@ -5,7 +5,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="generator" content="Hugo 0.57.2" />
+  <meta name="generator" content="Hugo 0.80.0" />
   <meta name="description" content="">
 
 
@@ -13,24 +13,24 @@
   <title>Unit Testing Entity Framework Queries - Kodebot</title>
 
   
-  <link href="/css/nucleus.css?1569361479" rel="stylesheet">
-  <link href="/css/fontawesome-all.min.css?1569361479"
+  <link href="/css/nucleus.css?1611527255" rel="stylesheet">
+  <link href="/css/fontawesome-all.min.css?1611527255"
     rel="stylesheet">
-  <link href="/css/hybrid.css?1569361479" rel="stylesheet">
-  <link href="/css/featherlight.min.css?1569361479" rel="stylesheet">
-  <link href="/css/perfect-scrollbar.min.css?1569361479"
+  <link href="/css/hybrid.css?1611527255" rel="stylesheet">
+  <link href="/css/featherlight.min.css?1611527255" rel="stylesheet">
+  <link href="/css/perfect-scrollbar.min.css?1611527255"
     rel="stylesheet">
-  <link href="/css/auto-complete.css?1569361479" rel="stylesheet">
-  <link href="/css/atom-one-dark-reasonable.css?1569361479"
+  <link href="/css/auto-complete.css?1611527255" rel="stylesheet">
+  <link href="/css/atom-one-dark-reasonable.css?1611527255"
     rel="stylesheet">
-  <link href="/css/theme.css?1569361479" rel="stylesheet">
-  <link href="/css/hugo-theme.css?1569361479" rel="stylesheet">
+  <link href="/css/theme.css?1611527255" rel="stylesheet">
+  <link href="/css/hugo-theme.css?1611527255" rel="stylesheet">
   
-  <link href="/css/theme-mine.css?1569361479"
+  <link href="/css/theme-mine.css?1611527255"
     rel="stylesheet">
   
 
-  <script src="/js/jquery-3.3.1.min.js?1569361479"></script>
+  <script src="/js/jquery-3.3.1.min.js?1611527255"></script>
 
   <style type="text/css">
     :root #header+#content>#left>#rlblock_left {
@@ -105,34 +105,6 @@
       <div>
         
         
-        <div id="top-bar">
-          
-
-
-          <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
-            <span class="links">
-              
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          <a href='/'>Kodebot</a> > <a href='/blog/'>Blog</a> > Unit Testing Entity Framework Queries
-          
-          
-          
-          
-          
-          
-            </span>
-          </div>
-        </div>
-        
       </div>
       
       <div id="head-tags">
@@ -157,14 +129,9 @@
 
           
 
-
-
 <h2 id="introduction">Introduction</h2>
-
 <p>When writing unit tests, we should test only one thing at once and isolate the system under test(SUT) from all the dependencies. We should follow the same approach for any LINQ queries you write to retrieve data from the underlying Database. But, I have seen many developers excluding the whole data access layer from unit testing. This is not right approach to follow IMHO. Many developers don&rsquo;t bother unit testing data access layer because of the perceived effort and complexity involved in isolating the data access layer from underlying Database and ORM tools like Entity Framework. The truth is, it is very easy to test your queries without touching Entity Framework or Database.</p>
-
 <h2 id="datacontext-dbset-and-finder">DataContext, DbSet and Finder</h2>
-
 <p>Let&rsquo;s assume that we have Movies database with Movie table and we want to write some queries to get top 5 movies released in year 1999. The default DbContext for this database would look like this</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MoviesContext</span> : DbContext
 {
@@ -175,17 +142,11 @@
 
     <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">virtual</span> DbSet&lt;Movie&gt; Movies { <span style="color:#66d9ef">get</span>; <span style="color:#66d9ef">set</span>; }
 }
-</code></pre></div>
-<p>First, we need to make two changes to isolate this DbContext from unit testing
-<ol>
-    <li> Replace DbSet with IDbSet </li>
-    <li> Extract interface from MoviesContext and use the interface wherever you want to use the DbContext </li>
-</ol></p>
-
+</code></pre></div><p>First, we need to make two changes to isolate this DbContext from unit testing</p>
+<!-- raw HTML omitted -->
 
 <div class="notices note" ><p>You should not create instance of DbContext directly, instead use your faviroute DI Framework to inject it as dependency when requested.</p>
 </div>
-
 
 <p>Updated DbContext class and interface should look like this</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MoviesContext</span> : DbContext, IMoviesContext
@@ -202,8 +163,8 @@
 {
     IDbSet&lt;Movie&gt; Movies { <span style="color:#66d9ef">get</span>; <span style="color:#66d9ef">set</span>; }
 }
-</code></pre></div>
-<p>Now, let&rsquo;s create a MovieFinder with a method <code>GetTopFiveMovies</code> to return top 5 movies for a given year as follows</p>
+
+</code></pre></div><p>Now, let&rsquo;s create a MovieFinder with a method <code>GetTopFiveMovies</code> to return top 5 movies for a given year as follows</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MovieFinder</span>
 {
     <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">readonly</span> IMoviesContext _moviesContext;
@@ -221,9 +182,7 @@
             .Take(<span style="color:#ae81ff">5</span>);
     }
 }
-</code></pre></div>
-<h2 id="unit-testing">Unit Testing</h2>
-
+</code></pre></div><h2 id="unit-testing">Unit Testing</h2>
 <p>To write unit tests for <code>GetTopFiveMovies</code>, we need to mock <code>MoviesContext</code> to provide testable implementation for <code>Movies</code> properties. For this example, I am going to use Moq but you can use any mocking framework you like. The completed unit test method would look like this</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#a6e22e">[TestClass]</span>
 <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MovieFinderTests</span>
@@ -268,10 +227,8 @@
 </span><span style="color:#75715e"></span>    }
 
 }
-</code></pre></div>
-<p>First, we are creating test movie data and then a mock <code>DbSet&lt;Movie&gt;</code> is created. The value of properties used by LINQ to support querying (<code>Provider</code>, <code>Expression</code>, <code>ElementType</code>) are replaced by the values from test data list <code>movieList</code>.
+</code></pre></div><p>First, we are creating test movie data and then a mock <code>DbSet&lt;Movie&gt;</code> is created. The value of properties used by LINQ to support querying (<code>Provider</code>, <code>Expression</code>, <code>ElementType</code>) are replaced by the values from test data list <code>movieList</code>.
 Then, enumerator of DbSet is assigned to the enumerator of test data list <code>movieList</code>. Finally, the mock <code>DbContext</code> returns the mock <code>DbSet&lt;Movie&gt;</code> when Movie property is accessed.</p>
-
 <p>With this setup, we are providing in-memory test data to execute our query without touching EF or database.</p>
 
 
@@ -1311,19 +1268,19 @@ Then, enumerator of DbSet is assigned to the enumerator of test data list <code>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1569361479"></script>
-    <script src="/js/perfect-scrollbar.min.js?1569361479"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1569361479"></script>
-    <script src="/js/jquery.sticky.js?1569361479"></script>
-    <script src="/js/featherlight.min.js?1569361479"></script>
-    <script src="/js/highlight.pack.js?1569361479"></script>
+    <script src="/js/clipboard.min.js?1611527255"></script>
+    <script src="/js/perfect-scrollbar.min.js?1611527255"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1611527255"></script>
+    <script src="/js/jquery.sticky.js?1611527255"></script>
+    <script src="/js/featherlight.min.js?1611527255"></script>
+    <script src="/js/highlight.pack.js?1611527255"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1569361479"></script>
-    <script src="/js/learn.js?1569361479"></script>
-    <script src="/js/hugo-learn.js?1569361479"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1611527255"></script>
+    <script src="/js/learn.js?1611527255"></script>
+    <script src="/js/hugo-learn.js?1611527255"></script>
 
-    <link href="/mermaid/mermaid.css?1569361479" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1569361479"></script>
+    <link href="/mermaid/mermaid.css?1611527255" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1611527255"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
@@ -1332,7 +1289,7 @@ Then, enumerator of DbSet is assigned to the enumerator of test data list <code>
 
     <div class="custom-footer">
         <div class="copy">
-            &copy; 2014 - 2019 Kodebot Limited. All Rights Reserved.<br>
+            &copy; Copyright 2021, Kodebot.<br>
         </div>
         <div class="license">
             All content on this website is licensed under the <a href="http://creativecommons.org/licenses/by-sa/3.0/">
@@ -1350,7 +1307,7 @@ Then, enumerator of DbSet is assigned to the enumerator of test data list <code>
             up to date or complete. Any use or reliance on any content or materials published, mentioned or linked here
             is
             at your own risk and
-            the Kodebot Limited and author/authors accept no liability or responsibility for.
+            the Kodebot and author/authors accept no liability or responsibility for.
         </div>
     </div>
 

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.57.2" />
+    <meta name="generator" content="Hugo 0.80.0" />
     <meta name="description" content="">
 
 
@@ -11,20 +11,20 @@
     <title>Single Responsibility Principle :: Kodebot</title>
 
     
-    <link href="/css/nucleus.css?1569361479" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1569361479" rel="stylesheet">
-    <link href="/css/hybrid.css?1569361479" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1569361479" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1569361479" rel="stylesheet">
-    <link href="/css/auto-complete.css?1569361479" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1569361479" rel="stylesheet">
-    <link href="/css/theme.css?1569361479" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1569361479" rel="stylesheet">
+    <link href="/css/nucleus.css?1611527256" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1611527256" rel="stylesheet">
+    <link href="/css/hybrid.css?1611527256" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1611527256" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1611527256" rel="stylesheet">
+    <link href="/css/auto-complete.css?1611527256" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1611527256" rel="stylesheet">
+    <link href="/css/theme.css?1611527256" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1611527256" rel="stylesheet">
     
-      <link href="/css/theme-mine.css?1569361479" rel="stylesheet">
+      <link href="/css/theme-mine.css?1611527256" rel="stylesheet">
     
 
-    <script src="/js/jquery-3.3.1.min.js?1569361479"></script>
+    <script src="/js/jquery-3.3.1.min.js?1611527256"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -55,14 +55,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1569361479"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1569361479"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1611527256"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1611527256"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/kodebot.com\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1569361479"></script>
+<script type="text/javascript" src="/js/search.js?1611527256"></script>
 
     
   </div>
@@ -724,7 +724,7 @@
     
     <section id="footer">
       
-&copy; 2014 - 2019 Kodebot Limited.
+&copy; Copyright 2021, Kodebot.
     </section>
   </div>
 </nav>
@@ -784,15 +784,13 @@
                     <div class="progress">
     <div class="wrapper">
 <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#references">References</a></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#references">References</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
     </div>
 </div>
@@ -817,10 +815,7 @@
 
 
 
-
-
-<hr />
-
+<hr>
 
 
 
@@ -836,28 +831,18 @@
     
   </a>
   
-
-<hr />
-
+<hr>
 <p>Single Responsibility Principle (SRP) is about how we separate or modularise code in object oriented design. This principle says that</p>
-
 <blockquote>
 <p>A class should have only one reason to change</p>
 </blockquote>
-
 <p>If we naively apply this principle, we will end up with several classes where each class contains just one method and that just does one small thing. This leads to unnecessary complexity. This is clearly not what we want to achieve with this principle.</p>
-
 <p><a href="https://en.wikipedia.org/wiki/Robert_C._Martin">Robert C. Martin</a> who introduced this principle clarified that this principle is <strong>&ldquo;about people&rdquo;</strong>. Any changes to a class should originate from a single person or a group of people representing a department or business division or similar within the company/organisation that uses the application.</p>
-
 <p>If changes to a class is originating from more than one person/department/division then the class is said to have multiple responsibilities and it violates single responsibility principle.</p>
-
 <p>For example, say we have a class <code>Student</code> that calculates grade for students and also tracks the books they borrowed from library.</p>
-
-<figure>
-    <img src="/tutorials/solid-principles/2-single-responsibility-principle/images/SRP_violation.png" alt="" height="250" width="" />
-    <figcaption></figcaption>
-</figure>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Student</span>
+<!-- raw HTML omitted -->
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp">
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Student</span>
 {
     <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">string</span> CalculateGrade()
     {
@@ -874,55 +859,44 @@
         <span style="color:#75715e">// record that the book is returned
 </span><span style="color:#75715e"></span>    }
 }
-</code></pre></div>
-<p>Any changes to this class can be requested by one of two departments</p>
 
+</code></pre></div><p>Any changes to this class can be requested by one of two departments</p>
 <ul>
 <li>teaching department may ask to change the way we calculate grading</li>
 <li>library department may ask for changes to the way we record borrowed and returned books</li>
 </ul>
-
 <p>So, two different departments are responsible for this class. In other words, this class fulfils different requirements of two different departments.</p>
-
 
 <div class="notices note" ><p>In the context of this principle, we can think of responsibility as &ldquo;reason to change&rdquo;. What we perceive as responsibility or reason to change may be different based on the domain and the problem we are solving.</p>
 </div>
 
-
 <p>If you are wondering why having a class that changes for more than one reason is not a good idea, then say library department asks for some changes to the way books are borrowed. While making the changes for library department, there is very high risk of breaking <code>CalculateGrade()</code> method.</p>
-
 <p>This is because we don&rsquo;t know how the code is intertwined within the class.</p>
-
 <p>Even if we are very careful and made sure the functionality of the <code>CalculateGrade()</code> method is unaffected, at the very least we need to ask teaching department to test grade calculation and this is not ideal.</p>
-
 <p>So, separating <strong>unrelated</strong> methods into different classes is a good idea, but at the same time, we need to make sure we don&rsquo;t end up with atomised classes.</p>
-
 
 <div class="notices tip" ><p>Atomised class refers to a class that is unnecessarily designed to have very few methods (usually just one method) which achieves very small thing.</p>
 </div>
 
-
 <p><a href="https://en.wikipedia.org/wiki/Robert_C._Martin">Robert C. Martin</a> provided the following complementing definition to clear some of the misinterpretation of this principle</p>
-
 <blockquote>
 <p>Gather together the things that change for the same reasons and separate those things that change for different reason</p>
 </blockquote>
-
 <p>This complementing definition sort of says that we need to increase cohesion and decrease coupling of classes. This will help us to avoid atomised classes.</p>
-
 
 <div class="notices note" ><p>In the context of a class, <strong>cohesion</strong> means the methods and properties must be closely related and <strong>coupling</strong> means the level of interdependencies between classes.</p>
 </div>
 
-
 <p>With all these in mind, we can refactor the <code>Student</code> class as follow</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">StudentGrade</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp">
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">StudentGrade</span>
 {
     <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">string</span> CalculateGrade()
     {
         <span style="color:#75715e">// calculate and return grade
 </span><span style="color:#75715e"></span>    }
 }
+
 </code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">StudentLibraryTracker</span>
 {
     <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> BorrowBook(<span style="color:#66d9ef">int</span> bookId)
@@ -935,35 +909,26 @@
         <span style="color:#75715e">// record that the book is returned
 </span><span style="color:#75715e"></span>    }
 }
-</code></pre></div>
-<figure>
-    <img src="/tutorials/solid-principles/2-single-responsibility-principle/images/SRP_1.png" alt="" height="150" width="" />
-    <figcaption></figcaption>
-</figure>
-
+</code></pre></div><!-- raw HTML omitted -->
 <p>Now, <code>StudentGrade</code> class only fulfils the requirements of teaching department so it will only change for the requests from teaching department.</p>
-
-<figure>
-    <img src="/tutorials/solid-principles/2-single-responsibility-principle/images/SRP_2.png" alt="" height="150" width="" />
-    <figcaption></figcaption>
-</figure>
-
+<!-- raw HTML omitted -->
 <p><code>StudentLibraryTracker</code> class only fulfils the requirements of library department and any changes needed will only originate from library department.</p>
-
 <p>Note here, we have not split the original class into three different class each with one method. We have <code>StudentLibraryTracker</code> class with two methods and <code>StudentGrade</code> class with one method.</p>
-
 <p>This is because we have taken the complementary principle into account and gathered <code>BorrowBook()</code> and <code>ReturnBook()</code> into one class because they change for the same reason and separated <code>CalculateGrade()</code> to different class because it is not changing for the same reason as the other two methods.</p>
-
 <h3 id="references">References</h3>
-
 <ol>
-<li><p><a href="https://en.wikipedia.org/wiki/Single_responsibility_principle">https://en.wikipedia.org/wiki/Single_responsibility_principle</a></p></li>
-
-<li><p><a href="https://8thlight.com/blog/uncle-bob/2014/05/08/SingleReponsibilityPrinciple.html">https://8thlight.com/blog/uncle-bob/2014/05/08/SingleReponsibilityPrinciple.html</a></p></li>
-
-<li><p><a href="https://hackernoon.com/you-dont-understand-the-single-responsibility-principle-abfdd005b137">https://hackernoon.com/you-dont-understand-the-single-responsibility-principle-abfdd005b137</a></p></li>
-
-<li><p><a href="http://www.butunclebob.com/ArticleS.UncleBob.PrinciplesOfOod">http://www.butunclebob.com/ArticleS.UncleBob.PrinciplesOfOod</a></p></li>
+<li>
+<p><a href="https://en.wikipedia.org/wiki/Single_responsibility_principle">https://en.wikipedia.org/wiki/Single_responsibility_principle</a></p>
+</li>
+<li>
+<p><a href="https://8thlight.com/blog/uncle-bob/2014/05/08/SingleReponsibilityPrinciple.html">https://8thlight.com/blog/uncle-bob/2014/05/08/SingleReponsibilityPrinciple.html</a></p>
+</li>
+<li>
+<p><a href="https://hackernoon.com/you-dont-understand-the-single-responsibility-principle-abfdd005b137">https://hackernoon.com/you-dont-understand-the-single-responsibility-principle-abfdd005b137</a></p>
+</li>
+<li>
+<p><a href="http://www.butunclebob.com/ArticleS.UncleBob.PrinciplesOfOod">http://www.butunclebob.com/ArticleS.UncleBob.PrinciplesOfOod</a></p>
+</li>
 </ol>
 
 
@@ -2010,30 +1975,30 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1569361479"></script>
-    <script src="/js/perfect-scrollbar.min.js?1569361479"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1569361479"></script>
-    <script src="/js/jquery.sticky.js?1569361479"></script>
-    <script src="/js/featherlight.min.js?1569361479"></script>
-    <script src="/js/highlight.pack.js?1569361479"></script>
+    <script src="/js/clipboard.min.js?1611527256"></script>
+    <script src="/js/perfect-scrollbar.min.js?1611527256"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1611527256"></script>
+    <script src="/js/jquery.sticky.js?1611527256"></script>
+    <script src="/js/featherlight.min.js?1611527256"></script>
+    <script src="/js/highlight.pack.js?1611527256"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1569361479"></script>
-    <script src="/js/learn.js?1569361479"></script>
-    <script src="/js/hugo-learn.js?1569361479"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1611527256"></script>
+    <script src="/js/learn.js?1611527256"></script>
+    <script src="/js/hugo-learn.js?1611527256"></script>
 
-    <link href="/mermaid/mermaid.css?1569361479" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1569361479"></script>
+    <link href="/mermaid/mermaid.css?1611527256" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1611527256"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
     
 
 
-<div id="body"> 
+<div id="body" style="margin-top: auto;"> 
 
     <div class="custom-footer">
         <div class="copy">
-            &copy; 2014 - 2019 Kodebot Limited. All Rights Reserved.<br>
+            &copy; Copyright 2021, Kodebot.<br>
         </div>
         <div class="license">
             All content on this website is licensed under the <a href="http://creativecommons.org/licenses/by-sa/3.0/">
@@ -2051,7 +2016,7 @@
             up to date or complete. Any use or reliance on any content or materials published, mentioned or linked here
             is
             at your own risk and
-            the Kodebot Limited and author/authors accept no liability or responsibility for.
+            the Kodebot and author/authors accept no liability or responsibility for.
         </div>
     </div>
 

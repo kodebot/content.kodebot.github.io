@@ -6,6 +6,7 @@ lastmod: 2015-03-25T00:00:00+00:00
 tags: ["JavaScript", "AngularJS"]
 comments: true
 draft: false
+disableBreadcrumb: true
 ---
 
 <p>In part <a href="../six-stars-of-angularjs-part-1" target="_blank">1</a>&nbsp;and <a href="../six-stars-of-angularjs-part-2" target="_blank">2</a>&nbsp;of this series, we have seen five different ways to create a service in angular.</p><!-- more -->

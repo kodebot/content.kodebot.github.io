@@ -6,6 +6,7 @@ lastmod: 2015-03-15T00:00:00+00:00
 tags: ["Design Pattern", "C#"]
 comments: true
 draft: false
+disableBreadcrumb: true
 ---
 <p>I have used inheritance to solve a problem in many situations - some of them are correct and some of them are not when thinking about it now.</p>
 <div>

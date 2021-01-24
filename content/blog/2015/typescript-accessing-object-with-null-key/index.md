@@ -6,6 +6,7 @@ lastmod: 2015-06-03T00:00:00+00:00
 tags: ["TypeScript"]
 comments: true
 draft: false
+disableBreadcrumb: true
 ---
 
 <p>Objects in JavaScript is just a key value pair and key is usually string and value can be anything. The following is an example of JavaScript object literal</p>

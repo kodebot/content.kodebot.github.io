@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.57.2" />
+    <meta name="generator" content="Hugo 0.80.0" />
     <meta name="description" content="">
 
 
@@ -11,20 +11,20 @@
     <title>Structure :: Kodebot</title>
 
     
-    <link href="/css/nucleus.css?1569361479" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1569361479" rel="stylesheet">
-    <link href="/css/hybrid.css?1569361479" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1569361479" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1569361479" rel="stylesheet">
-    <link href="/css/auto-complete.css?1569361479" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1569361479" rel="stylesheet">
-    <link href="/css/theme.css?1569361479" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1569361479" rel="stylesheet">
+    <link href="/css/nucleus.css?1611527255" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1611527255" rel="stylesheet">
+    <link href="/css/hybrid.css?1611527255" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1611527255" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1611527255" rel="stylesheet">
+    <link href="/css/auto-complete.css?1611527255" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1611527255" rel="stylesheet">
+    <link href="/css/theme.css?1611527255" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1611527255" rel="stylesheet">
     
-      <link href="/css/theme-mine.css?1569361479" rel="stylesheet">
+      <link href="/css/theme-mine.css?1611527255" rel="stylesheet">
     
 
-    <script src="/js/jquery-3.3.1.min.js?1569361479"></script>
+    <script src="/js/jquery-3.3.1.min.js?1611527255"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -55,14 +55,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1569361479"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1569361479"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1611527255"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1611527255"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/kodebot.com\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1569361479"></script>
+<script type="text/javascript" src="/js/search.js?1611527255"></script>
 
     
   </div>
@@ -724,7 +724,7 @@
     
     <section id="footer">
       
-&copy; 2014 - 2019 Kodebot Limited.
+&copy; Copyright 2021, Kodebot.
     </section>
   </div>
 </nav>
@@ -790,16 +790,12 @@
                     <div class="progress">
     <div class="wrapper">
 <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#setup">Setup</a></li>
-<li><a href="#run-sut">Run SUT</a></li>
-<li><a href="#verification">Verification</a></li>
-<li><a href="#cleanup">Cleanup</a></li>
-</ul></li>
-<li><a href="#aaa">AAA</a></li>
-</ul>
+  <ul>
+    <li><a href="#setup">Setup</a></li>
+    <li><a href="#run-sut">Run SUT</a></li>
+    <li><a href="#verification">Verification</a></li>
+    <li><a href="#cleanup">Cleanup</a></li>
+  </ul>
 </nav>
     </div>
 </div>
@@ -824,49 +820,29 @@
 
 
 
-
-
 <p>Any unit test will have two or more of the following steps</p>
-
 <ol>
 <li>Setup</li>
 <li>Run SUT</li>
 <li>Verification</li>
 <li>Cleanup</li>
 </ol>
-
 <h2 id="setup">Setup</h2>
-
 <p>One of the first step in writing unit test is <strong>Setup</strong>. In this step, we prepare test data, dependencies and/or the context for the test.</p>
-
 <p>For example, we will replace any real dependencies with fake ones and define set of good test data as part of this step.</p>
-
 <p>However, this step is not necessary for all the tests.</p>
-
 <p>This step is commonly referred to as <strong>Arrange</strong> or <strong>Fixture setup</strong></p>
-
 <h2 id="run-sut">Run SUT</h2>
-
 <p>This is the step that runs the SUT with test data and/or fake dependencies. This is a mandatory step for any unit test.</p>
-
 <p>This step is commonly referred to as <strong>Act</strong> or <strong>Exercise sut</strong></p>
-
 <h2 id="verification">Verification</h2>
-
 <p>This step verifies the result of running SUT under test condition. This is a mandatory step.</p>
-
 <p>This step is commonly referred to as <strong>Assert</strong> or <strong>Verify Outcome</strong></p>
-
 <h2 id="cleanup">Cleanup</h2>
-
 <p>This is optional step and needed only when any clean up is required after the test run. This step is commonly referred to as <strong>Fixture teardown</strong></p>
-
 <h1 id="aaa">AAA</h1>
-
 <p>One of the popular acronym for testing steps or phases is AAA, and it refers to Arrange, Act and Assert. Because cleanup is not a common step, it is omitted.</p>
-
 <p>Here is an example of AAA pattern test:</p>
-
 <pre><code>function test_add():
     // arrange
     a = 10
@@ -879,7 +855,6 @@
     areEqual(25, result) // 25 is expected
 
 </code></pre>
-
 
 <footer class=" footline" >
 	
@@ -1922,30 +1897,30 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1569361479"></script>
-    <script src="/js/perfect-scrollbar.min.js?1569361479"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1569361479"></script>
-    <script src="/js/jquery.sticky.js?1569361479"></script>
-    <script src="/js/featherlight.min.js?1569361479"></script>
-    <script src="/js/highlight.pack.js?1569361479"></script>
+    <script src="/js/clipboard.min.js?1611527255"></script>
+    <script src="/js/perfect-scrollbar.min.js?1611527255"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1611527255"></script>
+    <script src="/js/jquery.sticky.js?1611527255"></script>
+    <script src="/js/featherlight.min.js?1611527255"></script>
+    <script src="/js/highlight.pack.js?1611527255"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1569361479"></script>
-    <script src="/js/learn.js?1569361479"></script>
-    <script src="/js/hugo-learn.js?1569361479"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1611527255"></script>
+    <script src="/js/learn.js?1611527255"></script>
+    <script src="/js/hugo-learn.js?1611527255"></script>
 
-    <link href="/mermaid/mermaid.css?1569361479" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1569361479"></script>
+    <link href="/mermaid/mermaid.css?1611527255" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1611527255"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
     
 
 
-<div id="body"> 
+<div id="body" style="margin-top: auto;"> 
 
     <div class="custom-footer">
         <div class="copy">
-            &copy; 2014 - 2019 Kodebot Limited. All Rights Reserved.<br>
+            &copy; Copyright 2021, Kodebot.<br>
         </div>
         <div class="license">
             All content on this website is licensed under the <a href="http://creativecommons.org/licenses/by-sa/3.0/">
@@ -1963,7 +1938,7 @@
             up to date or complete. Any use or reliance on any content or materials published, mentioned or linked here
             is
             at your own risk and
-            the Kodebot Limited and author/authors accept no liability or responsibility for.
+            the Kodebot and author/authors accept no liability or responsibility for.
         </div>
     </div>
 

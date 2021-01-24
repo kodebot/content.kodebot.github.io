@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Structure of unit test on Kodebot</title>
@@ -6,11 +6,7 @@
     <description>Recent content in Structure of unit test on Kodebot</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-GB</language>
-    <lastBuildDate>Fri, 22 Feb 2019 10:25:49 +0000</lastBuildDate>
-    
-	<atom:link href="https://kodebot.com/tutorials/automated-unit-testing-basics/2-structure-of-unit-test/feed.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Fri, 22 Feb 2019 10:25:49 +0000</lastBuildDate><atom:link href="https://kodebot.com/tutorials/automated-unit-testing-basics/2-structure-of-unit-test/feed.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Structure</title>
       <link>https://kodebot.com/tutorials/automated-unit-testing-basics/2-structure-of-unit-test/1-structure/</link>

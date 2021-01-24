@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.57.2" />
+    <meta name="generator" content="Hugo 0.80.0" />
     <meta name="description" content="">
 
 
@@ -11,20 +11,20 @@
     <title>Why are we writing unit tests? :: Kodebot</title>
 
     
-    <link href="/css/nucleus.css?1569361479" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1569361479" rel="stylesheet">
-    <link href="/css/hybrid.css?1569361479" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1569361479" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1569361479" rel="stylesheet">
-    <link href="/css/auto-complete.css?1569361479" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1569361479" rel="stylesheet">
-    <link href="/css/theme.css?1569361479" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1569361479" rel="stylesheet">
+    <link href="/css/nucleus.css?1611527255" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1611527255" rel="stylesheet">
+    <link href="/css/hybrid.css?1611527255" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1611527255" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1611527255" rel="stylesheet">
+    <link href="/css/auto-complete.css?1611527255" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1611527255" rel="stylesheet">
+    <link href="/css/theme.css?1611527255" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1611527255" rel="stylesheet">
     
-      <link href="/css/theme-mine.css?1569361479" rel="stylesheet">
+      <link href="/css/theme-mine.css?1611527255" rel="stylesheet">
     
 
-    <script src="/js/jquery-3.3.1.min.js?1569361479"></script>
+    <script src="/js/jquery-3.3.1.min.js?1611527255"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -55,14 +55,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1569361479"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1569361479"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1611527255"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1611527255"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/kodebot.com\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1569361479"></script>
+<script type="text/javascript" src="/js/search.js?1611527255"></script>
 
     
   </div>
@@ -724,7 +724,7 @@
     
     <section id="footer">
       
-&copy; 2014 - 2019 Kodebot Limited.
+&copy; Copyright 2021, Kodebot.
     </section>
   </div>
 </nav>
@@ -790,14 +790,11 @@
                     <div class="progress">
     <div class="wrapper">
 <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#verify-the-correctness-of-the-code">Verify the correctness of the code</a></li>
-<li><a href="#safety-net-or-feedback-mechanism-for-changes">Safety-net or feedback mechanism for changes</a></li>
-<li><a href="#documentation-of-the-code">Documentation of the code</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#verify-the-correctness-of-the-code">Verify the correctness of the code</a></li>
+    <li><a href="#safety-net-or-feedback-mechanism-for-changes">Safety-net or feedback mechanism for changes</a></li>
+    <li><a href="#documentation-of-the-code">Documentation of the code</a></li>
+  </ul>
 </nav>
     </div>
 </div>
@@ -822,26 +819,17 @@
 
 
 
-
-
 <p>We can find many reasons for writing unit tests, there are three reasons that stands out in my opinion</p>
-
 <ul>
 <li>Verify the correctness of the code</li>
 <li>Provide safety-net when we want to change the code (feedback mechanism)</li>
 <li>Serve as a documentation of the code</li>
 </ul>
-
 <h2 id="verify-the-correctness-of-the-code">Verify the correctness of the code</h2>
-
 <p>I don&rsquo;t think any good developer will just write code and say the work is done. They will test it, either via manual steps or by writing automated unit tests, to verify whether the implementation is correct or not.</p>
-
 <h2 id="safety-net-or-feedback-mechanism-for-changes">Safety-net or feedback mechanism for changes</h2>
-
 <p>Once the code is written, we may change it for various reason - ranging from changing business requirements to simply to fix a bug in the code. When we want to change code, we need to be very careful to make sure we are not introducing any bugs or unintended side effects. The term used to refer to the bugs or unintended side effects caused by code change is <strong>regression</strong>. Generally, the bigger the program gets the challenging it becomes to keep regression issues under control.  This is where unit tests are really useful. If we have good, solid unit tests covering the current code then we will be able to get immediate feedback on any change the causes regression issues.</p>
-
 <h2 id="documentation-of-the-code">Documentation of the code</h2>
-
 <p>By providing suitable name/description for the tests and keeping it covering all scenarios of the SUT, the tests can be used as a documentation or specification by developers.</p>
 
 
@@ -1886,30 +1874,30 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1569361479"></script>
-    <script src="/js/perfect-scrollbar.min.js?1569361479"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1569361479"></script>
-    <script src="/js/jquery.sticky.js?1569361479"></script>
-    <script src="/js/featherlight.min.js?1569361479"></script>
-    <script src="/js/highlight.pack.js?1569361479"></script>
+    <script src="/js/clipboard.min.js?1611527255"></script>
+    <script src="/js/perfect-scrollbar.min.js?1611527255"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1611527255"></script>
+    <script src="/js/jquery.sticky.js?1611527255"></script>
+    <script src="/js/featherlight.min.js?1611527255"></script>
+    <script src="/js/highlight.pack.js?1611527255"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1569361479"></script>
-    <script src="/js/learn.js?1569361479"></script>
-    <script src="/js/hugo-learn.js?1569361479"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1611527255"></script>
+    <script src="/js/learn.js?1611527255"></script>
+    <script src="/js/hugo-learn.js?1611527255"></script>
 
-    <link href="/mermaid/mermaid.css?1569361479" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1569361479"></script>
+    <link href="/mermaid/mermaid.css?1611527255" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1611527255"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
     
 
 
-<div id="body"> 
+<div id="body" style="margin-top: auto;"> 
 
     <div class="custom-footer">
         <div class="copy">
-            &copy; 2014 - 2019 Kodebot Limited. All Rights Reserved.<br>
+            &copy; Copyright 2021, Kodebot.<br>
         </div>
         <div class="license">
             All content on this website is licensed under the <a href="http://creativecommons.org/licenses/by-sa/3.0/">
@@ -1927,7 +1915,7 @@
             up to date or complete. Any use or reliance on any content or materials published, mentioned or linked here
             is
             at your own risk and
-            the Kodebot Limited and author/authors accept no liability or responsibility for.
+            the Kodebot and author/authors accept no liability or responsibility for.
         </div>
     </div>
 

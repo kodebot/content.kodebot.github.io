@@ -5,7 +5,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="generator" content="Hugo 0.57.2" />
+  <meta name="generator" content="Hugo 0.80.0" />
   <meta name="description" content="">
 
 
@@ -13,24 +13,24 @@
   <title>Selenium and Page Objects - Kodebot</title>
 
   
-  <link href="/css/nucleus.css?1569361479" rel="stylesheet">
-  <link href="/css/fontawesome-all.min.css?1569361479"
+  <link href="/css/nucleus.css?1611527255" rel="stylesheet">
+  <link href="/css/fontawesome-all.min.css?1611527255"
     rel="stylesheet">
-  <link href="/css/hybrid.css?1569361479" rel="stylesheet">
-  <link href="/css/featherlight.min.css?1569361479" rel="stylesheet">
-  <link href="/css/perfect-scrollbar.min.css?1569361479"
+  <link href="/css/hybrid.css?1611527255" rel="stylesheet">
+  <link href="/css/featherlight.min.css?1611527255" rel="stylesheet">
+  <link href="/css/perfect-scrollbar.min.css?1611527255"
     rel="stylesheet">
-  <link href="/css/auto-complete.css?1569361479" rel="stylesheet">
-  <link href="/css/atom-one-dark-reasonable.css?1569361479"
+  <link href="/css/auto-complete.css?1611527255" rel="stylesheet">
+  <link href="/css/atom-one-dark-reasonable.css?1611527255"
     rel="stylesheet">
-  <link href="/css/theme.css?1569361479" rel="stylesheet">
-  <link href="/css/hugo-theme.css?1569361479" rel="stylesheet">
+  <link href="/css/theme.css?1611527255" rel="stylesheet">
+  <link href="/css/hugo-theme.css?1611527255" rel="stylesheet">
   
-  <link href="/css/theme-mine.css?1569361479"
+  <link href="/css/theme-mine.css?1611527255"
     rel="stylesheet">
   
 
-  <script src="/js/jquery-3.3.1.min.js?1569361479"></script>
+  <script src="/js/jquery-3.3.1.min.js?1611527255"></script>
 
   <style type="text/css">
     :root #header+#content>#left>#rlblock_left {
@@ -105,34 +105,6 @@
       <div>
         
         
-        <div id="top-bar">
-          
-
-
-          <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
-            <span class="links">
-              
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          <a href='/'>Kodebot</a> > <a href='/blog/'>Blog</a> > Selenium and Page Objects
-          
-          
-          
-          
-          
-          
-            </span>
-          </div>
-        </div>
-        
       </div>
       
       <div id="head-tags">
@@ -157,16 +129,7 @@
 
           
 
-<p>I use&nbsp;<a href="http://docs.seleniumhq.org/" target="_blank">Selenium</a>&nbsp;or <a href="http://angular.github.io/protractor/#/" target="_blank">Protractor</a>&nbsp;for E2E tests that require browser automation. I prefer to use Selenium when I want to write my tests in C# and Protractor for AngularJS applications.</p><!-- more -->
-<p>It doesn't matter what tool/framework you use, if you want to bring in structure and make your test code reusable when dealing with any UI automation then Page Object is your friend.</p>
-<p>I have been creating my Page Objects incorrectly with two major flaws until I read <a href="http://martinfowler.com/bliki/PageObject.html" target="_blank">this</a>&nbsp;great article from Martin Fowler. The flaws in my Page Objects were</p>
-<ol>
-<li>Only one Page Object Type per page or screen</li>
-<li>Expose tool specific objects</li>
-</ol>
-<p>When only one page object is created for the entire page or screen that you are trying to automate then, the&nbsp;object will have too many things to do and if the the page or screen has shared sections then all your page objects will have duplicate code.</p>
-<p>Likewise, if the&nbsp;page object exposes any objects from underlying tools/frameworks then you will create hard dependencies between you test code and test tools/framework which will create challenges when you want to replace your tool/framework with other or when you want to upgrade from one version to another.&nbsp;</p>
-<p>Here is the sample Page Objects I created to search and get the results from&nbsp;Bing using Selenium</p>
+<!-- raw HTML omitted -->
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs">	<span style="color:#75715e">// Search Page
 </span><span style="color:#75715e"></span>	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">BingSearch</span>
     {
@@ -257,9 +220,7 @@
             _driver.Close();
         }
     }
-</code></pre></div>
-<p>If you look at the <code>BingSearch</code> class it doesn&rsquo;t expose any Selenium objects but it has a list for <code>SearchResults</code> which uses <code>BingSearchResult</code> as its generic type. The <code>BingSearchResult</code> represents only one result in the page. Because I don&rsquo;t want to page through the search result I didn&rsquo;t bother creating any type to support it.</p>
-
+</code></pre></div><p>If you look at the <code>BingSearch</code> class it doesn&rsquo;t expose any Selenium objects but it has a list for <code>SearchResults</code> which uses <code>BingSearchResult</code> as its generic type. The <code>BingSearchResult</code> represents only one result in the page. Because I don&rsquo;t want to page through the search result I didn&rsquo;t bother creating any type to support it.</p>
 <p>Browser is represented using static class in this sample but it doesn&rsquo;t have to be static class.</p>
 
 
@@ -1299,19 +1260,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1569361479"></script>
-    <script src="/js/perfect-scrollbar.min.js?1569361479"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1569361479"></script>
-    <script src="/js/jquery.sticky.js?1569361479"></script>
-    <script src="/js/featherlight.min.js?1569361479"></script>
-    <script src="/js/highlight.pack.js?1569361479"></script>
+    <script src="/js/clipboard.min.js?1611527255"></script>
+    <script src="/js/perfect-scrollbar.min.js?1611527255"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1611527255"></script>
+    <script src="/js/jquery.sticky.js?1611527255"></script>
+    <script src="/js/featherlight.min.js?1611527255"></script>
+    <script src="/js/highlight.pack.js?1611527255"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1569361479"></script>
-    <script src="/js/learn.js?1569361479"></script>
-    <script src="/js/hugo-learn.js?1569361479"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1611527255"></script>
+    <script src="/js/learn.js?1611527255"></script>
+    <script src="/js/hugo-learn.js?1611527255"></script>
 
-    <link href="/mermaid/mermaid.css?1569361479" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1569361479"></script>
+    <link href="/mermaid/mermaid.css?1611527255" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1611527255"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
@@ -1320,7 +1281,7 @@
 
     <div class="custom-footer">
         <div class="copy">
-            &copy; 2014 - 2019 Kodebot Limited. All Rights Reserved.<br>
+            &copy; Copyright 2021, Kodebot.<br>
         </div>
         <div class="license">
             All content on this website is licensed under the <a href="http://creativecommons.org/licenses/by-sa/3.0/">
@@ -1338,7 +1299,7 @@
             up to date or complete. Any use or reliance on any content or materials published, mentioned or linked here
             is
             at your own risk and
-            the Kodebot Limited and author/authors accept no liability or responsibility for.
+            the Kodebot and author/authors accept no liability or responsibility for.
         </div>
     </div>
 

@@ -5,7 +5,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="generator" content="Hugo 0.57.2" />
+  <meta name="generator" content="Hugo 0.80.0" />
   <meta name="description" content="">
 
 
@@ -13,24 +13,24 @@
   <title>ASP.NET 5 - Tag Helpers, the HTML way - Kodebot</title>
 
   
-  <link href="/css/nucleus.css?1569361479" rel="stylesheet">
-  <link href="/css/fontawesome-all.min.css?1569361479"
+  <link href="/css/nucleus.css?1611527255" rel="stylesheet">
+  <link href="/css/fontawesome-all.min.css?1611527255"
     rel="stylesheet">
-  <link href="/css/hybrid.css?1569361479" rel="stylesheet">
-  <link href="/css/featherlight.min.css?1569361479" rel="stylesheet">
-  <link href="/css/perfect-scrollbar.min.css?1569361479"
+  <link href="/css/hybrid.css?1611527255" rel="stylesheet">
+  <link href="/css/featherlight.min.css?1611527255" rel="stylesheet">
+  <link href="/css/perfect-scrollbar.min.css?1611527255"
     rel="stylesheet">
-  <link href="/css/auto-complete.css?1569361479" rel="stylesheet">
-  <link href="/css/atom-one-dark-reasonable.css?1569361479"
+  <link href="/css/auto-complete.css?1611527255" rel="stylesheet">
+  <link href="/css/atom-one-dark-reasonable.css?1611527255"
     rel="stylesheet">
-  <link href="/css/theme.css?1569361479" rel="stylesheet">
-  <link href="/css/hugo-theme.css?1569361479" rel="stylesheet">
+  <link href="/css/theme.css?1611527255" rel="stylesheet">
+  <link href="/css/hugo-theme.css?1611527255" rel="stylesheet">
   
-  <link href="/css/theme-mine.css?1569361479"
+  <link href="/css/theme-mine.css?1611527255"
     rel="stylesheet">
   
 
-  <script src="/js/jquery-3.3.1.min.js?1569361479"></script>
+  <script src="/js/jquery-3.3.1.min.js?1611527255"></script>
 
   <style type="text/css">
     :root #header+#content>#left>#rlblock_left {
@@ -105,34 +105,6 @@
       <div>
         
         
-        <div id="top-bar">
-          
-
-
-          <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
-            <span class="links">
-              
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          <a href='/'>Kodebot</a> > <a href='/blog/'>Blog</a> > ASP.NET 5 - Tag Helpers, the HTML way
-          
-          
-          
-          
-          
-          
-            </span>
-          </div>
-        </div>
-        
       </div>
       
       <div id="head-tags">
@@ -157,36 +129,21 @@
 
           
 
-<p><h4>Introduction</h4>
-<p>Tag Helper is not a new concept in ASP.NET but they way we use Tag Helpers in razor view is different. In the previous versions of ASP.NET, if we want to use HTML tag helper, we will be switching from HTML&rsquo;s native declarative style to imperative style of C#.</p><!-- more -->
-<p>We loose the tooling support we get when editing HTML document for the most part. For example, the following code creates a label</p></p>
+<!-- raw HTML omitted -->
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#75715e">// Old style tag helpers
 </span><span style="color:#75715e"></span>@Html.LabelFor(Model =&gt; Model.Name, <span style="color:#e6db74">&#34;User Name&#34;</span>, <span style="color:#66d9ef">new</span> { @class = <span style="color:#e6db74">&#34;control-label&#34;</span> });
-</code></pre></div>
-<p>In this example, we are specifying that this label is created for Name property of the Model using lambda expression, then label text as second string parameter and finally we are creating an anonymous type for all the html attributes we want to attach to the tag. When we create the label this way we won't get any support from Visual Studio that we get when authoring html document, especially, for the last parameter, because Visual Studio won't know whether we are creating HTML attributes or something else.</p>
-<h4>Declarative Style</h4>
-<p>In ASP.NET 5, we create the same label like this,</p>
+</code></pre></div><!-- raw HTML omitted -->
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#75715e">// Declarative style
 </span><span style="color:#75715e"></span>&lt;label asp-<span style="color:#66d9ef">for</span>=<span style="color:#e6db74">&#34;Name&#34;</span> class=<span style="color:#e6db74">&#34;control-label&#34;</span>&gt;User Name&lt;/label&gt;
-</code></pre></div>
-<p>Note, we have a new attribute called <code>asp-for</code>, this replaces the lambda expression we used in the previous example and the rest is self explanatory. One of the main advantage of this style is that we get full intellisense and other supports from Visual Studio that we usually get while authoring html document.</p>
-<h4>Built-in Tag Helpers</h4>
-<p>ASP.NET 5 has many built-in tag helpers and they are in Microsoft.AspNet.Mvc.TagHelpers assembly. We can use the built-in tag helpers by importing them into the scope using a new directive @addTagHelper like this,</p>
+</code></pre></div><!-- raw HTML omitted -->
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#75715e">// add tag helpers
 </span><span style="color:#75715e"></span>@addTagHelper <span style="color:#e6db74">&#34;*, Microsoft.AspNet.Mvc.TagHelpers&#34;</span>
-</code></pre></div>
-<p>We specify type name(s) followed by assembly name separated by comma as a string. * specifies all the types in the assembly. </p>
-<h4>Custom Tag Helpers</h4>
-<p>ASP.NET 5 provides a very simple interface ITagHelper to create custom tag helpers. The interface has only two members,</p>
+</code></pre></div><!-- raw HTML omitted -->
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#75715e">// ITagHelper
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">int</span> Order { <span style="color:#66d9ef">get</span>; }
 
 Task ProcessAsync(TagHelperContext context, TagHelperOutput output);
-</code></pre></div>
-<p>The ProcessAsyc method takes two parameters, the first one provides options to get all the information about the tag in question and the helper itself and the output parameter represents the output that will be rendered. We can manipulate output to influence the content rendered.</p>
-<p>The Order property indicates the order in which the ProcessAsync will be executed on the target tag where there are more then one tag helpers target the same tag. The Tag helper process will be applied from lower order to higher order.</p>
-<p>We have a class TagHelper which implements the ITagHelper, so if we want to create new tag helper, we just need to inherit our class from TagHelper and override Order and ProcessAsync method. Note, the convention is to a tag helper with 'TagHelper' suffix.</p>
-<p>Here is an example of custom tag helper which creates bootstrap panel</p>
+</code></pre></div><!-- raw HTML omitted -->
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs">    <span style="color:#75715e">// Custom tag helper example
 </span><span style="color:#75715e"></span><span style="color:#a6e22e">    [TargetElement(&#34;div&#34;, Attributes = &#34;panel-title&#34;)]</span>
 <span style="color:#a6e22e">    [TargetElement(&#34;div&#34;, Attributes = &#34;panel-style&#34;)]</span>
@@ -271,10 +228,7 @@ Task ProcessAsync(TagHelperContext context, TagHelperOutput output);
         }
 
     }
-</code></pre></div>
-<p><br />The TargetElement attribute is used to specify the target element to which this tag helper applies. We can specify tag name and optional attributes. We can also specify more than one TargetElement attribute and they work in logical OR basis.</p>
-<p>The HtmlAttributeName attribute is used to bind an attribute of a tag with property in the tag helper. If you don't want the property in tag helper to represent any html attributes then you decorate the property with HtmlAttributeNotBoundAttribute to indicate that.</p>
-
+</code></pre></div><!-- raw HTML omitted -->
 
 <div class="notices note" ><p>ASP.NET 5 is in beta at the time this post is published and the final version may be different than the beta version.</p>
 </div>
@@ -1317,19 +1271,19 @@ Task ProcessAsync(TagHelperContext context, TagHelperOutput output);
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1569361479"></script>
-    <script src="/js/perfect-scrollbar.min.js?1569361479"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1569361479"></script>
-    <script src="/js/jquery.sticky.js?1569361479"></script>
-    <script src="/js/featherlight.min.js?1569361479"></script>
-    <script src="/js/highlight.pack.js?1569361479"></script>
+    <script src="/js/clipboard.min.js?1611527255"></script>
+    <script src="/js/perfect-scrollbar.min.js?1611527255"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1611527255"></script>
+    <script src="/js/jquery.sticky.js?1611527255"></script>
+    <script src="/js/featherlight.min.js?1611527255"></script>
+    <script src="/js/highlight.pack.js?1611527255"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1569361479"></script>
-    <script src="/js/learn.js?1569361479"></script>
-    <script src="/js/hugo-learn.js?1569361479"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1611527255"></script>
+    <script src="/js/learn.js?1611527255"></script>
+    <script src="/js/hugo-learn.js?1611527255"></script>
 
-    <link href="/mermaid/mermaid.css?1569361479" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1569361479"></script>
+    <link href="/mermaid/mermaid.css?1611527255" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1611527255"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
@@ -1338,7 +1292,7 @@ Task ProcessAsync(TagHelperContext context, TagHelperOutput output);
 
     <div class="custom-footer">
         <div class="copy">
-            &copy; 2014 - 2019 Kodebot Limited. All Rights Reserved.<br>
+            &copy; Copyright 2021, Kodebot.<br>
         </div>
         <div class="license">
             All content on this website is licensed under the <a href="http://creativecommons.org/licenses/by-sa/3.0/">
@@ -1356,7 +1310,7 @@ Task ProcessAsync(TagHelperContext context, TagHelperOutput output);
             up to date or complete. Any use or reliance on any content or materials published, mentioned or linked here
             is
             at your own risk and
-            the Kodebot Limited and author/authors accept no liability or responsibility for.
+            the Kodebot and author/authors accept no liability or responsibility for.
         </div>
     </div>
 

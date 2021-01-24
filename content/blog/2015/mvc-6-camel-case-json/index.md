@@ -6,6 +6,7 @@ lastmod: 2015-04-13T00:00:00+00:00
 tags: ["ASP.NET", "MVC"]
 comments: true
 draft: false
+disableBreadcrumb: true
 ---
 
 <p>I am excited with all the new features that are coming with MVC 6. One of the main differences between MVC 6 and previous versions is that it doesn't have two different libraries and controllers for MVC and Web <!-- more -->API.&nbsp;</p>

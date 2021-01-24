@@ -5,7 +5,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="generator" content="Hugo 0.57.2" />
+  <meta name="generator" content="Hugo 0.80.0" />
   <meta name="description" content="">
 
 
@@ -13,24 +13,24 @@
   <title>NodeJs: Loops, Closure and Async Invocation - Kodebot</title>
 
   
-  <link href="/css/nucleus.css?1569361479" rel="stylesheet">
-  <link href="/css/fontawesome-all.min.css?1569361479"
+  <link href="/css/nucleus.css?1611527255" rel="stylesheet">
+  <link href="/css/fontawesome-all.min.css?1611527255"
     rel="stylesheet">
-  <link href="/css/hybrid.css?1569361479" rel="stylesheet">
-  <link href="/css/featherlight.min.css?1569361479" rel="stylesheet">
-  <link href="/css/perfect-scrollbar.min.css?1569361479"
+  <link href="/css/hybrid.css?1611527255" rel="stylesheet">
+  <link href="/css/featherlight.min.css?1611527255" rel="stylesheet">
+  <link href="/css/perfect-scrollbar.min.css?1611527255"
     rel="stylesheet">
-  <link href="/css/auto-complete.css?1569361479" rel="stylesheet">
-  <link href="/css/atom-one-dark-reasonable.css?1569361479"
+  <link href="/css/auto-complete.css?1611527255" rel="stylesheet">
+  <link href="/css/atom-one-dark-reasonable.css?1611527255"
     rel="stylesheet">
-  <link href="/css/theme.css?1569361479" rel="stylesheet">
-  <link href="/css/hugo-theme.css?1569361479" rel="stylesheet">
+  <link href="/css/theme.css?1611527255" rel="stylesheet">
+  <link href="/css/hugo-theme.css?1611527255" rel="stylesheet">
   
-  <link href="/css/theme-mine.css?1569361479"
+  <link href="/css/theme-mine.css?1611527255"
     rel="stylesheet">
   
 
-  <script src="/js/jquery-3.3.1.min.js?1569361479"></script>
+  <script src="/js/jquery-3.3.1.min.js?1611527255"></script>
 
   <style type="text/css">
     :root #header+#content>#left>#rlblock_left {
@@ -105,34 +105,6 @@
       <div>
         
         
-        <div id="top-bar">
-          
-
-
-          <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
-            <span class="links">
-              
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          <a href='/'>Kodebot</a> > <a href='/blog/'>Blog</a> > NodeJs: Loops, Closure and Async Invocation
-          
-          
-          
-          
-          
-          
-            </span>
-          </div>
-        </div>
-        
       </div>
       
       <div id="head-tags">
@@ -157,11 +129,8 @@
 
           
 
-
-
 <h2 id="closure">Closure</h2>
-
-<p>Closure is something that is very familiar to all C# developers who know lambda expressions/functions but they just may not know that it is called Closure in JavaScript.<br />
+<p>Closure is something that is very familiar to all C# developers who know lambda expressions/functions but they just may not know that it is called Closure in JavaScript.<br>
 Lets look at what is closure in JavaScript without further ado with an example:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">outer</span>(){
 	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">inOuter</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;outer&#34;</span>;
@@ -171,11 +140,8 @@ Lets look at what is closure in JavaScript without further ado with an example:<
 		<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">inOuter</span>); <span style="color:#75715e">// prints &#39;outer&#39;
 </span><span style="color:#75715e"></span>	}
 }
-</code></pre></div>
-<p>In this example, the variable <code>inOuter</code> is defined in the function <code>outer</code> but it is used in the function <code>inner</code>. This is possible because, the a function in JavaScript can access all the variables in the scope where the function is defined and this is called Closure.</p>
-
+</code></pre></div><p>In this example, the variable <code>inOuter</code> is defined in the function <code>outer</code> but it is used in the function <code>inner</code>. This is possible because, the a function in JavaScript can access all the variables in the scope where the function is defined and this is called Closure.</p>
 <h2 id="loop-and-closure">Loop and Closure</h2>
-
 <p>Lets consider the following example:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">outer</span>(){
 	<span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">i</span><span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">&lt;=</span><span style="color:#ae81ff">5</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>){
@@ -186,12 +152,9 @@ Lets look at what is closure in JavaScript without further ado with an example:<
 		<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">i</span>); <span style="color:#75715e">// prints 1, 2, 3, 4, 5
 </span><span style="color:#75715e"></span>	}
 }
-</code></pre></div>
-<p>Here the function <code>inner</code> is called from a loop and iterator variable is printed from inside the function <code>inner</code>. It prints, as you guessed, <code>1, 2, 3, 4, 5</code>.
+</code></pre></div><p>Here the function <code>inner</code> is called from a loop and iterator variable is printed from inside the function <code>inner</code>. It prints, as you guessed, <code>1, 2, 3, 4, 5</code>.
 This is because the function <code>inner</code> get the value of <code>i</code> whatever it is when the function <code>inner</code> is invoked.</p>
-
 <h2 id="loop-closure-and-async-invocation">Loop, Closure and async invocation</h2>
-
 <p>Lets look at what happens if we invoke the function <code>inner</code> asynchronously</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">outer</span>(){
 	<span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">i</span><span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">&lt;=</span><span style="color:#ae81ff">5</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>){
@@ -202,17 +165,13 @@ This is because the function <code>inner</code> get the value of <code>i</code> 
 		<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">i</span>); <span style="color:#75715e">// prints 6, 6, 6, 6, 6
 </span><span style="color:#75715e"></span>	}
 }
-</code></pre></div>
-<p>You may not expect it to print <code>6, 6, 6, 6, 6</code> but that&rsquo;s what it does. This is because the loop runs to completion in the current tick and the function <code>inner</code> is only invoked in some tick down the line.
+</code></pre></div><p>You may not expect it to print <code>6, 6, 6, 6, 6</code> but that&rsquo;s what it does. This is because the loop runs to completion in the current tick and the function <code>inner</code> is only invoked in some tick down the line.
 So, the value of <code>i</code> will be <code>6</code> when function <code>inner</code> is executed and it prints <code>6</code>.</p>
-
-<p>Now, what do you do if you want to print <code>1, 2, 3, 4, 5</code>  instead of <code>6, 6, 6, 6, 6</code>?<br />
+<p>Now, what do you do if you want to print <code>1, 2, 3, 4, 5</code>  instead of <code>6, 6, 6, 6, 6</code>?<br>
 Well, it turns out, you can do this simply by creating new function to create a new variable scope. This is because, in JavaScript variables are scoped to function instead of block.</p>
-
 <blockquote>
 <p>Note: Starting ES2015, you can use <code>let</code> instead of <code>var</code> to create block scope.</p>
 </blockquote>
-
 <p>Here is the revised code:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">outer</span>(){
 	<span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">i</span><span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">&lt;=</span><span style="color:#ae81ff">5</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>){
@@ -226,8 +185,7 @@ Well, it turns out, you can do this simply by creating new function to create a 
 		})());
 	}
 }
-</code></pre></div>
-<p>We have created a new scope and assigned value of <code>i</code> to <code>j</code> which is defined in the new scope. We have also moved the function <code>inner</code> to the new scope.<br />
+</code></pre></div><p>We have created a new scope and assigned value of <code>i</code> to <code>j</code> which is defined in the new scope. We have also moved the function <code>inner</code> to the new scope.<br>
 That&rsquo;s it, now it prints what we want it to print.</p>
 
 
@@ -1264,19 +1222,19 @@ That&rsquo;s it, now it prints what we want it to print.</p>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1569361479"></script>
-    <script src="/js/perfect-scrollbar.min.js?1569361479"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1569361479"></script>
-    <script src="/js/jquery.sticky.js?1569361479"></script>
-    <script src="/js/featherlight.min.js?1569361479"></script>
-    <script src="/js/highlight.pack.js?1569361479"></script>
+    <script src="/js/clipboard.min.js?1611527255"></script>
+    <script src="/js/perfect-scrollbar.min.js?1611527255"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1611527255"></script>
+    <script src="/js/jquery.sticky.js?1611527255"></script>
+    <script src="/js/featherlight.min.js?1611527255"></script>
+    <script src="/js/highlight.pack.js?1611527255"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1569361479"></script>
-    <script src="/js/learn.js?1569361479"></script>
-    <script src="/js/hugo-learn.js?1569361479"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1611527255"></script>
+    <script src="/js/learn.js?1611527255"></script>
+    <script src="/js/hugo-learn.js?1611527255"></script>
 
-    <link href="/mermaid/mermaid.css?1569361479" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1569361479"></script>
+    <link href="/mermaid/mermaid.css?1611527255" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1611527255"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
@@ -1285,7 +1243,7 @@ That&rsquo;s it, now it prints what we want it to print.</p>
 
     <div class="custom-footer">
         <div class="copy">
-            &copy; 2014 - 2019 Kodebot Limited. All Rights Reserved.<br>
+            &copy; Copyright 2021, Kodebot.<br>
         </div>
         <div class="license">
             All content on this website is licensed under the <a href="http://creativecommons.org/licenses/by-sa/3.0/">
@@ -1303,7 +1261,7 @@ That&rsquo;s it, now it prints what we want it to print.</p>
             up to date or complete. Any use or reliance on any content or materials published, mentioned or linked here
             is
             at your own risk and
-            the Kodebot Limited and author/authors accept no liability or responsibility for.
+            the Kodebot and author/authors accept no liability or responsibility for.
         </div>
     </div>
 

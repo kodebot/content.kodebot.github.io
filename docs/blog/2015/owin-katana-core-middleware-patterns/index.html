@@ -5,7 +5,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="generator" content="Hugo 0.57.2" />
+  <meta name="generator" content="Hugo 0.80.0" />
   <meta name="description" content="">
 
 
@@ -13,24 +13,24 @@
   <title>Owin - Katana core middleware patterns - Kodebot</title>
 
   
-  <link href="/css/nucleus.css?1569361479" rel="stylesheet">
-  <link href="/css/fontawesome-all.min.css?1569361479"
+  <link href="/css/nucleus.css?1611527255" rel="stylesheet">
+  <link href="/css/fontawesome-all.min.css?1611527255"
     rel="stylesheet">
-  <link href="/css/hybrid.css?1569361479" rel="stylesheet">
-  <link href="/css/featherlight.min.css?1569361479" rel="stylesheet">
-  <link href="/css/perfect-scrollbar.min.css?1569361479"
+  <link href="/css/hybrid.css?1611527255" rel="stylesheet">
+  <link href="/css/featherlight.min.css?1611527255" rel="stylesheet">
+  <link href="/css/perfect-scrollbar.min.css?1611527255"
     rel="stylesheet">
-  <link href="/css/auto-complete.css?1569361479" rel="stylesheet">
-  <link href="/css/atom-one-dark-reasonable.css?1569361479"
+  <link href="/css/auto-complete.css?1611527255" rel="stylesheet">
+  <link href="/css/atom-one-dark-reasonable.css?1611527255"
     rel="stylesheet">
-  <link href="/css/theme.css?1569361479" rel="stylesheet">
-  <link href="/css/hugo-theme.css?1569361479" rel="stylesheet">
+  <link href="/css/theme.css?1611527255" rel="stylesheet">
+  <link href="/css/hugo-theme.css?1611527255" rel="stylesheet">
   
-  <link href="/css/theme-mine.css?1569361479"
+  <link href="/css/theme-mine.css?1611527255"
     rel="stylesheet">
   
 
-  <script src="/js/jquery-3.3.1.min.js?1569361479"></script>
+  <script src="/js/jquery-3.3.1.min.js?1611527255"></script>
 
   <style type="text/css">
     :root #header+#content>#left>#rlblock_left {
@@ -105,34 +105,6 @@
       <div>
         
         
-        <div id="top-bar">
-          
-
-
-          <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
-            <span class="links">
-              
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          <a href='/'>Kodebot</a> > <a href='/blog/'>Blog</a> > Owin - Katana core middleware patterns
-          
-          
-          
-          
-          
-          
-            </span>
-          </div>
-        </div>
-        
       </div>
       
       <div id="head-tags">
@@ -157,23 +129,11 @@
 
           
 
-<p><h3>Introduction</h3>
-<p>Katana supports 4 different convention based patterns for adding middlewares in its lowest level. They are,</p>
-<ol>
-<li>Delegate Pattern</li>
-<li>Instance Pattern</li>
-<li>Generator/Nested Delegate Pattern</li>
-<li>Constructor Type or Type Pattern</li>
-</ol><!-- more -->
-<p>All the other formats/patterns supported through IAppBuilder&rsquo;s extension methods are implemented using one of these 4 patterns under the hood.</p>
-<p>I couldn&rsquo;t find any examples in the web which show how to use these patterns, so I am creating it for my future reference.</p>
-<h3>Delegate Pattern</h3>
-<p>Delegate pattern accepts the following delegate as a first parameter for the Use method of IAppBuilder and any number of additional parameter of any type</p></p>
+<!-- raw HTML omitted -->
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#75715e">// Delegate Pattern
 </span><span style="color:#75715e"></span>Func&lt;AppFunc, AppFunc&gt;
-</code></pre></div>
-<p>where AppFunc is <code>Func&lt;IDictionary&lt;string, object&gt;, Task&gt;&gt;</code>
-<p>The delegate takes AppFunc as parameter and returns AppFunc. The parameter represents the next middleware in the pipeline and return value represents the implementation of the middleware we are adding. </p></p>
+</code></pre></div><p>where AppFunc is <code>Func&lt;IDictionary&lt;string, object&gt;, Task&gt;&gt;</code></p>
+<!-- raw HTML omitted -->
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#75715e">// Delegate Pattern Implementation
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> Configuration(IAppBuilder builder)
 {
@@ -185,9 +145,7 @@
 
     }));
 }
-</code></pre></div>
-<p>In the example above, the middleware we are adding prints something in the console, calls next middleware in the pipeline and once it is complete, it continues by executing rest of the code in the middleware we are adding.</p>
-<p>The following example shows the delegate pattern with additional parameters</p>
+</code></pre></div><!-- raw HTML omitted -->
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#75715e">// Delegate Pattern with additional parameters
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> Configuration(IAppBuilder builder)
 {
@@ -200,14 +158,11 @@
 
     }), <span style="color:#e6db74">&#34;additional param&#34;</span>);
 }
-</code></pre></div>
-<p><h3>Instance Pattern</h3>
-<p>To use this pattern to add middlewares, we need newable types with the following two methods</p></p>
+</code></pre></div><!-- raw HTML omitted -->
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#75715e">// Instance Pattern method signatures
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> Initialize(AppFunc next, <span style="color:#66d9ef">params</span> <span style="color:#66d9ef">object</span>[] args);
 <span style="color:#66d9ef">public</span> Task Invoke(IDictionary&lt;<span style="color:#66d9ef">string</span>, <span style="color:#66d9ef">object</span>&gt; environment);
-</code></pre></div>
-<p>Here is an example of middleware created using instance pattern</p>
+</code></pre></div><!-- raw HTML omitted -->
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#75715e">// Instance Pattern with parameter
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> Configuration(IAppBuilder builder)
 {
@@ -233,13 +188,10 @@
     }
 
 }
-</code></pre></div>
-<p><h3>Generator/Nested Delegate Pattern</h3>
-<p>To use this pattern to create middlewares, we need a newable type with the following method</p></p>
+</code></pre></div><!-- raw HTML omitted -->
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#75715e">// Generator / Nested Delegate pattern
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">public</span> AppFunc Invoke(AppFunc next, <span style="color:#66d9ef">params</span> <span style="color:#66d9ef">object</span>[] args);
-</code></pre></div>
-<p>This method takes next middleware in the pipeline and any number of additional arguments and returns the implementation of current middleware. Here is an example</p>
+</code></pre></div><!-- raw HTML omitted -->
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#75715e">// Middleware using Generator / Nested Delegate pattern
 </span><span style="color:#75715e"></span>
 <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> Configuration(IAppBuilder builder)
@@ -266,14 +218,11 @@
     }
 
 }
-</code></pre></div>
-<p><h3>Constructor Type / Type Pattern</h3>
-<p>A type with the following constructor and method can be added a middleware using this pattern</p></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"> <span style="color:#75715e">// Constructor Type / Type pattern
-</span><span style="color:#75715e"></span> <span style="color:#66d9ef">public</span> Ctor(AppFunc next, <span style="color:#66d9ef">params</span> <span style="color:#66d9ef">object</span>[] args);
- <span style="color:#66d9ef">public</span> Task Invoke(IDictionary&lt;<span style="color:#66d9ef">string</span>, <span style="color:#66d9ef">object</span>&gt; env);
-</code></pre></div>
-<p>Here is an example</p>
+</code></pre></div><!-- raw HTML omitted -->
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#75715e">// Constructor Type / Type pattern
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">public</span> Ctor(AppFunc next, <span style="color:#66d9ef">params</span> <span style="color:#66d9ef">object</span>[] args);
+<span style="color:#66d9ef">public</span> Task Invoke(IDictionary&lt;<span style="color:#66d9ef">string</span>, <span style="color:#66d9ef">object</span>&gt; env);
+</code></pre></div><!-- raw HTML omitted -->
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#75715e">// Middleware using Constructor Type / Type pattern
 </span><span style="color:#75715e"></span>
 <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> Configuration(IAppBuilder builder)
@@ -1338,19 +1287,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1569361479"></script>
-    <script src="/js/perfect-scrollbar.min.js?1569361479"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1569361479"></script>
-    <script src="/js/jquery.sticky.js?1569361479"></script>
-    <script src="/js/featherlight.min.js?1569361479"></script>
-    <script src="/js/highlight.pack.js?1569361479"></script>
+    <script src="/js/clipboard.min.js?1611527255"></script>
+    <script src="/js/perfect-scrollbar.min.js?1611527255"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1611527255"></script>
+    <script src="/js/jquery.sticky.js?1611527255"></script>
+    <script src="/js/featherlight.min.js?1611527255"></script>
+    <script src="/js/highlight.pack.js?1611527255"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1569361479"></script>
-    <script src="/js/learn.js?1569361479"></script>
-    <script src="/js/hugo-learn.js?1569361479"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1611527255"></script>
+    <script src="/js/learn.js?1611527255"></script>
+    <script src="/js/hugo-learn.js?1611527255"></script>
 
-    <link href="/mermaid/mermaid.css?1569361479" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1569361479"></script>
+    <link href="/mermaid/mermaid.css?1611527255" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1611527255"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
@@ -1359,7 +1308,7 @@
 
     <div class="custom-footer">
         <div class="copy">
-            &copy; 2014 - 2019 Kodebot Limited. All Rights Reserved.<br>
+            &copy; Copyright 2021, Kodebot.<br>
         </div>
         <div class="license">
             All content on this website is licensed under the <a href="http://creativecommons.org/licenses/by-sa/3.0/">
@@ -1377,7 +1326,7 @@
             up to date or complete. Any use or reliance on any content or materials published, mentioned or linked here
             is
             at your own risk and
-            the Kodebot Limited and author/authors accept no liability or responsibility for.
+            the Kodebot and author/authors accept no liability or responsibility for.
         </div>
     </div>
 

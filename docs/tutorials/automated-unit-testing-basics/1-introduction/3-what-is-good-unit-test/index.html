@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.57.2" />
+    <meta name="generator" content="Hugo 0.80.0" />
     <meta name="description" content="">
 
 
@@ -11,20 +11,20 @@
     <title>What is good unit test? :: Kodebot</title>
 
     
-    <link href="/css/nucleus.css?1569361479" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1569361479" rel="stylesheet">
-    <link href="/css/hybrid.css?1569361479" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1569361479" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1569361479" rel="stylesheet">
-    <link href="/css/auto-complete.css?1569361479" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1569361479" rel="stylesheet">
-    <link href="/css/theme.css?1569361479" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1569361479" rel="stylesheet">
+    <link href="/css/nucleus.css?1611527255" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1611527255" rel="stylesheet">
+    <link href="/css/hybrid.css?1611527255" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1611527255" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1611527255" rel="stylesheet">
+    <link href="/css/auto-complete.css?1611527255" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1611527255" rel="stylesheet">
+    <link href="/css/theme.css?1611527255" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1611527255" rel="stylesheet">
     
-      <link href="/css/theme-mine.css?1569361479" rel="stylesheet">
+      <link href="/css/theme-mine.css?1611527255" rel="stylesheet">
     
 
-    <script src="/js/jquery-3.3.1.min.js?1569361479"></script>
+    <script src="/js/jquery-3.3.1.min.js?1611527255"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -55,14 +55,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1569361479"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1569361479"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1611527255"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1611527255"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/kodebot.com\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1569361479"></script>
+<script type="text/javascript" src="/js/search.js?1611527255"></script>
 
     
   </div>
@@ -724,7 +724,7 @@
     
     <section id="footer">
       
-&copy; 2014 - 2019 Kodebot Limited.
+&copy; Copyright 2021, Kodebot.
     </section>
   </div>
 </nav>
@@ -790,16 +790,13 @@
                     <div class="progress">
     <div class="wrapper">
 <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#quick-to-run">Quick to run</a></li>
-<li><a href="#repeatable">Repeatable</a></li>
-<li><a href="#focused">Focused</a></li>
-<li><a href="#isolated">Isolated</a></li>
-<li><a href="#self-validating">Self validating</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#quick-to-run">Quick to run</a></li>
+    <li><a href="#repeatable">Repeatable</a></li>
+    <li><a href="#focused">Focused</a></li>
+    <li><a href="#isolated">Isolated</a></li>
+    <li><a href="#self-validating">Self validating</a></li>
+  </ul>
 </nav>
     </div>
 </div>
@@ -824,12 +821,8 @@
 
 
 
-
-
 <p>When writing tests for any block of code, it must be comprehensive and cover all the scenarios. If we write tests for most obvious scenarios and don&rsquo;t cover the less common scenarios then we don&rsquo;t know how it is going to behave on those untested scenarios.</p>
-
 <p>Each test we write should have the following qualities</p>
-
 <ul>
 <li>Quick to run</li>
 <li>Repeatable</li>
@@ -837,35 +830,22 @@
 <li>Isolated</li>
 <li>Self validating</li>
 </ul>
-
 <h2 id="quick-to-run">Quick to run</h2>
-
 <p>When running unit test, we don&rsquo;t want to wait long. Because each of the tests we write target only few lines of the code, we could easily end up with hundreds, if not thousands, of tests even for a small program/application. Our tests must be extremely fast to get the feedback quickly. So we should try to avoid anything that will slow down our tests. When this is not possible, we should at least be able to keep the slow running tests separate and run them independently without affecting fast running tests.</p>
-
 <h2 id="repeatable">Repeatable</h2>
-
 <p>We should be able to run our tests repeatedly without any manual interventions. This means anything that our test needs should be done in the test itself.</p>
-
 <p>For example, if we need our application to be in a particular state for running a test, then the test itself should bring the application to the desired state as a prerequisite, perform the steps necessary for the test and do any necessary cleanups at the end of the test.</p>
-
 <h2 id="focused">Focused</h2>
-
 <p>We don&rsquo;t want one test trying to verify too many things. Each test should verify just one thing.</p>
-
 <p>For example, if we have a function to validate bank account number then we should try to create one test for each validation rule. That is, one test for each of the rules listed below</p>
-
 <ul>
 <li>verify account number is not null or empty</li>
 <li>verify account number is exactly 8 characters</li>
 <li>verify account number is only contains digits</li>
 </ul>
-
 <h2 id="isolated">Isolated</h2>
-
 <p>Any test should not depend on any other test(s). Although it is very common for a function or object to depend on other functions or objects, the test we write targeting a particular block of code should not be affected if the behavior of any of its dependent function or object changes.</p>
-
 <h2 id="self-validating">Self validating</h2>
-
 <p>Each test we write should give us the feedback at the end on its own. We should not rely on anything other than the test itself for the result.</p>
 
 
@@ -1910,30 +1890,30 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1569361479"></script>
-    <script src="/js/perfect-scrollbar.min.js?1569361479"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1569361479"></script>
-    <script src="/js/jquery.sticky.js?1569361479"></script>
-    <script src="/js/featherlight.min.js?1569361479"></script>
-    <script src="/js/highlight.pack.js?1569361479"></script>
+    <script src="/js/clipboard.min.js?1611527255"></script>
+    <script src="/js/perfect-scrollbar.min.js?1611527255"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1611527255"></script>
+    <script src="/js/jquery.sticky.js?1611527255"></script>
+    <script src="/js/featherlight.min.js?1611527255"></script>
+    <script src="/js/highlight.pack.js?1611527255"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1569361479"></script>
-    <script src="/js/learn.js?1569361479"></script>
-    <script src="/js/hugo-learn.js?1569361479"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1611527255"></script>
+    <script src="/js/learn.js?1611527255"></script>
+    <script src="/js/hugo-learn.js?1611527255"></script>
 
-    <link href="/mermaid/mermaid.css?1569361479" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1569361479"></script>
+    <link href="/mermaid/mermaid.css?1611527255" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1611527255"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
     
 
 
-<div id="body"> 
+<div id="body" style="margin-top: auto;"> 
 
     <div class="custom-footer">
         <div class="copy">
-            &copy; 2014 - 2019 Kodebot Limited. All Rights Reserved.<br>
+            &copy; Copyright 2021, Kodebot.<br>
         </div>
         <div class="license">
             All content on this website is licensed under the <a href="http://creativecommons.org/licenses/by-sa/3.0/">
@@ -1951,7 +1931,7 @@
             up to date or complete. Any use or reliance on any content or materials published, mentioned or linked here
             is
             at your own risk and
-            the Kodebot Limited and author/authors accept no liability or responsibility for.
+            the Kodebot and author/authors accept no liability or responsibility for.
         </div>
     </div>
 

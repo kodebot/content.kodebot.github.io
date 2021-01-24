@@ -121,6 +121,10 @@ a:hover {
 body{
     font-size: 18px !important;
     font-family: "muli", "Nunito", "Georgia", "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
 }
 
 #chapter h3 {
@@ -256,8 +260,10 @@ h1{
 
 /* custom footer styles */
 .custom-footer{
+    margin-top: auto; /* this and flex body with 100vh height fixes footer at bottom*/
     padding:0 15px 10px 15px;
     font-size: .8em;
+    letter-spacing: normal;
 }
 
 .custom-footer .copy{

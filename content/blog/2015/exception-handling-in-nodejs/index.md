@@ -6,6 +6,7 @@ lastmod: 2015-09-27T00:00:00+00:00
 tags: ["NodeJS", "JavaScript"]
 comments: true
 draft: false
+disableBreadcrumb: true
 ---
 ## Introduction
 Exception handling in Node might look completely different for developers coming from C# background like myself.

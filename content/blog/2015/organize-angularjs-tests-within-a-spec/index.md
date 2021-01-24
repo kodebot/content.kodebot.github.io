@@ -6,6 +6,7 @@ lastmod: 2015-03-15T00:00:00+00:00
 tags: ["Unit Testing", "JavaScript", "AngularJS"]
 comments: true
 draft: false
+disableBreadcrumb: true
 ---
 
 <p>I like to have one test file&nbsp;per components of AngularJS application. So, for example, <code>homeController</code> will have its own test file&nbsp;named <code>homeSpec</code> or <code>homeControllerSpec.</code></p>

@@ -6,6 +6,7 @@ lastmod: 2015-03-24T00:00:00+00:00
 tags: ["JavaScript", "AngularJS"]
 comments: true
 draft: false
+disableBreadcrumb: true
 ---
 
 <p>In <a href="../six-stars-of-angularjs-part-1" target="_blank">part 1</a>&nbsp;of this series, we have briefly seen how <code>$provide</code> and <code>$injector</code> work and we also took a deep dive on how we create a service using provider function of <code>$provide</code> service.</p><!-- more -->

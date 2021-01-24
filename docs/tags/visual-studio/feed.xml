@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Visual Studio on Kodebot</title>
@@ -6,20 +6,14 @@
     <description>Recent content in Visual Studio on Kodebot</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-GB</language>
-    <lastBuildDate>Sat, 14 Mar 2015 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://kodebot.com/tags/visual-studio/feed.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sat, 14 Mar 2015 00:00:00 +0000</lastBuildDate><atom:link href="https://kodebot.com/tags/visual-studio/feed.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Setup Chutzpah to Run Javascript Tests in VisualStudio</title>
       <link>https://kodebot.com/blog/2015/setup-chutzpah-to-run-javascript-tests-in-visualstudio/</link>
       <pubDate>Sat, 14 Mar 2015 00:00:00 +0000</pubDate>
       
       <guid>https://kodebot.com/blog/2015/setup-chutzpah-to-run-javascript-tests-in-visualstudio/</guid>
-      <description>First thing first, install Chutzpah Test Runner&amp;nbsp;and Test Adaptor for the Test Explorer.
-Next, setup your projects in Visual Studio. I personally like to keep my test code in a separate project for JavaScript as well so my project and folder structure looks like this:
-   This allows you&amp;nbsp;to restrict testing frameworks and libraries like Jasmine only to&amp;nbsp;the test project. I use JavaScript&amp;nbsp;libraries directly from the main project when it is needed in test projects as well rather then adding them again in the test project (some people have different view on this but it works for me).</description>
+      <description> testing library/framework files code under test file(s) any additional files required to run code under test  /// &amp;lt;reference path=&amp;#34;../../../myapplication.web/scripts/jquery-1.10.2.min.js&amp;#34; /&amp;gt;  /// &amp;lt;reference path=&amp;#34;../../../myapplication.web/app/app.js&amp;#34; /&amp;gt; /// &amp;lt;reference path=&amp;#34;../../../myapplication.web/app/home/homecontroller.js&amp;#34; /&amp;gt;  describe(&amp;#39;home page&amp;#39;, function() { it(&amp;#39;should return tile as Home&amp;#39;, function() { expect(&amp;#39;home&amp;#39;).toBe(&amp;#39;home&amp;#39;); }); </description>
     </item>
     
   </channel>

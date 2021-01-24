@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.57.2" />
+    <meta name="generator" content="Hugo 0.80.0" />
     <meta name="description" content="">
 
 
@@ -11,20 +11,20 @@
     <title>Interface Segregation Principle :: Kodebot</title>
 
     
-    <link href="/css/nucleus.css?1569361479" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1569361479" rel="stylesheet">
-    <link href="/css/hybrid.css?1569361479" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1569361479" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1569361479" rel="stylesheet">
-    <link href="/css/auto-complete.css?1569361479" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1569361479" rel="stylesheet">
-    <link href="/css/theme.css?1569361479" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1569361479" rel="stylesheet">
+    <link href="/css/nucleus.css?1611527256" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1611527256" rel="stylesheet">
+    <link href="/css/hybrid.css?1611527256" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1611527256" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1611527256" rel="stylesheet">
+    <link href="/css/auto-complete.css?1611527256" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1611527256" rel="stylesheet">
+    <link href="/css/theme.css?1611527256" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1611527256" rel="stylesheet">
     
-      <link href="/css/theme-mine.css?1569361479" rel="stylesheet">
+      <link href="/css/theme-mine.css?1611527256" rel="stylesheet">
     
 
-    <script src="/js/jquery-3.3.1.min.js?1569361479"></script>
+    <script src="/js/jquery-3.3.1.min.js?1611527256"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -55,14 +55,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1569361479"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1569361479"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1611527256"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1611527256"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/kodebot.com\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1569361479"></script>
+<script type="text/javascript" src="/js/search.js?1611527256"></script>
 
     
   </div>
@@ -724,7 +724,7 @@
     
     <section id="footer">
       
-&copy; 2014 - 2019 Kodebot Limited.
+&copy; Copyright 2021, Kodebot.
     </section>
   </div>
 </nav>
@@ -784,15 +784,13 @@
                     <div class="progress">
     <div class="wrapper">
 <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#references">References</a></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#references">References</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
     </div>
 </div>
@@ -817,10 +815,7 @@
 
 
 
-
-
-<hr />
-
+<hr>
 
 
 
@@ -836,21 +831,14 @@
     
   </a>
   
-
-<hr />
-
+<hr>
 <p>Interface Segregation Principle(ISP) was introduced by <a href="https://en.wikipedia.org/wiki/Robert_C._Martin">Robert C. Martin</a>. He says</p>
-
 <blockquote>
 <p>Clients should not be forced to depend on methods it does not use</p>
 </blockquote>
-
 <p>There may be scenarios where we may have a class that has members(fields, properties or methods) used by two or more clients. When changing any of the members used by one client, all the clients of the class, even the ones that are not using the changing members, are affected.</p>
-
 <p><a href="https://en.wikipedia.org/wiki/Robert_C._Martin">Robert C. Martin</a> describes these type of classes as <strong>Interface Pollution</strong>. In this context, <em>interface</em> refers to the public members (fields, properties and methods) of the class.</p>
-
 <p>As per Interface Segregation Principle, we should have one interface per client with just enough members needed for that client.</p>
-
 <p>This is better understood with an example. Let&rsquo;s say we have <code>Order</code> class</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Order</span>
 {
@@ -899,28 +887,20 @@
         <span style="color:#75715e">// process return
 </span><span style="color:#75715e"></span>    }
 }
-</code></pre></div>
-<figure>
-    <img src="/tutorials/solid-principles/5-interface-segregation-principle/images/ISP_violation.png" alt="" height="250" width="" />
-    <figcaption></figcaption>
-</figure>
-
+</code></pre></div><!-- raw HTML omitted -->
 <p>This class clearly contains methods that are used by two different clients - Customer user interface and Seller user interface.</p>
-
 <p>While it is best to avoid this type of classes, it is not always possible.</p>
-
 <p>In situations like this, it is a good idea to have client specific interface that exposes just enough members for each client.</p>
-
 <p>The key benefit of having client specific interface are</p>
-
 <ol>
-<li><p>it allows clients to see only what it needs to see so the collaboration between the class and the client is clear</p></li>
-
-<li><p>it completely eliminates the chance of misuse. For example, Customer user interface calling <code>Dispatch()</code> method</p></li>
+<li>
+<p>it allows clients to see only what it needs to see so the collaboration between the class and the client is clear</p>
+</li>
+<li>
+<p>it completely eliminates the chance of misuse. For example, Customer user interface calling <code>Dispatch()</code> method</p>
+</li>
 </ol>
-
 <p><a href="https://en.wikipedia.org/wiki/Martin_Fowler_(software_engineer)">Martin Fowler</a> calls this type of interface as <a href="https://www.martinfowler.com/bliki/RoleInterface.html">role interface</a></p>
-
 <p>In our example, we will create the following two interfaces, one for each client, as per Interface Segregation Principle</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> ICustomerOrder
 {
@@ -937,13 +917,8 @@
     <span style="color:#66d9ef">void</span> ProcessCancellation();
     <span style="color:#66d9ef">void</span> ProcessReturn();
 }
-</code></pre></div>
-<p>The <code>Order</code> class still contains all the methods but it now implements both <code>ICustomerOrder</code> and <code>ISellerOrder</code> interfaces</p>
-
-<figure>
-    <img src="/tutorials/solid-principles/5-interface-segregation-principle/images/ISP.png" alt="" height="500" width="" />
-    <figcaption></figcaption>
-</figure>
+</code></pre></div><p>The <code>Order</code> class still contains all the methods but it now implements both <code>ICustomerOrder</code> and <code>ISellerOrder</code> interfaces</p>
+<!-- raw HTML omitted -->
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Order</span> : ICustomerOrder, ISellerOrder
 {
     pubic <span style="color:#66d9ef">void</span> Create()
@@ -991,17 +966,16 @@
         <span style="color:#75715e">// process return
 </span><span style="color:#75715e"></span>    }
 }
-</code></pre></div>
-<p>The customer user interface can use the <code>ICustomerOrder</code> abstraction rather than <code>Order</code> class directly. This way, customer user interface won&rsquo;t see any methods that it should not use.</p>
-
+</code></pre></div><p>The customer user interface can use the <code>ICustomerOrder</code> abstraction rather than <code>Order</code> class directly. This way, customer user interface won&rsquo;t see any methods that it should not use.</p>
 <p>Likewise, seller user interface can use <code>ISellerOrder</code> and it won&rsquo;t see any methods that it should not use.</p>
-
 <h3 id="references">References</h3>
-
 <ol>
-<li><p><a href="https://drive.google.com/file/d/0BwhCYaYDn8EgOTViYjJhYzMtMzYxMC00MzFjLWJjMzYtOGJiMDc5N2JkYmJi/view">https://drive.google.com/file/d/0BwhCYaYDn8EgOTViYjJhYzMtMzYxMC00MzFjLWJjMzYtOGJiMDc5N2JkYmJi/view</a></p></li>
-
-<li><p><a href="https://en.wikipedia.org/wiki/Interface_segregation_principle">https://en.wikipedia.org/wiki/Interface_segregation_principle</a></p></li>
+<li>
+<p><a href="https://drive.google.com/file/d/0BwhCYaYDn8EgOTViYjJhYzMtMzYxMC00MzFjLWJjMzYtOGJiMDc5N2JkYmJi/view">https://drive.google.com/file/d/0BwhCYaYDn8EgOTViYjJhYzMtMzYxMC00MzFjLWJjMzYtOGJiMDc5N2JkYmJi/view</a></p>
+</li>
+<li>
+<p><a href="https://en.wikipedia.org/wiki/Interface_segregation_principle">https://en.wikipedia.org/wiki/Interface_segregation_principle</a></p>
+</li>
 </ol>
 
 
@@ -2048,30 +2022,30 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1569361479"></script>
-    <script src="/js/perfect-scrollbar.min.js?1569361479"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1569361479"></script>
-    <script src="/js/jquery.sticky.js?1569361479"></script>
-    <script src="/js/featherlight.min.js?1569361479"></script>
-    <script src="/js/highlight.pack.js?1569361479"></script>
+    <script src="/js/clipboard.min.js?1611527256"></script>
+    <script src="/js/perfect-scrollbar.min.js?1611527256"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1611527256"></script>
+    <script src="/js/jquery.sticky.js?1611527256"></script>
+    <script src="/js/featherlight.min.js?1611527256"></script>
+    <script src="/js/highlight.pack.js?1611527256"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1569361479"></script>
-    <script src="/js/learn.js?1569361479"></script>
-    <script src="/js/hugo-learn.js?1569361479"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1611527256"></script>
+    <script src="/js/learn.js?1611527256"></script>
+    <script src="/js/hugo-learn.js?1611527256"></script>
 
-    <link href="/mermaid/mermaid.css?1569361479" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1569361479"></script>
+    <link href="/mermaid/mermaid.css?1611527256" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1611527256"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
     
 
 
-<div id="body"> 
+<div id="body" style="margin-top: auto;"> 
 
     <div class="custom-footer">
         <div class="copy">
-            &copy; 2014 - 2019 Kodebot Limited. All Rights Reserved.<br>
+            &copy; Copyright 2021, Kodebot.<br>
         </div>
         <div class="license">
             All content on this website is licensed under the <a href="http://creativecommons.org/licenses/by-sa/3.0/">
@@ -2089,7 +2063,7 @@
             up to date or complete. Any use or reliance on any content or materials published, mentioned or linked here
             is
             at your own risk and
-            the Kodebot Limited and author/authors accept no liability or responsibility for.
+            the Kodebot and author/authors accept no liability or responsibility for.
         </div>
     </div>
 

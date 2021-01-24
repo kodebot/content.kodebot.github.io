@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>C# on Kodebot</title>
@@ -6,20 +6,15 @@
     <description>Recent content in C# on Kodebot</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-GB</language>
-    <lastBuildDate>Thu, 09 Apr 2015 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://kodebot.com/tags/c#/feed.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Thu, 09 Apr 2015 00:00:00 +0000</lastBuildDate><atom:link href="https://kodebot.com/tags/c#/feed.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>TPL Task and Windows Identity Impersonation - The beauty of Closure</title>
       <link>https://kodebot.com/blog/2015/tpl-task-and-windows-identity-impersonation-the-beauty-of-closure/</link>
       <pubDate>Thu, 09 Apr 2015 00:00:00 +0000</pubDate>
       
       <guid>https://kodebot.com/blog/2015/tpl-task-and-windows-identity-impersonation-the-beauty-of-closure/</guid>
-      <description>I have created a web application with Windows Authentication and impersonation is enabled as I need the application connect to SQL Server database using Windows Authentication.
-I wanted&amp;nbsp;to run a TPL task in the impersonated context, so, I added the following code naively in a&amp;nbsp;action method of one of my controllers
-// naive task code  Task.Run(() =&amp;gt; { // Task code here });  Though, this answer&amp;nbsp;suggests that tasks will run under the same context under which it was created, it wasn&#39;t working that way in my case.</description>
+      <description>// naive task code  Task.Run(() =&amp;gt; { // Task code here }); To make this work, I need to invoke the method in the task under impersonated context. The easiest way is to capture the WindowsIdentity and make it available to the task function so it can execute any code under the impersonated context.
+// Task using closure var currentWindowsIdentity = WindowsIdentity.GetCurrent(); Task.Run(() =&amp;gt; { using (currentWindowsIdentity.Impersonate()) { // Task code here  } }); </description>
     </item>
     
     <item>
@@ -28,9 +23,7 @@ I wanted&amp;nbsp;to run a TPL task in the impersonated context, so, I added the
       <pubDate>Mon, 06 Apr 2015 00:00:00 +0000</pubDate>
       
       <guid>https://kodebot.com/blog/2015/selenium-and-page-objects/</guid>
-      <description>I use&amp;nbsp;Selenium&amp;nbsp;or Protractor&amp;nbsp;for E2E tests that require browser automation. I prefer to use Selenium when I want to write my tests in C# and Protractor for AngularJS applications.
-It doesn&#39;t matter what tool/framework you use, if you want to bring in structure and make your test code reusable when dealing with any UI automation then Page Object is your friend.
-I have been creating my Page Objects incorrectly with two major flaws until I read this&amp;nbsp;great article from Martin Fowler.</description>
+      <description>// Search Page 	public class BingSearch { private IWebElement _searchTerm; private List&amp;lt;BingSearchResult&amp;gt; _searchResults; public BingSearch() { Browser.GoTo(&amp;#34;http://www.bing.com&amp;#34;); } public string SearchTerm { get { return _searchTerm.Text; } set { _searchTerm = _searchTerm ?? Browser.WebDriver.FindElement(By.Name(&amp;#34;q&amp;#34;)); _searchTerm.SendKeys(value); } } public void Search() { if (_searchTerm != null) { if (_searchResults != null) { _searchResults.Clear(); } _searchTerm.Submit(); } } public List&amp;lt;BingSearchResult&amp;gt; SearchResults { get { _searchResults = _searchResults ?? new List&amp;lt;BingSearchResult&amp;gt;(); if (!</description>
     </item>
     
     <item>
@@ -39,9 +32,7 @@ I have been creating my Page Objects incorrectly with two major flaws until I re
       <pubDate>Sat, 21 Mar 2015 00:00:00 +0000</pubDate>
       
       <guid>https://kodebot.com/blog/2015/nsequencecomparer-to-compare-two-sequences/</guid>
-      <description>I had a requirement&amp;nbsp;to compare two sequences to find the differences in .NET platform. To compare large sequences, I needed an algorithm that&amp;nbsp;does not use recursion.&amp;nbsp;I could not find anything in the internet that I can use out of the box, so, I created&amp;nbsp;this nuget package
-This package is very simple to use, you can read usage instructions&amp;nbsp;here
-Feel free to use and contribute.</description>
+      <description></description>
     </item>
     
     <item>
@@ -50,8 +41,7 @@ Feel free to use and contribute.</description>
       <pubDate>Mon, 16 Mar 2015 00:00:00 +0000</pubDate>
       
       <guid>https://kodebot.com/blog/2015/structuring-unit-tests/</guid>
-      <description>I have been following the same unit test structure that Phil Haack described here. &amp;nbsp;But, I use slightly different version when my tests need too many repeated test setups and cleanups.&amp;nbsp;
-I like jasmine&amp;nbsp;mainly because it allows to keep the tests DRY&amp;nbsp;using nested structure. Ofcourse it is possible in jasmine because method nesting is allowed in JavaScript. I like to structure my C# test files the same way using nested classes&amp;nbsp;without using any additional libraries</description>
+      <description>public class AddressValidator { public bool IsValid(IList&amp;lt;string&amp;gt; addressLines) { if (addressLines == null) { throw new ArgumentNullException(&amp;#34;addressLines&amp;#34;, &amp;#34;AddressLines cannot be null&amp;#34;); } if (addressLines.ElementAtOrDefault(0) != null &amp;amp;&amp;amp; addressLines.ElementAtOrDefault(4) != null) { return true; } if (addressLines.ElementAtOrDefault(0) != null &amp;amp;&amp;amp; addressLines.ElementAtOrDefault(1) != null &amp;amp;&amp;amp; addressLines.ElementAtOrDefault(2) != null) { return true; } return false; } public bool IsNonUkAddress(IEnumerable&amp;lt;string&amp;gt; addressLines) { // return true for UK address  return false; } } [TestClass] public class AddressVaidatorTests { private AddressValidator _target; [TestInitialize] public virtual void TestSetup() { _target = new AddressValidator(); // other test setups that are common for all the tests in this file.</description>
     </item>
     
     <item>
@@ -60,9 +50,7 @@ I like jasmine&amp;nbsp;mainly because it allows to keep the tests DRY&amp;nbsp;
       <pubDate>Sun, 15 Mar 2015 00:00:00 +0000</pubDate>
       
       <guid>https://kodebot.com/blog/2015/decorator-over-inheritance-hierarchy/</guid>
-      <description>I have used inheritance to solve a problem in many situations - some of them are correct and some of them are not when thinking about it now.
- When you are in a situation where you think you need multi-level inheritance, 9 out of 10 times you can solve the same problem using decorators.
- One of the problems I have seen recently which fits in this pattern is the implementation of ICommand interface.</description>
+      <description>public class Command : ICommand { public bool CanExecute(object parameter) { // normal can execute version  return true; } public event EventHandler CanExecuteChanged; public void Execute(object parameter) { // normal execute version  } } public class AuditedCommand:Command { public bool CanExecute(object parameter) { // audited can execute version  return base.CanExecute(parameter); } public void Execute(object parameter) { // audited execute version  base.Execute(parameter); } } public class SecureCommand : Command { public bool CanExecute(object parameter) { // Secure can execute version  return base.</description>
     </item>
     
   </channel>

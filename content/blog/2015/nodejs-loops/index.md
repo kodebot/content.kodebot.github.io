@@ -6,6 +6,7 @@ lastmod: 2015-10-04T00:00:00+00:00
 tags: ["NodeJS", "JavaScript"]
 comments: true
 draft: false
+disableBreadcrumb: true
 ---
 
 ## Closure

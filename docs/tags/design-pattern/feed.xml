@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Design Pattern on Kodebot</title>
@@ -6,20 +6,14 @@
     <description>Recent content in Design Pattern on Kodebot</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-GB</language>
-    <lastBuildDate>Sun, 15 Mar 2015 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://kodebot.com/tags/design-pattern/feed.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sun, 15 Mar 2015 00:00:00 +0000</lastBuildDate><atom:link href="https://kodebot.com/tags/design-pattern/feed.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Decorator over Inheritance hierarchy</title>
       <link>https://kodebot.com/blog/2015/decorator-over-inheritance-hierarchy/</link>
       <pubDate>Sun, 15 Mar 2015 00:00:00 +0000</pubDate>
       
       <guid>https://kodebot.com/blog/2015/decorator-over-inheritance-hierarchy/</guid>
-      <description>I have used inheritance to solve a problem in many situations - some of them are correct and some of them are not when thinking about it now.
- When you are in a situation where you think you need multi-level inheritance, 9 out of 10 times you can solve the same problem using decorators.
- One of the problems I have seen recently which fits in this pattern is the implementation of ICommand interface.</description>
+      <description>public class Command : ICommand { public bool CanExecute(object parameter) { // normal can execute version  return true; } public event EventHandler CanExecuteChanged; public void Execute(object parameter) { // normal execute version  } } public class AuditedCommand:Command { public bool CanExecute(object parameter) { // audited can execute version  return base.CanExecute(parameter); } public void Execute(object parameter) { // audited execute version  base.Execute(parameter); } } public class SecureCommand : Command { public bool CanExecute(object parameter) { // Secure can execute version  return base.</description>
     </item>
     
   </channel>

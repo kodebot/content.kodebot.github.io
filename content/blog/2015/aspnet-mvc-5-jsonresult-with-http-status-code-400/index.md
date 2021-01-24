@@ -6,6 +6,7 @@ lastmod: 2015-06-19T00:00:00+00:00
 tags: ["ASP.NET", "MVC"]
 comments: true
 draft: false
+disableBreadcrumb: true
 ---
 
 ASP.NET Web API 2 introduced several helper methods like Ok, NotFound, BadRequest, etc… . This allows us to write code which makes its intentions clear.

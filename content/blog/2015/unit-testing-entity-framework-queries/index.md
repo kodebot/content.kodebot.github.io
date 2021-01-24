@@ -6,6 +6,7 @@ lastmod: 2015-08-10T00:00:00+00:00
 tags: ["Unit Testing", "entity framework"]
 comments: true
 draft: false
+disableBreadcrumb: true
 ---
 ## Introduction
 When writing unit tests, we should test only one thing at once and isolate the system under test(SUT) from all the dependencies. We should follow the same approach for any LINQ queries you write to retrieve data from the underlying Database. But, I have seen many developers excluding the whole data access layer from unit testing. This is not right approach to follow IMHO. Many developers don't bother unit testing data access layer because of the perceived effort and complexity involved in isolating the data access layer from underlying Database and ORM tools like Entity Framework. The truth is, it is very easy to test your queries without touching Entity Framework or Database.

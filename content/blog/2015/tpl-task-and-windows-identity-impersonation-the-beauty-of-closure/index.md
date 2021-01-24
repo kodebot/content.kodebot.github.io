@@ -6,6 +6,7 @@ lastmod: 2015-04-09T00:00:00+00:00
 tags: ["C#"]
 comments: true
 draft: false
+disableBreadcrumb: true
 ---
 
 <p>I have created a web application with Windows Authentication and impersonation is enabled as I need the application connect to SQL Server database using Windows Authentication.</p>

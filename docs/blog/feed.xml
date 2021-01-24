@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Blog on Kodebot</title>
@@ -6,11 +6,7 @@
     <description>Recent content in Blog on Kodebot</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-GB</language>
-    <lastBuildDate>Sun, 04 Oct 2015 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://kodebot.com/blog/feed.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sun, 04 Oct 2015 00:00:00 +0000</lastBuildDate><atom:link href="https://kodebot.com/blog/feed.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>NodeJs: Loops, Closure and Async Invocation</title>
       <link>https://kodebot.com/blog/2015/nodejs-loops/</link>
@@ -19,7 +15,7 @@
       <guid>https://kodebot.com/blog/2015/nodejs-loops/</guid>
       <description>Closure Closure is something that is very familiar to all C# developers who know lambda expressions/functions but they just may not know that it is called Closure in JavaScript.
 Lets look at what is closure in JavaScript without further ado with an example:
-function outer(){ var inOuter = &amp;#34;outer&amp;#34;; inner(); function inner(){ console.log(inOuter); // prints &amp;#39;outer&amp;#39; 	} }  In this example, the variable inOuter is defined in the function outer but it is used in the function inner.</description>
+function outer(){ var inOuter = &amp;#34;outer&amp;#34;; inner(); function inner(){ console.log(inOuter); // prints &amp;#39;outer&amp;#39; 	} } In this example, the variable inOuter is defined in the function outer but it is used in the function inner.</description>
     </item>
     
     <item>
@@ -56,7 +52,7 @@ Event Loop Node has the following three main components to achieve concurrent, n
       <pubDate>Fri, 17 Jul 2015 00:00:00 +0000</pubDate>
       
       <guid>https://kodebot.com/blog/2015/vs-tac-cordova-version/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;http://aka.ms/cordova&#34; target=&#34;_blank&#34;&gt;Visual Studio – Tools for Apache Cordova&lt;/a&gt; is a great addition to Visual Studio. It allows us to develop &lt;a href=&#34;http://cordova.apache.org/&#34; target=&#34;_blank&#34;&gt;Apache Cordova&lt;/a&gt; applications while taking all the advantages of Visual Studio. I started using it with VS 2015 RC for one of the application I am developing using &lt;a href=&#34;http://ionicframework.com/&#34; target=&#34;_blank&#34;&gt;Ionic&lt;/a&gt;. &lt;/p&gt;</description>
+      <description>&lt;!-- raw HTML omitted --&gt;</description>
     </item>
     
     <item>
@@ -75,8 +71,7 @@ In recent times, I have been working in semi-single page application which uses 
       <pubDate>Tue, 16 Jun 2015 00:00:00 +0000</pubDate>
       
       <guid>https://kodebot.com/blog/2015/angularjs-1x-validation-on-file-input-type/</guid>
-      <description>Introduction You might already known that AngularJS 1.x doesn’t support model binding for File Input type at the moment. This means, implementing any validation on File Input type is not straight forward as validation entirely depends on model binding.
-I have come across a requirement where, I need to create a form with ‘required’ validation on File Input type and I also need to display bootstrap form feedback. There are number of great solutions out there to make file upload with angular easier but none of them provide easier way to enforce validation.</description>
+      <description>&amp;lt;div class=&amp;#34;form-group&amp;#34;&amp;gt; &amp;lt;label class=&amp;#34;col-md-2 control-label&amp;#34; for=&amp;#34;photoUrl&amp;#34;&amp;gt;Photo&amp;lt;/label&amp;gt; &amp;lt;div class=&amp;#34;col-md-4&amp;#34;&amp;gt; &amp;lt;div class=&amp;#34;input-group&amp;#34;&amp;gt; &amp;lt;span class=&amp;#34;btn btn-primary btn-file input-group-addon&amp;#34;&amp;gt; Browse &amp;lt;input type=&amp;#34;file&amp;#34; id=&amp;#34;photoUrlSelector&amp;#34; name=&amp;#34;photoUrlSelector&amp;#34; accept=&amp;#34;image/*&amp;#34; &amp;gt; &amp;lt;/span&amp;gt; &amp;lt;input class=&amp;#34;form-control&amp;#34; type=&amp;#34;text&amp;#34; id=&amp;#34;photoUrl&amp;#34; name=&amp;#34;photoUrl&amp;#34; data-ng-disabled=&amp;#34;true&amp;#34;&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;span class=&amp;#34;btn btn-primary btn-file input-group-addon&amp;#34;&amp;gt; Browse &amp;lt;input type=&amp;#34;file&amp;#34; id=&amp;#34;photoUrlSelector&amp;#34; name=&amp;#34;photoUrlSelector&amp;#34; accept=&amp;#34;image/*&amp;#34;&amp;gt; &amp;lt;/span&amp;gt; &amp;lt;span class=&amp;quot;btn btn-primary btn-file input-group-addon&amp;quot;&amp;gt;Browse &amp;lt;input type=&amp;quot;file&amp;quot; id=&amp;quot;photoUrlSelector&amp;quot; name=&amp;quot;photoUrlSelector&amp;quot; ngf-select ng-model=&amp;quot;vm.author.photoUrl&amp;quot; accept=&amp;quot;image/*&amp;quot; data-ng-click=&amp;quot;addAuthorForm.photoUrl.$touched=true&amp;quot;&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;input class=&amp;#34;form-control&amp;#34; type=&amp;#34;text&amp;#34; id=&amp;#34;photoUrl&amp;#34; name=&amp;#34;photoUrl&amp;#34; data-ng-model=&amp;#34;vm.author.photoUrl[0].name&amp;#34; data-ng-required=&amp;#34;true&amp;#34; data-ng-disabled=&amp;#34;true&amp;#34;&amp;gt; as you can see, the input field is also decorated with ng-required directive to enforce required field validation.</description>
     </item>
     
     <item>
@@ -85,9 +80,7 @@ I have come across a requirement where, I need to create a form with ‘required
       <pubDate>Mon, 08 Jun 2015 00:00:00 +0000</pubDate>
       
       <guid>https://kodebot.com/blog/2015/angular-1x-unit-testing-a-function-that-returns-promise/</guid>
-      <description>I wrote this post few months back which show how we can mock a function that returns Promise. In this post, we will see how to test a function that returns Promise.
-We will use the following simple controller as our SUT
-var app = angular.module(&amp;#34;app&amp;#34;); app.controller(&amp;#34;studentController&amp;#34;, function($q, studentDataService){ var vm = this; vm.students = undefined; activate(); function activate (){ vm.students = getAllStudents(); } function getAllStudents(){ return studentDataService .getAll(); } });  This simple controller has getAllStudents() which returns a promise.</description>
+      <description>var app = angular.module(&amp;#34;app&amp;#34;); app.controller(&amp;#34;studentController&amp;#34;, function($q, studentDataService){ var vm = this; vm.students = undefined; activate(); function activate (){ vm.students = getAllStudents(); } function getAllStudents(){ return studentDataService .getAll(); } }); it(&amp;#34;should get students on activation&amp;#34;, function(done){ // Fixture Setup  // Exercise Systcode  var sut = $controller(&amp;#34;studentController&amp;#34;); // Verify Outcome  sut.students.then(function(data){ expect(data).toBeDefined(); done(); }); $rootScope.$apply(); // Fixture Teardown }); </description>
     </item>
     
     <item>
@@ -96,9 +89,8 @@ var app = angular.module(&amp;#34;app&amp;#34;); app.controller(&amp;#34;student
       <pubDate>Wed, 03 Jun 2015 00:00:00 +0000</pubDate>
       
       <guid>https://kodebot.com/blog/2015/typescript-accessing-object-with-null-key/</guid>
-      <description>Objects in JavaScript is just a key value pair and key is usually string and value can be anything. The following is an example of JavaScript object literal
-var car = { wheels : 3, colour: &amp;#39;red&amp;#39;, drive: function(){ ... } }  The key in the object can be null. The default route in AngularJS is associated with null key, for example.
-We can access the value associated with the null key in JavaScript quite easily like this:</description>
+      <description>var car = { wheels : 3, colour: &amp;#39;red&amp;#39;, drive: function(){ ... } } routes[null].redirectTo An index expression argument must be of type string, number, symbol, or any.
+var nullRef: any = null; routes[nullRef].redirectTo </description>
     </item>
     
     <item>
@@ -107,7 +99,7 @@ We can access the value associated with the null key in JavaScript quite easily 
       <pubDate>Sat, 30 May 2015 00:00:00 +0000</pubDate>
       
       <guid>https://kodebot.com/blog/2015/aspnet-mvc-5-hosting-for-integration-e2e-testing/</guid>
-      <description>Introduction When we want to do proper Integration or End to End testing of Web API, we can choose any process as host for Web API 2 or higher. This is possible because Web API supports Owin/Katana, which means, it doesn&amp;rsquo;t have any direct dependency on IIS. On the other hand MVC 5 doesn&amp;rsquo;t have support for Owin/Katana due to the fact that ASP.NET pipeline is depending on IIS. So this leaves us with only one option to host MVC 5, which is IIS, even for integration/e2e testing.</description>
+      <description>public static class ApplicationUtilities { private static Process _webHostProcess; private const string WEB_APP_NAME = &amp;#34;BookShop.Web&amp;#34;; private const int WEB_APP_PORT = 12345; public static void StartApplication() { var webHostStartInfo = GetProcessStartInfo(); _webHostProcess = Process.Start(webHostStartInfo); _webHostProcess.TieLifecycleToParentProcess(); } public static void StopApplication() { if (_webHostProcess == null) return; if (!_webHostProcess.HasExited) _webHostProcess.Kill(); _webHostProcess.Dispose(); } public static string ApplicationBaseUrl { get { return string.Format(&amp;#34;http://localhost:{0}&amp;#34;, WEB_APP_PORT); } } public static string GetFullUrl(string relativePath) { return string.Format(&amp;#34;{0}{1}&amp;#34;, ApplicationUtilities.</description>
     </item>
     
     <item>
@@ -116,9 +108,7 @@ We can access the value associated with the null key in JavaScript quite easily 
       <pubDate>Wed, 20 May 2015 00:00:00 +0000</pubDate>
       
       <guid>https://kodebot.com/blog/2015/how-to-mock-automapper-in-unit-tests/</guid>
-      <description>Introduction
-When it comes to Unit testing, the rule is to isolate&amp;nbsp;all the dependencies and focus only on the unit of code you are testing. I have been silently ignoring this for AutoMapper until I found a proper way to isolate and replace the behavior of mapping.
-When I was looking for a proper way to do this, I come across many posts but none of them were having full working example without any additional layer between the function/class that wants to use AutoMapper and AutoMapper itself.</description>
+      <description>kernel.Bind&amp;lt;IMappingEngine&amp;gt;().ToConstant(Mapper.Engine); services.AddInstance&amp;lt;IMappingEngine&amp;gt;(Mapper.Engine); var mockMapper = new Mock&amp;lt;IMappingEngine&amp;gt;(); mockMapper.Setup(mock =&amp;gt; mock.Map&amp;lt;TargetType&amp;gt;(It.IsAny&amp;lt;SourceType&amp;gt;())).Returns(targetInstance); public class User { public int Id { get; set; } public string FirstName { get; set; } public string LastName { get; set; } public int Age { get; set; } } public class UserDto { public int Id { get; set; } public string FirstName { get; set; } } public class Sut { private readonly IMappingEngine _mapper; public Sut(IMappingEngine mapper) { _mapper = mapper; } public User Run(UserDto dto) { return _mapper.</description>
     </item>
     
     <item>
@@ -127,8 +117,7 @@ When I was looking for a proper way to do this, I come across many posts but non
       <pubDate>Thu, 14 May 2015 00:00:00 +0000</pubDate>
       
       <guid>https://kodebot.com/blog/2015/asp-net-5-tag-helpers-the-html-way/</guid>
-      <description>Introduction Tag Helper is not a new concept in ASP.NET but they way we use Tag Helpers in razor view is different. In the previous versions of ASP.NET, if we want to use HTML tag helper, we will be switching from HTML&amp;rsquo;s native declarative style to imperative style of C#.
-We loose the tooling support we get when editing HTML document for the most part. For example, the following code creates a label</description>
+      <description>// Old style tag helpers @Html.LabelFor(Model =&amp;gt; Model.Name, &amp;#34;User Name&amp;#34;, new { @class = &amp;#34;control-label&amp;#34; }); // Declarative style &amp;lt;label asp-for=&amp;#34;Name&amp;#34; class=&amp;#34;control-label&amp;#34;&amp;gt;User Name&amp;lt;/label&amp;gt; // add tag helpers @addTagHelper &amp;#34;*, Microsoft.AspNet.Mvc.TagHelpers&amp;#34; // ITagHelper int Order { get; } Task ProcessAsync(TagHelperContext context, TagHelperOutput output); // Custom tag helper example [TargetElement(&amp;#34;div&amp;#34;, Attributes = &amp;#34;panel-title&amp;#34;)] [TargetElement(&amp;#34;div&amp;#34;, Attributes = &amp;#34;panel-style&amp;#34;)] public class PanelTagHelper : TagHelper { [HtmlAttributeName(&amp;#34;panel-title&amp;#34;)] public string Title { get; set; } [HtmlAttributeName(&amp;#34;panel-type&amp;#34;)] public HtmlPanelType PanelType { get; set; } public override void Process(TagHelperContext context, TagHelperOutput output) { //&amp;lt;div class=&amp;#34;panel panel-default&amp;#34;&amp;gt;  // &amp;lt;div class=&amp;#34;panel-heading&amp;#34;&amp;gt;  // &amp;lt;h3 class=&amp;#34;panel-title&amp;#34;&amp;gt;Panel title&amp;lt;/h3&amp;gt;  // &amp;lt;/div&amp;gt;  // &amp;lt;div class=&amp;#34;panel-body&amp;#34;&amp;gt;  // Panel content  // &amp;lt;/div&amp;gt;  //&amp;lt;/div&amp;gt;  // header content  var panelHeadingContent = new TagBuilder(&amp;#34;h3&amp;#34;); panelHeadingContent.</description>
     </item>
     
     <item>
@@ -137,9 +126,7 @@ We loose the tooling support we get when editing HTML document for the most part
       <pubDate>Fri, 08 May 2015 00:00:00 +0000</pubDate>
       
       <guid>https://kodebot.com/blog/2015/asp-net-5-environment-specific-pipeline-configuration/</guid>
-      <description>Introduction In ASP.NET 5, we configure and add middlewares (aka pipelines) using Startup class. The convention is similar to Owin/Katana but not the same.
-The Configuration method in Owin/Katana Startup class is replaced by Configure method and the parameter type is IApplicationBuilder rather than IAppBuilder and how we create and add&amp;nbsp;middleware is also different to some extend.&amp;nbsp;
-ASP.NET 5 Startup class allows us to add and configure services using ConfigureService method, this is not available in Owin/Katana Startup class.</description>
+      <description>// Example  public class Startup { private readonly IHostingEnvironment _env; public Startup(IHostingEnvironment env) { _env = env; } public void ConfigureServices(IServiceCollection services) { if (_env.IsEnvironment(&amp;#34;Production&amp;#34;)) { // read prod config  } else { // read dev config  } } . . . } // Full example  public class Startup { private readonly IHostingEnvironment _env; public Startup(IHostingEnvironment env) { _env = env; } public void ConfigureServices(IServiceCollection services) { if (_env.</description>
     </item>
     
     <item>
@@ -148,9 +135,8 @@ ASP.NET 5 Startup class allows us to add and configure services using ConfigureS
       <pubDate>Wed, 29 Apr 2015 00:00:00 +0000</pubDate>
       
       <guid>https://kodebot.com/blog/2015/owin-katana-core-middleware-patterns/</guid>
-      <description>Introduction Katana supports 4 different convention based patterns for adding middlewares in its lowest level. They are,
- Delegate Pattern Instance Pattern Generator/Nested Delegate Pattern Constructor Type or Type Pattern All the other formats/patterns supported through IAppBuilder&amp;rsquo;s extension methods are implemented using one of these 4 patterns under the hood.
-I couldn&amp;rsquo;t find any examples in the web which show how to use these patterns, so I am creating it for my future reference.</description>
+      <description>// Delegate Pattern Func&amp;lt;AppFunc, AppFunc&amp;gt; where AppFunc is Func&amp;lt;IDictionary&amp;lt;string, object&amp;gt;, Task&amp;gt;&amp;gt;
+// Delegate Pattern Implementation public void Configuration(IAppBuilder builder) { builder.Use(new Func&amp;lt;AppFunc, AppFunc&amp;gt;(next =&amp;gt; async env =&amp;gt; { Console.WriteLine(&amp;#34;From Delegate Middleware - Start&amp;#34;); await next(env); Console.WriteLine(&amp;#34;From Delegate Middleware - End&amp;#34;); })); } // Delegate Pattern with additional parameters public void Configuration(IAppBuilder builder) { builder.Use(new Func&amp;lt;AppFunc, string, AppFunc&amp;gt;((next, param) =&amp;gt; async (env) =&amp;gt; { Console.WriteLine(&amp;#34;From Delegate Middleware with param- Start&amp;#34;); Console.WriteLine(&amp;#34;Paramater value : {0}&amp;#34;, param); await next(env); Console.</description>
     </item>
     
     <item>
@@ -159,8 +145,7 @@ I couldn&amp;rsquo;t find any examples in the web which show how to use these pa
       <pubDate>Mon, 27 Apr 2015 00:00:00 +0000</pubDate>
       
       <guid>https://kodebot.com/blog/2015/typescript-this-reference-in-angularjs-event-handler/</guid>
-      <description>Let&#39;s have a look at how AngularJS 1.x controller is usually created in TypeScript before we go into details of how AngularJS event handler and how &#39;this&#39; works in the AngularJS event handler context. TypeScript encourages to type anything and everything to take full advantages of the type system and tool supports we get when working with any strongly typed language.
-So, when using TypeScript with AngularJS 1.x, class is usually created to represent the implementation of the controllers.</description>
+      <description>// Controller using class module App.Home { interface IHomeViewModel { title: string; } class HomeController implements IHomeViewModel { title: string = &amp;#34;Welcome!!!&amp;#34;; static $inject = [&amp;#34;$location&amp;#34;, &amp;#34;$rootScope&amp;#34;] constructor( private $location: ng.ILocationService, private $rootScope: ng.IRootScopeService) { } } angular.module(&amp;#34;app&amp;#34;) .controller(&amp;#34;homeController&amp;#34;, HomeController); } In this example, an interface called IHomeViewModel is created to represent the public members of the controller and a class HomeController is created which implements the interface.Dependencies are injected using static $inject member and injected dependencies are declared as private members.</description>
     </item>
     
     <item>
@@ -169,9 +154,7 @@ So, when using TypeScript with AngularJS 1.x, class is usually created to repres
       <pubDate>Sat, 18 Apr 2015 00:00:00 +0000</pubDate>
       
       <guid>https://kodebot.com/blog/2015/typescript-build-automation-in-asp-net-5-mvc6-using-gulp/</guid>
-      <description>Introduction ASP.NET 5 introduces some major changes in terms of how we develop applications like no need for project and file association, wwwroot folder, first class support for JSON config files, .NET framework choice, separation of client side and server side package management and more. You can read more on this here.
-Above all of these, it supports JavaScript build automation by providing support for the nodejs&amp;nbsp;platform.&amp;nbsp;
-Visual Studio 2015 has in-built task runner to run grunt or gulp tasks, this is great because we don&amp;rsquo;t have to leave Visual Studio to run these tasks.</description>
+      <description># creates package.json npm init # install packages npm install gulp gulp-typescript gulp-tslint gulp-tslint-stylish gulp-sourcemaps gulp-inject gulp-rimraf --save-dev // Package imports var gulp = require(&amp;#39;gulp&amp;#39;); var typescript = require(&amp;#39;gulp-typescript&amp;#39;); var tslint = require(&amp;#39;gulp-tslint&amp;#39;); var tslintStyle = require(&amp;#39;gulp-tslint-stylish&amp;#39;); var sourcemaps = require(&amp;#39;gulp-sourcemaps&amp;#39;); var inject = require(&amp;#39;gulp-inject&amp;#39;); var rimraf = require(&amp;#39;gulp-rimraf&amp;#39;); // clean gulp.task(&amp;#39;clean&amp;#39;, function () { gulp.src(&amp;#39;wwwroot/js/app&amp;#39;, { read: false }) .pipe(rimraf()) }); // TS Lint var tsLintConfig = require(&amp;#39;./tslintConfig&amp;#39;); gulp.task(&amp;#39;ts-lint&amp;#39;, function () { gulp.</description>
     </item>
     
     <item>
@@ -180,9 +163,8 @@ Visual Studio 2015 has in-built task runner to run grunt or gulp tasks, this is 
       <pubDate>Mon, 13 Apr 2015 00:00:00 +0000</pubDate>
       
       <guid>https://kodebot.com/blog/2015/mvc-6-camel-case-json/</guid>
-      <description>I am excited with all the new features that are coming with MVC 6. One of the main differences between MVC 6 and previous versions is that it doesn&#39;t have two different libraries and controllers for MVC and Web API.&amp;nbsp;
-The previous versions of Asp.Net MVC uses JavaScriptSerializer&amp;nbsp;for MVC controllers and JSON.NET&amp;nbsp;for Web API controllers.
-This means, if you have an application which uses both MVC controllers and Web API controllers then you need to apply any custom JSON serialization configurations twice or you&amp;nbsp;should&amp;nbsp;replace JavaScriptSerializer with JSON.</description>
+      <description>This means, if you have an application which uses both MVC controllers and Web API controllers then you need to apply any custom JSON serialization configurations twice or you should replace JavaScriptSerializer with JSON.NET.
+// Sample  public class Startup { public void ConfigureServices(IServiceCollection services) { services.AddMvc() .Configure&amp;lt;MvcOptions&amp;gt;(options =&amp;gt; { var jsonOutputFormatter = new JsonOutputFormatter(); jsonOutputFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver(); options.OutputFormatters.Insert(0, jsonOutputFormatter); }); } public void Configure(IApplicationBuilder app) { app.UseMvc(); } } </description>
     </item>
     
     <item>
@@ -191,9 +173,8 @@ This means, if you have an application which uses both MVC controllers and Web A
       <pubDate>Thu, 09 Apr 2015 00:00:00 +0000</pubDate>
       
       <guid>https://kodebot.com/blog/2015/tpl-task-and-windows-identity-impersonation-the-beauty-of-closure/</guid>
-      <description>I have created a web application with Windows Authentication and impersonation is enabled as I need the application connect to SQL Server database using Windows Authentication.
-I wanted&amp;nbsp;to run a TPL task in the impersonated context, so, I added the following code naively in a&amp;nbsp;action method of one of my controllers
-// naive task code  Task.Run(() =&amp;gt; { // Task code here });  Though, this answer&amp;nbsp;suggests that tasks will run under the same context under which it was created, it wasn&#39;t working that way in my case.</description>
+      <description>// naive task code  Task.Run(() =&amp;gt; { // Task code here }); To make this work, I need to invoke the method in the task under impersonated context. The easiest way is to capture the WindowsIdentity and make it available to the task function so it can execute any code under the impersonated context.
+// Task using closure var currentWindowsIdentity = WindowsIdentity.GetCurrent(); Task.Run(() =&amp;gt; { using (currentWindowsIdentity.Impersonate()) { // Task code here  } }); </description>
     </item>
     
     <item>
@@ -202,9 +183,7 @@ I wanted&amp;nbsp;to run a TPL task in the impersonated context, so, I added the
       <pubDate>Mon, 06 Apr 2015 00:00:00 +0000</pubDate>
       
       <guid>https://kodebot.com/blog/2015/selenium-and-page-objects/</guid>
-      <description>I use&amp;nbsp;Selenium&amp;nbsp;or Protractor&amp;nbsp;for E2E tests that require browser automation. I prefer to use Selenium when I want to write my tests in C# and Protractor for AngularJS applications.
-It doesn&#39;t matter what tool/framework you use, if you want to bring in structure and make your test code reusable when dealing with any UI automation then Page Object is your friend.
-I have been creating my Page Objects incorrectly with two major flaws until I read this&amp;nbsp;great article from Martin Fowler.</description>
+      <description>// Search Page 	public class BingSearch { private IWebElement _searchTerm; private List&amp;lt;BingSearchResult&amp;gt; _searchResults; public BingSearch() { Browser.GoTo(&amp;#34;http://www.bing.com&amp;#34;); } public string SearchTerm { get { return _searchTerm.Text; } set { _searchTerm = _searchTerm ?? Browser.WebDriver.FindElement(By.Name(&amp;#34;q&amp;#34;)); _searchTerm.SendKeys(value); } } public void Search() { if (_searchTerm != null) { if (_searchResults != null) { _searchResults.Clear(); } _searchTerm.Submit(); } } public List&amp;lt;BingSearchResult&amp;gt; SearchResults { get { _searchResults = _searchResults ?? new List&amp;lt;BingSearchResult&amp;gt;(); if (!</description>
     </item>
     
     <item>
@@ -213,7 +192,8 @@ I have been creating my Page Objects incorrectly with two major flaws until I re
       <pubDate>Fri, 27 Mar 2015 00:00:00 +0000</pubDate>
       
       <guid>https://kodebot.com/blog/2015/ecmascript-6-sublime-text-editor-build-system/</guid>
-      <description>The specification for ECMAScript 6 (aka ES6, ECMAScript harmony) is expected to be released in June 2015 and many tools, frameworks and browsers have started implementing the features of ES6. For example, Angular 2.0&amp;nbsp;and Aurelia&amp;nbsp;allows us to write code in ES6 now. There are transpilers as well out there, which allows us to write code in ES6 and transpile them into ES5. I have come across two major transpilers&amp;nbsp;traceur&amp;nbsp;and&amp;nbsp;babel, they are equally good.</description>
+      <description>// gulpfile.js var gulp = require(&amp;#39;gulp&amp;#39;); var babel = require(&amp;#39;gulp-babel&amp;#39;); var shell = require(&amp;#39;gulp-shell&amp;#39;); gulp.task(&amp;#39;run&amp;#39;, function(){ return gulp.src(&amp;#39;app.js&amp;#39;) .pipe(babel()) .pipe(gulp.dest(&amp;#39;result&amp;#39;)) .pipe(shell([&amp;#39;node result\\app.js&amp;#39;])); }); { &amp;#34;cmd&amp;#34;: [&amp;#34;gulp.cmd&amp;#34;, &amp;#34;run&amp;#34;] } This setup is only recommended if you just want to play with ES6 like me. The grunt task uses hard coded files names and you need to use the same file name to get it working.
+</description>
     </item>
     
     <item>
@@ -222,10 +202,7 @@ I have been creating my Page Objects incorrectly with two major flaws until I re
       <pubDate>Wed, 25 Mar 2015 00:00:00 +0000</pubDate>
       
       <guid>https://kodebot.com/blog/2015/six-stars-of-angularjs-part-3/</guid>
-      <description>In part 1&amp;nbsp;and 2&amp;nbsp;of this series, we have seen five different ways to create a service in angular.
-The last one we are going to look at in this series is &#39;decorate&#39; function of $provide service.
-Decorator The decorate function is NOT used to create a service, instead, this is used to decorate or replace an existing service. Let&#39;s look at this function with an example
-// sample 1 app.factory(&amp;#39;movieService&amp;#39;, movieService); function movieService() { return { getAllMovies: getAllMovies } function getAllMovies() { return [&amp;#39;engMovie1&amp;#39;, &amp;#39;engMovie2&amp;#39;, &amp;#39;engMovie3&amp;#39;]; } }  In this example, we have movieService which exposes a function to get all the movies.</description>
+      <description>// sample 1 app.factory(&amp;#39;movieService&amp;#39;, movieService); function movieService() { return { getAllMovies: getAllMovies } function getAllMovies() { return [&amp;#39;engMovie1&amp;#39;, &amp;#39;engMovie2&amp;#39;, &amp;#39;engMovie3&amp;#39;]; } } // sample 2  app.config(function($provide) { $provide.decorator(&amp;#39;movieService&amp;#39;, movieServiceDecorator); function movieServiceDecorator($delegate) { var originalGetAllMovies = $delegate.getAllMovies; $delegate.getAllMovies = function() { var result = originalGetAllMovies(); return result.slice(0,2); } return $delegate; } }); </description>
     </item>
     
     <item>
@@ -234,10 +211,7 @@ Decorator The decorate function is NOT used to create a service, instead, this i
       <pubDate>Tue, 24 Mar 2015 00:00:00 +0000</pubDate>
       
       <guid>https://kodebot.com/blog/2015/six-stars-of-angularjs-part-2/</guid>
-      <description>In part 1&amp;nbsp;of this series, we have briefly seen how $provide and $injector work and we also took a deep dive on how we create a service using provider function of $provide service.
-Lets continue our journey and look at how and when we can&amp;nbsp;use other&amp;nbsp;functions of $provide service to create services.
-The following are the four&amp;nbsp;functions we are going to look at now
- factory service value constant  Factory The factory is one of the functions exposed by $provide service to create services.</description>
+      <description>// sample 1 $provide.factory(&amp;#39;movieService&amp;#39;, movieService); function movieService() { return { // service  getAllMovies: getAllMovies }; function getAllMovies() { return [&amp;#39;engMovie1&amp;#39;, &amp;#39;engMovie2&amp;#39;, &amp;#39;engMovie3&amp;#39;]; } } // sample 2 var app = angular.module(&amp;#39;app&amp;#39;); app.factory(&amp;#39;movieService&amp;#39;, movieService); function movieService() { return { // service  getAllMovies: getAllMovies }; function getAllMovies() { return [&amp;#39;engMovie1&amp;#39;, &amp;#39;engMovie2&amp;#39;, &amp;#39;engMovie3&amp;#39;]; } } // sample 3  app.service(&amp;#39;movieService&amp;#39;, movieService); function movieService() { this.getAllMovies = getAllMovies; function getAllMovies() { return [&amp;#39;engMovie1&amp;#39;, &amp;#39;engMovie2&amp;#39;, &amp;#39;engMovie3&amp;#39;]; } } // sample 4  app.</description>
     </item>
     
     <item>
@@ -246,8 +220,7 @@ The following are the four&amp;nbsp;functions we are going to look at now
       <pubDate>Mon, 23 Mar 2015 00:00:00 +0000</pubDate>
       
       <guid>https://kodebot.com/blog/2015/six-stars-of-angularjs-part-1/</guid>
-      <description>Introduction Services are one of the core buiding blocks of AngularJS. It helps us to create reusable code that can be shared accross the application(s).
-AngularJS gives us five different options to create services. We will look at what are those five options and how and when they can be used. But, before that lets take a brief look at couple of built-in angular services and how they works in the context of dependency injection.</description>
+      <description>// provider sample 1  $provide.provider(&amp;#39;movieService&amp;#39;, movieServiceProvider); // provider  function movieServiceProvider() { var self = this; this.$get = movieService; // factory  this.isFrench = false; function movieService() { return { // service  getAllMovies: getAllMovies }; function getAllMovies() { if (self.isFrench) { return [&amp;#39;frenchMovie1&amp;#39;, &amp;#39;frenchMovie2&amp;#39;, &amp;#39;frenchMovie3&amp;#39;]; } else { return [&amp;#39;engMovie1&amp;#39;, &amp;#39;engMovie2&amp;#39;, &amp;#39;engMovie3&amp;#39;]; } } } } // provider sample 2  var app = angular.module(&amp;#39;app&amp;#39;, []); app.config(function($provide) { // creates and register&amp;#39;s provider  var movieServiceProviderInstance = $provide.</description>
     </item>
     
     <item>
@@ -256,9 +229,7 @@ AngularJS gives us five different options to create services. We will look at wh
       <pubDate>Sat, 21 Mar 2015 00:00:00 +0000</pubDate>
       
       <guid>https://kodebot.com/blog/2015/nsequencecomparer-to-compare-two-sequences/</guid>
-      <description>I had a requirement&amp;nbsp;to compare two sequences to find the differences in .NET platform. To compare large sequences, I needed an algorithm that&amp;nbsp;does not use recursion.&amp;nbsp;I could not find anything in the internet that I can use out of the box, so, I created&amp;nbsp;this nuget package
-This package is very simple to use, you can read usage instructions&amp;nbsp;here
-Feel free to use and contribute.</description>
+      <description></description>
     </item>
     
     <item>
@@ -267,9 +238,7 @@ Feel free to use and contribute.</description>
       <pubDate>Mon, 16 Mar 2015 00:00:00 +0000</pubDate>
       
       <guid>https://kodebot.com/blog/2015/mocking-function-that-returns-promise/</guid>
-      <description>Promises are very useful to develope non-blocking web applications and it also helps to avoid pyramid of doom.
-AngularJS supports&amp;nbsp;Q&amp;nbsp;based promises, this means, we can create functions in AngularJS application that uses promises. When it comes to unit testing functions that returns promises, it is just like unit testing normal functions only if you remember&amp;nbsp;simulate scope&#39;s life cycle using $apply() or $digest()
-Let&#39;s see this with an example. The following controller loads restaurants using promise</description>
+      <description>// homeController (function () { &amp;#39;use strict&amp;#39;; angular .module(&amp;#39;app&amp;#39;) .controller(&amp;#39;homeController&amp;#39;, [&amp;#39;restaurantService&amp;#39;, homeController]); function homeController(restaurantService) { // #region viewmodel  var vm = this; vm.restaurants = []; // #endregion  // #region activate  activate(); function activate() { getRestaurants(); } // #endregion  // #region internal methods  function getRestaurants() { restaurantService.getRestaurants() .then(function (data) { vm.restaurants = data; }) .catch(function (error) { // error  }); } // #endregion  } })(); // unit test describe(&amp;#39;home page&amp;#39;, function () { var $controller; var $q; var restaurantService; beforeEach(function () { // load module  module(&amp;#39;app&amp;#39;); // overrides for mock injections  module(function ($provide) { // override any dependency here  // $provide.</description>
     </item>
     
     <item>
@@ -278,8 +247,7 @@ Let&#39;s see this with an example. The following controller loads restaurants u
       <pubDate>Mon, 16 Mar 2015 00:00:00 +0000</pubDate>
       
       <guid>https://kodebot.com/blog/2015/structuring-unit-tests/</guid>
-      <description>I have been following the same unit test structure that Phil Haack described here. &amp;nbsp;But, I use slightly different version when my tests need too many repeated test setups and cleanups.&amp;nbsp;
-I like jasmine&amp;nbsp;mainly because it allows to keep the tests DRY&amp;nbsp;using nested structure. Ofcourse it is possible in jasmine because method nesting is allowed in JavaScript. I like to structure my C# test files the same way using nested classes&amp;nbsp;without using any additional libraries</description>
+      <description>public class AddressValidator { public bool IsValid(IList&amp;lt;string&amp;gt; addressLines) { if (addressLines == null) { throw new ArgumentNullException(&amp;#34;addressLines&amp;#34;, &amp;#34;AddressLines cannot be null&amp;#34;); } if (addressLines.ElementAtOrDefault(0) != null &amp;amp;&amp;amp; addressLines.ElementAtOrDefault(4) != null) { return true; } if (addressLines.ElementAtOrDefault(0) != null &amp;amp;&amp;amp; addressLines.ElementAtOrDefault(1) != null &amp;amp;&amp;amp; addressLines.ElementAtOrDefault(2) != null) { return true; } return false; } public bool IsNonUkAddress(IEnumerable&amp;lt;string&amp;gt; addressLines) { // return true for UK address  return false; } } [TestClass] public class AddressVaidatorTests { private AddressValidator _target; [TestInitialize] public virtual void TestSetup() { _target = new AddressValidator(); // other test setups that are common for all the tests in this file.</description>
     </item>
     
     <item>
@@ -288,9 +256,7 @@ I like jasmine&amp;nbsp;mainly because it allows to keep the tests DRY&amp;nbsp;
       <pubDate>Sun, 15 Mar 2015 00:00:00 +0000</pubDate>
       
       <guid>https://kodebot.com/blog/2015/decorator-over-inheritance-hierarchy/</guid>
-      <description>I have used inheritance to solve a problem in many situations - some of them are correct and some of them are not when thinking about it now.
- When you are in a situation where you think you need multi-level inheritance, 9 out of 10 times you can solve the same problem using decorators.
- One of the problems I have seen recently which fits in this pattern is the implementation of ICommand interface.</description>
+      <description>public class Command : ICommand { public bool CanExecute(object parameter) { // normal can execute version  return true; } public event EventHandler CanExecuteChanged; public void Execute(object parameter) { // normal execute version  } } public class AuditedCommand:Command { public bool CanExecute(object parameter) { // audited can execute version  return base.CanExecute(parameter); } public void Execute(object parameter) { // audited execute version  base.Execute(parameter); } } public class SecureCommand : Command { public bool CanExecute(object parameter) { // Secure can execute version  return base.</description>
     </item>
     
     <item>
@@ -299,9 +265,7 @@ I like jasmine&amp;nbsp;mainly because it allows to keep the tests DRY&amp;nbsp;
       <pubDate>Sun, 15 Mar 2015 00:00:00 +0000</pubDate>
       
       <guid>https://kodebot.com/blog/2015/organize-angularjs-tests-within-a-spec/</guid>
-      <description>I like to have one test file&amp;nbsp;per components of AngularJS application. So, for example, homeController will have its own test file&amp;nbsp;named homeSpec or homeControllerSpec.
-First, create a&amp;nbsp;suite to describe a component at a high level and for each scenario create&amp;nbsp;nested suits. This allows us&amp;nbsp;to define any test setup that are common for all the tests&amp;nbsp;in one place.
-For example, loading module, overriding and injecting any dependencies are done in the beforeEach method of outter test suite.</description>
+      <description>var $controller; var calculatorService; beforeEach(function () { // load module  module(&amp;#39;app&amp;#39;); // overrides for mock injections  module(function ($provide) { // override any dependency here  // $provide.value(&amp;#39;service&amp;#39;, &amp;#39;override&amp;#39;);  }); // initialise  inject(function(_$controller_, _calculatorService_) { $controller = _$controller_; calculatorService = _calculatorService_; }); }); it(&amp;#39;should initialise the controller successfully&amp;#39;, function() { // act  var result = $controller(&amp;#39;homeController&amp;#39;); // assert  expect(result).toBeDefined(); }); describe(&amp;#39;when add is performed&amp;#39;, function() { it(&amp;#39;should invoke add in calculatorService&amp;#39;, function() { // arrange  // replace original method with spy  calculatorService.</description>
     </item>
     
     <item>
@@ -310,9 +274,7 @@ For example, loading module, overriding and injecting any dependencies are done 
       <pubDate>Sat, 14 Mar 2015 00:00:00 +0000</pubDate>
       
       <guid>https://kodebot.com/blog/2015/setup-chutzpah-to-run-javascript-tests-in-visualstudio/</guid>
-      <description>First thing first, install Chutzpah Test Runner&amp;nbsp;and Test Adaptor for the Test Explorer.
-Next, setup your projects in Visual Studio. I personally like to keep my test code in a separate project for JavaScript as well so my project and folder structure looks like this:
-   This allows you&amp;nbsp;to restrict testing frameworks and libraries like Jasmine only to&amp;nbsp;the test project. I use JavaScript&amp;nbsp;libraries directly from the main project when it is needed in test projects as well rather then adding them again in the test project (some people have different view on this but it works for me).</description>
+      <description> testing library/framework files code under test file(s) any additional files required to run code under test  /// &amp;lt;reference path=&amp;#34;../../../myapplication.web/scripts/jquery-1.10.2.min.js&amp;#34; /&amp;gt;  /// &amp;lt;reference path=&amp;#34;../../../myapplication.web/app/app.js&amp;#34; /&amp;gt; /// &amp;lt;reference path=&amp;#34;../../../myapplication.web/app/home/homecontroller.js&amp;#34; /&amp;gt;  describe(&amp;#39;home page&amp;#39;, function() { it(&amp;#39;should return tile as Home&amp;#39;, function() { expect(&amp;#39;home&amp;#39;).toBe(&amp;#39;home&amp;#39;); }); </description>
     </item>
     
   </channel>

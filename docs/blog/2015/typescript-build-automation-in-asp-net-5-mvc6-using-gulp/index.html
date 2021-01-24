@@ -5,7 +5,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="generator" content="Hugo 0.57.2" />
+  <meta name="generator" content="Hugo 0.80.0" />
   <meta name="description" content="">
 
 
@@ -13,24 +13,24 @@
   <title>TypeScript build automation in ASP.NET 5 (MVC6) using Gulp - Kodebot</title>
 
   
-  <link href="/css/nucleus.css?1569361479" rel="stylesheet">
-  <link href="/css/fontawesome-all.min.css?1569361479"
+  <link href="/css/nucleus.css?1611527255" rel="stylesheet">
+  <link href="/css/fontawesome-all.min.css?1611527255"
     rel="stylesheet">
-  <link href="/css/hybrid.css?1569361479" rel="stylesheet">
-  <link href="/css/featherlight.min.css?1569361479" rel="stylesheet">
-  <link href="/css/perfect-scrollbar.min.css?1569361479"
+  <link href="/css/hybrid.css?1611527255" rel="stylesheet">
+  <link href="/css/featherlight.min.css?1611527255" rel="stylesheet">
+  <link href="/css/perfect-scrollbar.min.css?1611527255"
     rel="stylesheet">
-  <link href="/css/auto-complete.css?1569361479" rel="stylesheet">
-  <link href="/css/atom-one-dark-reasonable.css?1569361479"
+  <link href="/css/auto-complete.css?1611527255" rel="stylesheet">
+  <link href="/css/atom-one-dark-reasonable.css?1611527255"
     rel="stylesheet">
-  <link href="/css/theme.css?1569361479" rel="stylesheet">
-  <link href="/css/hugo-theme.css?1569361479" rel="stylesheet">
+  <link href="/css/theme.css?1611527255" rel="stylesheet">
+  <link href="/css/hugo-theme.css?1611527255" rel="stylesheet">
   
-  <link href="/css/theme-mine.css?1569361479"
+  <link href="/css/theme-mine.css?1611527255"
     rel="stylesheet">
   
 
-  <script src="/js/jquery-3.3.1.min.js?1569361479"></script>
+  <script src="/js/jquery-3.3.1.min.js?1611527255"></script>
 
   <style type="text/css">
     :root #header+#content>#left>#rlblock_left {
@@ -105,34 +105,6 @@
       <div>
         
         
-        <div id="top-bar">
-          
-
-
-          <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
-            <span class="links">
-              
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          <a href='/'>Kodebot</a> > <a href='/blog/'>Blog</a> > TypeScript build automation in ASP.NET 5 (MVC6) using Gulp
-          
-          
-          
-          
-          
-          
-            </span>
-          </div>
-        </div>
-        
       </div>
       
       <div id="head-tags">
@@ -159,41 +131,13 @@
 
           
 
-<p><h3>Introduction</h3>
-<p>ASP.NET 5 introduces some major changes in terms of how we develop applications like no need for project and file association, wwwroot folder, first class support for JSON config files, .NET framework <!-- more -->choice, separation of client side and server side package management and more. You can read more on this <a href="http://weblogs.asp.net/scottgu/introducing-asp-net-5" target="_blank">here</a>.</p>
-<p>Above all of these, it supports JavaScript build automation by providing support for the <a href="https://nodejs.org/" target="_blank">nodejs</a>&nbsp;platform.&nbsp;</p>
-<p>Visual Studio 2015 has in-built task runner to run grunt or gulp tasks, this is great because we don&rsquo;t have to leave Visual Studio to run these tasks.&nbsp;</p>
-<p>When you create a new ASP.NET 5 Starter Web project, you will get predefined gruntfile to automate most of the frequent tasks you may want to do. I personally prefer Gulp over Grunt.</p>
-<p>Now, we will see how we can configure TypeScript build system in ASP.NET 5 MVC 6 project using Gulp.</p>
-<h3>Gulp package and plugins</h3>
-<p>First, we will see all the packages we need to setup TypeScript build system</p>
-<ol>
-<li><a href="http://gulpjs.com/" target="_blank">gulp</a>&nbsp;- JavaScript build automation tool</li>
-<li><a href="https://www.npmjs.com/package/gulp-typescript" target="_blank">gulp-typescript</a>&nbsp;- TypeScript compiler with incremental compile support</li>
-<li><a href="https://www.npmjs.com/package/gulp-tslint" target="_blank">gulp-tslint</a>&nbsp;- TypeScript lint tool</li>
-<li><a href="https://www.npmjs.com/package/gulp-tslint-stylish" target="_blank">gulp-tslint-stylish</a>&nbsp;- Formats TypeScript lint errors nicely</li>
-<li><a href="https://www.npmjs.com/package/gulp-sourcemaps" target="_blank">gulp-sourcemaps</a>&nbsp;- Creates sourcemaps to enable debugging in TypeScript</li>
-<li><a href="https://www.npmjs.com/package/gulp-inject" target="_blank">gulp-inject</a>&nbsp;- Injects JavaScript and CSS into HTML file</li>
-<li><a href="https://www.npmjs.com/package/gulp-rimraf" target="_blank">gulp-rimraf</a>&nbsp;- Deletes folders and files</li>
-</ol>
-<h3>Installation</h3>
-<p>All these are node modules and we need to install these as dev dependencies. I assume you have node installed in your machine, if not, go to <a href="https://nodejs.org/" target="_blank">nodejs</a>&nbsp;website and follow the instructions.</p>
-<p>Open command prompt and navigate to your project folder the follow the steps below to install all the packages you need</p>
-<p style="padding-left: 30px;">1. Run the following command and answer all the questions</p></p>
+<!-- raw HTML omitted -->
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># creates package.json</span>
-npm init</code></pre></div>
-<p style="padding-left: 30px;">This will create package.json file which will have all the node packages you depend on.</p>
-<p style="padding-left: 30px;">2. Next, run the following command&nbsp;</p>
+npm init
+</code></pre></div><!-- raw HTML omitted -->
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># install packages</span>
-npm install gulp gulp-typescript gulp-tslint gulp-tslint-stylish gulp-sourcemaps gulp-inject gulp-rimraf --save-dev</code></pre></div>
-<p style="padding-left: 30px;">This will install all the packages you need and save them as development dependency in package.json file.</p>
-<p>Now we&nbsp;are ready to create our&nbsp;gulpfile.</p>
-<h3>Gulpfile.js</h3>
-<p>We will assume the following folder structure for our gulp tasks</p>
-<p><strong>wwwroot/app</strong> - this is will have all our TypeScript&nbsp;files. This folder may have subfolders as well</p>
-<p><strong>wwwroot/js/app</strong> - this is where we will place all the compiled JavaScript files</p>
-<p><strong>wwwroot/js/lib</strong> - this is where we will place all thrid party libraries like AngularJS, jQuery, etc...</p>
-<p>Next, import all the packages we installed into gulpfile.js</p>
+npm install gulp gulp-typescript gulp-tslint gulp-tslint-stylish gulp-sourcemaps gulp-inject gulp-rimraf --save-dev
+</code></pre></div><!-- raw HTML omitted -->
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// Package imports
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">gulp</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;gulp&#39;</span>);
 <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">typescript</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;gulp-typescript&#39;</span>);
@@ -202,20 +146,14 @@ npm install gulp gulp-typescript gulp-tslint gulp-tslint-stylish gulp-sourcemaps
 <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">sourcemaps</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;gulp-sourcemaps&#39;</span>);
 <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">inject</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;gulp-inject&#39;</span>);
 <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">rimraf</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;gulp-rimraf&#39;</span>);
-</code></pre></div>
-<p>Lets create our&nbsp;tasks now</p>
-<h4>1. Clean</h4>
-<p>We need a task to clean wwwroot/js/app to clean up old compiled JavaScript files</p>
+
+</code></pre></div><!-- raw HTML omitted -->
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// clean
 </span><span style="color:#75715e"></span><span style="color:#a6e22e">gulp</span>.<span style="color:#a6e22e">task</span>(<span style="color:#e6db74">&#39;clean&#39;</span>, <span style="color:#66d9ef">function</span> () {
         <span style="color:#a6e22e">gulp</span>.<span style="color:#a6e22e">src</span>(<span style="color:#e6db74">&#39;wwwroot/js/app&#39;</span>, { <span style="color:#a6e22e">read</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">false</span> })
             .<span style="color:#a6e22e">pipe</span>(<span style="color:#a6e22e">rimraf</span>())
 });
-</code></pre></div>
-<p>This task takes a source location and deletes everything in it.</p>
-<h4>2.&nbsp;TSLint</h4>
-<p>Just like <a href="http://jslint.com/" target="_blank">JSLint</a>, we have <a href="https://github.com/palantir/tslint" target="_blank">TSLint</a>&nbsp;to report mistakes in our TypeScript. The TSLint needs tslint.json file with the lint configuration, you can find a sample one <a href="https://github.com/palantir/tslint/blob/master/tslint.json" target="_blank">here</a>&nbsp;but you can add/remove any rules. Instead of having the rules in a json file, I created JavaScript based config file&nbsp;tslintConfig.js&nbsp;and kept all the rules in it.</p>
-<p>The task created for TSLint looks like this</p>
+</code></pre></div><!-- raw HTML omitted -->
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// TS Lint
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">tsLintConfig</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;./tslintConfig&#39;</span>);
 <span style="color:#a6e22e">gulp</span>.<span style="color:#a6e22e">task</span>(<span style="color:#e6db74">&#39;ts-lint&#39;</span>, <span style="color:#66d9ef">function</span> () {
@@ -227,10 +165,7 @@ npm install gulp gulp-typescript gulp-tslint gulp-tslint-stylish gulp-sourcemaps
                 <span style="color:#a6e22e">bell</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>
             }));
 });
-</code></pre></div>
-<p>This task also uses&nbsp;<a href="https://www.npmjs.com/package/gulp-tslint-stylish" target="_blank">gulp-tslint-stylish</a>&nbsp;plugin to produce nicely formatted errors.</p>
-<h4>3. TS Compile</h4>
-<p>This task compiles TypeScripts&nbsp;and produces JavaScript with sourcemaps</p>
+</code></pre></div><!-- raw HTML omitted -->
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// TS Compile
 </span><span style="color:#75715e"></span><span style="color:#a6e22e">gulp</span>.<span style="color:#a6e22e">task</span>(<span style="color:#e6db74">&#39;ts-compile&#39;</span>, [<span style="color:#e6db74">&#39;ts-lint&#39;</span>, <span style="color:#e6db74">&#39;clean&#39;</span>], <span style="color:#66d9ef">function</span> () {
         <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">tsResult</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">gulp</span>.<span style="color:#a6e22e">src</span>(<span style="color:#e6db74">&#39;wwwroot/**/*.ts&#39;</span>)
@@ -240,10 +175,7 @@ npm install gulp gulp-typescript gulp-tslint gulp-tslint-stylish gulp-sourcemaps
             .<span style="color:#a6e22e">pipe</span>(<span style="color:#a6e22e">sourcemaps</span>.<span style="color:#a6e22e">write</span>(<span style="color:#e6db74">&#39;.&#39;</span>))
             .<span style="color:#a6e22e">pipe</span>(<span style="color:#a6e22e">gulp</span>.<span style="color:#a6e22e">dest</span>(<span style="color:#e6db74">&#39;wwwroot/js&#39;</span>));
 });
-</code></pre></div>
-<p>This task runs 'ts-lint' and 'clean' before running compile task. The compiled files are placed in wwwroot/js/app folder.</p>
-<h4>4. Inject</h4>
-<p>This task is to inject compiled JavaScript files into our main HTML file</p>
+</code></pre></div><!-- raw HTML omitted -->
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// Inject
 </span><span style="color:#75715e"></span> <span style="color:#a6e22e">gulp</span>.<span style="color:#a6e22e">task</span>(<span style="color:#e6db74">&#39;inject&#39;</span>, [<span style="color:#e6db74">&#39;ts-compile&#39;</span>], <span style="color:#66d9ef">function</span> () {
         <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">target</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">gulp</span>.<span style="color:#a6e22e">src</span>(<span style="color:#e6db74">&#39;wwwroot/index.html&#39;</span>);
@@ -252,29 +184,19 @@ npm install gulp gulp-typescript gulp-tslint gulp-tslint-stylish gulp-sourcemaps
 <span style="color:#a6e22e">target</span>.<span style="color:#a6e22e">pipe</span>(<span style="color:#a6e22e">inject</span>(<span style="color:#a6e22e">sources</span>, { <span style="color:#a6e22e">relative</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span> }))
           .<span style="color:#a6e22e">pipe</span>(<span style="color:#a6e22e">gulp</span>.<span style="color:#a6e22e">dest</span>(<span style="color:#e6db74">&#39;wwwroot&#39;</span>));
 });
-</code></pre></div>
-<p>The main html file in wwwroot has the following HTML comment to indicate where the scripts should be injected,</p>
+</code></pre></div><!-- raw HTML omitted -->
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#75715e">&lt;!--injection comment--&gt;</span>
 <span style="color:#75715e">&lt;!--inject:js--&gt;</span>
-<span style="color:#75715e">&lt;!--endinject--&gt;</span></code></pre></div>
-<p>This task generates script tag for&nbsp;all the generated JavaScript files in our wwwroot/js/app and places them between start and end comment tags.</p>
-<h4>5. Watch</h4>
-<p>Next, we create watch task to run TSLint, Clean, TS Compile and Inject whenever any change in detected in wwwroot/app with *.ts extension</p>
+<span style="color:#75715e">&lt;!--endinject--&gt;</span>
+</code></pre></div><!-- raw HTML omitted -->
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// Watch
 </span><span style="color:#75715e"></span><span style="color:#a6e22e">gulp</span>.<span style="color:#a6e22e">task</span>(<span style="color:#e6db74">&#39;ts-watch&#39;</span>, <span style="color:#66d9ef">function</span> () {
         <span style="color:#a6e22e">gulp</span>.<span style="color:#a6e22e">watch</span>(<span style="color:#e6db74">&#39;wwwroot/**/*.ts&#39;</span>, [<span style="color:#e6db74">&#39;inject&#39;</span>]);
 });
-</code></pre></div>
-<p>Due to dependent task setups, when we run 'inject' it will trigger 'ts-lint', 'clean' and 'ts-compile' for us.</p>
-<h4>6. Default task</h4>
-<p>Finally, we will make 'inject' as default task. This allows us to run&nbsp;inject task when we ask gulp to run the default task</p>
+</code></pre></div><!-- raw HTML omitted -->
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// Default task
 </span><span style="color:#75715e"></span><span style="color:#a6e22e">gulp</span>.<span style="color:#a6e22e">task</span>(<span style="color:#e6db74">&#39;default&#39;</span>, [<span style="color:#e6db74">&#39;inject&#39;</span>]);
-</code></pre></div>
-<p>That's it. We are now ready to use TypeScript as our client side development language in ASP.NET 5 &nbsp;MVC 6.</p>
-<p>I have not created tasks to minify and concatenate compiled JavaScript files. You can add them easily using <a href="https://www.npmjs.com/package/gulp-uglify" target="_blank">gulp-uglify</a>&nbsp;and&nbsp;<a href="https://www.npmjs.com/package/gulp-concat" target="_blank">gulp-concat</a>.</p>
-<p>&nbsp;</p>
-<p><strong>Update:</strong> sourcemaps was not resolving source files correctly for me. It started working after specifying sourceRoot in sourcemaps.write() method as follows&nbsp;</p>
+</code></pre></div><!-- raw HTML omitted -->
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// ts-compile updated
 </span><span style="color:#75715e"></span><span style="color:#a6e22e">gulp</span>.<span style="color:#a6e22e">task</span>(<span style="color:#e6db74">&#39;ts-compile&#39;</span>, [<span style="color:#e6db74">&#39;ts-lint&#39;</span>, <span style="color:#e6db74">&#39;clean&#39;</span>], <span style="color:#66d9ef">function</span> () {
         <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">tsResult</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">gulp</span>.<span style="color:#a6e22e">src</span>(<span style="color:#e6db74">&#39;wwwroot/**/*.ts&#39;</span>)
@@ -1322,19 +1244,19 @@ npm install gulp gulp-typescript gulp-tslint gulp-tslint-stylish gulp-sourcemaps
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1569361479"></script>
-    <script src="/js/perfect-scrollbar.min.js?1569361479"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1569361479"></script>
-    <script src="/js/jquery.sticky.js?1569361479"></script>
-    <script src="/js/featherlight.min.js?1569361479"></script>
-    <script src="/js/highlight.pack.js?1569361479"></script>
+    <script src="/js/clipboard.min.js?1611527255"></script>
+    <script src="/js/perfect-scrollbar.min.js?1611527255"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1611527255"></script>
+    <script src="/js/jquery.sticky.js?1611527255"></script>
+    <script src="/js/featherlight.min.js?1611527255"></script>
+    <script src="/js/highlight.pack.js?1611527255"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1569361479"></script>
-    <script src="/js/learn.js?1569361479"></script>
-    <script src="/js/hugo-learn.js?1569361479"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1611527255"></script>
+    <script src="/js/learn.js?1611527255"></script>
+    <script src="/js/hugo-learn.js?1611527255"></script>
 
-    <link href="/mermaid/mermaid.css?1569361479" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1569361479"></script>
+    <link href="/mermaid/mermaid.css?1611527255" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1611527255"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
@@ -1343,7 +1265,7 @@ npm install gulp gulp-typescript gulp-tslint gulp-tslint-stylish gulp-sourcemaps
 
     <div class="custom-footer">
         <div class="copy">
-            &copy; 2014 - 2019 Kodebot Limited. All Rights Reserved.<br>
+            &copy; Copyright 2021, Kodebot.<br>
         </div>
         <div class="license">
             All content on this website is licensed under the <a href="http://creativecommons.org/licenses/by-sa/3.0/">
@@ -1361,7 +1283,7 @@ npm install gulp gulp-typescript gulp-tslint gulp-tslint-stylish gulp-sourcemaps
             up to date or complete. Any use or reliance on any content or materials published, mentioned or linked here
             is
             at your own risk and
-            the Kodebot Limited and author/authors accept no liability or responsibility for.
+            the Kodebot and author/authors accept no liability or responsibility for.
         </div>
     </div>
 
