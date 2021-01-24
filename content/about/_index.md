@@ -21,5 +21,5 @@ Most of the posts I write here are simply a knowledge dump for future me. I writ
 
 Hopefully you find it useful.
 
-# Contact Us
+# Contact
 If you want to contact me for any reason, just send me an email to [info@kodebot.com](mailto:info@kodebot.com). I will get back to you as soon as possible.
