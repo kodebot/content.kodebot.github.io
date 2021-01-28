@@ -6,7 +6,7 @@
     <description>Recent content on Kodebot</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-GB</language>
-    <lastBuildDate>Fri, 22 Feb 2019 10:25:49 +0000</lastBuildDate><atom:link href="https://kodebot.com/feed.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 28 Jan 2021 10:19:39 +0000</lastBuildDate><atom:link href="https://kodebot.com/feed.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Result verification</title>
       <link>https://kodebot.com/tutorials/automated-unit-testing-basics/4-verification-techniques/1-result-verification/</link>
@@ -241,6 +241,16 @@ Examples of direct implementation
   B. Abstractions should not depend upon details. Details should depend upon abstractions.
  Let&amp;rsquo;s look at an example of hypothetical mortgage application system.
 We have higher level Mortgage module with Application class and BureauData module at the next level with BureauDataProvider class and at lower level we have Utility module with DataCleaner class</description>
+    </item>
+    
+    <item>
+      <title>tmux One Minute Guide</title>
+      <link>https://kodebot.com/blog/2021/tmux-one-minute-guide/</link>
+      <pubDate>Thu, 28 Jan 2021 10:19:39 +0000</pubDate>
+      
+      <guid>https://kodebot.com/blog/2021/tmux-one-minute-guide/</guid>
+      <description>What is tmux? tmux is terminal multiplexer that allows your terminal to be split into different sessions, windows and panes. One of the great thing about tmux session is that it allows you to detach and reattach to the sessions with terminating the programs running in the sessions.
+Session - is a wrapper for your windows and panes that you can create, detach from and reattach to without terminating the programs running in the sessions</description>
     </item>
     
     <item>

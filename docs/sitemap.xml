@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://kodebot.com/blog/</loc>
+    <lastmod>2021-01-28T10:19:39+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://kodebot.com/tutorials/automated-unit-testing-basics/</loc>
     <lastmod>2019-02-22T10:25:49+00:00</lastmod>
   </url>
@@ -38,11 +43,6 @@
   </url>
   
   <url>
-    <loc>https://kodebot.com/blog/</loc>
-    <lastmod>2015-10-04T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://kodebot.com/tutorials/solid-principles/</loc>
   </url>
   
@@ -51,12 +51,12 @@
   </url>
   
   <url>
-    <loc>https://kodebot.com/tutorials/automated-unit-testing-basics/3-setup-techniques/2-data-driven-test/</loc>
-    <lastmod>2019-02-22T10:25:49+00:00</lastmod>
+    <loc>https://kodebot.com/</loc>
+    <lastmod>2021-01-28T10:19:39+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://kodebot.com/</loc>
+    <loc>https://kodebot.com/tutorials/automated-unit-testing-basics/3-setup-techniques/2-data-driven-test/</loc>
     <lastmod>2019-02-22T10:25:49+00:00</lastmod>
   </url>
   
@@ -146,6 +146,31 @@
   </url>
   
   <url>
+    <loc>https://kodebot.com/tags/linux/</loc>
+    <lastmod>2021-01-28T10:19:39+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kodebot.com/tags/one-minute-guide/</loc>
+    <lastmod>2021-01-28T10:19:39+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kodebot.com/tags/</loc>
+    <lastmod>2021-01-28T10:19:39+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kodebot.com/blog/2021/tmux-one-minute-guide/</loc>
+    <lastmod>2021-01-28T10:19:39+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kodebot.com/tags/ubuntu/</loc>
+    <lastmod>2021-01-28T10:19:39+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://kodebot.com/tutorials/</loc>
     <lastmod>2019-02-22T10:25:49+00:00</lastmod>
   </url>
@@ -162,11 +187,6 @@
   
   <url>
     <loc>https://kodebot.com/blog/2015/nodejs-loops/</loc>
-    <lastmod>2015-10-04T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://kodebot.com/tags/</loc>
     <lastmod>2015-10-04T00:00:00+00:00</lastmod>
   </url>
   

@@ -1,5 +1,12 @@
 [
 {
+	"uri": "https://kodebot.com/blog/",
+	"title": "Blog",
+	"tags": [],
+	"description": "",
+	"content": "Posts \rtmux One Minute Guide\r\r\rNodeJs: Loops, Closure and Async Invocation\r\r\rException Handling in NodeJS\r\r\rUnit Testing Entity Framework async Queries\r\r\rUnit Testing Entity Framework Queries\r\r\rVS-TAC - Cordova version\r\r\rASP.NET MVC 5 - JsonResult with Http Status Code 400\r\r\rAngularJS 1.x - Validation on File Input type\r\r\rAngular 1.x - Unit Testing a function that returns Promise\r\r\rTypeScript - Accessing object with null key\r\r\rASP.NET MVC 5 Hosting for Integration / E2E Testing\r\r\rHow to isolate AutoMapper in Unit Tests?\r\r\rASP.NET 5 - Tag Helpers, the HTML way\r\r\rASP.NET 5 - Environment specific pipeline configuration\r\r\rOwin - Katana core middleware patterns\r\r\rTypeScript - \u0026#39;this\u0026#39; reference in AngularJS event handler\r\r\rTypeScript build automation in ASP.NET 5 (MVC6) using Gulp\r\r\rMVC 6 Camel Case JSON\r\r\rTPL Task and Windows Identity Impersonation - The beauty of Closure\r\r\rSelenium and Page Objects\r\r\rECMAScript 6 - Sublime Text editor build system\r\r\rSix stars of AngularJS - Part 3\r\r\rSix stars of AngularJS - Part 2\r\r\rSix stars of AngularJS - Part 1\r\r\rNSequenceComparer to compare two sequences\r\r\rMocking function that returns promise\r\r\rStrucuring unit tests\r\r\rDecorator over Inheritance hierarchy\r\r\rOrganize AngularJS Tests within a test file\r\r\rSetup Chutzpah to Run Javascript Tests in VisualStudio\r\r\r"
+},
+{
 	"uri": "https://kodebot.com/tutorials/automated-unit-testing-basics/",
 	"title": "Automated unit testing basics",
 	"tags": [],
@@ -49,13 +56,6 @@
 	"content": "Let\u0026rsquo;s first understand what we call as Unit. The term unit is very subjective, so it means different things to different people. In the context of testing, I like to think of unit as one or more lines of code that does something small but tangible to move towards achieving the end goal of the program.\nWhat do I mean by this? Well, lets look at an example of a very simple calculator program. In order to build a calculator, we need to build individual operations that are supported by the calculator. Each simple operations like addition, subtraction, multiplication and division are implemented using few lines of code and these operations are units as these are small but tangible steps needed to build a calculator.\nHowever, we cannot say all the operations supported by a calculator are made up of single unit. There are some operations like average, percentage, etc are not simple ones and they are implemented using group of units. For example, average is implemented using addition and division.\nUnit is loosely defined term and subjective. In most cases you can refer a small function/subroutine as unit but it is not always true. There may be functions/subroutines that are made up of group of units.\n\rSo, Unit testing is taking a small piece of code that is written to do something small but tangible and test it to verify whether it is working as expected or not.\nAutomated unit testing means, the unit testing process is automated by writing code, so the tests are written once and run as many times as we like without any manual overhead.\nFor example, the tests you need for the individual units of a calculator program are called unit tests. If those tests are automated with code then you can refer to them as automated unit tests.\nI will be referring to the unit of code we are testing as System Under Test or SUT and automated unit test as simply unit test going forward.\n\r"
 },
 {
-	"uri": "https://kodebot.com/blog/",
-	"title": "Blog",
-	"tags": [],
-	"description": "",
-	"content": "Posts \rNodeJs: Loops, Closure and Async Invocation\r\r\rException Handling in NodeJS\r\r\rUnit Testing Entity Framework async Queries\r\r\rUnit Testing Entity Framework Queries\r\r\rVS-TAC - Cordova version\r\r\rASP.NET MVC 5 - JsonResult with Http Status Code 400\r\r\rAngularJS 1.x - Validation on File Input type\r\r\rAngular 1.x - Unit Testing a function that returns Promise\r\r\rTypeScript - Accessing object with null key\r\r\rASP.NET MVC 5 Hosting for Integration / E2E Testing\r\r\rHow to isolate AutoMapper in Unit Tests?\r\r\rASP.NET 5 - Tag Helpers, the HTML way\r\r\rASP.NET 5 - Environment specific pipeline configuration\r\r\rOwin - Katana core middleware patterns\r\r\rTypeScript - \u0026#39;this\u0026#39; reference in AngularJS event handler\r\r\rTypeScript build automation in ASP.NET 5 (MVC6) using Gulp\r\r\rMVC 6 Camel Case JSON\r\r\rTPL Task and Windows Identity Impersonation - The beauty of Closure\r\r\rSelenium and Page Objects\r\r\rECMAScript 6 - Sublime Text editor build system\r\r\rSix stars of AngularJS - Part 3\r\r\rSix stars of AngularJS - Part 2\r\r\rSix stars of AngularJS - Part 1\r\r\rNSequenceComparer to compare two sequences\r\r\rMocking function that returns promise\r\r\rStrucuring unit tests\r\r\rDecorator over Inheritance hierarchy\r\r\rOrganize AngularJS Tests within a test file\r\r\rSetup Chutzpah to Run Javascript Tests in VisualStudio\r\r\r"
-},
-{
 	"uri": "https://kodebot.com/tutorials/solid-principles/",
 	"title": "SOLID Principles",
 	"tags": [],
@@ -70,18 +70,18 @@
 	"content": " \rWatch video\r\r SOLID is mnemonic acronym where each letter represents one principle.\nThe principles were first introduced by Robert C. Martin but the acronym was later introduced by Michael Feathers.\nThe following are the principles that makes up SOLID\n Single Responsibility Principle Open-Closed Principle Liskov Substitution Principle Interface Segregation Principle Dependency Inversion Principle  When designing software using object oriented methodology, the SOLID principles help to keep the design readable, flexible and maintainable.\nIn the upcoming chapters, we cover each of these principles in detail with example code that violates the principle and refactored code that confirms to the principle.\n"
 },
 {
-	"uri": "https://kodebot.com/tutorials/automated-unit-testing-basics/3-setup-techniques/2-data-driven-test/",
-	"title": "Data driven test",
-	"tags": [],
-	"description": "",
-	"content": "When we want to test SUT, we usually want to test with different set of data. It is not ideal to create one test function for one set of input data. This is where data driven tests are helpful.\nConsider the same example function that adds two numbers\nfunction add(a, b):\rreturn a+b\rTo be thorough, we need to test this function with few different set of data including but not limited to negative numbers, positive numbers and zeros.\nAlthough, it will be descriptive and easy to follow when we have one test test function per input data, it requires more development and maintenance effort.\nBetter solution is to create one test function that we can run with different set of data. This is what we call data driven tests.\nAn example of data driven test would look like this\ntype DataTest:\rinput1\rinput2\rresult\rfunction test_add():\r// arrange\rtests = [\r[input1: 1, input2: 2, result: 3],\r[input1: -1, input2: -1, result: 0],\r[input1: 1, input2: -2, result: -1],\r]\r// act\rloop test of tests:\rresult = add(test.input1, test.input2)\r// assert\rareEqual(test.result, result)\rThe actual implementation of data driven test will be different based on the language and the framework used.\n"
-},
-{
 	"uri": "https://kodebot.com/",
 	"title": "Kodebot",
 	"tags": [],
 	"description": "",
 	"content": ""
+},
+{
+	"uri": "https://kodebot.com/tutorials/automated-unit-testing-basics/3-setup-techniques/2-data-driven-test/",
+	"title": "Data driven test",
+	"tags": [],
+	"description": "",
+	"content": "When we want to test SUT, we usually want to test with different set of data. It is not ideal to create one test function for one set of input data. This is where data driven tests are helpful.\nConsider the same example function that adds two numbers\nfunction add(a, b):\rreturn a+b\rTo be thorough, we need to test this function with few different set of data including but not limited to negative numbers, positive numbers and zeros.\nAlthough, it will be descriptive and easy to follow when we have one test test function per input data, it requires more development and maintenance effort.\nBetter solution is to create one test function that we can run with different set of data. This is what we call data driven tests.\nAn example of data driven test would look like this\ntype DataTest:\rinput1\rinput2\rresult\rfunction test_add():\r// arrange\rtests = [\r[input1: 1, input2: 2, result: 3],\r[input1: -1, input2: -1, result: 0],\r[input1: 1, input2: -2, result: -1],\r]\r// act\rloop test of tests:\rresult = add(test.input1, test.input2)\r// assert\rareEqual(test.result, result)\rThe actual implementation of data driven test will be different based on the language and the framework used.\n"
 },
 {
 	"uri": "https://kodebot.com/tutorials/automated-unit-testing-basics/4-verification-techniques/2-state-verification/",
@@ -210,6 +210,41 @@
 	"content": " \rWatch video\r\r Dependency Inversion Principle(DIP) is introduced by Robert C. Martin and his definition is\n A. High-level modules should not depend on low-level modules. Both should depend on abstractions.\n  B. Abstractions should not depend upon details. Details should depend upon abstractions.\n Let\u0026rsquo;s look at an example of hypothetical mortgage application system.\nWe have higher level Mortgage module with Application class and BureauData module at the next level with BureauDataProvider class and at lower level we have Utility module with DataCleaner class\nusing BureauData; namespace Mortgage { public class Application { public Application(BureauDataProvider dataProvider) { } } } using Utility; namespace BureauData { public class BureauDataProvider { public BureauDataProvider(DataCleaner dataCleaner) { } } } namespace Utility { public class DataCleaner { } } Here the higher level Application class directly depends on next level BureauDataProvider class and it directly depends on DataCleaner class in the lower level. Application class indirectly depends on DataCleaner. Now, changes to DataCleaner or BureauDataProvider class may directly affect Application class.\nThis is not a good situation. The higher level module should control the lower level module, not the other way around. Otherwise, changes in lower level classes would force changes on higher level classes and their consumers without adding any value.\nIn addition to this, when higher level classes directly depend on lower level classes, it is very difficult to reuse higher level classes in different context.\nWe can use Dependency Inversion Principle to address this issue. We first need to define the abstractions (interfaces) that higher level modules should work with then make the lower level modules implement them.\nHere is the revised example\nnamespace Mortgage { public interface IApplicationBureauDataProvider { } public class Application { public Application(IApplicationBureauDataProvider dataProvider) { } } } using Mortgage; namespace BureauData { public interface IDataCleaner { } public class BureauDataProvider : IApplicationBureauDataProvider { public BureauDataProvider(IDataCleaner dataCleaner) { } } } using BureauData; namespace Utility: IDataCleaner { public class DataCleaner { } } Now if we look at the Application class in Mortgage module, it depends on IApplicationBureauDataProvider interface which is defined in Mortgage module itself. So, Application class depends on the abstraction rather than the concrete implementation detail.\nThe BureauDataProvider class in BureauData module implements IApplicationBureauDataProvider from Mortgage module. So, the detail implementation class implements(depends on) the abstraction forced by higher level module.\nSimilarly, BureauDataProvider depends on IDataCleaner interface defined in BureauData module and DataCleaner class in Utility module is implementing IDataCleaner interface.\nAs we can see, the advantage of this design is that the changes to BureauDataProvider cannot affect Application because BureauDataProvider implements IApplicationBureauDataProvider and it cannot change the contract. Also, we can easily reuse Application class with another bureau data provider as long as the new bureau data provider implements IApplicationBureauDataProvider.\nIt is not necessary that the interfaces higher level module depend on should be packaged in the same module. It can be in different module as long it is owned by the higher level module (i.e. changed only when needed for higher level module).\n\rThis principle is also referred to as Hollywood Principle. This is because \u0026ldquo;Don\u0026rsquo;t call us, we will call you\u0026rdquo; phrase is used in Hollywood auditions and this is the communication pattern we achieve with Dependency Inversion Principle.\n\rReferences   https://en.wikipedia.org/wiki/Dependency_inversion_principle\n  Chapter 11, Agile Principles, Patterns, and Practices in C# by Robert C. Martin; Micah Martin\n  https://en.wiktionary.org/wiki/Hollywood_principle\n  "
 },
 {
+	"uri": "https://kodebot.com/tags/linux/",
+	"title": "linux",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://kodebot.com/tags/one-minute-guide/",
+	"title": "one-minute-guide",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://kodebot.com/tags/",
+	"title": "Tags",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://kodebot.com/blog/2021/tmux-one-minute-guide/",
+	"title": "tmux One Minute Guide",
+	"tags": ["one-minute-guide", "linux", "ubuntu"],
+	"description": "",
+	"content": "What is tmux? tmux is terminal multiplexer that allows your terminal to be split into different sessions, windows and panes. One of the great thing about tmux session is that it allows you to detach and reattach to the sessions with terminating the programs running in the sessions.\nSession - is a wrapper for your windows and panes that you can create, detach from and reattach to without terminating the programs running in the sessions\nIt is obvious but just so it is clear, you will lose the sessions and programs running in those sessions on reboot.\n\rWindow - is like tabs within a session, you can switch between them but you can only see one window at a time by default\nPane - is a region in the window. By default each with comes with 1 pane. You can add additional horizontal and/or vertical panes as you like\nOne minute guide Install sudo apt install tmux Create session (default) tmux Create session with a name tmux new -s \u0026lt;session-name\u0026gt; Frequently used commands    Command What it does?     Press Ctrl + b then press c immediately Creates new window   Press Ctrl + b then press \u0026lt;window-number\u0026gt; immediately Switch between windows. For example, Ctrl + b then 1 to switch to window 1   Press Ctrl + b then press , immediately Allows you to change name of the window   Press Ctrl + b then press \u0026quot; immediately Splits the screen vertically [-] by creating a new pane   Press Ctrl + b then press % immediately Splits the screen horizontally [ l ] by creating a new pane   Press Ctrl + b then press \u0026lt;arrow-key\u0026gt; immediately Switching between panes. Takes you to the pane in present in the direction of the arrow key you pressed   Press and hold Ctrl + b then press \u0026lt;arrow-key\u0026gt; Resize pane. Changes the size of the pane based on the arrow key you press   Press Ctrl + b then press d immediately Detach from current session   tmux ls List tmux sessions   tmux attach-session -t \u0026lt;session-name\u0026gt; Attach to existing session. For example, tmux attach-session -t 0 attaches to session 0   tmux rename-session -t \u0026lt;session-name\u0026gt; \u0026lt;new-session-name\u0026gt; Rename session. For example, tmux rename-session -t 0 git renames session 0 to git   exit Closes pane, window or a session depending on the context    "
+},
+{
+	"uri": "https://kodebot.com/tags/ubuntu/",
+	"title": "ubuntu",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
 	"uri": "https://kodebot.com/tutorials/",
 	"title": "Tutorials",
 	"tags": [],
@@ -236,13 +271,6 @@
 	"tags": ["NodeJS", "JavaScript"],
 	"description": "",
 	"content": "Closure Closure is something that is very familiar to all C# developers who know lambda expressions/functions but they just may not know that it is called Closure in JavaScript.\nLets look at what is closure in JavaScript without further ado with an example:\nfunction outer(){ var inOuter = \u0026#34;outer\u0026#34;; inner(); function inner(){ console.log(inOuter); // prints \u0026#39;outer\u0026#39; \t} } In this example, the variable inOuter is defined in the function outer but it is used in the function inner. This is possible because, the a function in JavaScript can access all the variables in the scope where the function is defined and this is called Closure.\nLoop and Closure Lets consider the following example:\nfunction outer(){ for(var i=1; i\u0026lt;=5; i++){ inner(); } function inner(){ console.log(i); // prints 1, 2, 3, 4, 5 \t} } Here the function inner is called from a loop and iterator variable is printed from inside the function inner. It prints, as you guessed, 1, 2, 3, 4, 5. This is because the function inner get the value of i whatever it is when the function inner is invoked.\nLoop, Closure and async invocation Lets look at what happens if we invoke the function inner asynchronously\nfunction outer(){ for(var i=1; i\u0026lt;=5; i++){ process.nextTick(inner); // We can use setImmediate or setTimeout in browser environment to get similar effect \t} function inner(){ console.log(i); // prints 6, 6, 6, 6, 6 \t} } You may not expect it to print 6, 6, 6, 6, 6 but that\u0026rsquo;s what it does. This is because the loop runs to completion in the current tick and the function inner is only invoked in some tick down the line. So, the value of i will be 6 when function inner is executed and it prints 6.\nNow, what do you do if you want to print 1, 2, 3, 4, 5 instead of 6, 6, 6, 6, 6?\nWell, it turns out, you can do this simply by creating new function to create a new variable scope. This is because, in JavaScript variables are scoped to function instead of block.\n Note: Starting ES2015, you can use let instead of var to create block scope.\n Here is the revised code:\nfunction outer(){ for(var i=1; i\u0026lt;=5; i++){ process.nextTick((function(){ var j = i; return inner;\tfunction inner(){ console.log(j); // prints 1, 2, 3, 4, 5 \t} })()); } } We have created a new scope and assigned value of i to j which is defined in the new scope. We have also moved the function inner to the new scope.\nThat\u0026rsquo;s it, now it prints what we want it to print.\n"
-},
-{
-	"uri": "https://kodebot.com/tags/",
-	"title": "Tags",
-	"tags": [],
-	"description": "",
-	"content": ""
 },
 {
 	"uri": "https://kodebot.com/blog/2015/exception-handling-in-nodejs/",
