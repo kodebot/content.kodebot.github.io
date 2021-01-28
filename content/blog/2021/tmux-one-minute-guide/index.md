@@ -9,7 +9,7 @@ comments: true
 ---
 
 ### What is tmux?
-`tmux` is terminal multiplexer that allows your terminal to be split into different sessions, windows and panes. One of the great thing about `tmux` session is that it allows you to detach and reattach to the sessions with terminating the programs running in the sessions.
+`tmux` is terminal multiplexer that allows your terminal to be split into different sessions, windows and panes. One of the great thing about `tmux` is that you can detach from and reattach to tmux sessions without terminating the programs running in those sessions.
 
 
 **Session** - is a wrapper for your windows and panes that you can create, detach from and reattach to without terminating the programs running in the sessions
