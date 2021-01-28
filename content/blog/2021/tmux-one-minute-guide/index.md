@@ -9,7 +9,7 @@ comments: true
 ---
 
 ### What is tmux?
-`tmux` is terminal multiplexer that allows your terminal to be split into different sessions, windows and panes. One of the great thing about `tmux` is that you can detach from and reattach to tmux sessions without terminating the programs running in those sessions.
+`tmux` is terminal multiplexer that allows your terminal to be split into different sessions, windows and panes. One of the great thing about `tmux` is that, you can detach from and reattach to, tmux sessions without terminating the programs running in those sessions.
 
 
 **Session** - is a wrapper for your windows and panes that you can create, detach from and reattach to without terminating the programs running in the sessions
@@ -53,7 +53,7 @@ tmux new -s <session-name>
 |Press `Ctrl + b` then press `<arrow-key>` immediately|Switching between panes. Takes you to the pane in present in the direction of the arrow key you pressed|
 |Press and hold `Ctrl + b` then press `<arrow-key>`|Resize pane. Changes the size of the pane based on the arrow key you press|
 |Press `Ctrl + b` then press `d` immediately|Detach from current session|
-|`tmux ls`|List tmux sessions|
-|`tmux attach-session -t <session-name>`|Attach to existing session. For example, `tmux attach-session -t 0` attaches to session 0|
-|`tmux rename-session -t <session-name> <new-session-name>`|Rename session. For example, `tmux rename-session -t 0 git` renames session 0 to git|
-|`exit`|Closes pane, window or a session depending on the context|
+|tmux ls|List tmux sessions|
+|tmux attach-session -t <session-name>|Attach to existing session. For example, `tmux attach-session -t 0` attaches to session 0|
+|tmux rename-session -t <session-name> <new-session-name>|Rename session. For example, `tmux rename-session -t 0 git` renames session 0 to git|
+|exit|Closes pane, window or a session depending on the context|
