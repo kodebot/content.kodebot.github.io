@@ -4,7 +4,7 @@
 	"title": "Blog",
 	"tags": [],
 	"description": "",
-	"content": "Posts \rtmux One Minute Guide\r\r\rNodeJs: Loops, Closure and Async Invocation\r\r\rException Handling in NodeJS\r\r\rUnit Testing Entity Framework async Queries\r\r\rUnit Testing Entity Framework Queries\r\r\rVS-TAC - Cordova version\r\r\rASP.NET MVC 5 - JsonResult with Http Status Code 400\r\r\rAngularJS 1.x - Validation on File Input type\r\r\rAngular 1.x - Unit Testing a function that returns Promise\r\r\rTypeScript - Accessing object with null key\r\r\rASP.NET MVC 5 Hosting for Integration / E2E Testing\r\r\rHow to isolate AutoMapper in Unit Tests?\r\r\rASP.NET 5 - Tag Helpers, the HTML way\r\r\rASP.NET 5 - Environment specific pipeline configuration\r\r\rOwin - Katana core middleware patterns\r\r\rTypeScript - \u0026#39;this\u0026#39; reference in AngularJS event handler\r\r\rTypeScript build automation in ASP.NET 5 (MVC6) using Gulp\r\r\rMVC 6 Camel Case JSON\r\r\rTPL Task and Windows Identity Impersonation - The beauty of Closure\r\r\rSelenium and Page Objects\r\r\rECMAScript 6 - Sublime Text editor build system\r\r\rSix stars of AngularJS - Part 3\r\r\rSix stars of AngularJS - Part 2\r\r\rSix stars of AngularJS - Part 1\r\r\rNSequenceComparer to compare two sequences\r\r\rMocking function that returns promise\r\r\rStrucuring unit tests\r\r\rDecorator over Inheritance hierarchy\r\r\rOrganize AngularJS Tests within a test file\r\r\rSetup Chutzpah to Run Javascript Tests in VisualStudio\r\r\r"
+	"content": "Posts \rJoin and GroupJoin in C#\r\r\rtmux One Minute Guide\r\r\rNodeJs: Loops, Closure and Async Invocation\r\r\rException Handling in NodeJS\r\r\rUnit Testing Entity Framework async Queries\r\r\rUnit Testing Entity Framework Queries\r\r\rVS-TAC - Cordova version\r\r\rASP.NET MVC 5 - JsonResult with Http Status Code 400\r\r\rAngularJS 1.x - Validation on File Input type\r\r\rAngular 1.x - Unit Testing a function that returns Promise\r\r\rTypeScript - Accessing object with null key\r\r\rASP.NET MVC 5 Hosting for Integration / E2E Testing\r\r\rHow to isolate AutoMapper in Unit Tests?\r\r\rASP.NET 5 - Tag Helpers, the HTML way\r\r\rASP.NET 5 - Environment specific pipeline configuration\r\r\rOwin - Katana core middleware patterns\r\r\rTypeScript - \u0026#39;this\u0026#39; reference in AngularJS event handler\r\r\rTypeScript build automation in ASP.NET 5 (MVC6) using Gulp\r\r\rMVC 6 Camel Case JSON\r\r\rTPL Task and Windows Identity Impersonation - The beauty of Closure\r\r\rSelenium and Page Objects\r\r\rECMAScript 6 - Sublime Text editor build system\r\r\rSix stars of AngularJS - Part 3\r\r\rSix stars of AngularJS - Part 2\r\r\rSix stars of AngularJS - Part 1\r\r\rNSequenceComparer to compare two sequences\r\r\rMocking function that returns promise\r\r\rStrucuring unit tests\r\r\rDecorator over Inheritance hierarchy\r\r\rOrganize AngularJS Tests within a test file\r\r\rSetup Chutzpah to Run Javascript Tests in VisualStudio\r\r\r"
 },
 {
 	"uri": "https://kodebot.com/tutorials/automated-unit-testing-basics/",
@@ -210,6 +210,34 @@
 	"content": " \rWatch video\r\r Dependency Inversion Principle(DIP) is introduced by Robert C. Martin and his definition is\n A. High-level modules should not depend on low-level modules. Both should depend on abstractions.\n  B. Abstractions should not depend upon details. Details should depend upon abstractions.\n Let\u0026rsquo;s look at an example of hypothetical mortgage application system.\nWe have higher level Mortgage module with Application class and BureauData module at the next level with BureauDataProvider class and at lower level we have Utility module with DataCleaner class\nusing BureauData; namespace Mortgage { public class Application { public Application(BureauDataProvider dataProvider) { } } } using Utility; namespace BureauData { public class BureauDataProvider { public BureauDataProvider(DataCleaner dataCleaner) { } } } namespace Utility { public class DataCleaner { } } Here the higher level Application class directly depends on next level BureauDataProvider class and it directly depends on DataCleaner class in the lower level. Application class indirectly depends on DataCleaner. Now, changes to DataCleaner or BureauDataProvider class may directly affect Application class.\nThis is not a good situation. The higher level module should control the lower level module, not the other way around. Otherwise, changes in lower level classes would force changes on higher level classes and their consumers without adding any value.\nIn addition to this, when higher level classes directly depend on lower level classes, it is very difficult to reuse higher level classes in different context.\nWe can use Dependency Inversion Principle to address this issue. We first need to define the abstractions (interfaces) that higher level modules should work with then make the lower level modules implement them.\nHere is the revised example\nnamespace Mortgage { public interface IApplicationBureauDataProvider { } public class Application { public Application(IApplicationBureauDataProvider dataProvider) { } } } using Mortgage; namespace BureauData { public interface IDataCleaner { } public class BureauDataProvider : IApplicationBureauDataProvider { public BureauDataProvider(IDataCleaner dataCleaner) { } } } using BureauData; namespace Utility: IDataCleaner { public class DataCleaner { } } Now if we look at the Application class in Mortgage module, it depends on IApplicationBureauDataProvider interface which is defined in Mortgage module itself. So, Application class depends on the abstraction rather than the concrete implementation detail.\nThe BureauDataProvider class in BureauData module implements IApplicationBureauDataProvider from Mortgage module. So, the detail implementation class implements(depends on) the abstraction forced by higher level module.\nSimilarly, BureauDataProvider depends on IDataCleaner interface defined in BureauData module and DataCleaner class in Utility module is implementing IDataCleaner interface.\nAs we can see, the advantage of this design is that the changes to BureauDataProvider cannot affect Application because BureauDataProvider implements IApplicationBureauDataProvider and it cannot change the contract. Also, we can easily reuse Application class with another bureau data provider as long as the new bureau data provider implements IApplicationBureauDataProvider.\nIt is not necessary that the interfaces higher level module depend on should be packaged in the same module. It can be in different module as long it is owned by the higher level module (i.e. changed only when needed for higher level module).\n\rThis principle is also referred to as Hollywood Principle. This is because \u0026ldquo;Don\u0026rsquo;t call us, we will call you\u0026rdquo; phrase is used in Hollywood auditions and this is the communication pattern we achieve with Dependency Inversion Principle.\n\rReferences   https://en.wikipedia.org/wiki/Dependency_inversion_principle\n  Chapter 11, Agile Principles, Patterns, and Practices in C# by Robert C. Martin; Micah Martin\n  https://en.wiktionary.org/wiki/Hollywood_principle\n  "
 },
 {
+	"uri": "https://kodebot.com/tags/.net/",
+	"title": ".NET",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://kodebot.com/tags/c#/",
+	"title": "C#",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://kodebot.com/blog/2021/join-and-groupjoin-in-dotnet/",
+	"title": "Join and GroupJoin in C#",
+	"tags": ["C#", ".NET"],
+	"description": "",
+	"content": "Introduction Join and GroupJoin are two different methods that we can use in our link query to join two different collections. At first glance, they might look similar but they produce different results. Lets look at how they work with an example.\nExample setup For our example, we are going to use the following Student and Enrolment class.\nclass Student { public string Id { get; set; } public string Name { get; set; } } class Enrolment { public string Id { get; set; } public string StudentId { get; set; } } And we assume, we have the following data\nvar students = new List\u0026lt;Student\u0026gt; { new Student {Id = \u0026#34;s1\u0026#34;, Name = \u0026#34;Foo\u0026#34;}, new Student {Id = \u0026#34;s2\u0026#34;, Name = \u0026#34;Bar\u0026#34;}, new Student {Id = \u0026#34;s3\u0026#34;, Name = \u0026#34;Cux\u0026#34;} }; var enrolments = new List\u0026lt;Enrolment\u0026gt; { new Enrolment {Id = \u0026#34;e1\u0026#34;, StudentId = \u0026#34;s1\u0026#34;}, new Enrolment {Id = \u0026#34;e2\u0026#34;, StudentId = \u0026#34;s1\u0026#34;}, new Enrolment {Id = \u0026#34;e1\u0026#34;, StudentId = \u0026#34;s2\u0026#34;}, }; Here, student s1 has more than one enrolments and s2 has one enrolment and s3 has none.\nJoin Join basically creates a new collection by taking each item from first collection and combining it with each item on the second collection where the join conditions are met.\nFor example,\nstudents.Join( enrolments, s =\u0026gt; s.Id, e =\u0026gt; e.StudentId, (s, e) =\u0026gt; new { Student = s.Id, Enrolment = e.Id }); Query version\nfrom s in students join e in enrolments on s.Id equals e.StudentId select new { Student = s.Id, Enrolment = e.Id }; produces\n[ { \u0026#34;Student\u0026#34;: \u0026#34;s1\u0026#34;, \u0026#34;Enrolment\u0026#34;: \u0026#34;e1\u0026#34; }, { \u0026#34;Student\u0026#34;: \u0026#34;s1\u0026#34;, \u0026#34;Enrolment\u0026#34;: \u0026#34;e2\u0026#34; }, { \u0026#34;Student\u0026#34;: \u0026#34;s2\u0026#34;, \u0026#34;Enrolment\u0026#34;: \u0026#34;e1\u0026#34; } ] Here, we have two items for student s1 because s1 has two enrolments, one item for s2 and no item for s3 as s3 have no enrolments.\nThis very similar to inner join in SQL.\nGroupJoin GroupJoin takes each item from the first collection, finds all items from the second collection where join condition is met and combines them. This means, the result collection will have same number of entries as first collection and each item from the first collection may have zero or more items from second collection.\nFor example,\nstudents.GroupJoin( enrolments, s =\u0026gt; s.Id, e =\u0026gt; e.StudentId, (s, es) =\u0026gt; new { Student = s.Id, Enrolments = es.Select(e =\u0026gt; e.Id) }); Query version\nfrom s in students join e in enrolments on s.Id equals e.StudentId into joined select new { Student = s.Id, Enrolment = joined.Select(j =\u0026gt; j.Id) }; produces\n[ { \u0026#34;Student\u0026#34;: \u0026#34;s1\u0026#34;, \u0026#34;Enrolments\u0026#34;: [ \u0026#34;e1\u0026#34;, \u0026#34;e2\u0026#34; ] }, { \u0026#34;Student\u0026#34;: \u0026#34;s2\u0026#34;, \u0026#34;Enrolments\u0026#34;: [ \u0026#34;e1\u0026#34; ] }, { \u0026#34;Student\u0026#34;: \u0026#34;s3\u0026#34;, \u0026#34;Enrolments\u0026#34;: [] } ] Here, we have three items in the result collection - same number of items as first collection. But, s1 has two enrolments, s2 has one and s3 has no enrolment. Note, even though there is no matching enrolment for s3, we still have it in the result but no items in enrolments.\nThis is similar to left outer join in SQL.\n"
+},
+{
+	"uri": "https://kodebot.com/tags/",
+	"title": "Tags",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
 	"uri": "https://kodebot.com/tags/linux/",
 	"title": "linux",
 	"tags": [],
@@ -219,13 +247,6 @@
 {
 	"uri": "https://kodebot.com/tags/one-minute-guide/",
 	"title": "one-minute-guide",
-	"tags": [],
-	"description": "",
-	"content": ""
-},
-{
-	"uri": "https://kodebot.com/tags/",
-	"title": "Tags",
 	"tags": [],
 	"description": "",
 	"content": ""
@@ -446,13 +467,6 @@
 	"tags": ["ASP.NET", "MVC"],
 	"description": "",
 	"content": "This means, if you have an application which uses both MVC controllers and Web API controllers then you need to apply any custom JSON serialization configurations twice or you should replace JavaScriptSerializer with JSON.NET.\n// Sample  public class Startup { public void ConfigureServices(IServiceCollection services) { services.AddMvc() .Configure\u0026lt;MvcOptions\u0026gt;(options =\u0026gt; { var jsonOutputFormatter = new JsonOutputFormatter(); jsonOutputFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver(); options.OutputFormatters.Insert(0, jsonOutputFormatter); }); } public void Configure(IApplicationBuilder app) { app.UseMvc(); } } "
-},
-{
-	"uri": "https://kodebot.com/tags/c#/",
-	"title": "C#",
-	"tags": [],
-	"description": "",
-	"content": ""
 },
 {
 	"uri": "https://kodebot.com/blog/2015/tpl-task-and-windows-identity-impersonation-the-beauty-of-closure/",

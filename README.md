@@ -12,10 +12,10 @@ create pr to merge the generated content into master branch to publish the chang
 
 ## How to create new blog post
 
-`hugo new blog\<year>\<blog-title-in-kebab-case>\index`
+`hugo new blog\<year>\<blog-title-in-kebab-case>\index.md`
 
 Example:
-`hugo new blog\2021\what-is-cardano-and-ada\index`
+`hugo new blog\2021\what-is-cardano-and-ada\index.md`
 
 Note: This will ensure each post has its own folder with necessary images, attachments, etc
 

@@ -1,852 +1,232 @@
+
 <!DOCTYPE html>
 <html lang="en" class="js csstransforms3d">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.80.0" />
-    <meta name="description" content="">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="generator" content="Hugo 0.80.0" />
+  <meta name="description" content="">
 
 
-    <link rel="icon" href="/images/favicon.ico" type="image/png">
-    <title>Fake test dependency :: Kodebot</title>
+  <link rel="icon" href="/images/favicon.ico" type="image/png">
+  <title>Join and GroupJoin in C# - Kodebot</title>
 
-    
-    <link href="/css/nucleus.css?1612363814" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1612363814" rel="stylesheet">
-    <link href="/css/hybrid.css?1612363814" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1612363814" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1612363814" rel="stylesheet">
-    <link href="/css/auto-complete.css?1612363814" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1612363814" rel="stylesheet">
-    <link href="/css/theme.css?1612363814" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1612363814" rel="stylesheet">
-    
-      <link href="/css/theme-mine.css?1612363814" rel="stylesheet">
-    
+  
+  <link href="/css/nucleus.css?1612363814" rel="stylesheet">
+  <link href="/css/fontawesome-all.min.css?1612363814"
+    rel="stylesheet">
+  <link href="/css/hybrid.css?1612363814" rel="stylesheet">
+  <link href="/css/featherlight.min.css?1612363814" rel="stylesheet">
+  <link href="/css/perfect-scrollbar.min.css?1612363814"
+    rel="stylesheet">
+  <link href="/css/auto-complete.css?1612363814" rel="stylesheet">
+  <link href="/css/atom-one-dark-reasonable.css?1612363814"
+    rel="stylesheet">
+  <link href="/css/theme.css?1612363814" rel="stylesheet">
+  <link href="/css/hugo-theme.css?1612363814" rel="stylesheet">
+  
+  <link href="/css/theme-mine.css?1612363814"
+    rel="stylesheet">
+  
 
-    <script src="/js/jquery-3.3.1.min.js?1612363814"></script>
+  <script src="/js/jquery-3.3.1.min.js?1612363814"></script>
 
-    <style>
-      :root #header + #content > #left > #rlblock_left{
-          display:none !important;
+  <style type="text/css">
+    :root #header+#content>#left>#rlblock_left {
+      display: none !important;
+    }
+
+      {
+        {
+        if .Site.Params.disableInlineCopyToClipBoard
       }
-      
-    </style>
-      
+    }
+
+    :not(pre)>code+span.copy-to-clipboard {
+      display: none;
+    }
+
+      {
+        {
+        end
+      }
+    }
+  </style>
+    
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" />
   
-  </head>
-  <body class="" data-url="/tutorials/automated-unit-testing-basics/3-setup-techniques/3-fake-test-depencency/">
-    
-<nav id="sidebar" class="">
+</head>
 
-
-
-  <div id="header-wrapper">
-    <div id="header">
-      <a id="logo" href="https://kodebot.com/">
-    <img src="/images/logo.png" style="background: white; padding-right: 2px">
-</a>
+<body class="" data-url="/blog/2021/join-and-groupjoin-in-dotnet/">
+  <nav class="main-menu">
+    <div class="logo">
+        <a href="https://kodebot.com/">
+            <img src="/images/logo.png" style="background: white; padding-right: 2px;">
+        </a>
     </div>
-    
-        <div class="searchbox">
-    <label for="search-by"><i class="fas fa-search"></i></label>
-    <input data-search-input id="search-by" type="search" placeholder="Search...">
-    <span data-search-clear=""><i class="fas fa-times"></i></span>
-</div>
-
-<script type="text/javascript" src="/js/lunr.min.js?1612363814"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1612363814"></script>
-<script type="text/javascript">
-    
-        var baseurl = "https:\/\/kodebot.com\/";
-    
-</script>
-<script type="text/javascript" src="/js/search.js?1612363814"></script>
-
-    
-  </div>
-
-    <div class="highlightable">
-    <ul class="topics">
-
-        
-          
-          
-          
-          
-          
-          
-
-
- 
-  
-    
-    <li data-nav-id="/tutorials/automated-unit-testing-basics/" title="Automated unit testing basics" class="dd-item 
-        parent
-        
-        
-        ">
-      <a href="/tutorials/automated-unit-testing-basics/">
-          Automated unit testing basics
-          
-      </a>
-      
-      
-        <ul>
-          
-          
-            
-          
-          
-          
-        
-          
-            
-            
-
-
- 
-  
-    
-    <li data-nav-id="/tutorials/automated-unit-testing-basics/1-introduction/" title="Introduction" class="dd-item 
+    <ul>
         
         
         
-        ">
-      <a href="/tutorials/automated-unit-testing-basics/1-introduction/">
-          <b>1. </b>Introduction
-          
-      </a>
-      
-      
-        <ul>
-          
-          
-          
-          
+                
+        <li >
+            <a href="/blog/" 
+            class="active"
+            >
+                Blog
+            </a>
+        </li>
+
         
-          
-            
-            
+                
+        <li >
+            <a href="/tutorials/" >
+                Tutorials
+            </a>
+        </li>
 
-
- 
-  
-    
-      <li data-nav-id="/tutorials/automated-unit-testing-basics/1-introduction/1-what-is-automated-unit-testing/" title="What is automated unit testing?" class="dd-item ">
-        <a href="/tutorials/automated-unit-testing-basics/1-introduction/1-what-is-automated-unit-testing/">
-        What is automated unit testing?
         
-        </a>
-    </li>
-     
-  
- 
+                
+        <li >
+            <a href="/about/" >
+                About
+            </a>
+        </li>
 
-            
-          
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/tutorials/automated-unit-testing-basics/1-introduction/2-why-are-we-writing-unit-tests/" title="Why are we writing unit tests?" class="dd-item ">
-        <a href="/tutorials/automated-unit-testing-basics/1-introduction/2-why-are-we-writing-unit-tests/">
-        Why are we writing unit tests?
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/tutorials/automated-unit-testing-basics/1-introduction/3-what-is-good-unit-test/" title="What is good unit test?" class="dd-item ">
-        <a href="/tutorials/automated-unit-testing-basics/1-introduction/3-what-is-good-unit-test/">
-        What is good unit test?
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/tutorials/automated-unit-testing-basics/1-introduction/4-other-types-of-automated-testing/" title="Other types of automated testing" class="dd-item ">
-        <a href="/tutorials/automated-unit-testing-basics/1-introduction/4-other-types-of-automated-testing/">
-        Other types of automated testing
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/tutorials/automated-unit-testing-basics/1-introduction/5-system-under-test/" title="System Under Test (SUT)" class="dd-item ">
-        <a href="/tutorials/automated-unit-testing-basics/1-introduction/5-system-under-test/">
-        System Under Test (SUT)
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-        
-        </ul>
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-    <li data-nav-id="/tutorials/automated-unit-testing-basics/2-structure-of-unit-test/" title="Structure of unit test" class="dd-item 
         
         
-        
-        ">
-      <a href="/tutorials/automated-unit-testing-basics/2-structure-of-unit-test/">
-          <b>2. </b>Structure of unit test
-          
-      </a>
-      
-      
-        <ul>
-          
-          
-          
-          
-        
-          
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/tutorials/automated-unit-testing-basics/2-structure-of-unit-test/1-structure/" title="Structure" class="dd-item ">
-        <a href="/tutorials/automated-unit-testing-basics/2-structure-of-unit-test/1-structure/">
-        Structure
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-        
-        </ul>
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-    <li data-nav-id="/tutorials/automated-unit-testing-basics/3-setup-techniques/" title="Setup techniques" class="dd-item 
-        parent
-        
-        
-        ">
-      <a href="/tutorials/automated-unit-testing-basics/3-setup-techniques/">
-          <b>3. </b>Setup techniques
-          
-      </a>
-      
-      
-        <ul>
-          
-          
-          
-          
-        
-          
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/tutorials/automated-unit-testing-basics/3-setup-techniques/1-simple-test-data/" title="Simple test data" class="dd-item ">
-        <a href="/tutorials/automated-unit-testing-basics/3-setup-techniques/1-simple-test-data/">
-        Simple test data
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/tutorials/automated-unit-testing-basics/3-setup-techniques/2-data-driven-test/" title="Data driven test" class="dd-item ">
-        <a href="/tutorials/automated-unit-testing-basics/3-setup-techniques/2-data-driven-test/">
-        Data driven test
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/tutorials/automated-unit-testing-basics/3-setup-techniques/3-fake-test-depencency/" title="Fake test dependency" class="dd-item active">
-        <a href="/tutorials/automated-unit-testing-basics/3-setup-techniques/3-fake-test-depencency/">
-        Fake test dependency
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/tutorials/automated-unit-testing-basics/3-setup-techniques/4-mock-dependency/" title="Mock dependency" class="dd-item ">
-        <a href="/tutorials/automated-unit-testing-basics/3-setup-techniques/4-mock-dependency/">
-        Mock dependency
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-        
-        </ul>
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-    <li data-nav-id="/tutorials/automated-unit-testing-basics/4-verification-techniques/" title="Verification techniques" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/tutorials/automated-unit-testing-basics/4-verification-techniques/">
-          <b>4. </b>Verification techniques
-          
-      </a>
-      
-      
-        <ul>
-          
-          
-          
-          
-        
-          
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/tutorials/automated-unit-testing-basics/4-verification-techniques/1-result-verification/" title="Result verification" class="dd-item ">
-        <a href="/tutorials/automated-unit-testing-basics/4-verification-techniques/1-result-verification/">
-        Result verification
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/tutorials/automated-unit-testing-basics/4-verification-techniques/2-state-verification/" title="State verification" class="dd-item ">
-        <a href="/tutorials/automated-unit-testing-basics/4-verification-techniques/2-state-verification/">
-        State verification
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/tutorials/automated-unit-testing-basics/4-verification-techniques/3-interaction-verification/" title="Interaction verification" class="dd-item ">
-        <a href="/tutorials/automated-unit-testing-basics/4-verification-techniques/3-interaction-verification/">
-        Interaction verification
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-        
-        </ul>
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-    <li data-nav-id="/tutorials/automated-unit-testing-basics/5-test-driven-or-test-oriented/" title="Test driven or test oriented" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/tutorials/automated-unit-testing-basics/5-test-driven-or-test-oriented/">
-          <b>5. </b>Test driven or test oriented
-          
-      </a>
-      
-      
-        <ul>
-          
-          
-          
-          
-        
-          
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/tutorials/automated-unit-testing-basics/5-test-driven-or-test-oriented/1-test-driven-development/" title="Test driven development" class="dd-item ">
-        <a href="/tutorials/automated-unit-testing-basics/5-test-driven-or-test-oriented/1-test-driven-development/">
-        Test driven development
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/tutorials/automated-unit-testing-basics/5-test-driven-or-test-oriented/2-test-oriented-development/" title="Test oriented development" class="dd-item ">
-        <a href="/tutorials/automated-unit-testing-basics/5-test-driven-or-test-oriented/2-test-oriented-development/">
-        Test oriented development
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-        
-        </ul>
-              
-    </li>
-  
- 
-
-            
-          
-        
-        </ul>
-              
-    </li>
-  
- 
-
-          
-          
-
-
- 
-  
-    
-    <li data-nav-id="/tutorials/solid-principles/" title="SOLID Principles" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/tutorials/solid-principles/">
-          SOLID Principles
-          
-      </a>
-      
-      
-        <ul>
-          
-          
-          
-          
-        
-          
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/tutorials/solid-principles/1-introduction/" title="What is SOLID principles?" class="dd-item ">
-        <a href="/tutorials/solid-principles/1-introduction/">
-        What is SOLID principles?
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/tutorials/solid-principles/2-single-responsibility-principle/" title="Single Responsibility Principle" class="dd-item ">
-        <a href="/tutorials/solid-principles/2-single-responsibility-principle/">
-        Single Responsibility Principle
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/tutorials/solid-principles/3-open-closed-principle/" title="Open-Closed Principle" class="dd-item ">
-        <a href="/tutorials/solid-principles/3-open-closed-principle/">
-        Open-Closed Principle
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/tutorials/solid-principles/4-liskov-substitution-principle/" title="Liskov Substitution Principle" class="dd-item ">
-        <a href="/tutorials/solid-principles/4-liskov-substitution-principle/">
-        Liskov Substitution Principle
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/tutorials/solid-principles/5-interface-segregation-principle/" title="Interface Segregation Principle" class="dd-item ">
-        <a href="/tutorials/solid-principles/5-interface-segregation-principle/">
-        Interface Segregation Principle
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/tutorials/solid-principles/6-dependency-inversion-principle/" title="Dependency Inversion Principle" class="dd-item ">
-        <a href="/tutorials/solid-principles/6-dependency-inversion-principle/">
-        Dependency Inversion Principle
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-        
-        </ul>
-              
-    </li>
-  
- 
-
-          
-          
-          
-          
-          
-         
     </ul>
-
-    
-    
-
-    
-    <section id="footer">
-      
-&copy; Copyright 2021, Kodebot.
-    </section>
-  </div>
 </nav>
+  <section id="body" class="no-sidebar">
+    <div id="overlay"></div>
+    <div class="padding highlightable">
+      
+      <div>
+        
+        
+      </div>
+      
+      <div id="head-tags">
+        
+<div class="tags">
 
+  <a class="tag-link" href="/tags/c">C#</a>
 
+  <a class="tag-link" href="/tags/.net">.NET</a>
 
-
-
-        <section id="body">
-        <div id="overlay"></div>
-        <div class="padding highlightable">
-              
-              <div>
-                <div id="top-bar">
-                
-                
-                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
-                    <span id="sidebar-toggle-span">
-                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
-                          <i class="fas fa-bars"></i>
-                        </a>
-                    </span>
-                  
-                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
-                  
-                  <span class="links">
-                 
-                 
-                    
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          <a href='/'>Kodebot</a> > <a href='/tutorials/'>Tutorials</a> > <a href='/tutorials/automated-unit-testing-basics/'>Automated unit testing basics</a> > <a href='/tutorials/automated-unit-testing-basics/3-setup-techniques/'>Setup techniques</a> > Fake test dependency
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-                 
-                  </span>
-                </div>
-                
-                    <div class="progress">
-    <div class="wrapper">
-<nav id="TableOfContents"></nav>
-    </div>
 </div>
 
-                
-              </div>
-            </div>
-            
-        <div id="head-tags">
-        
-        </div>
-        
+      </div>
+      
         <div id="body-inner">
           
-            <h1>
-              
-              Fake test dependency
-            </h1>
+          <h1>
+            
+            Join and GroupJoin in C#
+          </h1>
           
 
-        
+          
 
+<h3 id="introduction">Introduction</h3>
+<p><code>Join</code> and <code>GroupJoin</code> are two different methods that we can use in our link query to join two different collections. At first glance, they might look similar but they produce different results. Lets look at how they work with an example.</p>
+<h3 id="example-setup">Example setup</h3>
+<p>For our example, we are going to use the following <code>Student</code> and <code>Enrolment</code> class.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Student</span>
+{
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">string</span> Id { <span style="color:#66d9ef">get</span>; <span style="color:#66d9ef">set</span>; }
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">string</span> Name { <span style="color:#66d9ef">get</span>; <span style="color:#66d9ef">set</span>; }
+}
 
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Enrolment</span>
+{
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">string</span> Id { <span style="color:#66d9ef">get</span>; <span style="color:#66d9ef">set</span>; }
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">string</span> StudentId { <span style="color:#66d9ef">get</span>; <span style="color:#66d9ef">set</span>; }
+}
+</code></pre></div><p>And we assume, we have the following data</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#66d9ef">var</span> students = <span style="color:#66d9ef">new</span> List&lt;Student&gt;
+{
+    <span style="color:#66d9ef">new</span> Student {Id = <span style="color:#e6db74">&#34;s1&#34;</span>, Name = <span style="color:#e6db74">&#34;Foo&#34;</span>},
+    <span style="color:#66d9ef">new</span> Student {Id = <span style="color:#e6db74">&#34;s2&#34;</span>, Name = <span style="color:#e6db74">&#34;Bar&#34;</span>},
+    <span style="color:#66d9ef">new</span> Student {Id = <span style="color:#e6db74">&#34;s3&#34;</span>, Name = <span style="color:#e6db74">&#34;Cux&#34;</span>}
+};
 
-<p>It is very common that the SUT depends on something else. The dependency could be anything like another function, object or external system and we may not be able to control their behavior all the time. A good unit test should not be affected by the changes in the dependencies of SUT.</p>
-<p>So, a common technique is to replace the dependencies with fake versions that we can control.</p>
-<!-- raw HTML omitted -->
-<p>For example, consider a function that takes age of the passenger and prints whether he/she is eligible for senior citizen discount when promotion is available.</p>
-<p>The function which tells whether the promotion is available or not is defined in another module and we don&rsquo;t have control over its behavior</p>
-<pre><code>module promotions
-    function isPromotionsAvailable():
-        .
-        .
-        .
-</code></pre><pre><code>module discounts
+<span style="color:#66d9ef">var</span> enrolments = <span style="color:#66d9ef">new</span> List&lt;Enrolment&gt;
+{
+    <span style="color:#66d9ef">new</span> Enrolment {Id = <span style="color:#e6db74">&#34;e1&#34;</span>, StudentId = <span style="color:#e6db74">&#34;s1&#34;</span>},
+    <span style="color:#66d9ef">new</span> Enrolment {Id = <span style="color:#e6db74">&#34;e2&#34;</span>, StudentId = <span style="color:#e6db74">&#34;s1&#34;</span>},
+    <span style="color:#66d9ef">new</span> Enrolment {Id = <span style="color:#e6db74">&#34;e1&#34;</span>, StudentId = <span style="color:#e6db74">&#34;s2&#34;</span>},
+};
+</code></pre></div><p>Here, student <code>s1</code> has more than one enrolments and <code>s2</code> has one enrolment and <code>s3</code> has none.</p>
+<h3 id="join">Join</h3>
+<p><code>Join</code> basically creates a new collection by taking each item from first collection and combining it with each item on the second collection where the join conditions are met.</p>
+<p>For example,</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp">students.Join(
+    enrolments,
+    s =&gt; s.Id,
+    e =&gt; e.StudentId,
+    (s, e) =&gt; <span style="color:#66d9ef">new</span> { Student = s.Id, Enrolment = e.Id });
 
-function isDiscountAvailable(age):
-    if promotions.isPromotionAvailable() &amp;&amp; age &gt; 60:
-        print(&quot;discount available&quot;)
-    else:
-        print(&quot;discount not available&quot;)
-</code></pre><p>However, in order to test all the branches and conditions of <code>isDiscountAvailable()</code> function, we need to be able to control the result of <code>isPromotionAvailable()</code> function. So, we first create fake version of <code>isPromotionAvailable()</code> function in <code>fakePromotions</code> module with an option for us to control the result</p>
-<pre><code>module fakePromotions
-    offerPromotion = true
+</code></pre></div><p>Query version</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#66d9ef">from</span> s <span style="color:#66d9ef">in</span> students
+<span style="color:#66d9ef">join</span> e <span style="color:#66d9ef">in</span> enrolments
+<span style="color:#66d9ef">on</span> s.Id <span style="color:#66d9ef">equals</span> e.StudentId
+<span style="color:#66d9ef">select</span> <span style="color:#66d9ef">new</span> { Student = s.Id, Enrolment = e.Id };
+</code></pre></div><p>produces</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">[
+  {
+    <span style="color:#f92672">&#34;Student&#34;</span>: <span style="color:#e6db74">&#34;s1&#34;</span>,
+    <span style="color:#f92672">&#34;Enrolment&#34;</span>: <span style="color:#e6db74">&#34;e1&#34;</span>
+  },
+  {
+    <span style="color:#f92672">&#34;Student&#34;</span>: <span style="color:#e6db74">&#34;s1&#34;</span>,
+    <span style="color:#f92672">&#34;Enrolment&#34;</span>: <span style="color:#e6db74">&#34;e2&#34;</span>
+  },
+  {
+    <span style="color:#f92672">&#34;Student&#34;</span>: <span style="color:#e6db74">&#34;s2&#34;</span>,
+    <span style="color:#f92672">&#34;Enrolment&#34;</span>: <span style="color:#e6db74">&#34;e1&#34;</span>
+  }
+]
 
-    function isPromotionAvailable():
-        return offerPromotion
-</code></pre><p>then replace the promotion with fakePromotion inside the test</p>
-<pre><code>function test_isDiscountAvailable():
-    // arrange
-    promotions  = fakePromotions  //replace promotions module with fakePromotions module
-    promotions.offerPromotion = true
-    age = 65
+</code></pre></div><p>Here, we have two items for student <code>s1</code> because <code>s1</code> has two enrolments, one item for <code>s2</code> and no item for <code>s3</code> as <code>s3</code> have no enrolments.</p>
+<p>This very similar to inner join in SQL.</p>
+<h3 id="groupjoin">GroupJoin</h3>
+<p><code>GroupJoin</code> takes each item from the first collection, finds all items from the second collection where join condition is met and combines them. This means, the result collection will have same number of entries as first collection and each item from the first collection may have zero or more items from second collection.</p>
+<p>For example,</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp">students.GroupJoin(
+    enrolments,
+    s =&gt; s.Id,
+    e =&gt; e.StudentId,
+    (s, es) =&gt; <span style="color:#66d9ef">new</span> { Student = s.Id, Enrolments = es.Select(e =&gt; e.Id) });
 
-    // act
-    result = discounts.isDiscountAvailable(age)
-
-</code></pre><p>Depending on the language and framework we use, the way we replace the real dependency with fake one will be different.</p>
+</code></pre></div><p>Query version</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#66d9ef">from</span> s <span style="color:#66d9ef">in</span> students
+<span style="color:#66d9ef">join</span> e <span style="color:#66d9ef">in</span> enrolments
+<span style="color:#66d9ef">on</span> s.Id <span style="color:#66d9ef">equals</span> e.StudentId <span style="color:#66d9ef">into</span> joined
+<span style="color:#66d9ef">select</span> <span style="color:#66d9ef">new</span> { Student = s.Id, Enrolment = joined.Select(j =&gt; j.Id) };
+</code></pre></div><p>produces</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">[
+  {
+    <span style="color:#f92672">&#34;Student&#34;</span>: <span style="color:#e6db74">&#34;s1&#34;</span>,
+    <span style="color:#f92672">&#34;Enrolments&#34;</span>: [
+      <span style="color:#e6db74">&#34;e1&#34;</span>,
+      <span style="color:#e6db74">&#34;e2&#34;</span>
+    ]
+  },
+  {
+    <span style="color:#f92672">&#34;Student&#34;</span>: <span style="color:#e6db74">&#34;s2&#34;</span>,
+    <span style="color:#f92672">&#34;Enrolments&#34;</span>: [
+      <span style="color:#e6db74">&#34;e1&#34;</span>
+    ]
+  },
+  {
+    <span style="color:#f92672">&#34;Student&#34;</span>: <span style="color:#e6db74">&#34;s3&#34;</span>,
+    <span style="color:#f92672">&#34;Enrolments&#34;</span>: []
+  }
+]
+</code></pre></div><p>Here, we have three items in the result collection - same number of items as first collection. But, <code>s1</code> has two enrolments, <code>s2</code> has one and <code>s3</code> has no enrolment. Note, even though there is no matching enrolment for <code>s3</code>, we still have it in the result but no items in enrolments.</p>
+<p>This is similar to left outer join in SQL.</p>
 
 
 <footer class=" footline" >
@@ -907,8 +287,6 @@ function isDiscountAvailable(age):
             
                 
                     
-                        
-                        
                     
                 
                 
@@ -922,6 +300,26 @@ function isDiscountAvailable(age):
             
             
                 
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
                     
                 
                 
@@ -1398,22 +796,6 @@ function isDiscountAvailable(age):
             
         
                     
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
             
         
                     
@@ -1422,7 +804,6 @@ function isDiscountAvailable(age):
             
                 
                     
-                    
                 
                 
 
@@ -1438,7 +819,6 @@ function isDiscountAvailable(age):
             
                 
                     
-                    
                 
                 
 
@@ -1453,9 +833,6 @@ function isDiscountAvailable(age):
             
             
                 
-                    
-                        
-                        
                     
                 
                 
@@ -1585,7 +962,6 @@ function isDiscountAvailable(age):
             
                 
                     
-                    
                 
                 
 
@@ -1599,8 +975,21 @@ function isDiscountAvailable(age):
             
                 
                     
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
                         
-                        
+            
+            
+                
                     
                 
                 
@@ -1633,26 +1022,6 @@ function isDiscountAvailable(age):
             
             
                 
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
                     
                 
                 
@@ -1912,10 +1281,10 @@ function isDiscountAvailable(age):
 	 
 	 
 		
-			<a class="nav nav-prev" href="/tutorials/automated-unit-testing-basics/3-setup-techniques/2-data-driven-test/" title="Data driven test"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/blog/" title="Blog"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/tutorials/automated-unit-testing-basics/3-setup-techniques/4-mock-dependency/" title="Mock dependency" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/blog/2021/tmux-one-minute-guide/" title="tmux One Minute Guide" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -1944,8 +1313,6 @@ function isDiscountAvailable(age):
     
 
 
-<div id="body" style="margin-top: auto;"> 
-
     <div class="custom-footer">
         <div class="copy">
             &copy; Copyright 2021, Kodebot.<br>
@@ -1969,8 +1336,6 @@ function isDiscountAvailable(age):
             the Kodebot and author/authors accept no liability or responsibility for.
         </div>
     </div>
-
-</div>
 
 
 
@@ -2019,4 +1384,3 @@ if (!doNotTrack) {
 
   </body>
 </html>
-

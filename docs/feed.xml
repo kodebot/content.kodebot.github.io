@@ -6,7 +6,7 @@
     <description>Recent content on Kodebot</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-GB</language>
-    <lastBuildDate>Thu, 28 Jan 2021 10:19:39 +0000</lastBuildDate><atom:link href="https://kodebot.com/feed.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 03 Feb 2021 13:55:27 +0000</lastBuildDate><atom:link href="https://kodebot.com/feed.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Result verification</title>
       <link>https://kodebot.com/tutorials/automated-unit-testing-basics/4-verification-techniques/1-result-verification/</link>
@@ -241,6 +241,17 @@ Examples of direct implementation
   B. Abstractions should not depend upon details. Details should depend upon abstractions.
  Let&amp;rsquo;s look at an example of hypothetical mortgage application system.
 We have higher level Mortgage module with Application class and BureauData module at the next level with BureauDataProvider class and at lower level we have Utility module with DataCleaner class</description>
+    </item>
+    
+    <item>
+      <title>Join and GroupJoin in C#</title>
+      <link>https://kodebot.com/blog/2021/join-and-groupjoin-in-dotnet/</link>
+      <pubDate>Wed, 03 Feb 2021 13:55:27 +0000</pubDate>
+      
+      <guid>https://kodebot.com/blog/2021/join-and-groupjoin-in-dotnet/</guid>
+      <description>Introduction Join and GroupJoin are two different methods that we can use in our link query to join two different collections. At first glance, they might look similar but they produce different results. Lets look at how they work with an example.
+Example setup For our example, we are going to use the following Student and Enrolment class.
+class Student { public string Id { get; set; } public string Name { get; set; } } class Enrolment { public string Id { get; set; } public string StudentId { get; set; } } And we assume, we have the following data</description>
     </item>
     
     <item>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>.NET on Kodebot</title>
+    <link>https://kodebot.com/tags/.net/</link>
+    <description>Recent content in .NET on Kodebot</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-GB</language>
+    <lastBuildDate>Wed, 03 Feb 2021 13:55:27 +0000</lastBuildDate><atom:link href="https://kodebot.com/tags/.net/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Join and GroupJoin in C#</title>
+      <link>https://kodebot.com/blog/2021/join-and-groupjoin-in-dotnet/</link>
+      <pubDate>Wed, 03 Feb 2021 13:55:27 +0000</pubDate>
+      
+      <guid>https://kodebot.com/blog/2021/join-and-groupjoin-in-dotnet/</guid>
+      <description>Introduction Join and GroupJoin are two different methods that we can use in our link query to join two different collections. At first glance, they might look similar but they produce different results. Lets look at how they work with an example.
+Example setup For our example, we are going to use the following Student and Enrolment class.
+class Student { public string Id { get; set; } public string Name { get; set; } } class Enrolment { public string Id { get; set; } public string StudentId { get; set; } } And we assume, we have the following data</description>
+    </item>
+    
+  </channel>
+</rss>
