@@ -9,7 +9,7 @@ comments: true
 ---
 
 ### Introduction
-`Join` and `GroupJoin` are two different methods that we can use in our link query to join two different collections. At first glance, they might look similar but they produce different results. Lets look at how they work with an example.
+`Join` and `GroupJoin` are two different methods that we can use in our LINQ query to join two different collections. At first glance, they might look similar but they produce different results. Lets look at how they work with an example.
 
 ### Example setup
 For our example, we are going to use the following `Student` and `Enrolment` class.
@@ -82,12 +82,12 @@ produces
 ]
 
 ```
-Here, we have two items for student `s1` because `s1` has two enrolments, one item for `s2` and no item for `s3` as `s3` have no enrolments.
+Here, we have two items for student `s1` because `s1` has two enrolments, one item for `s2` and no item for `s3` as `s3` has no enrolments.
 
 This very similar to inner join in SQL.
 
 ### GroupJoin
-`GroupJoin` takes each item from the first collection, finds all items from the second collection where join condition is met and combines them. This means, the result collection will have same number of entries as first collection and each item from the first collection may have zero or more items from second collection.
+`GroupJoin` takes each item from the first collection, finds all items from the second collection where join conditions are met and combines them. This means, the result collection will have same number of entries as first collection and each item from the first collection may have zero or more associated items from second collection.
 
 For example,
 
@@ -128,6 +128,6 @@ produces
   }
 ]
 ```
-Here, we have three items in the result collection - same number of items as first collection. But, `s1` has two enrolments, `s2` has one and `s3` has no enrolment. Note, even though there is no matching enrolment for `s3`, we still have it in the result but no items in enrolments.
+Here, we have three items in the result collection - same number of items as first collection(one for each student). But, `s1` has two enrolments, `s2` has one and `s3` has no enrolments. Note, even though there is no matching enrolment for `s3`, we still have it in the result but no items in enrolments.
 
 This is similar to left outer join in SQL.

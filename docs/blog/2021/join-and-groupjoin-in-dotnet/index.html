@@ -13,24 +13,24 @@
   <title>Join and GroupJoin in C# - Kodebot</title>
 
   
-  <link href="/css/nucleus.css?1612363814" rel="stylesheet">
-  <link href="/css/fontawesome-all.min.css?1612363814"
+  <link href="/css/nucleus.css?1612364147" rel="stylesheet">
+  <link href="/css/fontawesome-all.min.css?1612364147"
     rel="stylesheet">
-  <link href="/css/hybrid.css?1612363814" rel="stylesheet">
-  <link href="/css/featherlight.min.css?1612363814" rel="stylesheet">
-  <link href="/css/perfect-scrollbar.min.css?1612363814"
+  <link href="/css/hybrid.css?1612364147" rel="stylesheet">
+  <link href="/css/featherlight.min.css?1612364147" rel="stylesheet">
+  <link href="/css/perfect-scrollbar.min.css?1612364147"
     rel="stylesheet">
-  <link href="/css/auto-complete.css?1612363814" rel="stylesheet">
-  <link href="/css/atom-one-dark-reasonable.css?1612363814"
+  <link href="/css/auto-complete.css?1612364147" rel="stylesheet">
+  <link href="/css/atom-one-dark-reasonable.css?1612364147"
     rel="stylesheet">
-  <link href="/css/theme.css?1612363814" rel="stylesheet">
-  <link href="/css/hugo-theme.css?1612363814" rel="stylesheet">
+  <link href="/css/theme.css?1612364147" rel="stylesheet">
+  <link href="/css/hugo-theme.css?1612364147" rel="stylesheet">
   
-  <link href="/css/theme-mine.css?1612363814"
+  <link href="/css/theme-mine.css?1612364147"
     rel="stylesheet">
   
 
-  <script src="/js/jquery-3.3.1.min.js?1612363814"></script>
+  <script src="/js/jquery-3.3.1.min.js?1612364147"></script>
 
   <style type="text/css">
     :root #header+#content>#left>#rlblock_left {
@@ -130,7 +130,7 @@
           
 
 <h3 id="introduction">Introduction</h3>
-<p><code>Join</code> and <code>GroupJoin</code> are two different methods that we can use in our link query to join two different collections. At first glance, they might look similar but they produce different results. Lets look at how they work with an example.</p>
+<p><code>Join</code> and <code>GroupJoin</code> are two different methods that we can use in our LINQ query to join two different collections. At first glance, they might look similar but they produce different results. Lets look at how they work with an example.</p>
 <h3 id="example-setup">Example setup</h3>
 <p>For our example, we are going to use the following <code>Student</code> and <code>Enrolment</code> class.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Student</span>
@@ -189,10 +189,10 @@
   }
 ]
 
-</code></pre></div><p>Here, we have two items for student <code>s1</code> because <code>s1</code> has two enrolments, one item for <code>s2</code> and no item for <code>s3</code> as <code>s3</code> have no enrolments.</p>
+</code></pre></div><p>Here, we have two items for student <code>s1</code> because <code>s1</code> has two enrolments, one item for <code>s2</code> and no item for <code>s3</code> as <code>s3</code> has no enrolments.</p>
 <p>This very similar to inner join in SQL.</p>
 <h3 id="groupjoin">GroupJoin</h3>
-<p><code>GroupJoin</code> takes each item from the first collection, finds all items from the second collection where join condition is met and combines them. This means, the result collection will have same number of entries as first collection and each item from the first collection may have zero or more items from second collection.</p>
+<p><code>GroupJoin</code> takes each item from the first collection, finds all items from the second collection where join conditions are met and combines them. This means, the result collection will have same number of entries as first collection and each item from the first collection may have zero or more associated items from second collection.</p>
 <p>For example,</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp">students.GroupJoin(
     enrolments,
@@ -225,7 +225,7 @@
     <span style="color:#f92672">&#34;Enrolments&#34;</span>: []
   }
 ]
-</code></pre></div><p>Here, we have three items in the result collection - same number of items as first collection. But, <code>s1</code> has two enrolments, <code>s2</code> has one and <code>s3</code> has no enrolment. Note, even though there is no matching enrolment for <code>s3</code>, we still have it in the result but no items in enrolments.</p>
+</code></pre></div><p>Here, we have three items in the result collection - same number of items as first collection(one for each student). But, <code>s1</code> has two enrolments, <code>s2</code> has one and <code>s3</code> has no enrolments. Note, even though there is no matching enrolment for <code>s3</code>, we still have it in the result but no items in enrolments.</p>
 <p>This is similar to left outer join in SQL.</p>
 
 
@@ -1294,19 +1294,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1612363814"></script>
-    <script src="/js/perfect-scrollbar.min.js?1612363814"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1612363814"></script>
-    <script src="/js/jquery.sticky.js?1612363814"></script>
-    <script src="/js/featherlight.min.js?1612363814"></script>
-    <script src="/js/highlight.pack.js?1612363814"></script>
+    <script src="/js/clipboard.min.js?1612364147"></script>
+    <script src="/js/perfect-scrollbar.min.js?1612364147"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1612364147"></script>
+    <script src="/js/jquery.sticky.js?1612364147"></script>
+    <script src="/js/featherlight.min.js?1612364147"></script>
+    <script src="/js/highlight.pack.js?1612364147"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1612363814"></script>
-    <script src="/js/learn.js?1612363814"></script>
-    <script src="/js/hugo-learn.js?1612363814"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1612364147"></script>
+    <script src="/js/learn.js?1612364147"></script>
+    <script src="/js/hugo-learn.js?1612364147"></script>
 
-    <link href="/mermaid/mermaid.css?1612363814" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1612363814"></script>
+    <link href="/mermaid/mermaid.css?1612364147" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1612364147"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

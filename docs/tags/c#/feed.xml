@@ -13,7 +13,7 @@
       <pubDate>Wed, 03 Feb 2021 13:55:27 +0000</pubDate>
       
       <guid>https://kodebot.com/blog/2021/join-and-groupjoin-in-dotnet/</guid>
-      <description>Introduction Join and GroupJoin are two different methods that we can use in our link query to join two different collections. At first glance, they might look similar but they produce different results. Lets look at how they work with an example.
+      <description>Introduction Join and GroupJoin are two different methods that we can use in our LINQ query to join two different collections. At first glance, they might look similar but they produce different results. Lets look at how they work with an example.
 Example setup For our example, we are going to use the following Student and Enrolment class.
 class Student { public string Id { get; set; } public string Name { get; set; } } class Enrolment { public string Id { get; set; } public string StudentId { get; set; } } And we assume, we have the following data</description>
     </item>
